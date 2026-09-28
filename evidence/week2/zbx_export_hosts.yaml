@@ -1,0 +1,56 @@
+zabbix_export:
+  version: '7.0'
+  host_groups:
+    - uuid: dc579cd7a1a34222933f24f52a68bcd8
+      name: 'Linux servers'
+    - uuid: 6f6799aa69e844b4b3918f779f2abf08
+      name: 'Zabbix servers'
+  hosts:
+    - host: CLI01
+      name: CLI01
+      templates:
+        - name: 'Linux by Zabbix agent'
+      groups:
+        - name: 'Linux servers'
+      interfaces:
+        - ip: 192.168.56.30
+          interface_ref: if1
+      inventory_mode: DISABLED
+    - host: SRV01
+      name: SRV01
+      templates:
+        - name: 'Linux by Zabbix agent'
+      groups:
+        - name: 'Linux servers'
+      interfaces:
+        - ip: 192.168.56.20
+          interface_ref: if1
+      httptests:
+        - name: 'SRV01 HTTP'
+          delay: 30s
+          steps:
+            - name: Homepage
+              url: 'http://192.168.56.20/'
+              follow_redirects: 'NO'
+              timeout: 5s
+              status_codes: '200'
+      inventory_mode: DISABLED
+    - host: 'Zabbix server'
+      name: 'Zabbix server'
+      templates:
+        - name: 'Linux by Zabbix agent'
+        - name: 'Zabbix server health'
+      groups:
+        - name: 'Zabbix servers'
+      interfaces:
+        - interface_ref: if1
+      inventory:
+        name: mon01
+        os: 'Linux version 7.0.0-31-generic (buildd@lcy02-amd64-091) (x86_64-linux-gnu-gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0, GNU ld (GNU Binu'
+        location_lat: '56.97612'
+        location_lon: '24.16553'
+      inventory_mode: AUTOMATIC
+  triggers:
+    - expression: 'last(/SRV01/web.test.fail[SRV01 HTTP])>0'
+      name: 'SRV01: HTTP check failed'
+      priority: AVERAGE
