@@ -131,22 +131,22 @@ if __name__ == "__main__":
       for event in events:
         hosts = event.get("hosts", [])
 
-      if hosts:
-        host_name = hosts[0]["name"]
-      else:
-        host_name = "Unknown"
+        if hosts:
+          host_name = hosts[0]["name"]
+        else:
+          host_name = "Unknown"
 
-      timestamp = datetime.fromtimestamp(
-        int(event["clock"])
-      ).strftime("%Y-%m-%d %H:%M:%S")
+        timestamp = datetime.fromtimestamp(
+          int(event["clock"])
+        ).strftime("%Y-%m-%d %H:%M:%S")
 
-      print(
-        f'eventid={event["eventid"]}, '
-        f'host={host_name}, '
-        f'severity={event["severity"]}, '
-        f'time={timestamp}, '
-        f'name={event["name"]}'
-      )
+        print(
+          f'eventid={event["eventid"]}, '
+          f'host={host_name}, '
+          f'severity={event["severity"]}, '
+          f'time={timestamp}, '
+          f'name={event["name"]}'
+        )
 
       hosts = get_hosts()
 
