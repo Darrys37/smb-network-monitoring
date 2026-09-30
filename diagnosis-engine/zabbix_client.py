@@ -127,6 +127,7 @@ def get_host_metrics(host_id):
                     "system.cpu.util",
                     "vm.memory.util",
                     "system.cpu.load[all,avg1]",
+                    "vfs.fs.dependent.size[/,pused]",
                 ]
             },
             "output": [

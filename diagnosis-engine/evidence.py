@@ -214,6 +214,7 @@ def collect_metrics(host_id: str, max_age: int = 180):
         "system.cpu.util": "%",
         "vm.memory.util": "%",
         "system.cpu.load[all,avg1]": "",
+        "vfs.fs.dependent.size[/,pused]": "%",
     }
 
     items = get_host_metrics(host_id)

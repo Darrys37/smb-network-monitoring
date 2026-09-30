@@ -29,7 +29,7 @@ def test_fresh_metric_and_missing_items(cpu_item):
     records = collect_fake([cpu_item])
     by_key = {record.result["key"]: record for record in records}
 
-    assert len(records) == 3
+    assert len(records) == 4
     cpu = by_key["system.cpu.util"]
     assert cpu.target == "10683"
     assert cpu.check_type == "metric"

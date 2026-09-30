@@ -21,3 +21,11 @@ class EvidenceRecord:
     target: str
     collected_at: int
     result: dict
+@dataclass(frozen=True)
+class DiagnosisRecord:
+    rule_id: str
+    status: str
+    probable_cause: str | None
+    reasoning: str
+    missing_info: tuple[str, ...]
+    next_actions: tuple[str, ...]

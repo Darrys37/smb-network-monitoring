@@ -46,7 +46,7 @@ def main():
                 (incident_id,),
             ).fetchall()
 
-        assert len(rows) == len(records) == 6
+        assert len(rows) == len(records) == 7
 
         for row, original in zip(rows, records):
             assert row[:3] == (
@@ -59,8 +59,7 @@ def main():
             label = result.get("key", "")
             print(row[0], row[1], label, result["status"])
 
-        print("Evidence integration OK: 6 records verified")
-
+        print("Evidence integration OK: 7 records verified")
 
 if __name__ == "__main__":
     main()
