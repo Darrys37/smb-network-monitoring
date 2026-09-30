@@ -2,7 +2,7 @@ import json
 import sqlite3
 from pathlib import Path
 from dataclasses import asdict
-from models import EventRecord
+from models import EventRecord, EvidenceRecord
 
 DEFAULT_DB_PATH = Path(__file__).resolve().parent / "diagnosis.db"
 
@@ -27,7 +27,7 @@ def init_db(db_path=DEFAULT_DB_PATH):
         """)
         connection.execute("""
             CREATE TABLE IF NOT EXISTS evidence (
-                id ITEGER PRIMARY KEY,
+                id INTEGER PRIMARY KEY,
                 incident_id INTEGER NOT NULL,
                 check_type TEXT NOT NULL,
                 target TEXT NOT NULL,
@@ -46,7 +46,7 @@ def init_db(db_path=DEFAULT_DB_PATH):
                 reasoning TEXT NOT NULL,
                 missing_info_json TEXT NOT NULL,
                 next_actions_json TEXT NOT NULL,
-                created_at TEXT NOT NULL DEFAULT CUREENT_TIMESTAMP,
+                created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
                 FOREIGN KEY (incident_id) REFERENCES incidents(id)
             )
         """)
@@ -87,3 +87,32 @@ def save_event(event: EventRecord, db_path=DEFAULT_DB_PATH):
         return row[0]
     finally:
         connection.close()          
+def save_evidence(
+    incident_id: int,
+    evidence: EvidenceRecord,
+    db_path=DEFAULT_DB_PATH,
+):
+    result_json = json.dumps(evidence.result, ensure_ascii=False)
+    connection = sqlite3.connect(db_path)
+
+    try:
+        connection.execute("PRAGMA foreign_keys = ON")
+
+        cursor = connection.execute("""
+            INSERT INTO evidence (
+                incident_id, check_type, target,
+                collected_at, result_json
+            )
+            VALUES (?, ?, ?, ?, ?)
+        """, (
+            incident_id,
+            evidence.check_type,
+            evidence.target,
+            evidence.collected_at,
+            result_json,
+        ))
+
+        connection.commit()
+        return cursor.lastrowid
+    finally:
+        connection.close()

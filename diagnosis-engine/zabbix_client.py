@@ -116,6 +116,27 @@ def get_recent_events():
         params=params,
         requests_id=3
     )
+
+def get_host_metrics(host_id):
+    return call_api(
+        "item.get",
+        {
+            "hostids": [str(host_id)],
+            "filter": {
+                "key_": [
+                    "system.cpu.util",
+                    "vm.memory.util",
+                    "system.cpu.load[all,avg1]",
+                ]
+            },
+            "output": [
+                "itemid", "name", "key_", "units",
+                "lastvalue", "lastclock",
+                "status", "state", "error",
+            ],
+        },
+        requests_id=7,
+    )
 if __name__ == "__main__":
     try:
       version = get_api_version()

@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 @dataclass(frozen=True)
 class HostRecord:
-    host_id: std
+    host_id: str
     host: str
     name: str
 
@@ -15,3 +15,9 @@ class EventRecord:
     value: int
     hosts: tuple[HostRecord, ...]
 
+@dataclass(frozen=True)
+class EvidenceRecord:
+    check_type: str
+    target: str
+    collected_at: int
+    result: dict
