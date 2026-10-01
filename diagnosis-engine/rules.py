@@ -443,3 +443,23 @@ def diagnose_disk(host_id, evidence, now=None, max_age=180):
             "Inspect directory sizes and log retention before cleanup.",
         ) if high else (),
     )
+def diagnose_all(host_id, target_ip, evidence, dns_name=None, now=None):
+    if now is None:
+        now = int(time.time())
+
+    records = list(evidence)
+
+    diagnoses = [
+        diagnose_http_port(target_ip, records, now=now),
+        diagnose_reachability(target_ip, records, now=now),
+        diagnose_cpu(host_id, records, now=now),
+        diagnose_memory(host_id, records, now=now),
+        diagnose_disk(host_id, records, now=now),
+    ]
+
+    if dns_name is not None:
+        diagnoses.append(
+            diagnose_dns_name(dns_name, records, now=now)
+        )
+
+    return diagnoses

@@ -1,0 +1,238 @@
+{
+  "schema_version": 2,
+  "assessment_basis": "Stored evidence from the diagnosis run; not necessarily the state at event time.",
+  "recovery_status": "verified",
+  "lifecycle_status": "closed",
+  "recovery": {
+    "incident_id": 11,
+    "recovery_event_id": "459",
+    "recovery_clock": 1790858671,
+    "verified_at": 1790872628,
+    "problem": {
+      "eventid": "458",
+      "source": "0",
+      "object": "0",
+      "objectid": "25334",
+      "clock": "1790858551",
+      "name": "SRV01: HTTP check failed",
+      "severity": "3",
+      "value": "1",
+      "r_eventid": "459",
+      "hosts": [
+        {
+          "hostid": "10683",
+          "host": "SRV01",
+          "name": "SRV01"
+        }
+      ]
+    },
+    "event": {
+      "eventid": "459",
+      "source": "0",
+      "object": "0",
+      "objectid": "25334",
+      "clock": "1790858671",
+      "name": "SRV01: HTTP check failed",
+      "severity": "0",
+      "value": "0",
+      "r_eventid": "0",
+      "hosts": [
+        {
+          "hostid": "10683",
+          "host": "SRV01",
+          "name": "SRV01"
+        }
+      ]
+    }
+  },
+  "has_evidence_and_diagnoses": true,
+  "incident": {
+    "id": 11,
+    "event_id": "458",
+    "clock": 1790858551,
+    "name": "SRV01: HTTP check failed",
+    "severity": 3,
+    "value": 1,
+    "created_at": "2026-10-01 12:43:57",
+    "hosts": [
+      {
+        "host_id": "10683",
+        "host": "SRV01",
+        "name": "SRV01"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "id": 1,
+      "incident_id": 11,
+      "check_type": "ping",
+      "target": "192.168.56.20",
+      "collected_at": 1790858637,
+      "result": {
+        "timeout_seconds": 2,
+        "process_timeout_seconds": 3,
+        "returncode": 0,
+        "stdout": "PING 192.168.56.20 (192.168.56.20) 56(84) bytes of data.\n64 bytes from 192.168.56.20: icmp_seq=1 ttl=64 time=1.09 ms\n\n--- 192.168.56.20 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 1.086/1.086/1.086/0.000 ms",
+        "stderr": "",
+        "status": "success",
+        "duration_ms": 8.21
+      }
+    },
+    {
+      "id": 2,
+      "incident_id": 11,
+      "check_type": "tcp",
+      "target": "192.168.56.20",
+      "collected_at": 1790858637,
+      "result": {
+        "port": 80,
+        "timeout_seconds": 2,
+        "error": "[Errno 111] Connection refused",
+        "errno": 111,
+        "status": "refused",
+        "duration_ms": 1.59
+      }
+    },
+    {
+      "id": 3,
+      "incident_id": 11,
+      "check_type": "metric",
+      "target": "10683",
+      "collected_at": 1790858637,
+      "result": {
+        "key": "system.cpu.util",
+        "units": "%",
+        "max_age_seconds": 180,
+        "status": "success",
+        "value": 0.4746370000000013,
+        "sample_clock": 1790858617,
+        "age_seconds": 20,
+        "item_id": "50822",
+        "raw_value": "0.4746370000000013",
+        "error": ""
+      }
+    },
+    {
+      "id": 4,
+      "incident_id": 11,
+      "check_type": "metric",
+      "target": "10683",
+      "collected_at": 1790858637,
+      "result": {
+        "key": "vm.memory.util",
+        "units": "%",
+        "max_age_seconds": 180,
+        "status": "success",
+        "value": 15.460963000000007,
+        "sample_clock": 1790858579,
+        "age_seconds": 58,
+        "item_id": "50823",
+        "raw_value": "15.460963000000007",
+        "error": ""
+      }
+    },
+    {
+      "id": 5,
+      "incident_id": 11,
+      "check_type": "metric",
+      "target": "10683",
+      "collected_at": 1790858637,
+      "result": {
+        "key": "system.cpu.load[all,avg1]",
+        "units": "",
+        "max_age_seconds": 180,
+        "status": "success",
+        "value": 0.039062,
+        "sample_clock": 1790858611,
+        "age_seconds": 26,
+        "item_id": "50791",
+        "raw_value": "0.039062",
+        "error": ""
+      }
+    },
+    {
+      "id": 6,
+      "incident_id": 11,
+      "check_type": "metric",
+      "target": "10683",
+      "collected_at": 1790858637,
+      "result": {
+        "key": "vfs.fs.dependent.size[/,pused]",
+        "units": "%",
+        "max_age_seconds": 180,
+        "status": "success",
+        "value": 48.646115695535194,
+        "sample_clock": 1790858637,
+        "age_seconds": 0,
+        "item_id": "50856",
+        "raw_value": "48.646115695535194",
+        "error": ""
+      }
+    }
+  ],
+  "diagnoses": [
+    {
+      "id": 1,
+      "incident_id": 11,
+      "rule_id": "HTTP_PORT_REFUSED",
+      "status": "matched",
+      "probable_cause": "No service listening on TCP port 80, or the connection is actively rejected.",
+      "reasoning": "192.168.56.20 responds to ping, but TCP port 80 refuses the connection.",
+      "created_at": "2026-10-01 12:43:57",
+      "missing_info": [
+        "Listening sockets and owning processes on the target.",
+        "Web service status and firewall rules on the target."
+      ],
+      "next_actions": [
+        "On the target: sudo ss -lntp",
+        "On the target: systemctl status nginx --no-pager",
+        "Inspect firewall rules for TCP port 80."
+      ]
+    },
+    {
+      "id": 2,
+      "incident_id": 11,
+      "rule_id": "REACHABILITY_SUSPECTED",
+      "status": "not_matched",
+      "probable_cause": null,
+      "reasoning": "192.168.56.20: ping=success, TCP port 80=refused.",
+      "created_at": "2026-10-01 12:43:57",
+      "missing_info": [],
+      "next_actions": []
+    },
+    {
+      "id": 3,
+      "incident_id": 11,
+      "rule_id": "CPU_HIGH",
+      "status": "not_matched",
+      "probable_cause": null,
+      "reasoning": "CPU utilization is 0.47%; threshold is 90%.",
+      "created_at": "2026-10-01 12:43:57",
+      "missing_info": [],
+      "next_actions": []
+    },
+    {
+      "id": 4,
+      "incident_id": 11,
+      "rule_id": "MEMORY_HIGH",
+      "status": "not_matched",
+      "probable_cause": null,
+      "reasoning": "Memory utilization is 15.46%; threshold is 90%.",
+      "created_at": "2026-10-01 12:43:57",
+      "missing_info": [],
+      "next_actions": []
+    },
+    {
+      "id": 5,
+      "incident_id": 11,
+      "rule_id": "ROOT_DISK_HIGH",
+      "status": "not_matched",
+      "probable_cause": null,
+      "reasoning": "Filesystem / usage is 48.65%; threshold is 90%.",
+      "created_at": "2026-10-01 12:43:57",
+      "missing_info": [],
+      "next_actions": []
+    }
+  ]
+}

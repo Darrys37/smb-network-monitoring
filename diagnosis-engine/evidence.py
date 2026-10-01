@@ -187,6 +187,8 @@ def collect_dns(target: str, timeout: int = 2) -> EvidenceRecord:
                 result["status"] = "nxdomain"
             else:
                 result["status"] = "dns_error"
+        elif completed.returncode == 9 and "timed out" in (completed.stdout + completed.stderr).lower():
+            result["status"] = "timeout"
 
     except subprocess.TimeoutExpired:
         result["status"] = "timeout"
