@@ -1,0 +1,48 @@
+{
+  "test_condition": "SRV01 host-only virtual cable disconnected",
+  "evidence": [
+    {
+      "check_type": "ping",
+      "target": "192.168.56.20",
+      "collected_at": 1790870338,
+      "result": {
+        "timeout_seconds": 2,
+        "process_timeout_seconds": 3,
+        "returncode": 1,
+        "stdout": "PING 192.168.56.20 (192.168.56.20) 56(84) bytes of data.\n\n--- 192.168.56.20 ping statistics ---\n1 packets transmitted, 0 received, 100% packet loss, time 0ms",
+        "stderr": "",
+        "status": "no_reply",
+        "duration_ms": 2057.58
+      }
+    },
+    {
+      "check_type": "tcp",
+      "target": "192.168.56.20",
+      "collected_at": 1790870340,
+      "result": {
+        "port": 80,
+        "timeout_seconds": 2,
+        "error": "timed out",
+        "errno": null,
+        "status": "timeout",
+        "duration_ms": 2003.17
+      }
+    }
+  ],
+  "diagnosis": {
+    "rule_id": "REACHABILITY_SUSPECTED",
+    "status": "matched",
+    "probable_cause": "Target unavailable, network path failure, or traffic filtering.",
+    "reasoning": "192.168.56.20: ping=no_reply, TCP port 80=timeout.",
+    "missing_info": [
+      "Target power state and network interface configuration.",
+      "Routing and firewall state.",
+      "Connectivity results from another monitoring point."
+    ],
+    "next_actions": [
+      "Inspect the target VM console and network interfaces.",
+      "Check routing and firewall rules.",
+      "Repeat connectivity checks from CLI01."
+    ]
+  }
+}

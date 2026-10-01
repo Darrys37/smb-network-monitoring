@@ -1,0 +1,44 @@
+{
+  "test_condition": "SRV01 host-only virtual cable reconnected",
+  "evidence": [
+    {
+      "check_type": "ping",
+      "target": "192.168.56.20",
+      "collected_at": 1790870393,
+      "result": {
+        "timeout_seconds": 2,
+        "process_timeout_seconds": 3,
+        "returncode": 1,
+        "stdout": "PING 192.168.56.20 (192.168.56.20) 56(84) bytes of data.\n\n--- 192.168.56.20 ping statistics ---\n1 packets transmitted, 0 received, 100% packet loss, time 0ms",
+        "stderr": "",
+        "status": "no_reply",
+        "duration_ms": 2007.08
+      }
+    },
+    {
+      "check_type": "tcp",
+      "target": "192.168.56.20",
+      "collected_at": 1790870395,
+      "result": {
+        "port": 80,
+        "timeout_seconds": 2,
+        "error": "[Errno 113] No route to host",
+        "errno": 113,
+        "status": "error",
+        "duration_ms": 1060.92
+      }
+    }
+  ],
+  "diagnosis": {
+    "rule_id": "REACHABILITY_SUSPECTED",
+    "status": "insufficient_evidence",
+    "probable_cause": null,
+    "reasoning": "Cannot evaluate target reachability reliably.",
+    "missing_info": [
+      "tcp check has no usable result"
+    ],
+    "next_actions": [
+      "Repeat ping and TCP port 80 checks for 192.168.56.20."
+    ]
+  }
+}

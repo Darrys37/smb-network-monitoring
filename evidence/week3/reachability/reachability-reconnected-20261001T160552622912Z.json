@@ -1,0 +1,40 @@
+{
+  "test_condition": "SRV01 host-only virtual cable reconnected",
+  "evidence": [
+    {
+      "check_type": "ping",
+      "target": "192.168.56.20",
+      "collected_at": 1790870752,
+      "result": {
+        "timeout_seconds": 2,
+        "process_timeout_seconds": 3,
+        "returncode": 0,
+        "stdout": "PING 192.168.56.20 (192.168.56.20) 56(84) bytes of data.\n64 bytes from 192.168.56.20: icmp_seq=1 ttl=64 time=1.72 ms\n\n--- 192.168.56.20 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 1.718/1.718/1.718/0.000 ms",
+        "stderr": "",
+        "status": "success",
+        "duration_ms": 10.16
+      }
+    },
+    {
+      "check_type": "tcp",
+      "target": "192.168.56.20",
+      "collected_at": 1790870752,
+      "result": {
+        "port": 80,
+        "timeout_seconds": 2,
+        "error": "",
+        "errno": null,
+        "status": "success",
+        "duration_ms": 1.87
+      }
+    }
+  ],
+  "diagnosis": {
+    "rule_id": "REACHABILITY_SUSPECTED",
+    "status": "not_matched",
+    "probable_cause": null,
+    "reasoning": "192.168.56.20: ping=success, TCP port 80=success.",
+    "missing_info": [],
+    "next_actions": []
+  }
+}
