@@ -1,0 +1,41 @@
+{
+  "incident_id": 11,
+  "problem_event_id": "458",
+  "recovery_event_id": "459",
+  "problem_clock": 1790858551,
+  "recovery_clock": 1790858671,
+  "problem_to_recovery_seconds": 120,
+  "verified_at_utc": "2026-10-01T13:03:34.229353+00:00",
+  "source": "Zabbix API",
+  "note": "Interval between Zabbix events, not exact service downtime. Recovery of this event does not establish current service health.",
+  "problem_event": {
+    "eventid": "458",
+    "clock": "1790858551",
+    "name": "SRV01: HTTP check failed",
+    "severity": "3",
+    "value": "1",
+    "r_eventid": "459",
+    "hosts": [
+      {
+        "hostid": "10683",
+        "host": "SRV01",
+        "name": "SRV01"
+      }
+    ]
+  },
+  "recovery_event": {
+    "eventid": "459",
+    "clock": "1790858671",
+    "name": "SRV01: HTTP check failed",
+    "severity": "0",
+    "value": "0",
+    "r_eventid": "0",
+    "hosts": [
+      {
+        "hostid": "10683",
+        "host": "SRV01",
+        "name": "SRV01"
+      }
+    ]
+  }
+}
