@@ -1,0 +1,72 @@
+{
+  "test_scope": "Live DNS collector and rule check; no Zabbix event",
+  "cases": [
+    {
+      "expected_status": "not_matched",
+      "passed": true,
+      "evidence": {
+        "check_type": "dns",
+        "target": "example.com",
+        "collected_at": 1790869527,
+        "result": {
+          "record_type": "A",
+          "timeout_seconds": 2,
+          "process_timeout_seconds": 3,
+          "status": "success",
+          "dns_status": "NOERROR",
+          "addresses": [
+            "104.20.23.154",
+            "172.66.147.243"
+          ],
+          "returncode": 0,
+          "stdout": "; <<>> DiG 9.20.24-1ubuntu0.3-Ubuntu <<>> -r +time=2 +tries=1 -q example.com. -t A\n;; global options: +cmd\n;; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 13160\n;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 65494\n;; QUESTION SECTION:\n;example.com.\t\t\tIN\tA\n\n;; ANSWER SECTION:\nexample.com.\t\t102\tIN\tA\t104.20.23.154\nexample.com.\t\t102\tIN\tA\t172.66.147.243\n\n;; Query time: 57 msec\n;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)\n;; WHEN: Thu Oct 01 15:45:27 UTC 2026\n;; MSG SIZE  rcvd: 72",
+          "stderr": "",
+          "duration_ms": 120.5
+        }
+      },
+      "diagnosis": {
+        "rule_id": "DNS_NAME_NOT_FOUND",
+        "status": "not_matched",
+        "probable_cause": null,
+        "reasoning": "DNS query for example.com returned NOERROR.",
+        "missing_info": [],
+        "next_actions": []
+      }
+    },
+    {
+      "expected_status": "matched",
+      "passed": true,
+      "evidence": {
+        "check_type": "dns",
+        "target": "diagnosis-test.invalid",
+        "collected_at": 1790869527,
+        "result": {
+          "record_type": "A",
+          "timeout_seconds": 2,
+          "process_timeout_seconds": 3,
+          "status": "nxdomain",
+          "dns_status": "NXDOMAIN",
+          "addresses": [],
+          "returncode": 0,
+          "stdout": "; <<>> DiG 9.20.24-1ubuntu0.3-Ubuntu <<>> -r +time=2 +tries=1 -q diagnosis-test.invalid. -t A\n;; global options: +cmd\n;; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 64930\n;; flags: qr aa rd ra ad; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 65494\n;; QUESTION SECTION:\n;diagnosis-test.invalid.\t\tIN\tA\n\n;; Query time: 0 msec\n;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)\n;; WHEN: Thu Oct 01 15:45:27 UTC 2026\n;; MSG SIZE  rcvd: 51",
+          "stderr": "",
+          "duration_ms": 32.94
+        }
+      },
+      "diagnosis": {
+        "rule_id": "DNS_NAME_NOT_FOUND",
+        "status": "matched",
+        "probable_cause": "Incorrect domain name or missing DNS name in the queried view.",
+        "reasoning": "DNS query for diagnosis-test.invalid returned NXDOMAIN.",
+        "missing_info": [
+          "Expected domain name and DNS records.",
+          "Whether the query used the intended DNS resolver."
+        ],
+        "next_actions": [
+          "Verify the domain spelling.",
+          "Check the intended DNS resolver and authoritative records."
+        ]
+      }
+    }
+  ]
+}
