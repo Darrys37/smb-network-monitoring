@@ -35,30 +35,48 @@ def tcp(records, target, now, port=80):
     return r.get("status") if r and r.get("status") in ("success", "refused", "timeout") else None
 
 
-def r1(target, gateway, records, now):
+def r1(target, control, records, now):
     rule = "R1_HOST_OR_LOCAL_CONNECTIVITY"
     p, t = ping(records, target, now), tcp(records, target, now)
     if p == "success" or t in ("success", "refused"):
         return result(rule, False, "Target responded to ICMP or TCP.")
-    g = ping(records, gateway, now) if gateway and gateway != target else None
+    g = ping(records, control, now) if control and control != target else None
     if None in (p, t, g):
         return result(rule, reason="Cannot isolate target/local connectivity.",
-                      missing=("Fresh target ping/TCP and a distinct configured gateway ping.",))
+                      missing=("Fresh target ping/TCP and a distinct same-subnet control host ping.",))
     matched = p == "no_reply" and t == "timeout" and g == "success"
-    return result(rule, matched, f"Target ping={p}, TCP={t}; gateway ping={g}.",
+    return result(rule, matched, f"Target ping={p}, TCP={t}; control host ping={g}.",
                   missing=("Target console, route and firewall state; compare from CLI01.",) if matched else (),
                   actions=("Inspect target console and local network path.",) if matched else ())
 
 
-def r2(target, records, now):
+def local_http(records, target, observer, now):
+    r = latest(records, "local_http", target, now, observer=observer, port=80, path="/")
+    if not r or r.get("local_address_verified") is not True:
+        return None
+    if r.get("status") == "success" and type(r.get("http_status")) is int and r["http_status"] == 200:
+        return "success"
+    if r.get("status") == "failed" and r.get("http_status") != 200:
+        return "failed"
+    return None
+
+
+def r2(target, records, now, observer="srv01"):
     rule = "R2_HTTP_SERVICE_SUSPECTED"
     p, t = ping(records, target, now), tcp(records, target, now)
     if None in (p, t):
         return result(rule, reason="Missing usable ping/TCP evidence.", missing=("Fresh ping and TCP port 80.",))
-    matched = p == "success" and t in ("refused", "timeout")
-    return result(rule, matched, f"Target ping={p}, TCP80={t}; web service or access policy may be involved.",
-                  missing=("Service state, listening sockets, firewall rules and an HTTP request.",) if matched else (),
-                  actions=("Inspect systemctl status nginx, ss -lntp and firewall rules.",) if matched else ())
+    if p != "success" or t == "success":
+        return result(rule, False, f"Target ping={p}, TCP80={t}.")
+    local = local_http(records, target, observer, now)
+    if local == "success":
+        return result(rule, False, "HTTP200 on the target's own service IP; a simple stopped-service hypothesis is not supported. Check R5.")
+    if t == "timeout" and local is None:
+        return result(rule, reason="Remote TCP timeout alone cannot distinguish service and access-path failure.",
+                      missing=("Fresh local HTTP probe from the service host.",))
+    return result(rule, True, f"Host ping works; TCP80={t}; local HTTP={local}. Service/listener or active rejection suspected.",
+                  missing=("Service state, listening sockets and firewall policy; refusal alone does not prove nginx stopped.",),
+                  actions=("On target inspect systemctl status nginx, ss -lntp and firewall rules.",))
 
 
 def r3(host_id, target, records, now):
@@ -107,19 +125,43 @@ def r4(name, observer, control_ip, records, now):
                   actions=("Compare CLI01 resolver settings and query the intended resolver.",))
 
 
-def r5(target, peer, gateway, records, now):
-    rule = "R5_GATEWAY_OR_SHARED_PATH"
-    if not gateway or not peer or len({target, peer, gateway}) != 3:
-        return result(rule, reason="Gateway topology not configured.",
-                      missing=("Distinct gateway and second host; verify both paths actually depend on that gateway.",))
-    statuses = [ping(records, ip, now) for ip in (target, peer, gateway)]
-    if None in statuses:
-        return result(rule, reason="Missing usable multi-target reachability evidence.",
-                      missing=("Fresh ICMP results for target, peer and gateway.",))
-    matched = statuses == ["no_reply"] * 3
-    return result(rule, matched, f"Ping target/peer/gateway={statuses}; shared-path failure is suspected only.",
-                  missing=("Monitoring host link state and routes; another observer; proof of gateway dependency.",) if matched else (),
-                  actions=("Inspect the monitoring point, gateway and shared links before attributing cause.",) if matched else ())
+def r5(target, records, now, observer="srv01"):
+    rule = "R5_HTTP_ACCESS_FILTER_SUSPECTED"
+    p, t = ping(records, target, now), tcp(records, target, now)
+    if t == "success" or p == "no_reply":
+        return result(rule, False, "No isolated remote HTTP connection failure with working ICMP.")
+    local = local_http(records, target, observer, now)
+    if p is None or t is None or local is None:
+        return result(rule, reason="Need remote ping/TCP and fresh HTTP evidence from the service host.",
+                      missing=("Run http_probe.py on SRV01 and import its fresh JSON with --http-evidence.",))
+    matched = p == "success" and t in ("timeout", "refused") and local == "success"
+    reason = (
+        f"Remote ping={p}, TCP80={t}; "
+        f"HTTP on target's own service IP={local}. "
+    )
+    if matched:
+        reason += (
+            "Filtering/access-path failure is suspected, "
+            "not proven firewall causation."
+        )
+    else:
+        reason += (
+            "The evidence does not meet R5 conditions "
+            "for suspected filtering/access-path failure."
+        )
+
+    return result(
+        rule, matched, reason,
+        missing=(
+            "Read firewall rules and relevant packet counters; "
+            "compare another remote observer. Local HTTP does not "
+            "traverse the same ingress path.",
+        ) if matched else (),
+        actions=(
+            "Inspect SRV01 firewall and routes; compare HTTP from "
+            "CLI01 before attributing cause.",
+        ) if matched else (),
+    )
 
 
 def r6(host_id, records, now):
@@ -150,26 +192,37 @@ def r6(host_id, records, now):
     try:
         support = h["support_items"]
         count_item, load_item = support["system.cpu.num"], support["system.cpu.load[all,avg1]"]
-        for item in (count_item, load_item):
-            if item["status"] != "0" or item["state"] != "0" or not 0 <= now - int(item["lastclock"]) <= 180:
+        # Lab: CPU count has a 1-day heartbeat; allow 180s grace.
+        # CPU load changes rapidly and must remain fresh.
+        for item, max_age in (
+            (count_item, 86400 + 180),
+            (load_item, 180),
+        ):
+            age = now - int(item["lastclock"])
+            if (
+                item["status"] != "0"
+                or item["state"] != "0"
+                or not 0 <= age <= max_age
+            ):
                 raise ValueError()
         count, load = float(count_item["lastvalue"]), float(load_item["lastvalue"])
         if not math.isfinite(count) or not count.is_integer() or count < 1 or not math.isfinite(load) or load < 0:
             raise ValueError()
     except (KeyError, TypeError, ValueError):
         return result(rule, reason="CPU stays high, but load/cpu-count corroboration is missing.",
-                      missing=("Fresh system.cpu.num and system.cpu.load[all,avg1] samples.",))
+                      missing=("Usable CPU count <=86580s old (1d heartbeat + 180s grace) and CPU load <=180s old.",))
     matched = load >= count
     return result(rule, matched, f"Mean CPU={mean:.2f}% over {clocks[-1]-clocks[0]}s; threshold=90%; load={load:.2f}, CPUs={count:g}.",
                   missing=("Response-time baseline and top processes; CPU and load suggest but do not prove overload.",) if matched else (),
                   actions=("Compare load and response time; inspect top processes.",) if matched else ())
 
 
-def diagnose_roadmap(host_id, target, records, gateway=None, peer=None,
-                     dns_name=None, dns_observer="cli01", control_ip=None, now=None):
+def diagnose_roadmap(host_id, target, records, control=None,
+                     dns_name=None, dns_observer="cli01", control_ip=None, now=None,
+                     http_observer="srv01"):
     now = int(time.time()) if now is None else now
     records = list(records)
-    return [r1(target, gateway, records, now), r2(target, records, now),
+    return [r1(target, control, records, now), r2(target, records, now, http_observer),
             r3(host_id, target, records, now),
             r4(dns_name, dns_observer, control_ip or target, records, now),
-            r5(target, peer, gateway, records, now), r6(host_id, records, now)]
+            r5(target, records, now, http_observer), r6(host_id, records, now)]

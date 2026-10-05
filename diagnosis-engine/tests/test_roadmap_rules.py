@@ -16,6 +16,7 @@ def healthy():
     return [record("ping", ip, status="success") for ip in (TARGET, PEER, GATEWAY)] + [
         record("tcp", TARGET, status="success", port=80),
         record("tcp", TARGET, status="success", port=10050),
+        record("local_http", TARGET, observer="srv01", port=80, path="/", local_address_verified=True, status="success", http_status=200),
         record("agent_metric", HOST, status="success", key="agent.ping"),
         record("dns", "service.test", observer="cli01", record_type="A", status="success", dns_status="NOERROR", addresses=[TARGET]),
         record("dns_control_ping", TARGET, observer="cli01", status="success"),
@@ -33,7 +34,7 @@ def change(records, kind, target, port=None, **updates):
 
 
 def evaluate(records):
-    return diagnose_roadmap(HOST, TARGET, records, gateway=GATEWAY, peer=PEER,
+    return diagnose_roadmap(HOST, TARGET, records, control=PEER,
                            dns_name="service.test", now=NOW)
 
 
@@ -55,14 +56,13 @@ def test_six_rule_matching_fixtures(index):
         change(rs,"tcp",TARGET,80,status="timeout")
     elif index == 1:
         change(rs,"tcp",TARGET,80,status="refused")
+        change(rs,"local_http",TARGET,status="failed",http_status=None)
     elif index == 2:
         change(rs,"agent_metric",HOST,status="no_data")
         change(rs,"tcp",TARGET,10050,status="refused")
     elif index == 3:
         change(rs,"dns","service.test",status="timeout",dns_status=None,addresses=[])
     elif index == 4:
-        for ip in (TARGET, PEER, GATEWAY):
-            change(rs,"ping",ip,status="no_reply")
         change(rs,"tcp",TARGET,80,status="timeout")
     elif index == 5:
         change(rs,"cpu_history",HOST,samples=[{"clock":NOW-i,"value":95} for i in (240,180,120,60,0)])
@@ -114,8 +114,11 @@ def test_dns_local_error_not_resolver_failure():
     assert evaluate(rs)[3].status == "insufficient_evidence"
 
 
-def test_gateway_requires_distinct_targets():
-    assert diagnose_roadmap(HOST,TARGET,healthy(),gateway=TARGET,peer=PEER,now=NOW)[4].status == "insufficient_evidence"
+def test_r1_requires_distinct_control():
+    rs = healthy()
+    change(rs,"ping",TARGET,status="no_reply")
+    change(rs,"tcp",TARGET,80,status="timeout")
+    assert diagnose_roadmap(HOST,TARGET,rs,control=TARGET,now=NOW)[0].status == "insufficient_evidence"
 
 
 @pytest.mark.parametrize("samples", [
@@ -132,4 +135,44 @@ def test_cpu_sparse_invalid_history(samples):
 def test_cpu_requires_load_corroboration():
     rs=healthy()
     change(rs,"cpu_history",HOST,samples=[{"clock":NOW-i,"value":99} for i in (240,180,120,60,0)],support_items={})
+    assert evaluate(rs)[5].status == "insufficient_evidence"
+
+
+@pytest.mark.parametrize("key,age,expected", [
+    ("system.cpu.num", 641, "matched"),
+    ("system.cpu.num", 86400, "matched"),
+    ("system.cpu.num", 86580, "matched"),
+    ("system.cpu.num", 86581, "insufficient_evidence"),
+    ("system.cpu.num", -1, "insufficient_evidence"),
+    ("system.cpu.load[all,avg1]", 180, "matched"),
+    ("system.cpu.load[all,avg1]", 181, "insufficient_evidence"),
+    ("system.cpu.load[all,avg1]", -1, "insufficient_evidence"),
+])
+def test_r6_support_item_age_policy(key, age, expected):
+    rs = healthy()
+    history = next(r for r in rs if r.check_type == "cpu_history")
+    support = {
+        k: dict(v) for k, v in history.result["support_items"].items()
+    }
+    support[key]["lastclock"] = str(NOW - age)
+    change(
+        rs, "cpu_history", HOST,
+        samples=[
+            {"clock": NOW - i, "value": 95}
+            for i in (240, 180, 120, 60, 0)
+        ],
+        support_items=support,
+    )
+    assert evaluate(rs)[5].status == expected
+
+
+def test_r6_rejects_127_second_history_gap():
+    rs = healthy()
+    change(
+        rs, "cpu_history", HOST,
+        samples=[
+            {"clock": NOW - i, "value": 95}
+            for i in (277, 217, 90, 37)
+        ],
+    )
     assert evaluate(rs)[5].status == "insufficient_evidence"

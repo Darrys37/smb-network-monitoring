@@ -4,6 +4,7 @@ import json
 import sqlite3
 from pathlib import Path
 from models import EvidenceRecord
+from http_evidence import load_http_evidence
 from roadmap_rules import diagnose_roadmap
 from roadmap_evidence import collect_agent_metric, collect_cpu_history
 from repository import DEFAULT_DB_PATH
@@ -45,7 +46,7 @@ def require_open_event(event_id, host_id=HOST_ID):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Evaluate current evidence for an SRV01 problem."
+        description="Evaluate current evidence for a selected host problem."
     )
     parser.add_argument("--event-id")
     parser.add_argument("--save", action="store_true")
@@ -53,8 +54,9 @@ def main():
     parser.add_argument("--host-id", default=HOST_ID)
     parser.add_argument("--target-ip", default=TARGET_IP)
     parser.add_argument("--ruleset", choices=("legacy", "roadmap"), default="roadmap")
-    parser.add_argument("--gateway-ip")
-    parser.add_argument("--peer-ip")
+    parser.add_argument("--control-ip", help="Distinct same-subnet control host for R1")
+    parser.add_argument("--http-evidence", type=Path)
+    parser.add_argument("--http-observer", default="srv01")
     parser.add_argument("--dns-name")
     parser.add_argument("--dns-observer", default="cli01")
     parser.add_argument("--dns-evidence", type=Path)
@@ -66,7 +68,7 @@ def main():
 
     if args.event_id is None:
         problems = get_open_problems(args.host_id)
-        print("Open problems on SRV01:", len(problems))
+        print(f"Open problems on host {args.host_id}:", len(problems))
 
         for problem in problems:
             print(problem["eventid"], problem["name"])
@@ -87,9 +89,12 @@ def main():
     else:
         records += [collect_tcp(args.target_ip, 10050),
                     collect_agent_metric(args.host_id), collect_cpu_history(args.host_id)]
-        for ip in dict.fromkeys([args.gateway_ip, args.peer_ip]):
+        for ip in [args.control_ip]:
             if ip and ip != args.target_ip:
                 records.append(collect_ping(ip))
+        if args.http_evidence:
+            records += load_http_evidence(args.http_evidence, args.target_ip,
+                                          args.http_observer, int(time.time()))
         if args.dns_evidence:
             data = json.loads(args.dns_evidence.read_text(encoding="utf-8"))
             if data.get("observer") != args.dns_observer:
@@ -104,7 +109,7 @@ def main():
                 records.append(EvidenceRecord(**row))
         diagnoses = diagnose_roadmap(
             args.host_id, args.target_ip, records,
-            gateway=args.gateway_ip, peer=args.peer_ip,
+            control=args.control_ip, http_observer=args.http_observer,
             dns_name=args.dns_name, dns_observer=args.dns_observer,
             now=int(time.time()),
         )

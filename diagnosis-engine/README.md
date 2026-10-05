@@ -1,4 +1,4 @@
-# Diagnosis engine — bản đối chiếu Tuần 3
+# Diagnosis engine — chuẩn bị Tuần 4 (chưa freeze)
 
 Python CLI + Zabbix API + SQLite, không FastAPI, không AI/ML và không tự sửa lỗi.
 Đây là bản tiếp nối gói 26 file gửi ngày 01/10/2026; không viết lại bằng chứng cũ.
@@ -35,11 +35,11 @@ với bằng chứng cũ để giả tạo một kết quả mới.
 
 | Luật | Điều kiện triển khai | Giới hạn |
 |---|---|---|
-| R1_HOST_OR_LOCAL_CONNECTIVITY | Ping đích không trả lời, TCP80 timeout, gateway còn ping được | Nghi host/đường cục bộ; không khẳng định host tắt |
-| R2_HTTP_SERVICE_SUSPECTED | Ping đích thành công, TCP80 refused/timeout | Nginx hoặc chính sách truy cập; chưa kiểm tra lỗi ứng dụng khi TCP vẫn mở |
+| R1_HOST_OR_LOCAL_CONNECTIVITY | Ping đích không trả lời, TCP80 timeout, host đối chứng cùng mạng còn ping được | Nghi host/đường cục bộ; không khẳng định host tắt |
+| R2_HTTP_SERVICE_SUSPECTED | Ping thành công, TCP refused; hoặc timeout kèm HTTP tại SRV01 thất bại | HTTP cục bộ 200 thì không khớp; timeout thiếu local probe thì thiếu bằng chứng; không khẳng định Nginx đã dừng |
 | R3_AGENT_UNAVAILABLE | Ping còn, agent.ping từng có nhưng quá 180s không có mẫu, TCP10050 refused/timeout | Dành cho passive agent trong lab; không suy từ item chưa từng có dữ liệu hoặc bị disabled |
 | R4_DNS_RESOLVER_SUSPECTED | CLI01 ping IP đối chứng được, DNS lỗi/timeout/NXDOMAIN/no A answer | Cần tên ứng dụng thật, resolver đúng; NXDOMAIN không có nghĩa DNS server hỏng |
-| R5_GATEWAY_OR_SHARED_PATH | Ping đích, host thứ hai và gateway đều không phản hồi | Phải xác minh topology phụ thuộc gateway; còn có thể lỗi điểm đo/shared link |
+| R5_HTTP_ACCESS_FILTER_SUSPECTED | Ping còn, TCP80 từ MON01 timeout/refused, HTTP HEAD tới IP dịch vụ ngay trên SRV01 trả 200 | Nghi firewall/đường truy cập; chưa chứng minh firewall là nguyên nhân duy nhất |
 | R6_SUSTAINED_CPU_HIGH | CPU trung bình >=90%, đủ lịch sử, load 1m >= số CPU | Suy đoán quá tải; cần response baseline và process để giải thích |
 
 Tất cả chọn evidence mới nhất, tuổi 0–180s; không lùi về mẫu tốt cũ khi mẫu mới lỗi.
@@ -52,13 +52,34 @@ Ngưỡng này là cấu hình rule, không tự động đồng bộ với macr
 `roadmap_rules.py` mới có fixture khớp/không khớp/thiếu dữ liệu cho từng R1–R6.
 Fixture test không thay cho thực nghiệm 18 run của Tuần 4.
 
-## Gateway và DNS: cấu hình chưa được biết, không tự điền
+## Host-only, đối chứng R1 và HTTP R5
 
-R1/R5 nhận `--gateway-ip` và R5 thêm `--peer-ip`. Không lấy 192.168.56.1
-làm gateway chỉ vì nó là adapter Windows. SRV01 và CLI01 cùng subnet host-only
-không cần router để trao đổi, nên ngắt default gateway NAT không đại diện R5.
-Cần topology gateway thật hoặc quyết định phương án firewall thay thế và đồng bộ
-code/tài liệu trước Tuần 4. Bản này triển khai nhánh gateway gốc, chưa tự chọn nhánh firewall.
+Bỏ `--gateway-ip` và `--peer-ip` của nhánh roadmap cũ. R1 dùng
+`--control-ip 192.168.56.30`: CLI01 là host đối chứng cùng Host-only, không phải router.
+Không mặc định gán một IP đối chứng khi chưa được người vận hành cấu hình.
+TCP error errno113 vẫn là thiếu bằng chứng; không đổi thành timeout để làm đẹp kết quả.
+
+R5 thay bằng `R5_HTTP_ACCESS_FILTER_SUSPECTED`. Script `http_probe.py` độc lập,
+chỉ dùng Python standard library và lệnh `ip`; chạy trên SRV01, không cần token,
+không cần sudo. Nó xác minh hostname và IP thuộc máy này, gửi HEAD tới chính
+`http://192.168.56.20/`, không dùng proxy và không theo redirect.
+
+```bash
+# SRV01, thư mục chứa http_probe.py; tên output phải chưa tồn tại
+python3 http_probe.py --output http-srv01.json
+```
+
+Chuyển JSON về MON01, nhập bằng `--http-evidence PATH`; tuổi <=180s,
+observer mặc định srv01, IP phải khớp target. Lỗi import dừng trước khi lưu DB.
+Đây là file do người vận hành cung cấp, không có chữ ký chứng minh nguồn.
+Không đưa nhãn lỗi thử nghiệm hoặc tên bảng firewall vào điều kiện luật.
+
+R2 và R5 dùng phân nhánh đã định trước: local HTTP200 ưu tiên hướng đường truy cập;
+local failure hỗ trợ hướng dịch vụ. R2/R5 đều thiếu bằng chứng nếu chỉ timeout
+mà không có local probe. R5 matched vẫn cần xem rules/counters và một máy đo khác
+để quy kết firewall. Phép đo cục bộ không đi qua cùng đường vào như MON01.
+Ngưỡng 180s không bảo đảm trạng thái chưa thay đổi giữa hai phép đo: thu liên tiếp
+trong cùng cửa sổ lỗi; nếu đã rollback phải lấy lại bằng chứng cho lần thử mới.
 
 R4 dùng file đo từ CLI01, không dùng DNS của MON01 giả làm CLI01.
 Đặt các file Python/requirements cần thiết trên CLI01 và cài dependencies, `dig`/`ping`.
