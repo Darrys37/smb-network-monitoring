@@ -219,10 +219,36 @@ def r6(host_id, records, now):
 
 def diagnose_roadmap(host_id, target, records, control=None,
                      dns_name=None, dns_observer="cli01", control_ip=None, now=None,
-                     http_observer="srv01"):
+                     http_observer="srv01", http_service="expected"):
+    if http_service not in ("expected", "absent", "unknown"):
+        raise ValueError("Invalid HTTP service scope")
+
     now = int(time.time()) if now is None else now
     records = list(records)
-    return [r1(target, control, records, now), r2(target, records, now, http_observer),
-            r3(host_id, target, records, now),
-            r4(dns_name, dns_observer, control_ip or target, records, now),
-            r5(target, records, now, http_observer), r6(host_id, records, now)]
+
+    if http_service == "expected":
+        http_r2 = r2(target, records, now, http_observer)
+        http_r5 = r5(target, records, now, http_observer)
+    elif http_service == "absent":
+        reason = (
+            "Not applicable: HTTP service is declared absent on this host. "
+            "This does not establish overall host health."
+        )
+        http_r2 = result("R2_HTTP_SERVICE_SUSPECTED", False, reason)
+        http_r5 = result("R5_HTTP_ACCESS_FILTER_SUSPECTED", False, reason)
+    else:
+        reason = "HTTP service applicability is unknown."
+        missing = ("Declare whether this host is expected to provide HTTP.",)
+        http_r2 = result("R2_HTTP_SERVICE_SUSPECTED",
+                         reason=reason, missing=missing)
+        http_r5 = result("R5_HTTP_ACCESS_FILTER_SUSPECTED",
+                         reason=reason, missing=missing)
+
+    return [
+        r1(target, control, records, now),
+        http_r2,
+        r3(host_id, target, records, now),
+        r4(dns_name, dns_observer, control_ip or target, records, now),
+        http_r5,
+        r6(host_id, records, now),
+    ]

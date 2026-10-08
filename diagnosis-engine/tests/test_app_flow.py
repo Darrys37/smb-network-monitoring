@@ -25,7 +25,10 @@ def setup(monkeypatch):
 
 def test_full_app_saves_six_roadmap_results(tmp_path,monkeypatch):
     setup(monkeypatch);db=tmp_path/'test.db'
-    monkeypatch.setattr('sys.argv',['app.py','--event-id','458','--save','--db',str(db)])
+    monkeypatch.setattr('sys.argv', [
+        'app.py', '--event-id', '458', '--save', '--db', str(db),
+        '--http-service', 'expected',
+    ])
     app.main()
     report=load_report(1,db)
     assert len(report['diagnoses'])==6

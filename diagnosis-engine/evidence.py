@@ -1,5 +1,4 @@
 import math
-from zabbix_client import get_host_metrics
 import re
 import socket
 import ipaddress
@@ -8,6 +7,9 @@ import time
 
 from models import EvidenceRecord
 
+def get_host_metrics(*args, **kwargs):
+    from zabbix_client import get_host_metrics as fetch_metrics
+    return fetch_metrics(*args, **kwargs)
 
 def collect_ping(target: str, timeout: int = 2) -> EvidenceRecord:
     target = str(ipaddress.IPv4Address(target))

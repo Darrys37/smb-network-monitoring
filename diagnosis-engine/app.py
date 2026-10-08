@@ -57,7 +57,11 @@ def main():
     parser.add_argument("--control-ip", help="Distinct same-subnet control host for R1")
     parser.add_argument("--http-evidence", type=Path)
     parser.add_argument("--http-observer", default="srv01")
+    parser.add_argument("--http-service",
+                        choices=("expected", "absent", "unknown"),
+                        default="unknown")
     parser.add_argument("--dns-name")
+    parser.add_argument("--dns-control-ip", help="IP control probed from the DNS observer")
     parser.add_argument("--dns-observer", default="cli01")
     parser.add_argument("--dns-evidence", type=Path)
 
@@ -111,6 +115,8 @@ def main():
             args.host_id, args.target_ip, records,
             control=args.control_ip, http_observer=args.http_observer,
             dns_name=args.dns_name, dns_observer=args.dns_observer,
+            control_ip=args.dns_control_ip,
+            http_service=args.http_service,
             now=int(time.time()),
         )
 

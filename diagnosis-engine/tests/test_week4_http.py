@@ -76,8 +76,11 @@ def test_http_import_persists_with_diagnosis(tmp_path, monkeypatch):
     setup(monkeypatch)
     path = write_probe(tmp_path)
     db = tmp_path / "case.db"
-    monkeypatch.setattr("sys.argv", ["app.py", "--event-id", "458", "--save",
-        "--db", str(db), "--http-evidence", str(path)])
+    monkeypatch.setattr("sys.argv", [
+        "app.py", "--event-id", "458", "--save",
+        "--db", str(db), "--http-evidence", str(path),
+        "--http-service", "expected",
+    ])
     app.main()
     report = load_report(1, db)
     assert report["diagnoses"][1]["status"] == "not_matched"
