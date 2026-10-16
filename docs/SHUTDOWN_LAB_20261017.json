@@ -1,0 +1,21 @@
+{
+  "verified_at_utc": "2026-10-16T22:15:08.8922582Z",
+  "method": "SSH sudo systemctl poweroff (graceful guest shutdown)",
+  "vms": [
+    {
+      "vm": "MON01",
+      "state": "VMState=\"poweroff\""
+    },
+    {
+      "vm": "SRV01",
+      "state": "VMState=\"poweroff\""
+    },
+    {
+      "vm": "CLI01",
+      "state": "VMState=\"poweroff\""
+    }
+  ],
+  "progress_commit": "fcf4232",
+  "backup_checksum_commit": "e6ce1ae",
+  "database_backups": "Retained locally; ignored by Git. Raw reports and checksums committed."
+}
