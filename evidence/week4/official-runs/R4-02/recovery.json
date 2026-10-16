@@ -1,0 +1,18 @@
+{
+  "eventid": "966",
+  "source": "0",
+  "object": "0",
+  "objectid": "25335",
+  "clock": "1792173371",
+  "name": "CLI01: DNS resolution failed for example.com",
+  "severity": "0",
+  "value": "0",
+  "r_eventid": "0",
+  "hosts": [
+    {
+      "hostid": "10684",
+      "host": "CLI01",
+      "name": "CLI01"
+    }
+  ]
+}

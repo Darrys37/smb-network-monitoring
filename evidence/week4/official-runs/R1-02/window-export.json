@@ -1,0 +1,7 @@
+{
+  "start_epoch": 1792170525,
+  "end_epoch": 1792170725,
+  "history_rows": 90,
+  "trigger_events": 2,
+  "note": "Watch window includes preflight; independent fault/rollback timestamps define measurement intervals."
+}

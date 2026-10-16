@@ -1,0 +1,4 @@
+{
+  "classification": "comparison_scope_error",
+  "reason": "Final checker initially selected 157 triggers versus 70 baseline-supplement triggers, and macros from all installed templates versus linked lab templates. Full effective config and source fingerprints matched. Corrected checker repeats comparison on the baseline trigger IDs and lab hosts/linked templates; original snapshot retained."
+}

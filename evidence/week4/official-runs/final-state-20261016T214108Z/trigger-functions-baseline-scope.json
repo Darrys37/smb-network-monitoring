@@ -1,0 +1,1682 @@
+[
+  {
+    "triggerid": "25246",
+    "description": "Linux: Configured max number of open filedescriptors is too low",
+    "expression": "{36140}<{$KERNEL.MAXFILES.MIN}",
+    "functions": [
+      {
+        "functionid": "36140",
+        "itemid": "50784",
+        "triggerid": "25246",
+        "parameter": "$",
+        "function": "last"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25247",
+    "description": "Linux: Configured max number of processes is too low",
+    "expression": "{36141}<{$KERNEL.MAXPROC.MIN}",
+    "functions": [
+      {
+        "functionid": "36141",
+        "itemid": "50785",
+        "triggerid": "25247",
+        "parameter": "$",
+        "function": "last"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25248"
+      }
+    ]
+  },
+  {
+    "triggerid": "25248",
+    "description": "Linux: Getting closer to process limit",
+    "expression": "{36142}/{36143}*100>80",
+    "functions": [
+      {
+        "functionid": "36142",
+        "itemid": "50786",
+        "triggerid": "25248",
+        "parameter": "$",
+        "function": "last"
+      },
+      {
+        "functionid": "36143",
+        "itemid": "50785",
+        "triggerid": "25248",
+        "parameter": "$",
+        "function": "last"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25249",
+    "description": "Linux: Load average is too high",
+    "expression": "{36144}/{36145}>{$LOAD_AVG_PER_CPU.MAX.WARN}\r\nand {36146}>0\r\nand {36147}>0",
+    "functions": [
+      {
+        "functionid": "36144",
+        "itemid": "50791",
+        "triggerid": "25249",
+        "parameter": "$,5m",
+        "function": "min"
+      },
+      {
+        "functionid": "36145",
+        "itemid": "50793",
+        "triggerid": "25249",
+        "parameter": "$",
+        "function": "last"
+      },
+      {
+        "functionid": "36146",
+        "itemid": "50792",
+        "triggerid": "25249",
+        "parameter": "$",
+        "function": "last"
+      },
+      {
+        "functionid": "36147",
+        "itemid": "50790",
+        "triggerid": "25249",
+        "parameter": "$",
+        "function": "last"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25250",
+    "description": "Linux: High CPU utilization",
+    "expression": "{36148}>{$CPU.UTIL.CRIT}",
+    "functions": [
+      {
+        "functionid": "36148",
+        "itemid": "50822",
+        "triggerid": "25250",
+        "parameter": "$,5m",
+        "function": "min"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25249"
+      }
+    ]
+  },
+  {
+    "triggerid": "25251",
+    "description": "Linux: System name has changed",
+    "expression": "{36149} and length({36150})>0",
+    "functions": [
+      {
+        "functionid": "36149",
+        "itemid": "50805",
+        "triggerid": "25251",
+        "parameter": "$",
+        "function": "change"
+      },
+      {
+        "functionid": "36150",
+        "itemid": "50805",
+        "triggerid": "25251",
+        "parameter": "$",
+        "function": "last"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25252",
+    "description": "Linux: System time is out of sync",
+    "expression": "{36151}=0",
+    "functions": [
+      {
+        "functionid": "36151",
+        "itemid": "50806",
+        "triggerid": "25252",
+        "parameter": "$,{$SYSTEM.FUZZYTIME.MAX}",
+        "function": "fuzzytime"
+      },
+      {
+        "functionid": "36152",
+        "itemid": "50806",
+        "triggerid": "25252",
+        "parameter": "$,{$SYSTEM.FUZZYTIME.MIN}",
+        "function": "fuzzytime"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25253",
+    "description": "Linux: Operating system description has changed",
+    "expression": "{36153} and length({36154})>0",
+    "functions": [
+      {
+        "functionid": "36153",
+        "itemid": "50808",
+        "triggerid": "25253",
+        "parameter": "$",
+        "function": "change"
+      },
+      {
+        "functionid": "36154",
+        "itemid": "50808",
+        "triggerid": "25253",
+        "parameter": "$",
+        "function": "last"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25251"
+      }
+    ]
+  },
+  {
+    "triggerid": "25254",
+    "description": "Linux: Number of installed packages has been changed",
+    "expression": "{36155}<>0",
+    "functions": [
+      {
+        "functionid": "36155",
+        "itemid": "50809",
+        "triggerid": "25254",
+        "parameter": "$",
+        "function": "change"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25255",
+    "description": "Linux: High swap space usage",
+    "expression": "{36156}<{$SWAP.PFREE.MIN.WARN} and {36157}>0",
+    "functions": [
+      {
+        "functionid": "36156",
+        "itemid": "50811",
+        "triggerid": "25255",
+        "parameter": "$,5m",
+        "function": "max"
+      },
+      {
+        "functionid": "36157",
+        "itemid": "50812",
+        "triggerid": "25255",
+        "parameter": "$",
+        "function": "last"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25258"
+      },
+      {
+        "triggerid": "25259"
+      }
+    ]
+  },
+  {
+    "triggerid": "25256",
+    "description": "Linux: {HOST.NAME} has been restarted",
+    "expression": "{36158}<10m",
+    "functions": [
+      {
+        "functionid": "36158",
+        "itemid": "50814",
+        "triggerid": "25256",
+        "parameter": "$",
+        "function": "last"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25257",
+    "description": "Linux: /etc/passwd has been changed",
+    "expression": "{36159}<>{36160}",
+    "functions": [
+      {
+        "functionid": "36159",
+        "itemid": "50816",
+        "triggerid": "25257",
+        "parameter": "$,#1",
+        "function": "last"
+      },
+      {
+        "functionid": "36160",
+        "itemid": "50816",
+        "triggerid": "25257",
+        "parameter": "$,#2",
+        "function": "last"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25251"
+      },
+      {
+        "triggerid": "25253"
+      }
+    ]
+  },
+  {
+    "triggerid": "25258",
+    "description": "Linux: Lack of available memory",
+    "expression": "{36161}<{$MEMORY.AVAILABLE.MIN} and {36162}>0",
+    "functions": [
+      {
+        "functionid": "36161",
+        "itemid": "50818",
+        "triggerid": "25258",
+        "parameter": "$,5m",
+        "function": "max"
+      },
+      {
+        "functionid": "36162",
+        "itemid": "50820",
+        "triggerid": "25258",
+        "parameter": "$",
+        "function": "last"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25259",
+    "description": "Linux: High memory utilization",
+    "expression": "{36163}>{$MEMORY.UTIL.MAX}",
+    "functions": [
+      {
+        "functionid": "36163",
+        "itemid": "50823",
+        "triggerid": "25259",
+        "parameter": "$,5m",
+        "function": "min"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25258"
+      }
+    ]
+  },
+  {
+    "triggerid": "25260",
+    "description": "Linux: Zabbix agent is not available",
+    "expression": "{36164}=0",
+    "functions": [
+      {
+        "functionid": "36164",
+        "itemid": "50821",
+        "triggerid": "25260",
+        "parameter": "$,{$AGENT.TIMEOUT}",
+        "function": "max"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25271",
+    "description": "Linux: FS [/]: Running out of free inodes",
+    "expression": "{36188}<{$VFS.FS.INODE.PFREE.MIN.CRIT:\"/\"}",
+    "functions": [
+      {
+        "functionid": "36188",
+        "itemid": "50858",
+        "triggerid": "25271",
+        "parameter": "$,5m",
+        "function": "min"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25272",
+    "description": "Linux: FS [/boot]: Running out of free inodes",
+    "expression": "{36189}<{$VFS.FS.INODE.PFREE.MIN.CRIT:\"/boot\"}",
+    "functions": [
+      {
+        "functionid": "36189",
+        "itemid": "50865",
+        "triggerid": "25272",
+        "parameter": "$,5m",
+        "function": "min"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25273",
+    "description": "Linux: FS [/]: Running out of free inodes",
+    "expression": "{36190}<{$VFS.FS.INODE.PFREE.MIN.WARN:\"/\"}",
+    "functions": [
+      {
+        "functionid": "36190",
+        "itemid": "50858",
+        "triggerid": "25273",
+        "parameter": "$,5m",
+        "function": "min"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25271"
+      }
+    ]
+  },
+  {
+    "triggerid": "25274",
+    "description": "Linux: FS [/boot]: Running out of free inodes",
+    "expression": "{36191}<{$VFS.FS.INODE.PFREE.MIN.WARN:\"/boot\"}",
+    "functions": [
+      {
+        "functionid": "36191",
+        "itemid": "50865",
+        "triggerid": "25274",
+        "parameter": "$,5m",
+        "function": "min"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25272"
+      }
+    ]
+  },
+  {
+    "triggerid": "25275",
+    "description": "Linux: FS [/]: Space is critically low",
+    "expression": "{36192}>{$VFS.FS.PUSED.MAX.CRIT:\"/\"}",
+    "functions": [
+      {
+        "functionid": "36192",
+        "itemid": "50856",
+        "triggerid": "25275",
+        "parameter": "$,5m",
+        "function": "min"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25276",
+    "description": "Linux: FS [/boot]: Space is critically low",
+    "expression": "{36193}>{$VFS.FS.PUSED.MAX.CRIT:\"/boot\"}",
+    "functions": [
+      {
+        "functionid": "36193",
+        "itemid": "50863",
+        "triggerid": "25276",
+        "parameter": "$,5m",
+        "function": "min"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25277",
+    "description": "Linux: FS [/]: Space is low",
+    "expression": "{36194}>{$VFS.FS.PUSED.MAX.WARN:\"/\"}",
+    "functions": [
+      {
+        "functionid": "36194",
+        "itemid": "50856",
+        "triggerid": "25277",
+        "parameter": "$,5m",
+        "function": "min"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25275"
+      }
+    ]
+  },
+  {
+    "triggerid": "25278",
+    "description": "Linux: FS [/boot]: Space is low",
+    "expression": "{36195}>{$VFS.FS.PUSED.MAX.WARN:\"/boot\"}",
+    "functions": [
+      {
+        "functionid": "36195",
+        "itemid": "50863",
+        "triggerid": "25278",
+        "parameter": "$,5m",
+        "function": "min"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25276"
+      }
+    ]
+  },
+  {
+    "triggerid": "25279",
+    "description": "Linux: FS [/]: Filesystem has become read-only",
+    "expression": "{36196}=0 and {36197}=1",
+    "functions": [
+      {
+        "functionid": "36196",
+        "itemid": "50853",
+        "triggerid": "25279",
+        "parameter": "$,#2",
+        "function": "last"
+      },
+      {
+        "functionid": "36197",
+        "itemid": "50853",
+        "triggerid": "25279",
+        "parameter": "$",
+        "function": "last"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25280",
+    "description": "Linux: FS [/boot]: Filesystem has become read-only",
+    "expression": "{36198}=0 and {36199}=1",
+    "functions": [
+      {
+        "functionid": "36198",
+        "itemid": "50860",
+        "triggerid": "25280",
+        "parameter": "$,#2",
+        "function": "last"
+      },
+      {
+        "functionid": "36199",
+        "itemid": "50860",
+        "triggerid": "25280",
+        "parameter": "$",
+        "function": "last"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25281",
+    "description": "Linux: Interface enp0s3: High error rate",
+    "expression": "{36200}>{$IF.ERRORS.WARN:\"enp0s3\"}\r\nor {36201}>{$IF.ERRORS.WARN:\"enp0s3\"}",
+    "functions": [
+      {
+        "functionid": "36200",
+        "itemid": "50868",
+        "triggerid": "25281",
+        "parameter": "$,5m",
+        "function": "min"
+      },
+      {
+        "functionid": "36201",
+        "itemid": "50874",
+        "triggerid": "25281",
+        "parameter": "$,5m",
+        "function": "min"
+      },
+      {
+        "functionid": "36202",
+        "itemid": "50868",
+        "triggerid": "25281",
+        "parameter": "$,5m",
+        "function": "max"
+      },
+      {
+        "functionid": "36203",
+        "itemid": "50874",
+        "triggerid": "25281",
+        "parameter": "$,5m",
+        "function": "max"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25285"
+      }
+    ]
+  },
+  {
+    "triggerid": "25282",
+    "description": "Linux: Interface enp0s8: High error rate",
+    "expression": "{36204}>{$IF.ERRORS.WARN:\"enp0s8\"}\r\nor {36205}>{$IF.ERRORS.WARN:\"enp0s8\"}",
+    "functions": [
+      {
+        "functionid": "36204",
+        "itemid": "50869",
+        "triggerid": "25282",
+        "parameter": "$,5m",
+        "function": "min"
+      },
+      {
+        "functionid": "36205",
+        "itemid": "50875",
+        "triggerid": "25282",
+        "parameter": "$,5m",
+        "function": "min"
+      },
+      {
+        "functionid": "36206",
+        "itemid": "50869",
+        "triggerid": "25282",
+        "parameter": "$,5m",
+        "function": "max"
+      },
+      {
+        "functionid": "36207",
+        "itemid": "50875",
+        "triggerid": "25282",
+        "parameter": "$,5m",
+        "function": "max"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25286"
+      }
+    ]
+  },
+  {
+    "triggerid": "25283",
+    "description": "Linux: Interface enp0s3: High bandwidth usage",
+    "expression": "({36208}>({$IF.UTIL.MAX:\"enp0s3\"}/100)*{36209} or\r\n{36210}>({$IF.UTIL.MAX:\"enp0s3\"}/100)*{36209}) and\r\n{36209}>0",
+    "functions": [
+      {
+        "functionid": "36208",
+        "itemid": "50870",
+        "triggerid": "25283",
+        "parameter": "$,15m",
+        "function": "avg"
+      },
+      {
+        "functionid": "36209",
+        "itemid": "50880",
+        "triggerid": "25283",
+        "parameter": "$",
+        "function": "last"
+      },
+      {
+        "functionid": "36210",
+        "itemid": "50876",
+        "triggerid": "25283",
+        "parameter": "$,15m",
+        "function": "avg"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25285"
+      }
+    ]
+  },
+  {
+    "triggerid": "25284",
+    "description": "Linux: Interface enp0s8: High bandwidth usage",
+    "expression": "({36211}>({$IF.UTIL.MAX:\"enp0s8\"}/100)*{36212} or\r\n{36213}>({$IF.UTIL.MAX:\"enp0s8\"}/100)*{36212}) and\r\n{36212}>0",
+    "functions": [
+      {
+        "functionid": "36211",
+        "itemid": "50871",
+        "triggerid": "25284",
+        "parameter": "$,15m",
+        "function": "avg"
+      },
+      {
+        "functionid": "36212",
+        "itemid": "50881",
+        "triggerid": "25284",
+        "parameter": "$",
+        "function": "last"
+      },
+      {
+        "functionid": "36213",
+        "itemid": "50877",
+        "triggerid": "25284",
+        "parameter": "$,15m",
+        "function": "avg"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25286"
+      }
+    ]
+  },
+  {
+    "triggerid": "25285",
+    "description": "Linux: Interface enp0s3: Link down",
+    "expression": "{$IFCONTROL:\"enp0s3\"}=1 and {36214}=2 and ({36215}<>{36216})",
+    "functions": [
+      {
+        "functionid": "36214",
+        "itemid": "50878",
+        "triggerid": "25285",
+        "parameter": "$",
+        "function": "last"
+      },
+      {
+        "functionid": "36215",
+        "itemid": "50878",
+        "triggerid": "25285",
+        "parameter": "$,#1",
+        "function": "last"
+      },
+      {
+        "functionid": "36216",
+        "itemid": "50878",
+        "triggerid": "25285",
+        "parameter": "$,#2",
+        "function": "last"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25286",
+    "description": "Linux: Interface enp0s8: Link down",
+    "expression": "{$IFCONTROL:\"enp0s8\"}=1 and {36217}=2 and ({36218}<>{36219})",
+    "functions": [
+      {
+        "functionid": "36217",
+        "itemid": "50879",
+        "triggerid": "25286",
+        "parameter": "$",
+        "function": "last"
+      },
+      {
+        "functionid": "36218",
+        "itemid": "50879",
+        "triggerid": "25286",
+        "parameter": "$,#1",
+        "function": "last"
+      },
+      {
+        "functionid": "36219",
+        "itemid": "50879",
+        "triggerid": "25286",
+        "parameter": "$,#2",
+        "function": "last"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25287",
+    "description": "Linux: Interface enp0s3: Ethernet has changed to lower speed than it was before",
+    "expression": "{36220}<0 and {36221}>0\r\nand\r\n({36222}=6 or {36222}=1)\r\nand\r\n({36223}<>2)",
+    "functions": [
+      {
+        "functionid": "36220",
+        "itemid": "50880",
+        "triggerid": "25287",
+        "parameter": "$",
+        "function": "change"
+      },
+      {
+        "functionid": "36221",
+        "itemid": "50880",
+        "triggerid": "25287",
+        "parameter": "$",
+        "function": "last"
+      },
+      {
+        "functionid": "36222",
+        "itemid": "50882",
+        "triggerid": "25287",
+        "parameter": "$",
+        "function": "last"
+      },
+      {
+        "functionid": "36223",
+        "itemid": "50878",
+        "triggerid": "25287",
+        "parameter": "$",
+        "function": "last"
+      },
+      {
+        "functionid": "36224",
+        "itemid": "50880",
+        "triggerid": "25287",
+        "parameter": "$,#2",
+        "function": "last"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25285"
+      }
+    ]
+  },
+  {
+    "triggerid": "25288",
+    "description": "Linux: Interface enp0s8: Ethernet has changed to lower speed than it was before",
+    "expression": "{36225}<0 and {36226}>0\r\nand\r\n({36227}=6 or {36227}=1)\r\nand\r\n({36228}<>2)",
+    "functions": [
+      {
+        "functionid": "36225",
+        "itemid": "50881",
+        "triggerid": "25288",
+        "parameter": "$",
+        "function": "change"
+      },
+      {
+        "functionid": "36226",
+        "itemid": "50881",
+        "triggerid": "25288",
+        "parameter": "$",
+        "function": "last"
+      },
+      {
+        "functionid": "36227",
+        "itemid": "50883",
+        "triggerid": "25288",
+        "parameter": "$",
+        "function": "last"
+      },
+      {
+        "functionid": "36228",
+        "itemid": "50879",
+        "triggerid": "25288",
+        "parameter": "$",
+        "function": "last"
+      },
+      {
+        "functionid": "36229",
+        "itemid": "50881",
+        "triggerid": "25288",
+        "parameter": "$,#2",
+        "function": "last"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25286"
+      }
+    ]
+  },
+  {
+    "triggerid": "25289",
+    "description": "Linux: sda: Disk read/write request responses are too high",
+    "expression": "{36230} > {$VFS.DEV.READ.AWAIT.WARN:\"sda\"} or {36231} > {$VFS.DEV.WRITE.AWAIT.WARN:\"sda\"}",
+    "functions": [
+      {
+        "functionid": "36230",
+        "itemid": "50884",
+        "triggerid": "25289",
+        "parameter": "$,15m",
+        "function": "min"
+      },
+      {
+        "functionid": "36231",
+        "itemid": "50885",
+        "triggerid": "25289",
+        "parameter": "$,15m",
+        "function": "min"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25290",
+    "description": "Linux: Configured max number of open filedescriptors is too low",
+    "expression": "{36232}<{$KERNEL.MAXFILES.MIN}",
+    "functions": [
+      {
+        "functionid": "36232",
+        "itemid": "50896",
+        "triggerid": "25290",
+        "parameter": "$",
+        "function": "last"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25291",
+    "description": "Linux: Configured max number of processes is too low",
+    "expression": "{36233}<{$KERNEL.MAXPROC.MIN}",
+    "functions": [
+      {
+        "functionid": "36233",
+        "itemid": "50897",
+        "triggerid": "25291",
+        "parameter": "$",
+        "function": "last"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25292"
+      }
+    ]
+  },
+  {
+    "triggerid": "25292",
+    "description": "Linux: Getting closer to process limit",
+    "expression": "{36234}/{36235}*100>80",
+    "functions": [
+      {
+        "functionid": "36234",
+        "itemid": "50898",
+        "triggerid": "25292",
+        "parameter": "$",
+        "function": "last"
+      },
+      {
+        "functionid": "36235",
+        "itemid": "50897",
+        "triggerid": "25292",
+        "parameter": "$",
+        "function": "last"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25293",
+    "description": "Linux: Load average is too high",
+    "expression": "{36236}/{36237}>{$LOAD_AVG_PER_CPU.MAX.WARN}\r\nand {36238}>0\r\nand {36239}>0",
+    "functions": [
+      {
+        "functionid": "36236",
+        "itemid": "50903",
+        "triggerid": "25293",
+        "parameter": "$,5m",
+        "function": "min"
+      },
+      {
+        "functionid": "36237",
+        "itemid": "50905",
+        "triggerid": "25293",
+        "parameter": "$",
+        "function": "last"
+      },
+      {
+        "functionid": "36238",
+        "itemid": "50904",
+        "triggerid": "25293",
+        "parameter": "$",
+        "function": "last"
+      },
+      {
+        "functionid": "36239",
+        "itemid": "50902",
+        "triggerid": "25293",
+        "parameter": "$",
+        "function": "last"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25294",
+    "description": "Linux: High CPU utilization",
+    "expression": "{36240}>{$CPU.UTIL.CRIT}",
+    "functions": [
+      {
+        "functionid": "36240",
+        "itemid": "50934",
+        "triggerid": "25294",
+        "parameter": "$,5m",
+        "function": "min"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25293"
+      }
+    ]
+  },
+  {
+    "triggerid": "25295",
+    "description": "Linux: System name has changed",
+    "expression": "{36241} and length({36242})>0",
+    "functions": [
+      {
+        "functionid": "36241",
+        "itemid": "50917",
+        "triggerid": "25295",
+        "parameter": "$",
+        "function": "change"
+      },
+      {
+        "functionid": "36242",
+        "itemid": "50917",
+        "triggerid": "25295",
+        "parameter": "$",
+        "function": "last"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25296",
+    "description": "Linux: System time is out of sync",
+    "expression": "{36243}=0",
+    "functions": [
+      {
+        "functionid": "36243",
+        "itemid": "50918",
+        "triggerid": "25296",
+        "parameter": "$,{$SYSTEM.FUZZYTIME.MAX}",
+        "function": "fuzzytime"
+      },
+      {
+        "functionid": "36244",
+        "itemid": "50918",
+        "triggerid": "25296",
+        "parameter": "$,{$SYSTEM.FUZZYTIME.MIN}",
+        "function": "fuzzytime"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25297",
+    "description": "Linux: Operating system description has changed",
+    "expression": "{36245} and length({36246})>0",
+    "functions": [
+      {
+        "functionid": "36245",
+        "itemid": "50920",
+        "triggerid": "25297",
+        "parameter": "$",
+        "function": "change"
+      },
+      {
+        "functionid": "36246",
+        "itemid": "50920",
+        "triggerid": "25297",
+        "parameter": "$",
+        "function": "last"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25295"
+      }
+    ]
+  },
+  {
+    "triggerid": "25298",
+    "description": "Linux: Number of installed packages has been changed",
+    "expression": "{36247}<>0",
+    "functions": [
+      {
+        "functionid": "36247",
+        "itemid": "50921",
+        "triggerid": "25298",
+        "parameter": "$",
+        "function": "change"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25299",
+    "description": "Linux: High swap space usage",
+    "expression": "{36248}<{$SWAP.PFREE.MIN.WARN} and {36249}>0",
+    "functions": [
+      {
+        "functionid": "36248",
+        "itemid": "50923",
+        "triggerid": "25299",
+        "parameter": "$,5m",
+        "function": "max"
+      },
+      {
+        "functionid": "36249",
+        "itemid": "50924",
+        "triggerid": "25299",
+        "parameter": "$",
+        "function": "last"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25302"
+      },
+      {
+        "triggerid": "25303"
+      }
+    ]
+  },
+  {
+    "triggerid": "25300",
+    "description": "Linux: {HOST.NAME} has been restarted",
+    "expression": "{36250}<10m",
+    "functions": [
+      {
+        "functionid": "36250",
+        "itemid": "50926",
+        "triggerid": "25300",
+        "parameter": "$",
+        "function": "last"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25301",
+    "description": "Linux: /etc/passwd has been changed",
+    "expression": "{36251}<>{36252}",
+    "functions": [
+      {
+        "functionid": "36251",
+        "itemid": "50928",
+        "triggerid": "25301",
+        "parameter": "$,#1",
+        "function": "last"
+      },
+      {
+        "functionid": "36252",
+        "itemid": "50928",
+        "triggerid": "25301",
+        "parameter": "$,#2",
+        "function": "last"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25295"
+      },
+      {
+        "triggerid": "25297"
+      }
+    ]
+  },
+  {
+    "triggerid": "25302",
+    "description": "Linux: Lack of available memory",
+    "expression": "{36253}<{$MEMORY.AVAILABLE.MIN} and {36254}>0",
+    "functions": [
+      {
+        "functionid": "36253",
+        "itemid": "50930",
+        "triggerid": "25302",
+        "parameter": "$,5m",
+        "function": "max"
+      },
+      {
+        "functionid": "36254",
+        "itemid": "50932",
+        "triggerid": "25302",
+        "parameter": "$",
+        "function": "last"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25303",
+    "description": "Linux: High memory utilization",
+    "expression": "{36255}>{$MEMORY.UTIL.MAX}",
+    "functions": [
+      {
+        "functionid": "36255",
+        "itemid": "50935",
+        "triggerid": "25303",
+        "parameter": "$,5m",
+        "function": "min"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25302"
+      }
+    ]
+  },
+  {
+    "triggerid": "25304",
+    "description": "Linux: Zabbix agent is not available",
+    "expression": "{36256}=0",
+    "functions": [
+      {
+        "functionid": "36256",
+        "itemid": "50933",
+        "triggerid": "25304",
+        "parameter": "$,{$AGENT.TIMEOUT}",
+        "function": "max"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25315",
+    "description": "Linux: FS [/]: Running out of free inodes",
+    "expression": "{36280}<{$VFS.FS.INODE.PFREE.MIN.CRIT:\"/\"}",
+    "functions": [
+      {
+        "functionid": "36280",
+        "itemid": "50970",
+        "triggerid": "25315",
+        "parameter": "$,5m",
+        "function": "min"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25316",
+    "description": "Linux: FS [/boot]: Running out of free inodes",
+    "expression": "{36281}<{$VFS.FS.INODE.PFREE.MIN.CRIT:\"/boot\"}",
+    "functions": [
+      {
+        "functionid": "36281",
+        "itemid": "50977",
+        "triggerid": "25316",
+        "parameter": "$,5m",
+        "function": "min"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25317",
+    "description": "Linux: FS [/]: Running out of free inodes",
+    "expression": "{36282}<{$VFS.FS.INODE.PFREE.MIN.WARN:\"/\"}",
+    "functions": [
+      {
+        "functionid": "36282",
+        "itemid": "50970",
+        "triggerid": "25317",
+        "parameter": "$,5m",
+        "function": "min"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25315"
+      }
+    ]
+  },
+  {
+    "triggerid": "25318",
+    "description": "Linux: FS [/boot]: Running out of free inodes",
+    "expression": "{36283}<{$VFS.FS.INODE.PFREE.MIN.WARN:\"/boot\"}",
+    "functions": [
+      {
+        "functionid": "36283",
+        "itemid": "50977",
+        "triggerid": "25318",
+        "parameter": "$,5m",
+        "function": "min"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25316"
+      }
+    ]
+  },
+  {
+    "triggerid": "25319",
+    "description": "Linux: FS [/]: Space is critically low",
+    "expression": "{36284}>{$VFS.FS.PUSED.MAX.CRIT:\"/\"}",
+    "functions": [
+      {
+        "functionid": "36284",
+        "itemid": "50968",
+        "triggerid": "25319",
+        "parameter": "$,5m",
+        "function": "min"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25320",
+    "description": "Linux: FS [/boot]: Space is critically low",
+    "expression": "{36285}>{$VFS.FS.PUSED.MAX.CRIT:\"/boot\"}",
+    "functions": [
+      {
+        "functionid": "36285",
+        "itemid": "50975",
+        "triggerid": "25320",
+        "parameter": "$,5m",
+        "function": "min"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25321",
+    "description": "Linux: FS [/]: Space is low",
+    "expression": "{36286}>{$VFS.FS.PUSED.MAX.WARN:\"/\"}",
+    "functions": [
+      {
+        "functionid": "36286",
+        "itemid": "50968",
+        "triggerid": "25321",
+        "parameter": "$,5m",
+        "function": "min"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25319"
+      }
+    ]
+  },
+  {
+    "triggerid": "25322",
+    "description": "Linux: FS [/boot]: Space is low",
+    "expression": "{36287}>{$VFS.FS.PUSED.MAX.WARN:\"/boot\"}",
+    "functions": [
+      {
+        "functionid": "36287",
+        "itemid": "50975",
+        "triggerid": "25322",
+        "parameter": "$,5m",
+        "function": "min"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25320"
+      }
+    ]
+  },
+  {
+    "triggerid": "25323",
+    "description": "Linux: FS [/]: Filesystem has become read-only",
+    "expression": "{36288}=0 and {36289}=1",
+    "functions": [
+      {
+        "functionid": "36288",
+        "itemid": "50965",
+        "triggerid": "25323",
+        "parameter": "$,#2",
+        "function": "last"
+      },
+      {
+        "functionid": "36289",
+        "itemid": "50965",
+        "triggerid": "25323",
+        "parameter": "$",
+        "function": "last"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25324",
+    "description": "Linux: FS [/boot]: Filesystem has become read-only",
+    "expression": "{36290}=0 and {36291}=1",
+    "functions": [
+      {
+        "functionid": "36290",
+        "itemid": "50972",
+        "triggerid": "25324",
+        "parameter": "$,#2",
+        "function": "last"
+      },
+      {
+        "functionid": "36291",
+        "itemid": "50972",
+        "triggerid": "25324",
+        "parameter": "$",
+        "function": "last"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25325",
+    "description": "Linux: Interface enp0s3: High error rate",
+    "expression": "{36292}>{$IF.ERRORS.WARN:\"enp0s3\"}\r\nor {36293}>{$IF.ERRORS.WARN:\"enp0s3\"}",
+    "functions": [
+      {
+        "functionid": "36292",
+        "itemid": "50980",
+        "triggerid": "25325",
+        "parameter": "$,5m",
+        "function": "min"
+      },
+      {
+        "functionid": "36293",
+        "itemid": "50986",
+        "triggerid": "25325",
+        "parameter": "$,5m",
+        "function": "min"
+      },
+      {
+        "functionid": "36294",
+        "itemid": "50980",
+        "triggerid": "25325",
+        "parameter": "$,5m",
+        "function": "max"
+      },
+      {
+        "functionid": "36295",
+        "itemid": "50986",
+        "triggerid": "25325",
+        "parameter": "$,5m",
+        "function": "max"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25329"
+      }
+    ]
+  },
+  {
+    "triggerid": "25326",
+    "description": "Linux: Interface enp0s8: High error rate",
+    "expression": "{36296}>{$IF.ERRORS.WARN:\"enp0s8\"}\r\nor {36297}>{$IF.ERRORS.WARN:\"enp0s8\"}",
+    "functions": [
+      {
+        "functionid": "36296",
+        "itemid": "50981",
+        "triggerid": "25326",
+        "parameter": "$,5m",
+        "function": "min"
+      },
+      {
+        "functionid": "36297",
+        "itemid": "50987",
+        "triggerid": "25326",
+        "parameter": "$,5m",
+        "function": "min"
+      },
+      {
+        "functionid": "36298",
+        "itemid": "50981",
+        "triggerid": "25326",
+        "parameter": "$,5m",
+        "function": "max"
+      },
+      {
+        "functionid": "36299",
+        "itemid": "50987",
+        "triggerid": "25326",
+        "parameter": "$,5m",
+        "function": "max"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25330"
+      }
+    ]
+  },
+  {
+    "triggerid": "25327",
+    "description": "Linux: Interface enp0s3: High bandwidth usage",
+    "expression": "({36300}>({$IF.UTIL.MAX:\"enp0s3\"}/100)*{36301} or\r\n{36302}>({$IF.UTIL.MAX:\"enp0s3\"}/100)*{36301}) and\r\n{36301}>0",
+    "functions": [
+      {
+        "functionid": "36300",
+        "itemid": "50982",
+        "triggerid": "25327",
+        "parameter": "$,15m",
+        "function": "avg"
+      },
+      {
+        "functionid": "36301",
+        "itemid": "50992",
+        "triggerid": "25327",
+        "parameter": "$",
+        "function": "last"
+      },
+      {
+        "functionid": "36302",
+        "itemid": "50988",
+        "triggerid": "25327",
+        "parameter": "$,15m",
+        "function": "avg"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25329"
+      }
+    ]
+  },
+  {
+    "triggerid": "25328",
+    "description": "Linux: Interface enp0s8: High bandwidth usage",
+    "expression": "({36303}>({$IF.UTIL.MAX:\"enp0s8\"}/100)*{36304} or\r\n{36305}>({$IF.UTIL.MAX:\"enp0s8\"}/100)*{36304}) and\r\n{36304}>0",
+    "functions": [
+      {
+        "functionid": "36303",
+        "itemid": "50983",
+        "triggerid": "25328",
+        "parameter": "$,15m",
+        "function": "avg"
+      },
+      {
+        "functionid": "36304",
+        "itemid": "50993",
+        "triggerid": "25328",
+        "parameter": "$",
+        "function": "last"
+      },
+      {
+        "functionid": "36305",
+        "itemid": "50989",
+        "triggerid": "25328",
+        "parameter": "$,15m",
+        "function": "avg"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25330"
+      }
+    ]
+  },
+  {
+    "triggerid": "25329",
+    "description": "Linux: Interface enp0s3: Link down",
+    "expression": "{$IFCONTROL:\"enp0s3\"}=1 and {36306}=2 and ({36307}<>{36308})",
+    "functions": [
+      {
+        "functionid": "36306",
+        "itemid": "50990",
+        "triggerid": "25329",
+        "parameter": "$",
+        "function": "last"
+      },
+      {
+        "functionid": "36307",
+        "itemid": "50990",
+        "triggerid": "25329",
+        "parameter": "$,#1",
+        "function": "last"
+      },
+      {
+        "functionid": "36308",
+        "itemid": "50990",
+        "triggerid": "25329",
+        "parameter": "$,#2",
+        "function": "last"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25330",
+    "description": "Linux: Interface enp0s8: Link down",
+    "expression": "{$IFCONTROL:\"enp0s8\"}=1 and {36309}=2 and ({36310}<>{36311})",
+    "functions": [
+      {
+        "functionid": "36309",
+        "itemid": "50991",
+        "triggerid": "25330",
+        "parameter": "$",
+        "function": "last"
+      },
+      {
+        "functionid": "36310",
+        "itemid": "50991",
+        "triggerid": "25330",
+        "parameter": "$,#1",
+        "function": "last"
+      },
+      {
+        "functionid": "36311",
+        "itemid": "50991",
+        "triggerid": "25330",
+        "parameter": "$,#2",
+        "function": "last"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25331",
+    "description": "Linux: Interface enp0s3: Ethernet has changed to lower speed than it was before",
+    "expression": "{36312}<0 and {36313}>0\r\nand\r\n({36314}=6 or {36314}=1)\r\nand\r\n({36315}<>2)",
+    "functions": [
+      {
+        "functionid": "36312",
+        "itemid": "50992",
+        "triggerid": "25331",
+        "parameter": "$",
+        "function": "change"
+      },
+      {
+        "functionid": "36313",
+        "itemid": "50992",
+        "triggerid": "25331",
+        "parameter": "$",
+        "function": "last"
+      },
+      {
+        "functionid": "36314",
+        "itemid": "50994",
+        "triggerid": "25331",
+        "parameter": "$",
+        "function": "last"
+      },
+      {
+        "functionid": "36315",
+        "itemid": "50990",
+        "triggerid": "25331",
+        "parameter": "$",
+        "function": "last"
+      },
+      {
+        "functionid": "36316",
+        "itemid": "50992",
+        "triggerid": "25331",
+        "parameter": "$,#2",
+        "function": "last"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25329"
+      }
+    ]
+  },
+  {
+    "triggerid": "25332",
+    "description": "Linux: Interface enp0s8: Ethernet has changed to lower speed than it was before",
+    "expression": "{36317}<0 and {36318}>0\r\nand\r\n({36319}=6 or {36319}=1)\r\nand\r\n({36320}<>2)",
+    "functions": [
+      {
+        "functionid": "36317",
+        "itemid": "50993",
+        "triggerid": "25332",
+        "parameter": "$",
+        "function": "change"
+      },
+      {
+        "functionid": "36318",
+        "itemid": "50993",
+        "triggerid": "25332",
+        "parameter": "$",
+        "function": "last"
+      },
+      {
+        "functionid": "36319",
+        "itemid": "50995",
+        "triggerid": "25332",
+        "parameter": "$",
+        "function": "last"
+      },
+      {
+        "functionid": "36320",
+        "itemid": "50991",
+        "triggerid": "25332",
+        "parameter": "$",
+        "function": "last"
+      },
+      {
+        "functionid": "36321",
+        "itemid": "50993",
+        "triggerid": "25332",
+        "parameter": "$,#2",
+        "function": "last"
+      }
+    ],
+    "dependencies": [
+      {
+        "triggerid": "25330"
+      }
+    ]
+  },
+  {
+    "triggerid": "25333",
+    "description": "Linux: sda: Disk read/write request responses are too high",
+    "expression": "{36322} > {$VFS.DEV.READ.AWAIT.WARN:\"sda\"} or {36323} > {$VFS.DEV.WRITE.AWAIT.WARN:\"sda\"}",
+    "functions": [
+      {
+        "functionid": "36322",
+        "itemid": "50996",
+        "triggerid": "25333",
+        "parameter": "$,15m",
+        "function": "min"
+      },
+      {
+        "functionid": "36323",
+        "itemid": "50997",
+        "triggerid": "25333",
+        "parameter": "$,15m",
+        "function": "min"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25334",
+    "description": "SRV01: HTTP check failed",
+    "expression": "{36324}>0",
+    "functions": [
+      {
+        "functionid": "36324",
+        "itemid": "51006",
+        "triggerid": "25334",
+        "parameter": "$",
+        "function": "last"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "triggerid": "25335",
+    "description": "CLI01: DNS resolution failed for example.com",
+    "expression": "{36325}=0",
+    "functions": [
+      {
+        "functionid": "36325",
+        "itemid": "51011",
+        "triggerid": "25335",
+        "parameter": "$,#3",
+        "function": "max"
+      }
+    ],
+    "dependencies": []
+  }
+]

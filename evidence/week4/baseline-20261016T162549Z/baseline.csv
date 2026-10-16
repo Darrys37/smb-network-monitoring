@@ -1,0 +1,2 @@
+baseline_id,start_utc,end_utc,effective_user_target_seconds,wall_seconds,accepted_observation_seconds,poll_count,history_rows,new_problem_count,verified_false_alert_count,assessment
+baseline-20261016T162549Z,2026-10-16T16:26:08+00:00,2026-10-16T16:56:14+00:00,1800,1806,1806,31,963,0,0,accepted_short_baseline

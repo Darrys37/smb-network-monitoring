@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "observer": "srv01",
+  "evidence": [
+    {
+      "check_type": "local_http",
+      "target": "192.168.56.20",
+      "collected_at": 1792171348,
+      "result": {
+        "observer": "srv01",
+        "port": 80,
+        "path": "/",
+        "local_address_verified": true,
+        "status": "failed",
+        "http_status": null,
+        "error": "[Errno 111] Connection refused"
+      }
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+READY R1-02
+{
+  "run_id": "R1-02",
+  "scenario": "R1",
+  "source_commit": "ca04071",
+  "config_commit": "978b4f9",
+  "docs_commit": "4cabeb0",
+  "host_id": "10683",
+  "target_ip": "192.168.56.20",
+  "control_ip": "192.168.56.30",
+  "http_scope": "expected",
+  "observer": "mon01",
+  "watch_start_utc": "2026-10-16T17:08:45.903625+00:00",
+  "status": "recorded_pending_ground_truth_review",
+  "measurement_note": "Fault/rollback timestamps come from independent SRV01 log; watch start is not fault time.",
+  "preflight": {
+    "start_utc": "2026-10-16T17:08:45.940980+00:00",
+    "end_utc": "2026-10-16T17:08:48.047198+00:00",
+    "elapsed_seconds": 2.1062179939999623,
+    "exit_code": 0,
+    "args": [
+      "bash",
+      "-c",
+      "date -u -Is; ping -c 2 -W 2 192.168.56.20 && ping -c 2 -W 2 192.168.56.30 && curl --fail --max-time 5 -s -o /dev/null -w \"HTTP %{http_code}\\n\" http://192.168.56.20/"
+    ]
+  },
+  "ready_at_utc": "2026-10-16T17:08:48.047231+00:00",
+  "problem_event_id": "935",
+  "problem_clock": 1792170606,
+  "detection": true,
+  "cli": {
+    "start_utc": "2026-10-16T17:10:10.087985+00:00",
+    "end_utc": "2026-10-16T17:10:16.752250+00:00",
+    "elapsed_seconds": 6.6645233489998645,
+    "exit_code": 0,
+    "args": [
+      "/home/phat/do-an/diagnosis-engine/.venv/bin/python",
+      "app.py",
+      "--event-id",
+      "935",
+      "--host-id",
+      "10683",
+      "--target-ip",
+      "192.168.56.20",
+      "--ruleset",
+      "roadmap",
+      "--control-ip",
+      "192.168.56.30",
+      "--http-service",
+      "expected",
+      "--save"
+    ]
+  },
+  "incident_id": 20,
+  "diagnoses": [
+    {
+      "rule_id": "R1_HOST_OR_LOCAL_CONNECTIVITY",
+      "status": "matched"
+    },
+    {
+      "rule_id": "R2_HTTP_SERVICE_SUSPECTED",
+      "status": "not_matched"
+    },
+    {
+      "rule_id": "R3_AGENT_UNAVAILABLE",
+      "status": "not_matched"
+    },
+    {
+      "rule_id": "R4_DNS_RESOLVER_SUSPECTED",
+      "status": "insufficient_evidence"
+    },
+    {
+      "rule_id": "R5_HTTP_ACCESS_FILTER_SUSPECTED",
+      "status": "not_matched"
+    },
+    {
+      "rule_id": "R6_SUSTAINED_CPU_HIGH",
+      "status": "insufficient_evidence"
+    }
+  ],
+  "recovery_event_id": "936",
+  "recovery_clock": 1792170721,
+  "postflight": {
+    "start_utc": "2026-10-16T17:12:03.366850+00:00",
+    "end_utc": "2026-10-16T17:12:05.438961+00:00",
+    "elapsed_seconds": 2.0720654659999127,
+    "exit_code": 0,
+    "args": [
+      "bash",
+      "-c",
+      "date -u -Is; ping -c 2 -W 2 192.168.56.20 && ping -c 2 -W 2 192.168.56.30 && curl --fail --max-time 5 -s -o /dev/null -w \"HTTP %{http_code}\\n\" http://192.168.56.20/"
+    ]
+  },
+  "recovery_sync": {
+    "start_utc": "2026-10-16T17:12:05.438995+00:00",
+    "end_utc": "2026-10-16T17:12:05.821712+00:00",
+    "elapsed_seconds": 0.38273699399996985,
+    "exit_code": 0,
+    "args": [
+      "/home/phat/do-an/diagnosis-engine/.venv/bin/python",
+      "recovery.py",
+      "--event-id",
+      "935"
+    ]
+  },
+  "lifecycle_status": "closed",
+  "finished_at_utc": "2026-10-16T17:12:05.824574+00:00"
+}

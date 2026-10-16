@@ -1,0 +1,7 @@
+2026-10-16T18:07:59+00:00
+table inet trial_r5_02 {
+	chain input {
+		type filter hook input priority filter; policy accept;
+		ip saddr 192.168.56.10 tcp dport 80 counter packets 5 bytes 300 drop
+	}
+}

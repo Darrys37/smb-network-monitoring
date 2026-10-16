@@ -1,0 +1,56 @@
+[
+  {
+    "eventid": "967",
+    "source": "0",
+    "object": "0",
+    "objectid": "25335",
+    "clock": "1792173582",
+    "value": "1",
+    "acknowledged": "0",
+    "ns": "301183336",
+    "name": "CLI01: DNS resolution failed for example.com",
+    "severity": "2",
+    "r_eventid": "968",
+    "c_eventid": "0",
+    "correlationid": "0",
+    "userid": "0",
+    "suppressed": "0",
+    "cause_eventid": "0",
+    "hosts": [
+      {
+        "hostid": "10684",
+        "host": "CLI01",
+        "name": "CLI01"
+      }
+    ],
+    "opdata": "",
+    "urls": []
+  },
+  {
+    "eventid": "968",
+    "source": "0",
+    "object": "0",
+    "objectid": "25335",
+    "clock": "1792173731",
+    "value": "0",
+    "acknowledged": "0",
+    "ns": "87040605",
+    "name": "CLI01: DNS resolution failed for example.com",
+    "severity": "0",
+    "r_eventid": "0",
+    "c_eventid": "0",
+    "correlationid": "0",
+    "userid": "0",
+    "suppressed": "0",
+    "cause_eventid": "0",
+    "hosts": [
+      {
+        "hostid": "10684",
+        "host": "CLI01",
+        "name": "CLI01"
+      }
+    ],
+    "opdata": "",
+    "urls": []
+  }
+]

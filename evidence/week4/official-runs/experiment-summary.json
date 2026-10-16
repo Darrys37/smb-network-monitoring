@@ -1,0 +1,418 @@
+{
+  "generated_at_utc": "2026-10-16T21:39:52.749454+00:00",
+  "valid_fault_runs": 18,
+  "reviewed_runs": 18,
+  "aborted_attempts": [
+    {
+      "run_id": "R5-03",
+      "classification": "aborted_before_fault",
+      "include_in_valid_fault_denominator": false,
+      "reason": "Injection tool call was rejected before execution because automatic review reached account usage limit. Watcher timeout is not a detection failure.",
+      "retry_run_id": "R5-03-retry1"
+    }
+  ],
+  "scenarios": {
+    "R1": {
+      "valid_faults": 3,
+      "detected": 3,
+      "target_success_end_to_end": 3,
+      "target_abstentions": 0,
+      "no_detection": 0,
+      "engine_errors": 0,
+      "review_issues": {},
+      "detection_delay_lower_seconds": {
+        "n": 3,
+        "min": 15.0,
+        "median": 19.0,
+        "max": 32.0
+      },
+      "detection_delay_upper_seconds": {
+        "n": 3,
+        "min": 15.0,
+        "median": 20.0,
+        "max": 32.0
+      },
+      "cli_elapsed_seconds": {
+        "n": 3,
+        "min": 6.656132771000102,
+        "median": 6.660214351000832,
+        "max": 6.6645233489998645
+      },
+      "recovery_recognition_lower_seconds": {
+        "n": 3,
+        "min": 9.0,
+        "median": 14.0,
+        "max": 26.0
+      },
+      "recovery_recognition_upper_seconds": {
+        "n": 3,
+        "min": 9.0,
+        "median": 14.0,
+        "max": 26.0
+      },
+      "run_ids": [
+        "R1-01",
+        "R1-02",
+        "R1-03"
+      ],
+      "all_rule_status_counts": {
+        "R1_HOST_OR_LOCAL_CONNECTIVITY": {
+          "matched": 3
+        },
+        "R2_HTTP_SERVICE_SUSPECTED": {
+          "not_matched": 3
+        },
+        "R3_AGENT_UNAVAILABLE": {
+          "not_matched": 3
+        },
+        "R4_DNS_RESOLVER_SUSPECTED": {
+          "insufficient_evidence": 3
+        },
+        "R5_HTTP_ACCESS_FILTER_SUSPECTED": {
+          "not_matched": 3
+        },
+        "R6_SUSTAINED_CPU_HIGH": {
+          "insufficient_evidence": 3
+        }
+      }
+    },
+    "R2": {
+      "valid_faults": 3,
+      "detected": 3,
+      "target_success_end_to_end": 3,
+      "target_abstentions": 0,
+      "no_detection": 0,
+      "engine_errors": 0,
+      "review_issues": {},
+      "detection_delay_lower_seconds": {
+        "n": 3,
+        "min": 5.0,
+        "median": 10.0,
+        "max": 23.0
+      },
+      "detection_delay_upper_seconds": {
+        "n": 3,
+        "min": 5.0,
+        "median": 10.0,
+        "max": 23.0
+      },
+      "cli_elapsed_seconds": {
+        "n": 3,
+        "min": 0.5816052900008799,
+        "median": 0.6095698209992406,
+        "max": 0.6380622520000543
+      },
+      "recovery_recognition_lower_seconds": {
+        "n": 3,
+        "min": 8.0,
+        "median": 16.0,
+        "max": 21.0
+      },
+      "recovery_recognition_upper_seconds": {
+        "n": 3,
+        "min": 8.0,
+        "median": 16.0,
+        "max": 21.0
+      },
+      "run_ids": [
+        "R2-01",
+        "R2-02",
+        "R2-03"
+      ],
+      "all_rule_status_counts": {
+        "R1_HOST_OR_LOCAL_CONNECTIVITY": {
+          "not_matched": 3
+        },
+        "R2_HTTP_SERVICE_SUSPECTED": {
+          "matched": 3
+        },
+        "R3_AGENT_UNAVAILABLE": {
+          "not_matched": 3
+        },
+        "R4_DNS_RESOLVER_SUSPECTED": {
+          "insufficient_evidence": 3
+        },
+        "R5_HTTP_ACCESS_FILTER_SUSPECTED": {
+          "not_matched": 3
+        },
+        "R6_SUSTAINED_CPU_HIGH": {
+          "insufficient_evidence": 2,
+          "not_matched": 1
+        }
+      }
+    },
+    "R3": {
+      "valid_faults": 3,
+      "detected": 3,
+      "target_success_end_to_end": 3,
+      "target_abstentions": 0,
+      "no_detection": 0,
+      "engine_errors": 0,
+      "review_issues": {},
+      "detection_delay_lower_seconds": {
+        "n": 3,
+        "min": 183.0,
+        "median": 269.0,
+        "max": 295.0
+      },
+      "detection_delay_upper_seconds": {
+        "n": 3,
+        "min": 183.0,
+        "median": 269.0,
+        "max": 295.0
+      },
+      "cli_elapsed_seconds": {
+        "n": 3,
+        "min": 0.4693581869996706,
+        "median": 0.5827171430000817,
+        "max": 0.6100030690004132
+      },
+      "recovery_recognition_lower_seconds": {
+        "n": 3,
+        "min": 78.0,
+        "median": 99.0,
+        "max": 102.0
+      },
+      "recovery_recognition_upper_seconds": {
+        "n": 3,
+        "min": 79.0,
+        "median": 100.0,
+        "max": 104.0
+      },
+      "run_ids": [
+        "R3-01",
+        "R3-02",
+        "R3-03"
+      ],
+      "all_rule_status_counts": {
+        "R1_HOST_OR_LOCAL_CONNECTIVITY": {
+          "not_matched": 3
+        },
+        "R2_HTTP_SERVICE_SUSPECTED": {
+          "not_matched": 3
+        },
+        "R3_AGENT_UNAVAILABLE": {
+          "matched": 3
+        },
+        "R4_DNS_RESOLVER_SUSPECTED": {
+          "insufficient_evidence": 3
+        },
+        "R5_HTTP_ACCESS_FILTER_SUSPECTED": {
+          "not_matched": 3
+        },
+        "R6_SUSTAINED_CPU_HIGH": {
+          "insufficient_evidence": 3
+        }
+      }
+    },
+    "R4": {
+      "valid_faults": 3,
+      "detected": 3,
+      "target_success_end_to_end": 3,
+      "target_abstentions": 0,
+      "no_detection": 0,
+      "engine_errors": 0,
+      "review_issues": {},
+      "detection_delay_lower_seconds": {
+        "n": 3,
+        "min": 69.0,
+        "median": 77.0,
+        "max": 83.0
+      },
+      "detection_delay_upper_seconds": {
+        "n": 3,
+        "min": 69.0,
+        "median": 77.0,
+        "max": 83.0
+      },
+      "cli_elapsed_seconds": {
+        "n": 3,
+        "min": 0.5636634089996733,
+        "median": 0.7660349299994778,
+        "max": 1.687615179000204
+      },
+      "recovery_recognition_lower_seconds": {
+        "n": 3,
+        "min": 1.0,
+        "median": 8.0,
+        "max": 19.0
+      },
+      "recovery_recognition_upper_seconds": {
+        "n": 3,
+        "min": 1.0,
+        "median": 8.0,
+        "max": 19.0
+      },
+      "run_ids": [
+        "R4-01",
+        "R4-02",
+        "R4-03"
+      ],
+      "all_rule_status_counts": {
+        "R1_HOST_OR_LOCAL_CONNECTIVITY": {
+          "not_matched": 3
+        },
+        "R2_HTTP_SERVICE_SUSPECTED": {
+          "not_matched": 3
+        },
+        "R3_AGENT_UNAVAILABLE": {
+          "not_matched": 3
+        },
+        "R4_DNS_RESOLVER_SUSPECTED": {
+          "matched": 3
+        },
+        "R5_HTTP_ACCESS_FILTER_SUSPECTED": {
+          "not_matched": 3
+        },
+        "R6_SUSTAINED_CPU_HIGH": {
+          "not_matched": 3
+        }
+      }
+    },
+    "R5": {
+      "valid_faults": 3,
+      "detected": 3,
+      "target_success_end_to_end": 3,
+      "target_abstentions": 0,
+      "no_detection": 0,
+      "engine_errors": 0,
+      "review_issues": {},
+      "detection_delay_lower_seconds": {
+        "n": 3,
+        "min": 16.0,
+        "median": 24.0,
+        "max": 34.0
+      },
+      "detection_delay_upper_seconds": {
+        "n": 3,
+        "min": 16.0,
+        "median": 24.0,
+        "max": 34.0
+      },
+      "cli_elapsed_seconds": {
+        "n": 3,
+        "min": 2.4460983559984015,
+        "median": 2.5899169489994165,
+        "max": 2.646103492000293
+      },
+      "recovery_recognition_lower_seconds": {
+        "n": 3,
+        "min": 3.0,
+        "median": 14.0,
+        "max": 25.0
+      },
+      "recovery_recognition_upper_seconds": {
+        "n": 3,
+        "min": 3.0,
+        "median": 14.0,
+        "max": 25.0
+      },
+      "run_ids": [
+        "R5-01",
+        "R5-02",
+        "R5-03-retry1"
+      ],
+      "all_rule_status_counts": {
+        "R1_HOST_OR_LOCAL_CONNECTIVITY": {
+          "not_matched": 3
+        },
+        "R2_HTTP_SERVICE_SUSPECTED": {
+          "not_matched": 3
+        },
+        "R3_AGENT_UNAVAILABLE": {
+          "not_matched": 3
+        },
+        "R4_DNS_RESOLVER_SUSPECTED": {
+          "insufficient_evidence": 3
+        },
+        "R5_HTTP_ACCESS_FILTER_SUSPECTED": {
+          "matched": 3
+        },
+        "R6_SUSTAINED_CPU_HIGH": {
+          "not_matched": 2,
+          "insufficient_evidence": 1
+        }
+      }
+    },
+    "R6": {
+      "valid_faults": 3,
+      "detected": 3,
+      "target_success_end_to_end": 3,
+      "target_abstentions": 0,
+      "no_detection": 0,
+      "engine_errors": 0,
+      "review_issues": {},
+      "detection_delay_lower_seconds": {
+        "n": 3,
+        "min": 316.0,
+        "median": 356.0,
+        "max": 391.0
+      },
+      "detection_delay_upper_seconds": {
+        "n": 3,
+        "min": 316.0,
+        "median": 356.0,
+        "max": 391.0
+      },
+      "cli_elapsed_seconds": {
+        "n": 3,
+        "min": 0.4869947229999525,
+        "median": 0.5020442150016606,
+        "max": 0.5221729459990456
+      },
+      "recovery_recognition_lower_seconds": {
+        "n": 3,
+        "min": 32.0,
+        "median": 46.0,
+        "max": 51.0
+      },
+      "recovery_recognition_upper_seconds": {
+        "n": 3,
+        "min": 32.0,
+        "median": 46.0,
+        "max": 51.0
+      },
+      "run_ids": [
+        "R6-01",
+        "R6-02",
+        "R6-03"
+      ],
+      "all_rule_status_counts": {
+        "R1_HOST_OR_LOCAL_CONNECTIVITY": {
+          "not_matched": 3
+        },
+        "R2_HTTP_SERVICE_SUSPECTED": {
+          "not_matched": 3
+        },
+        "R3_AGENT_UNAVAILABLE": {
+          "not_matched": 3
+        },
+        "R4_DNS_RESOLVER_SUSPECTED": {
+          "insufficient_evidence": 3
+        },
+        "R5_HTTP_ACCESS_FILTER_SUSPECTED": {
+          "not_matched": 3
+        },
+        "R6_SUSTAINED_CPU_HIGH": {
+          "matched": 3
+        }
+      }
+    }
+  },
+  "formulas": {
+    "detection_rate": "detected valid faults / all valid faults",
+    "target_success_end_to_end": "valid faults with target matched and no review issues / all valid faults",
+    "cli_elapsed": "wall monotonic time of API + collection + rules + SQLite; not pure inference time",
+    "detection_bounds": "problem_clock minus fault_after / fault_before; add +/- 1 s for timestamp quantization",
+    "recovery_bounds": "recovery_clock minus rollback_after / rollback_before; not actual downtime"
+  },
+  "limitations": [
+    "Three valid fault trials per class on one small lab.",
+    "Baseline is 1806 seconds, not four hours; no engine false-positive rate can be inferred.",
+    "No healthy negative dataset was defined, so specificity, TN-based accuracy, and false-positive rate are not estimated.",
+    "R2/R5 not applicable under HTTP absent are excluded from negative counts.",
+    "Secondary insufficient_evidence results remain abstentions, not healthy negatives.",
+    "Clock quantization bounds do not measure residual NTP error; system clocks report synchronized."
+  ],
+  "complete_18_valid_faults": true
+}

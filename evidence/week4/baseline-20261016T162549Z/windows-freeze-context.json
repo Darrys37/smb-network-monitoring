@@ -1,0 +1,135 @@
+{
+  "git_head": "4cabeb0d891cdc32444e773eaf81927d0b686e79",
+  "source_commit": "ca04071",
+  "config_commit": "978b4f9",
+  "docs_commit": "4cabeb0",
+  "recorded_at_utc": "2026-10-16T16:24:27.4457299Z",
+  "srv01_virtualbox": [
+    "name=\"SRV01\"",
+    "memory=3048",
+    "cpuexecutioncap=100",
+    "cpus=1",
+    "VMState=\"running\"",
+    "nic1=\"nat\"",
+    "hostonlyadapter2=\"VirtualBox Host-Only Ethernet Adapter\"",
+    "nic2=\"hostonly\""
+  ],
+  "git_status": "?? evidence/week4/pre-freeze-20261016/",
+  "source_hashes": [
+    {
+      "sha256": "f94a8ac45c584e7c176504fb32624ca19a77769eaf9267432841475a5e805fba",
+      "name": "app.py"
+    },
+    {
+      "sha256": "9c88ecc6cb709f9761b27ec63c0c956e209a3e55137d8806d99597888021d65e",
+      "name": "check_events.py"
+    },
+    {
+      "sha256": "af63fb365baf99d01aaecda5a4af25f0d6e496cac444fd1d9614d98b4803c44c",
+      "name": "check_evidence.py"
+    },
+    {
+      "sha256": "022409eabe5ac5254c0afb168ea95ad2043ebab05db124f4a422eed578ada438",
+      "name": "dns_probe.py"
+    },
+    {
+      "sha256": "8e79813df6982ffef6db16a86911e6c7c965caf96c22ed6ffdecceeea1740af7",
+      "name": "event_parser.py"
+    },
+    {
+      "sha256": "a982b7126af2033f4616fdfd912ec48f22eaa65b884c09269a00a9b7644c863e",
+      "name": "evidence.py"
+    },
+    {
+      "sha256": "4bb9972ac95af204e5c96147e70ab68d5d448251b441954b3900be28bde69cb5",
+      "name": "http_evidence.py"
+    },
+    {
+      "sha256": "2bd3d25b286d394212a065abb7b7154a53457992d2c26da4137cb87227d2bcc2",
+      "name": "http_probe.py"
+    },
+    {
+      "sha256": "42a2e790e6badc40e1f5ccd5cda6ceb94d53657cf03bbb3a39d41a25b66eabc0",
+      "name": "models.py"
+    },
+    {
+      "sha256": "c809c969ec7e11b9ff37784e9c6fcc0b7c5148d168e18b05aed797e03fbd6ead",
+      "name": "pytest.ini"
+    },
+    {
+      "sha256": "4222edf7e9e2b992ba33f686c3fd4ec1e10995b7270335d609d0cf893fa22ac1",
+      "name": "recovery.py"
+    },
+    {
+      "sha256": "e77be30b1e7e49df2fee171eb435b22a1fa2af37512b4b0ba9522d75faef2314",
+      "name": "report.py"
+    },
+    {
+      "sha256": "40637f9850d566611da671a23af29cfc6b3715351dda26180a862c4144c95a89",
+      "name": "repository.py"
+    },
+    {
+      "sha256": "b0306ff41f54551aaca52eea2907ccbf05fe33a3b3df871650d7d4b02df31f33",
+      "name": "requirements.txt"
+    },
+    {
+      "sha256": "5be7975c7c029647b4542c56d5cdb1c53dbb9a71baf224d91abf137e4c7c6ac8",
+      "name": "roadmap_evidence.py"
+    },
+    {
+      "sha256": "46dfaf6e163787104248507ed9a0a8458980ae519d7d56b98a064aed913751b0",
+      "name": "roadmap_rules.py"
+    },
+    {
+      "sha256": "360f4e4ef9a17d96e43eeaa88fa032a20a6250dba252d7c52005c5a4dfce7024",
+      "name": "rules.py"
+    },
+    {
+      "sha256": "ab19099e478d9cc25b616b360ec384336c80c56cb0e7a2b40b4d5abf5ce0e540",
+      "name": "save_events.py"
+    },
+    {
+      "sha256": "7d0e5318bd8780dc76810a7b3a9dbaf296dde0b939c47b7e3678635aff967f23",
+      "name": "scan_git_token.py"
+    },
+    {
+      "sha256": "7501a7fd85e291e787d45ffd0c02fbf43dee32367df11529c04fdb4ea1138b59",
+      "name": "zabbix_client.py"
+    },
+    {
+      "sha256": "4248d66a661663862c370ff4ead9d836cf6288a7d7fd6a36a7eb368beed85118",
+      "name": "zabbix-client.py"
+    }
+  ],
+  "export_hashes": [
+    {
+      "sha256": "96edd044fe9e11139b33b3ed7c7187d3f25bd73f7540320cfec900e8b7596da7",
+      "name": "PHIEU_THU_VA_18_RUN_TUAN4.md"
+    },
+    {
+      "sha256": "bfaeb00ecdb7ad4e07de593423cc7007d512b47550223bb7abd89f8665d49481",
+      "name": "Zabbix server health.yaml"
+    },
+    {
+      "sha256": "616d29993331abc984a6df017a360ce4ae2a646ff082544a66eaac8ac79ed115",
+      "name": "zbx_export_hosts.yaml"
+    },
+    {
+      "sha256": "6d4ebc020d78ff90791fa54e7bf2e407cfc0b8d9c5a972fbecc659d735ffa889",
+      "name": "zbx_export_templates.yaml"
+    }
+  ],
+  "battery": [
+    {
+      "BatteryStatus": 2,
+      "EstimatedChargeRemaining": 27
+    }
+  ],
+  "ac_sleep_seconds": 0,
+  "old_baseline": {
+    "end_utc": "2026-10-16T04:15:08+00:00",
+    "wall_seconds": 158,
+    "start_utc": "2026-10-16T04:12:30+00:00",
+    "status": "stopped_early_not_four_hour_baseline"
+  }
+}

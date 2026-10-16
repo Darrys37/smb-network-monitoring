@@ -1,0 +1,21 @@
+Event: 979 Linux: High CPU utilization (over 90% for 5m)
+Event timestamp: 1792186717
+Collection started: 1792186717
+Evidence records: 10
+Assessment uses current evidence.
+R1_HOST_OR_LOCAL_CONNECTIVITY not_matched
+  Reason: Target responded to ICMP or TCP.
+R2_HTTP_SERVICE_SUSPECTED not_matched
+  Reason: Target ping=success, TCP80=success.
+R3_AGENT_UNAVAILABLE not_matched
+  Reason: A recent agent.ping sample exists.
+R4_DNS_RESOLVER_SUSPECTED insufficient_evidence
+  Reason: DNS target not configured.
+  Missing: Actual application name and CLI01 DNS evidence.
+R5_HTTP_ACCESS_FILTER_SUSPECTED not_matched
+  Reason: No isolated remote HTTP connection failure with working ICMP.
+R6_SUSTAINED_CPU_HIGH matched
+  Reason: Mean CPU=100.00% over 300s; threshold=90%; load=1.02, CPUs=1.
+  Missing: Response-time baseline and top processes; CPU and load suggest but do not prove overload.
+  Next: Compare load and response time; inspect top processes.
+Saved incident ID: 36

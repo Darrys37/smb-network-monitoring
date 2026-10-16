@@ -1,0 +1,338 @@
+{
+  "schema_version": 2,
+  "assessment_basis": "Stored evidence from the diagnosis run; not necessarily the state at event time.",
+  "recovery_status": "not_recorded",
+  "lifecycle_status": "unverified",
+  "recovery": null,
+  "has_evidence_and_diagnoses": true,
+  "incident": {
+    "id": 24,
+    "event_id": "943",
+    "clock": 1792171321,
+    "name": "SRV01: HTTP check failed",
+    "severity": 3,
+    "value": 1,
+    "created_at": "2026-10-16 17:22:38",
+    "hosts": [
+      {
+        "host_id": "10683",
+        "host": "SRV01",
+        "name": "SRV01"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "id": 129,
+      "incident_id": 24,
+      "check_type": "ping",
+      "target": "192.168.56.20",
+      "collected_at": 1792171357,
+      "result": {
+        "timeout_seconds": 2,
+        "process_timeout_seconds": 3,
+        "returncode": 0,
+        "stdout": "PING 192.168.56.20 (192.168.56.20) 56(84) bytes of data.\n64 bytes from 192.168.56.20: icmp_seq=1 ttl=64 time=1.49 ms\n\n--- 192.168.56.20 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 1.490/1.490/1.490/0.000 ms",
+        "stderr": "",
+        "status": "success",
+        "duration_ms": 10.59
+      }
+    },
+    {
+      "id": 130,
+      "incident_id": 24,
+      "check_type": "tcp",
+      "target": "192.168.56.20",
+      "collected_at": 1792171357,
+      "result": {
+        "port": 80,
+        "timeout_seconds": 2,
+        "error": "[Errno 111] Connection refused",
+        "errno": 111,
+        "status": "refused",
+        "duration_ms": 0.99
+      }
+    },
+    {
+      "id": 131,
+      "incident_id": 24,
+      "check_type": "metric",
+      "target": "10683",
+      "collected_at": 1792171357,
+      "result": {
+        "key": "system.cpu.util",
+        "units": "%",
+        "max_age_seconds": 180,
+        "status": "success",
+        "value": 15.796154999999999,
+        "sample_clock": 1792171357,
+        "age_seconds": 0,
+        "item_id": "50822",
+        "raw_value": "15.796154999999999",
+        "error": ""
+      }
+    },
+    {
+      "id": 132,
+      "incident_id": 24,
+      "check_type": "metric",
+      "target": "10683",
+      "collected_at": 1792171357,
+      "result": {
+        "key": "vm.memory.util",
+        "units": "%",
+        "max_age_seconds": 180,
+        "status": "success",
+        "value": 16.099660999999998,
+        "sample_clock": 1792171319,
+        "age_seconds": 38,
+        "item_id": "50823",
+        "raw_value": "16.099660999999998",
+        "error": ""
+      }
+    },
+    {
+      "id": 133,
+      "incident_id": 24,
+      "check_type": "metric",
+      "target": "10683",
+      "collected_at": 1792171357,
+      "result": {
+        "key": "system.cpu.load[all,avg1]",
+        "units": "",
+        "max_age_seconds": 180,
+        "status": "success",
+        "value": 0.0,
+        "sample_clock": 1792171351,
+        "age_seconds": 6,
+        "item_id": "50791",
+        "raw_value": "0",
+        "error": ""
+      }
+    },
+    {
+      "id": 134,
+      "incident_id": 24,
+      "check_type": "metric",
+      "target": "10683",
+      "collected_at": 1792171357,
+      "result": {
+        "key": "vfs.fs.dependent.size[/,pused]",
+        "units": "%",
+        "max_age_seconds": 180,
+        "status": "success",
+        "value": 53.128984639735606,
+        "sample_clock": 1792171317,
+        "age_seconds": 40,
+        "item_id": "50856",
+        "raw_value": "53.128984639735606",
+        "error": ""
+      }
+    },
+    {
+      "id": 135,
+      "incident_id": 24,
+      "check_type": "tcp",
+      "target": "192.168.56.20",
+      "collected_at": 1792171357,
+      "result": {
+        "port": 10050,
+        "timeout_seconds": 2,
+        "error": "",
+        "errno": null,
+        "status": "success",
+        "duration_ms": 3.12
+      }
+    },
+    {
+      "id": 136,
+      "incident_id": 24,
+      "check_type": "agent_metric",
+      "target": "10683",
+      "collected_at": 1792171357,
+      "result": {
+        "key": "agent.ping",
+        "status": "success",
+        "max_age_seconds": 180,
+        "item": {
+          "itemid": "50782",
+          "key_": "agent.ping",
+          "value_type": "3",
+          "status": "0",
+          "units": "",
+          "state": "0",
+          "error": "",
+          "lastclock": "1792171342",
+          "lastvalue": "1"
+        },
+        "sample_clock": 1792171342
+      }
+    },
+    {
+      "id": 137,
+      "incident_id": 24,
+      "check_type": "cpu_history",
+      "target": "10683",
+      "collected_at": 1792171358,
+      "result": {
+        "key": "system.cpu.util",
+        "units": "%",
+        "status": "success",
+        "window_seconds": 300,
+        "samples": [
+          {
+            "clock": 1792171117,
+            "value": 15.098786000000004
+          },
+          {
+            "clock": 1792171177,
+            "value": 15.702927000000003
+          },
+          {
+            "clock": 1792171237,
+            "value": 12.575952999999998
+          },
+          {
+            "clock": 1792171297,
+            "value": 13.870327000000003
+          },
+          {
+            "clock": 1792171357,
+            "value": 15.796154999999999
+          }
+        ],
+        "support_items": {
+          "system.cpu.num": {
+            "itemid": "50793",
+            "key_": "system.cpu.num",
+            "value_type": "3",
+            "status": "0",
+            "units": "",
+            "state": "0",
+            "error": "",
+            "lastclock": "1792166793",
+            "lastvalue": "1"
+          },
+          "system.cpu.load[all,avg1]": {
+            "itemid": "50791",
+            "key_": "system.cpu.load[all,avg1]",
+            "value_type": "0",
+            "status": "0",
+            "units": "",
+            "state": "0",
+            "error": "",
+            "lastclock": "1792171351",
+            "lastvalue": "0"
+          }
+        },
+        "item_id": "50822"
+      }
+    },
+    {
+      "id": 138,
+      "incident_id": 24,
+      "check_type": "ping",
+      "target": "192.168.56.30",
+      "collected_at": 1792171358,
+      "result": {
+        "timeout_seconds": 2,
+        "process_timeout_seconds": 3,
+        "returncode": 0,
+        "stdout": "PING 192.168.56.30 (192.168.56.30) 56(84) bytes of data.\n64 bytes from 192.168.56.30: icmp_seq=1 ttl=64 time=1.20 ms\n\n--- 192.168.56.30 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 1.202/1.202/1.202/0.000 ms",
+        "stderr": "",
+        "status": "success",
+        "duration_ms": 11.25
+      }
+    },
+    {
+      "id": 139,
+      "incident_id": 24,
+      "check_type": "local_http",
+      "target": "192.168.56.20",
+      "collected_at": 1792171348,
+      "result": {
+        "observer": "srv01",
+        "port": 80,
+        "path": "/",
+        "local_address_verified": true,
+        "status": "failed",
+        "http_status": null,
+        "error": "[Errno 111] Connection refused"
+      }
+    }
+  ],
+  "diagnoses": [
+    {
+      "id": 77,
+      "incident_id": 24,
+      "rule_id": "R1_HOST_OR_LOCAL_CONNECTIVITY",
+      "status": "not_matched",
+      "probable_cause": null,
+      "reasoning": "Target responded to ICMP or TCP.",
+      "created_at": "2026-10-16 17:22:38",
+      "missing_info": [],
+      "next_actions": []
+    },
+    {
+      "id": 78,
+      "incident_id": 24,
+      "rule_id": "R2_HTTP_SERVICE_SUSPECTED",
+      "status": "matched",
+      "probable_cause": "Host ping works; TCP80=refused; local HTTP=failed. Service/listener or active rejection suspected.",
+      "reasoning": "Host ping works; TCP80=refused; local HTTP=failed. Service/listener or active rejection suspected.",
+      "created_at": "2026-10-16 17:22:38",
+      "missing_info": [
+        "Service state, listening sockets and firewall policy; refusal alone does not prove nginx stopped."
+      ],
+      "next_actions": [
+        "On target inspect systemctl status nginx, ss -lntp and firewall rules."
+      ]
+    },
+    {
+      "id": 79,
+      "incident_id": 24,
+      "rule_id": "R3_AGENT_UNAVAILABLE",
+      "status": "not_matched",
+      "probable_cause": null,
+      "reasoning": "A recent agent.ping sample exists.",
+      "created_at": "2026-10-16 17:22:38",
+      "missing_info": [],
+      "next_actions": []
+    },
+    {
+      "id": 80,
+      "incident_id": 24,
+      "rule_id": "R4_DNS_RESOLVER_SUSPECTED",
+      "status": "insufficient_evidence",
+      "probable_cause": null,
+      "reasoning": "DNS target not configured.",
+      "created_at": "2026-10-16 17:22:38",
+      "missing_info": [
+        "Actual application name and CLI01 DNS evidence."
+      ],
+      "next_actions": []
+    },
+    {
+      "id": 81,
+      "incident_id": 24,
+      "rule_id": "R5_HTTP_ACCESS_FILTER_SUSPECTED",
+      "status": "not_matched",
+      "probable_cause": null,
+      "reasoning": "Remote ping=success, TCP80=refused; HTTP on target's own service IP=failed. The evidence does not meet R5 conditions for suspected filtering/access-path failure.",
+      "created_at": "2026-10-16 17:22:38",
+      "missing_info": [],
+      "next_actions": []
+    },
+    {
+      "id": 82,
+      "incident_id": 24,
+      "rule_id": "R6_SUSTAINED_CPU_HIGH",
+      "status": "not_matched",
+      "probable_cause": null,
+      "reasoning": "Mean CPU=14.61%; below 90%.",
+      "created_at": "2026-10-16 17:22:38",
+      "missing_info": [],
+      "next_actions": []
+    }
+  ]
+}

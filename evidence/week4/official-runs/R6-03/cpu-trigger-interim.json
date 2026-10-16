@@ -1,0 +1,75 @@
+{
+  "checked_at": 1792186702,
+  "cpu": {
+    "check_type": "cpu_history",
+    "target": "10683",
+    "collected_at": 1792186702,
+    "result": {
+      "key": "system.cpu.util",
+      "units": "%",
+      "status": "success",
+      "window_seconds": 300,
+      "samples": [
+        {
+          "clock": 1792186417,
+          "value": 100.0
+        },
+        {
+          "clock": 1792186477,
+          "value": 100.0
+        },
+        {
+          "clock": 1792186537,
+          "value": 100.0
+        },
+        {
+          "clock": 1792186597,
+          "value": 100.0
+        },
+        {
+          "clock": 1792186657,
+          "value": 100.0
+        }
+      ],
+      "support_items": {
+        "system.cpu.num": {
+          "itemid": "50793",
+          "key_": "system.cpu.num",
+          "value_type": "3",
+          "status": "0",
+          "units": "",
+          "state": "0",
+          "error": "",
+          "lastclock": "1792166793",
+          "lastvalue": "1"
+        },
+        "system.cpu.load[all,avg1]": {
+          "itemid": "50791",
+          "key_": "system.cpu.load[all,avg1]",
+          "value_type": "0",
+          "status": "0",
+          "units": "",
+          "state": "0",
+          "error": "",
+          "lastclock": "1792186651",
+          "lastvalue": "1.067383"
+        }
+      },
+      "item_id": "50822"
+    }
+  },
+  "triggers": [
+    {
+      "triggerid": "25249",
+      "value": "0",
+      "lastchange": "1792166791",
+      "error": ""
+    },
+    {
+      "triggerid": "25250",
+      "value": "0",
+      "lastchange": "1792186057",
+      "error": ""
+    }
+  ]
+}

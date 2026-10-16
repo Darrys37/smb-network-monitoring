@@ -1,0 +1,22 @@
+Event: 971 SRV01: HTTP check failed
+Event timestamp: 1792174056
+Collection started: 1792174087
+Evidence records: 11
+Assessment uses current evidence.
+R1_HOST_OR_LOCAL_CONNECTIVITY not_matched
+  Reason: Target responded to ICMP or TCP.
+R2_HTTP_SERVICE_SUSPECTED not_matched
+  Reason: HTTP200 on the target's own service IP; a simple stopped-service hypothesis is not supported. Check R5.
+R3_AGENT_UNAVAILABLE not_matched
+  Reason: A recent agent.ping sample exists.
+R4_DNS_RESOLVER_SUSPECTED insufficient_evidence
+  Reason: DNS target not configured.
+  Missing: Actual application name and CLI01 DNS evidence.
+R5_HTTP_ACCESS_FILTER_SUSPECTED matched
+  Reason: Remote ping=success, TCP80=timeout; HTTP on target's own service IP=success. Filtering/access-path failure is suspected, not proven firewall causation.
+  Missing: Read firewall rules and relevant packet counters; compare another remote observer. Local HTTP does not traverse the same ingress path.
+  Next: Inspect SRV01 firewall and routes; compare HTTP from CLI01 before attributing cause.
+R6_SUSTAINED_CPU_HIGH insufficient_evidence
+  Reason: CPU history is sparse, stale or invalid.
+  Missing: At least 240s coverage, max 120s gap, latest sample <=180s old.
+Saved incident ID: 32

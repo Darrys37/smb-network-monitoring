@@ -1,0 +1,30 @@
+{
+  "run_id": "R5-03",
+  "scenario": "R5",
+  "source_commit": "ca04071",
+  "config_commit": "978b4f9",
+  "docs_commit": "4cabeb0",
+  "host_id": "10683",
+  "target_ip": "192.168.56.20",
+  "control_ip": "192.168.56.30",
+  "http_scope": "expected",
+  "observer": "mon01",
+  "watch_start_utc": "2026-10-16T18:09:35.748469+00:00",
+  "status": "no_detection",
+  "measurement_note": "Fault/rollback timestamps come from independent SRV01 log; watch start is not fault time.",
+  "preflight": {
+    "start_utc": "2026-10-16T18:09:35.783830+00:00",
+    "end_utc": "2026-10-16T18:09:38.068618+00:00",
+    "elapsed_seconds": 2.2847890000002735,
+    "exit_code": 0,
+    "args": [
+      "bash",
+      "-c",
+      "date -u -Is; ping -c 2 -W 2 192.168.56.20 && ping -c 2 -W 2 192.168.56.30 && curl --fail --max-time 5 -s -o /dev/null -w \"HTTP %{http_code}\\n\" http://192.168.56.20/"
+    ]
+  },
+  "ready_at_utc": "2026-10-16T18:09:38.068649+00:00",
+  "expected_trigger_id": "25334",
+  "detection": false,
+  "finished_at_utc": "2026-10-16T18:14:40.345060+00:00"
+}

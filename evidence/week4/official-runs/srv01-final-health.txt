@@ -1,0 +1,8 @@
+2026-10-16T21:39:54+00:00
+srv01
+NTPSynchronized=yes
+active
+active
+NO_STRESS
+HTTP 200
+NEXT                            LEFT LAST                              PASSED UNIT                           ACTIVATES

@@ -1,0 +1,5 @@
+host	linked_template
+Zabbix server	Linux by Zabbix agent
+Zabbix server	Zabbix server health
+SRV01	Linux by Zabbix agent
+CLI01	Linux by Zabbix agent

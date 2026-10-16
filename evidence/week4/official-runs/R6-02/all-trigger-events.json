@@ -1,0 +1,56 @@
+[
+  {
+    "eventid": "977",
+    "source": "0",
+    "object": "0",
+    "objectid": "25250",
+    "clock": "1792185997",
+    "value": "1",
+    "acknowledged": "0",
+    "ns": "732541028",
+    "name": "Linux: High CPU utilization (over 90% for 5m)",
+    "severity": "2",
+    "r_eventid": "978",
+    "c_eventid": "0",
+    "correlationid": "0",
+    "userid": "0",
+    "suppressed": "0",
+    "cause_eventid": "0",
+    "hosts": [
+      {
+        "hostid": "10683",
+        "host": "SRV01",
+        "name": "SRV01"
+      }
+    ],
+    "opdata": "Current utilization: 20.065 %",
+    "urls": []
+  },
+  {
+    "eventid": "978",
+    "source": "0",
+    "object": "0",
+    "objectid": "25250",
+    "clock": "1792186057",
+    "value": "0",
+    "acknowledged": "0",
+    "ns": "736026272",
+    "name": "Linux: High CPU utilization (over 90% for 5m)",
+    "severity": "0",
+    "r_eventid": "0",
+    "c_eventid": "0",
+    "correlationid": "0",
+    "userid": "0",
+    "suppressed": "0",
+    "cause_eventid": "0",
+    "hosts": [
+      {
+        "hostid": "10683",
+        "host": "SRV01",
+        "name": "SRV01"
+      }
+    ],
+    "opdata": "Current utilization: 20.065 %",
+    "urls": []
+  }
+]

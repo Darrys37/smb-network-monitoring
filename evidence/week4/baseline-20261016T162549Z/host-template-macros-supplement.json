@@ -1,0 +1,23 @@
+{
+  "hosts": [
+    {
+      "hostid": "10084",
+      "host": "Zabbix server",
+      "macros": [],
+      "parentTemplates": []
+    },
+    {
+      "hostid": "10683",
+      "host": "SRV01",
+      "macros": [],
+      "parentTemplates": []
+    },
+    {
+      "hostid": "10684",
+      "host": "CLI01",
+      "macros": [],
+      "parentTemplates": []
+    }
+  ],
+  "templates": []
+}

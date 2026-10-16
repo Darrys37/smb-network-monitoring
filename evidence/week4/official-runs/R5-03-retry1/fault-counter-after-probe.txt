@@ -1,0 +1,7 @@
+2026-10-16T21:08:47+00:00
+table inet trial_r5_03_retry1 {
+	chain input {
+		type filter hook input priority filter; policy accept;
+		ip saddr 192.168.56.10 tcp dport 80 counter packets 12 bytes 720 drop
+	}
+}

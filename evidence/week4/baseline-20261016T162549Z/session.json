@@ -1,0 +1,29 @@
+{
+  "status": "recorded_pending_review",
+  "start_epoch": 1792167968,
+  "start_utc": "2026-10-16T16:26:08+00:00",
+  "planned_end_utc": "2026-10-16T20:26:08+00:00",
+  "duration_target_seconds": 14400,
+  "freeze_at_utc": "2026-10-16T16:26:08+00:00",
+  "poll_interval_seconds": 60,
+  "pid": 2323,
+  "preflight": {
+    "prepared_at_utc": "2026-10-16T16:25:49.668483+00:00",
+    "config_sha256": "e0793a708114baf45cae1e8636a58a0beef6c9b652bf5923f3e35b2ad1e59716",
+    "source_sha256": "e790c3f7633a4fedb04baf6374839e7d32be9a407a5906e28413f8ee52e333dd",
+    "sqlite_integrity_check": "ok",
+    "source_commit": "ca04071",
+    "config_export_commit": "978b4f9",
+    "protocol_commit": "4cabeb0",
+    "git_head": "4cabeb0d891cdc32444e773eaf81927d0b686e79",
+    "freeze_note": "Effective configuration snapshot is authoritative for this session; reference export is older.",
+    "scope": "Zabbix baseline only; no engine false-positive rate inferred"
+  },
+  "end_epoch": 1792169774,
+  "end_utc": "2026-10-16T16:56:14+00:00",
+  "wall_seconds": 1806,
+  "stopped_early": true,
+  "config_unchanged": true,
+  "source_unchanged": true,
+  "review_required": "Check sample gaps, uptime resets, configuration, and classify every new problem before reporting valid duration or false alerts."
+}

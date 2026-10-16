@@ -1,0 +1,39 @@
+2026-10-16T17:58:18+00:00
+cli01
+7.0.0-34-generic
+NTPSynchronized=yes
+active
+Global
+         Protocols: -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+  resolv.conf mode: stub
+
+Link 2 (enp0s3)
+    Current Scopes: DNS
+         Protocols: +DefaultRoute -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+Current DNS Server: 1.1.1.1
+       DNS Servers: 1.1.1.1 1.0.0.1 fd17:625c:f037:2::3
+     Default Route: yes
+
+Link 3 (enp0s8)
+    Current Scopes: none
+         Protocols: -DefaultRoute -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+     Default Route: no
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 59582
+PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
+64 bytes from 1.1.1.1: icmp_seq=1 ttl=64 time=47.1 ms
+64 bytes from 1.1.1.1: icmp_seq=2 ttl=64 time=47.5 ms
+
+--- 1.1.1.1 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+rtt min/avg/max/mdev = 47.073/47.281/47.490/0.208 ms
+Running timer as unit: r4-03-failsafe.timer
+Will run service as unit: r4-03-failsafe.service
+FAULT_BEFORE 2026-10-16T17:58:19+00:00
+FAULT_AFTER 2026-10-16T17:58:19+00:00
+table inet trial_r4_03 {
+	chain output {
+		type filter hook output priority filter; policy accept;
+		udp dport 53 counter packets 0 bytes 0 drop
+		tcp dport 53 counter packets 0 bytes 0 drop
+	}
+}

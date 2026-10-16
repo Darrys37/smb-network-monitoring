@@ -1,0 +1,12 @@
+stress-ng: info:  [4900] setting to a 12 mins run per stressor
+stress-ng: info:  [4900] dispatching hogs: 1 cpu
+stress-ng: info:  [4903] cpu: for stable load results, select a specific cpu stress method with --cpu-method other than 'all'
+stress-ng: info:  [4900] stopping 1 stressors
+stress-ng: metrc: [4900] stressor       bogo ops real time  usr time  sys time   bogo ops/s     bogo ops/s
+stress-ng: metrc: [4900]                           (secs)    (secs)    (secs)   (real time) (usr+sys time)
+stress-ng: metrc: [4900] cpu              457918    419.57    114.44    298.10      1091.39        1110.01
+stress-ng: info:  [4900] skipped: 0
+stress-ng: info:  [4900] passed: 1: cpu (1)
+stress-ng: info:  [4900] failed: 0
+stress-ng: info:  [4900] metrics untrustworthy: 0
+stress-ng: info:  [4900] successful run completed in 6 mins 59.58 secs

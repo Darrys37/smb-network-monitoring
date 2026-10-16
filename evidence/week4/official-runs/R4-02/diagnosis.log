@@ -1,0 +1,20 @@
+Event: 965 CLI01: DNS resolution failed for example.com
+Event timestamp: 1792173251
+Collection started: 1792173339
+Evidence records: 12
+Assessment uses current evidence.
+R1_HOST_OR_LOCAL_CONNECTIVITY not_matched
+  Reason: Target responded to ICMP or TCP.
+R2_HTTP_SERVICE_SUSPECTED not_matched
+  Reason: Not applicable: HTTP service is declared absent on this host. This does not establish overall host health.
+R3_AGENT_UNAVAILABLE not_matched
+  Reason: A recent agent.ping sample exists.
+R4_DNS_RESOLVER_SUSPECTED matched
+  Reason: IP control works on cli01; DNS status=timeout, rcode=None.
+  Missing: Expected name/IP, intended resolver and resolver configuration; NXDOMAIN may be a spelling/name issue.
+  Next: Compare CLI01 resolver settings and query the intended resolver.
+R5_HTTP_ACCESS_FILTER_SUSPECTED not_matched
+  Reason: Not applicable: HTTP service is declared absent on this host. This does not establish overall host health.
+R6_SUSTAINED_CPU_HIGH not_matched
+  Reason: Mean CPU=13.80%; below 90%.
+Saved incident ID: 29

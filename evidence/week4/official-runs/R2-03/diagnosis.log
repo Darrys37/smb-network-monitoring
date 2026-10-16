@@ -1,0 +1,21 @@
+Event: 943 SRV01: HTTP check failed
+Event timestamp: 1792171321
+Collection started: 1792171357
+Evidence records: 11
+Assessment uses current evidence.
+R1_HOST_OR_LOCAL_CONNECTIVITY not_matched
+  Reason: Target responded to ICMP or TCP.
+R2_HTTP_SERVICE_SUSPECTED matched
+  Reason: Host ping works; TCP80=refused; local HTTP=failed. Service/listener or active rejection suspected.
+  Missing: Service state, listening sockets and firewall policy; refusal alone does not prove nginx stopped.
+  Next: On target inspect systemctl status nginx, ss -lntp and firewall rules.
+R3_AGENT_UNAVAILABLE not_matched
+  Reason: A recent agent.ping sample exists.
+R4_DNS_RESOLVER_SUSPECTED insufficient_evidence
+  Reason: DNS target not configured.
+  Missing: Actual application name and CLI01 DNS evidence.
+R5_HTTP_ACCESS_FILTER_SUSPECTED not_matched
+  Reason: Remote ping=success, TCP80=refused; HTTP on target's own service IP=failed. The evidence does not meet R5 conditions for suspected filtering/access-path failure.
+R6_SUSTAINED_CPU_HIGH not_matched
+  Reason: Mean CPU=14.61%; below 90%.
+Saved incident ID: 24

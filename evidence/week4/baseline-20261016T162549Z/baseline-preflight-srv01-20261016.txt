@@ -1,0 +1,33 @@
+2026-10-16T16:23:37+00:00
+srv01
+7.0.0-34-generic
+1
+ 16:23:37 up 20 min,  3 users,  load average: 0.00, 0.07, 0.20
+NTPSynchronized=yes
+Reference ID    : B97DBE7A (ntp-nts-2.ps5.canonical.com)
+Stratum         : 3
+Ref time (UTC)  : Fri Oct 16 16:22:58 2026
+System time     : 0.001771091 seconds slow of NTP time
+Last offset     : -0.002632361 seconds
+RMS offset      : 0.005108308 seconds
+Frequency       : 2.763 ppm slow
+Residual freq   : -0.115 ppm
+Skew            : 20.579 ppm
+Root delay      : 0.312421769 seconds
+Root dispersion : 0.009922390 seconds
+Update interval : 128.4 seconds
+Leap status     : Normal
+active
+active
+LOCAL_HTTP 200
+2bd3d25b286d394212a065abb7b7154a53457992d2c26da4137cb87227d2bcc2  /home/phat/http_probe.py
+usage: http_probe.py [-h] [--target-ip TARGET_IP] [--observer OBSERVER]
+                     --output OUTPUT
+
+Read-only HTTP evidence, run on the service host. Standard library only.
+
+options:
+  -h, --help            show this help message and exit
+  --target-ip TARGET_IP
+  --observer OBSERVER
+  --output OUTPUT

@@ -1,0 +1,18 @@
+{
+  "eventid": "974",
+  "source": "0",
+  "object": "0",
+  "objectid": "25334",
+  "clock": "1792184941",
+  "name": "SRV01: HTTP check failed",
+  "severity": "0",
+  "value": "0",
+  "r_eventid": "0",
+  "hosts": [
+    {
+      "hostid": "10683",
+      "host": "SRV01",
+      "name": "SRV01"
+    }
+  ]
+}

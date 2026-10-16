@@ -1,0 +1,63 @@
+{
+  "checked_at": 1792185623,
+  "previous_rollback_epoch": 1792185286,
+  "cpu": {
+    "check_type": "cpu_history",
+    "target": "10683",
+    "collected_at": 1792185623,
+    "result": {
+      "key": "system.cpu.util",
+      "units": "%",
+      "status": "success",
+      "window_seconds": 300,
+      "samples": [
+        {
+          "clock": 1792185337,
+          "value": 17.680920999999998
+        },
+        {
+          "clock": 1792185397,
+          "value": 9.402184000000005
+        },
+        {
+          "clock": 1792185457,
+          "value": 9.733036999999996
+        },
+        {
+          "clock": 1792185517,
+          "value": 8.595194000000006
+        },
+        {
+          "clock": 1792185577,
+          "value": 8.922962999999996
+        }
+      ],
+      "support_items": {
+        "system.cpu.num": {
+          "itemid": "50793",
+          "key_": "system.cpu.num",
+          "value_type": "3",
+          "status": "0",
+          "units": "",
+          "state": "0",
+          "error": "",
+          "lastclock": "1792166793",
+          "lastvalue": "1"
+        },
+        "system.cpu.load[all,avg1]": {
+          "itemid": "50791",
+          "key_": "system.cpu.load[all,avg1]",
+          "value_type": "0",
+          "status": "0",
+          "units": "",
+          "state": "0",
+          "error": "",
+          "lastclock": "1792185571",
+          "lastvalue": "0.005371"
+        }
+      },
+      "item_id": "50822"
+    }
+  },
+  "open_problems": []
+}

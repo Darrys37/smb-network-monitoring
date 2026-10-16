@@ -1,0 +1,12 @@
+2026-10-16T21:39:56+00:00
+cli01
+NTPSynchronized=yes
+active
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 17269
+PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
+64 bytes from 1.1.1.1: icmp_seq=1 ttl=64 time=47.4 ms
+64 bytes from 1.1.1.1: icmp_seq=2 ttl=64 time=47.9 ms
+
+--- 1.1.1.1 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+rtt min/avg/max/mdev = 47.391/47.626/47.861/0.235 ms

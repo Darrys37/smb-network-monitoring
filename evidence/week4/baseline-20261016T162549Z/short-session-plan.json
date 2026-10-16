@@ -1,0 +1,9 @@
+{
+  "requested_at_utc": "2026-10-16T16:27:52Z",
+  "target_end_epoch": 1792169768,
+  "target_end_utc": "2026-10-16T16:56:08Z",
+  "target_seconds": 1800,
+  "pid": 2323,
+  "reason": "User requested short baseline; original four-hour target superseded; actual valid duration still requires continuity review",
+  "shutdown_grace_seconds": 60
+}

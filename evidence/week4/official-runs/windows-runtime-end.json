@@ -1,0 +1,32 @@
+{
+  "captured_at_utc": "2026-10-16T21:26:43.3503307Z",
+  "vms": [
+    {
+      "vm": "MON01",
+      "values": [
+        "memory=4096",
+        "cpuexecutioncap=100",
+        "cpus=2",
+        "VMState=\"running\""
+      ]
+    },
+    {
+      "vm": "SRV01",
+      "values": [
+        "memory=3048",
+        "cpuexecutioncap=100",
+        "cpus=1",
+        "VMState=\"running\""
+      ]
+    },
+    {
+      "vm": "CLI01",
+      "values": [
+        "memory=2048",
+        "cpuexecutioncap=100",
+        "cpus=1",
+        "VMState=\"running\""
+      ]
+    }
+  ]
+}

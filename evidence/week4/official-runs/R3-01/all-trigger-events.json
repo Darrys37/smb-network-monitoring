@@ -1,0 +1,56 @@
+[
+  {
+    "eventid": "945",
+    "source": "0",
+    "object": "0",
+    "objectid": "25260",
+    "clock": "1792171621",
+    "value": "1",
+    "acknowledged": "0",
+    "ns": "976561465",
+    "name": "Linux: Zabbix agent is not available (for 3m)",
+    "severity": "3",
+    "r_eventid": "950",
+    "c_eventid": "0",
+    "correlationid": "0",
+    "userid": "0",
+    "suppressed": "0",
+    "cause_eventid": "0",
+    "hosts": [
+      {
+        "hostid": "10683",
+        "host": "SRV01",
+        "name": "SRV01"
+      }
+    ],
+    "opdata": "",
+    "urls": []
+  },
+  {
+    "eventid": "950",
+    "source": "0",
+    "object": "0",
+    "objectid": "25260",
+    "clock": "1792171741",
+    "value": "0",
+    "acknowledged": "0",
+    "ns": "840858766",
+    "name": "Linux: Zabbix agent is not available (for 3m)",
+    "severity": "0",
+    "r_eventid": "0",
+    "c_eventid": "0",
+    "correlationid": "0",
+    "userid": "0",
+    "suppressed": "0",
+    "cause_eventid": "0",
+    "hosts": [
+      {
+        "hostid": "10683",
+        "host": "SRV01",
+        "name": "SRV01"
+      }
+    ],
+    "opdata": "",
+    "urls": []
+  }
+]

@@ -1,0 +1,62 @@
+2026-10-16T16:23:35+00:00
+cli01
+7.0.0-34-generic
+ 16:23:35 up 20 min,  3 users,  load average: 0.01, 0.07, 0.15
+NTPSynchronized=yes
+Reference ID    : B97DBE7B (ntp-nts-3.ps5.canonical.com)
+Stratum         : 3
+Ref time (UTC)  : Fri Oct 16 16:23:01 2026
+System time     : 0.000420932 seconds slow of NTP time
+Last offset     : +0.000988878 seconds
+RMS offset      : 0.002502344 seconds
+Frequency       : 9.000 ppm slow
+Residual freq   : +0.047 ppm
+Skew            : 5.155 ppm
+Root delay      : 0.295311123 seconds
+Root dispersion : 0.004489799 seconds
+Update interval : 64.5 seconds
+Leap status     : Normal
+active
+Global
+         Protocols: -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+  resolv.conf mode: stub
+
+Link 2 (enp0s3)
+    Current Scopes: DNS
+         Protocols: +DefaultRoute -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+Current DNS Server: 1.1.1.1
+       DNS Servers: 1.1.1.1 1.0.0.1 fd17:625c:f037:2::3
+     Default Route: yes
+
+Link 3 (enp0s8)
+    Current Scopes: none
+         Protocols: -DefaultRoute -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+     Default Route: no
+
+; <<>> DiG 9.20.24-1ubuntu0.3-Ubuntu <<>> +time=2 +tries=1 example.com A
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 59909
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;example.com.			IN	A
+
+;; ANSWER SECTION:
+example.com.		221	IN	A	172.66.147.243
+example.com.		221	IN	A	104.20.23.154
+
+;; Query time: 0 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Fri Oct 16 16:23:35 UTC 2026
+;; MSG SIZE  rcvd: 72
+
+PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
+64 bytes from 1.1.1.1: icmp_seq=1 ttl=64 time=47.8 ms
+64 bytes from 1.1.1.1: icmp_seq=2 ttl=64 time=51.8 ms
+
+--- 1.1.1.1 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 47.846/49.813/51.781/1.967 ms

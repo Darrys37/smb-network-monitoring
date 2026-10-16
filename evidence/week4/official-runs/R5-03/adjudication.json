@@ -1,0 +1,6 @@
+{
+  "classification": "aborted_before_fault",
+  "include_in_valid_fault_denominator": false,
+  "reason": "Injection tool call was rejected before execution because automatic review reached account usage limit. Watcher timeout is not a detection failure.",
+  "retry_run_id": "R5-03-retry1"
+}

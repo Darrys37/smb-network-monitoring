@@ -1,0 +1,7 @@
+{
+  "source": "../all-trials.csv",
+  "rows": 18,
+  "n_per_class": 3,
+  "method": "Descriptive individual points and median; no confidence interval or healthy-negative accuracy inferred.",
+  "matplotlib_version": "3.11.2"
+}

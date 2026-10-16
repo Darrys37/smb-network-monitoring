@@ -1,0 +1,56 @@
+[
+  {
+    "eventid": "971",
+    "source": "0",
+    "object": "0",
+    "objectid": "25334",
+    "clock": "1792174056",
+    "value": "1",
+    "acknowledged": "0",
+    "ns": "953103414",
+    "name": "SRV01: HTTP check failed",
+    "severity": "3",
+    "r_eventid": "972",
+    "c_eventid": "0",
+    "correlationid": "0",
+    "userid": "0",
+    "suppressed": "0",
+    "cause_eventid": "0",
+    "hosts": [
+      {
+        "hostid": "10683",
+        "host": "SRV01",
+        "name": "SRV01"
+      }
+    ],
+    "opdata": "",
+    "urls": []
+  },
+  {
+    "eventid": "972",
+    "source": "0",
+    "object": "0",
+    "objectid": "25334",
+    "clock": "1792174111",
+    "value": "0",
+    "acknowledged": "0",
+    "ns": "254479165",
+    "name": "SRV01: HTTP check failed",
+    "severity": "0",
+    "r_eventid": "0",
+    "c_eventid": "0",
+    "correlationid": "0",
+    "userid": "0",
+    "suppressed": "0",
+    "cause_eventid": "0",
+    "hosts": [
+      {
+        "hostid": "10683",
+        "host": "SRV01",
+        "name": "SRV01"
+      }
+    ],
+    "opdata": "",
+    "urls": []
+  }
+]

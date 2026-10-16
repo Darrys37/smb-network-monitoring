@@ -1,0 +1,18 @@
+{
+  "eventid": "977",
+  "source": "0",
+  "object": "0",
+  "objectid": "25250",
+  "clock": "1792185997",
+  "name": "Linux: High CPU utilization (over 90% for 5m)",
+  "severity": "2",
+  "value": "1",
+  "r_eventid": "978",
+  "hosts": [
+    {
+      "hostid": "10683",
+      "host": "SRV01",
+      "name": "SRV01"
+    }
+  ]
+}

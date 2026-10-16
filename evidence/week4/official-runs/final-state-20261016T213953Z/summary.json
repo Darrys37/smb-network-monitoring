@@ -1,0 +1,19 @@
+{
+  "captured_at_utc": "2026-10-16T21:39:53.386590+00:00",
+  "source_unchanged": true,
+  "config_unchanged": true,
+  "trigger_functions_unchanged": false,
+  "critical_thresholds_unchanged": false,
+  "template_links_unchanged": true,
+  "critical_global_overrides_absent": true,
+  "open_problem_count": 0,
+  "sqlite_integrity_check": "ok",
+  "sqlite_row_counts": {
+    "incidents": 36,
+    "evidence": 268,
+    "diagnoses": 154,
+    "recoveries": 26
+  },
+  "db_sha256": "5ae95455b0f8ed95729f1bd1907c09d9d33817a97c9d553606a4836ec0359a20",
+  "note": "API token cannot see inherited template macros; critical text macros and links also exported by read-only local SQL. No credentials exported."
+}

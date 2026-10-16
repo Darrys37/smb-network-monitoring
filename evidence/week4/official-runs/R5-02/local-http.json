@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "observer": "srv01",
+  "evidence": [
+    {
+      "check_type": "local_http",
+      "target": "192.168.56.20",
+      "collected_at": 1792174079,
+      "result": {
+        "observer": "srv01",
+        "port": 80,
+        "path": "/",
+        "local_address_verified": true,
+        "status": "success",
+        "http_status": 200,
+        "error": ""
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "10084:agent.ping": [
+    "1"
+  ],
+  "10084:zabbix[host,agent,available]": [
+    "1"
+  ],
+  "10683:agent.ping": [
+    "1"
+  ],
+  "10683:web.test.fail[SRV01 HTTP]": [
+    "0"
+  ],
+  "10683:web.test.rspcode[SRV01 HTTP,Homepage]": [
+    "200"
+  ],
+  "10683:zabbix[host,agent,available]": [
+    "1"
+  ],
+  "10684:agent.ping": [
+    "1"
+  ],
+  "10684:net.dns[,example.com,A,2,1,udp]": [
+    "1"
+  ],
+  "10684:zabbix[host,agent,available]": [
+    "1"
+  ]
+}

@@ -1,0 +1,14 @@
+/usr/bin/stress-ng
+2026-10-16T21:09:22+00:00
+srv01
+7.0.0-34-generic
+1
+ 21:09:22 up  5:06,  3 users,  load average: 0.06, 0.05, 0.00
+NTPSynchronized=yes
+active
+active
+FAULT_BEFORE 2026-10-16T21:09:22+00:00
+FAULT_AFTER 2026-10-16T21:09:22+00:00
+    PID    PPID COMMAND
+   4674    4657 stress-ng --cpu 1 --cpu-load 100 --timeout 12m --metrics-brief
+FAULT_PROCESS_END 2026-10-16T21:14:46+00:00 EXIT=0

@@ -1,0 +1,25 @@
+2026-10-16T21:07:31+00:00
+srv01
+7.0.0-34-generic
+NTPSynchronized=yes
+active
+active
+LOCAL_HTTP_BEFORE 200
+State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess                                                 
+LISTEN 0      4096      127.0.0.54:53         0.0.0.0:*    users:(("systemd-resolve",pid=574,fd=19))              
+LISTEN 0      4096         0.0.0.0:22         0.0.0.0:*    users:(("sshd",pid=1438,fd=3),("systemd",pid=1,fd=100))
+LISTEN 0      511          0.0.0.0:80         0.0.0.0:*    users:(("nginx",pid=3044,fd=5),("nginx",pid=3042,fd=5))
+LISTEN 0      4096   127.0.0.53%lo:53         0.0.0.0:*    users:(("systemd-resolve",pid=574,fd=17))              
+LISTEN 0      4096               *:10050            *:*    users:(("zabbix_agent2",pid=3424,fd=8))                
+LISTEN 0      4096            [::]:22            [::]:*    users:(("sshd",pid=1438,fd=4),("systemd",pid=1,fd=101))
+LISTEN 0      511             [::]:80            [::]:*    users:(("nginx",pid=3044,fd=6),("nginx",pid=3042,fd=6))
+Running timer as unit: r5-03-retry1-failsafe.timer
+Will run service as unit: r5-03-retry1-failsafe.service
+FAULT_BEFORE 2026-10-16T21:07:32+00:00
+FAULT_AFTER 2026-10-16T21:07:32+00:00
+table inet trial_r5_03_retry1 {
+	chain input {
+		type filter hook input priority filter; policy accept;
+		ip saddr 192.168.56.10 tcp dport 80 counter packets 0 bytes 0 drop
+	}
+}

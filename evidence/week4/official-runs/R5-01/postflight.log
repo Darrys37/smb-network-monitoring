@@ -1,0 +1,16 @@
+2026-10-16T18:05:34+00:00
+PING 192.168.56.20 (192.168.56.20) 56(84) bytes of data.
+64 bytes from 192.168.56.20: icmp_seq=1 ttl=64 time=0.890 ms
+64 bytes from 192.168.56.20: icmp_seq=2 ttl=64 time=0.906 ms
+
+--- 192.168.56.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1010ms
+rtt min/avg/max/mdev = 0.890/0.898/0.906/0.008 ms
+PING 192.168.56.30 (192.168.56.30) 56(84) bytes of data.
+64 bytes from 192.168.56.30: icmp_seq=1 ttl=64 time=0.840 ms
+64 bytes from 192.168.56.30: icmp_seq=2 ttl=64 time=2.23 ms
+
+--- 192.168.56.30 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1064ms
+rtt min/avg/max/mdev = 0.840/1.532/2.225/0.692 ms
+HTTP 200

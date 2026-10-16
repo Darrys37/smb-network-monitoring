@@ -1,0 +1,22 @@
+Event: 957 Linux: Zabbix agent is not available (for 3m)
+Event timestamp: 1792172581
+Collection started: 1792172581
+Evidence records: 10
+Assessment uses current evidence.
+R1_HOST_OR_LOCAL_CONNECTIVITY not_matched
+  Reason: Target responded to ICMP or TCP.
+R2_HTTP_SERVICE_SUSPECTED not_matched
+  Reason: Target ping=success, TCP80=success.
+R3_AGENT_UNAVAILABLE matched
+  Reason: Host ping=success, agent.ping has no recent data, TCP10050=refused.
+  Missing: Agent mode, Server allow-list, service and firewall state.
+  Next: Inspect zabbix-agent2 service and its logs; do not assume service stopped.
+R4_DNS_RESOLVER_SUSPECTED insufficient_evidence
+  Reason: DNS target not configured.
+  Missing: Actual application name and CLI01 DNS evidence.
+R5_HTTP_ACCESS_FILTER_SUSPECTED not_matched
+  Reason: No isolated remote HTTP connection failure with working ICMP.
+R6_SUSTAINED_CPU_HIGH insufficient_evidence
+  Reason: CPU history is sparse, stale or invalid.
+  Missing: At least 240s coverage, max 120s gap, latest sample <=180s old.
+Saved incident ID: 27

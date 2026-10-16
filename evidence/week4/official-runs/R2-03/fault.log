@@ -1,0 +1,24 @@
+2026-10-16T17:21:38+00:00
+srv01
+7.0.0-34-generic
+1
+NTPSynchronized=yes
+active
+active
+LOCAL_HTTP_BEFORE 200
+Running timer as unit: r2-03-failsafe.timer
+Will run service as unit: r2-03-failsafe.service
+NEXT                        LEFT LAST PASSED UNIT                 ACTIVATES
+Fri 2026-10-16 17:31:38 UTC 9min -         - r2-03-failsafe.timer r2-03-failsafe.service
+
+1 timers listed.
+Pass --all to see loaded but inactive timers, too.
+FAULT_BEFORE 2026-10-16T17:21:38+00:00
+FAULT_AFTER 2026-10-16T17:21:38+00:00
+inactive
+State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess                                                 
+LISTEN 0      4096      127.0.0.54:53         0.0.0.0:*    users:(("systemd-resolve",pid=574,fd=19))              
+LISTEN 0      4096         0.0.0.0:22         0.0.0.0:*    users:(("sshd",pid=1438,fd=3),("systemd",pid=1,fd=100))
+LISTEN 0      4096   127.0.0.53%lo:53         0.0.0.0:*    users:(("systemd-resolve",pid=574,fd=17))              
+LISTEN 0      4096               *:10050            *:*    users:(("zabbix_agent2",pid=1110,fd=8))                
+LISTEN 0      4096            [::]:22            [::]:*    users:(("sshd",pid=1438,fd=4),("systemd",pid=1,fd=101))

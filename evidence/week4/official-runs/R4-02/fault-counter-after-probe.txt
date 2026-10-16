@@ -1,0 +1,8 @@
+2026-10-16T17:55:23+00:00
+table inet trial_r4_02 {
+	chain output {
+		type filter hook output priority filter; policy accept;
+		udp dport 53 counter packets 6 bytes 365 drop
+		tcp dport 53 counter packets 0 bytes 0 drop
+	}
+}

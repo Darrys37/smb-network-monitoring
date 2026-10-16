@@ -1,0 +1,11 @@
+{
+  "rows": 18,
+  "unique_problem_ids": 18,
+  "unique_incident_ids": 18,
+  "checksum_files_verified": {
+    "checksums-final.json": 535,
+    "checksums.json": 43
+  },
+  "additional_trigger_events_requiring_review": [],
+  "result": "PASS"
+}

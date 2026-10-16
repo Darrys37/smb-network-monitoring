@@ -1,0 +1,18 @@
+{
+  "eventid": "951",
+  "source": "0",
+  "object": "0",
+  "objectid": "25260",
+  "clock": "1792172101",
+  "name": "Linux: Zabbix agent is not available (for 3m)",
+  "severity": "3",
+  "value": "1",
+  "r_eventid": "0",
+  "hosts": [
+    {
+      "hostid": "10683",
+      "host": "SRV01",
+      "name": "SRV01"
+    }
+  ]
+}

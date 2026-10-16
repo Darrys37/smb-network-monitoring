@@ -1,0 +1,338 @@
+{
+  "schema_version": 2,
+  "assessment_basis": "Stored evidence from the diagnosis run; not necessarily the state at event time.",
+  "recovery_status": "not_recorded",
+  "lifecycle_status": "unverified",
+  "recovery": null,
+  "has_evidence_and_diagnoses": true,
+  "incident": {
+    "id": 33,
+    "event_id": "973",
+    "clock": 1792184886,
+    "name": "SRV01: HTTP check failed",
+    "severity": 3,
+    "value": 1,
+    "created_at": "2026-10-16 21:08:36",
+    "hosts": [
+      {
+        "host_id": "10683",
+        "host": "SRV01",
+        "name": "SRV01"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "id": 228,
+      "incident_id": 33,
+      "check_type": "ping",
+      "target": "192.168.56.20",
+      "collected_at": 1792184913,
+      "result": {
+        "timeout_seconds": 2,
+        "process_timeout_seconds": 3,
+        "returncode": 0,
+        "stdout": "PING 192.168.56.20 (192.168.56.20) 56(84) bytes of data.\n64 bytes from 192.168.56.20: icmp_seq=1 ttl=64 time=1.17 ms\n\n--- 192.168.56.20 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 1.170/1.170/1.170/0.000 ms",
+        "stderr": "",
+        "status": "success",
+        "duration_ms": 7.47
+      }
+    },
+    {
+      "id": 229,
+      "incident_id": 33,
+      "check_type": "tcp",
+      "target": "192.168.56.20",
+      "collected_at": 1792184913,
+      "result": {
+        "port": 80,
+        "timeout_seconds": 2,
+        "error": "timed out",
+        "errno": null,
+        "status": "timeout",
+        "duration_ms": 2001.81
+      }
+    },
+    {
+      "id": 230,
+      "incident_id": 33,
+      "check_type": "metric",
+      "target": "10683",
+      "collected_at": 1792184915,
+      "result": {
+        "key": "system.cpu.util",
+        "units": "%",
+        "max_age_seconds": 180,
+        "status": "success",
+        "value": 12.194204,
+        "sample_clock": 1792184857,
+        "age_seconds": 58,
+        "item_id": "50822",
+        "raw_value": "12.194204",
+        "error": ""
+      }
+    },
+    {
+      "id": 231,
+      "incident_id": 33,
+      "check_type": "metric",
+      "target": "10683",
+      "collected_at": 1792184915,
+      "result": {
+        "key": "vm.memory.util",
+        "units": "%",
+        "max_age_seconds": 180,
+        "status": "success",
+        "value": 15.906276000000005,
+        "sample_clock": 1792184879,
+        "age_seconds": 36,
+        "item_id": "50823",
+        "raw_value": "15.906276000000005",
+        "error": ""
+      }
+    },
+    {
+      "id": 232,
+      "incident_id": 33,
+      "check_type": "metric",
+      "target": "10683",
+      "collected_at": 1792184915,
+      "result": {
+        "key": "system.cpu.load[all,avg1]",
+        "units": "",
+        "max_age_seconds": 180,
+        "status": "success",
+        "value": 0.041992,
+        "sample_clock": 1792184911,
+        "age_seconds": 4,
+        "item_id": "50791",
+        "raw_value": "0.041992",
+        "error": ""
+      }
+    },
+    {
+      "id": 233,
+      "incident_id": 33,
+      "check_type": "metric",
+      "target": "10683",
+      "collected_at": 1792184915,
+      "result": {
+        "key": "vfs.fs.dependent.size[/,pused]",
+        "units": "%",
+        "max_age_seconds": 180,
+        "status": "success",
+        "value": 53.13135455218888,
+        "sample_clock": 1792184877,
+        "age_seconds": 38,
+        "item_id": "50856",
+        "raw_value": "53.13135455218888",
+        "error": ""
+      }
+    },
+    {
+      "id": 234,
+      "incident_id": 33,
+      "check_type": "tcp",
+      "target": "192.168.56.20",
+      "collected_at": 1792184915,
+      "result": {
+        "port": 10050,
+        "timeout_seconds": 2,
+        "error": "",
+        "errno": null,
+        "status": "success",
+        "duration_ms": 1.74
+      }
+    },
+    {
+      "id": 235,
+      "incident_id": 33,
+      "check_type": "agent_metric",
+      "target": "10683",
+      "collected_at": 1792184915,
+      "result": {
+        "key": "agent.ping",
+        "status": "success",
+        "max_age_seconds": 180,
+        "item": {
+          "itemid": "50782",
+          "key_": "agent.ping",
+          "value_type": "3",
+          "status": "0",
+          "units": "",
+          "state": "0",
+          "error": "",
+          "lastclock": "1792184902",
+          "lastvalue": "1"
+        },
+        "sample_clock": 1792184902
+      }
+    },
+    {
+      "id": 236,
+      "incident_id": 33,
+      "check_type": "cpu_history",
+      "target": "10683",
+      "collected_at": 1792184915,
+      "result": {
+        "key": "system.cpu.util",
+        "units": "%",
+        "status": "success",
+        "window_seconds": 300,
+        "samples": [
+          {
+            "clock": 1792184617,
+            "value": 8.999441000000004
+          },
+          {
+            "clock": 1792184677,
+            "value": 9.979326999999998
+          },
+          {
+            "clock": 1792184737,
+            "value": 10.395947000000007
+          },
+          {
+            "clock": 1792184797,
+            "value": 10.791233000000005
+          },
+          {
+            "clock": 1792184857,
+            "value": 12.194204
+          }
+        ],
+        "support_items": {
+          "system.cpu.num": {
+            "itemid": "50793",
+            "key_": "system.cpu.num",
+            "value_type": "3",
+            "status": "0",
+            "units": "",
+            "state": "0",
+            "error": "",
+            "lastclock": "1792166793",
+            "lastvalue": "1"
+          },
+          "system.cpu.load[all,avg1]": {
+            "itemid": "50791",
+            "key_": "system.cpu.load[all,avg1]",
+            "value_type": "0",
+            "status": "0",
+            "units": "",
+            "state": "0",
+            "error": "",
+            "lastclock": "1792184911",
+            "lastvalue": "0.041992"
+          }
+        },
+        "item_id": "50822"
+      }
+    },
+    {
+      "id": 237,
+      "incident_id": 33,
+      "check_type": "ping",
+      "target": "192.168.56.30",
+      "collected_at": 1792184915,
+      "result": {
+        "timeout_seconds": 2,
+        "process_timeout_seconds": 3,
+        "returncode": 0,
+        "stdout": "PING 192.168.56.30 (192.168.56.30) 56(84) bytes of data.\n64 bytes from 192.168.56.30: icmp_seq=1 ttl=64 time=0.882 ms\n\n--- 192.168.56.30 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.882/0.882/0.882/0.000 ms",
+        "stderr": "",
+        "status": "success",
+        "duration_ms": 9.24
+      }
+    },
+    {
+      "id": 238,
+      "incident_id": 33,
+      "check_type": "local_http",
+      "target": "192.168.56.20",
+      "collected_at": 1792184905,
+      "result": {
+        "observer": "srv01",
+        "port": 80,
+        "path": "/",
+        "local_address_verified": true,
+        "status": "success",
+        "http_status": 200,
+        "error": ""
+      }
+    }
+  ],
+  "diagnoses": [
+    {
+      "id": 131,
+      "incident_id": 33,
+      "rule_id": "R1_HOST_OR_LOCAL_CONNECTIVITY",
+      "status": "not_matched",
+      "probable_cause": null,
+      "reasoning": "Target responded to ICMP or TCP.",
+      "created_at": "2026-10-16 21:08:36",
+      "missing_info": [],
+      "next_actions": []
+    },
+    {
+      "id": 132,
+      "incident_id": 33,
+      "rule_id": "R2_HTTP_SERVICE_SUSPECTED",
+      "status": "not_matched",
+      "probable_cause": null,
+      "reasoning": "HTTP200 on the target's own service IP; a simple stopped-service hypothesis is not supported. Check R5.",
+      "created_at": "2026-10-16 21:08:36",
+      "missing_info": [],
+      "next_actions": []
+    },
+    {
+      "id": 133,
+      "incident_id": 33,
+      "rule_id": "R3_AGENT_UNAVAILABLE",
+      "status": "not_matched",
+      "probable_cause": null,
+      "reasoning": "A recent agent.ping sample exists.",
+      "created_at": "2026-10-16 21:08:36",
+      "missing_info": [],
+      "next_actions": []
+    },
+    {
+      "id": 134,
+      "incident_id": 33,
+      "rule_id": "R4_DNS_RESOLVER_SUSPECTED",
+      "status": "insufficient_evidence",
+      "probable_cause": null,
+      "reasoning": "DNS target not configured.",
+      "created_at": "2026-10-16 21:08:36",
+      "missing_info": [
+        "Actual application name and CLI01 DNS evidence."
+      ],
+      "next_actions": []
+    },
+    {
+      "id": 135,
+      "incident_id": 33,
+      "rule_id": "R5_HTTP_ACCESS_FILTER_SUSPECTED",
+      "status": "matched",
+      "probable_cause": "Remote ping=success, TCP80=timeout; HTTP on target's own service IP=success. Filtering/access-path failure is suspected, not proven firewall causation.",
+      "reasoning": "Remote ping=success, TCP80=timeout; HTTP on target's own service IP=success. Filtering/access-path failure is suspected, not proven firewall causation.",
+      "created_at": "2026-10-16 21:08:36",
+      "missing_info": [
+        "Read firewall rules and relevant packet counters; compare another remote observer. Local HTTP does not traverse the same ingress path."
+      ],
+      "next_actions": [
+        "Inspect SRV01 firewall and routes; compare HTTP from CLI01 before attributing cause."
+      ]
+    },
+    {
+      "id": 136,
+      "incident_id": 33,
+      "rule_id": "R6_SUSTAINED_CPU_HIGH",
+      "status": "not_matched",
+      "probable_cause": null,
+      "reasoning": "Mean CPU=10.47%; below 90%.",
+      "created_at": "2026-10-16 21:08:36",
+      "missing_info": [],
+      "next_actions": []
+    }
+  ]
+}

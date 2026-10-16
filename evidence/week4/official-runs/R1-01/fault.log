@@ -1,0 +1,21 @@
+2026-10-16T17:05:16+00:00
+srv01
+7.0.0-34-generic
+1
+NTPSynchronized=yes
+active
+active
+[{"ifindex":3,"ifname":"enp0s8","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"UP","group":"default","txqlen":1000,"altnames":["enx0800273a1b80"],"addr_info":[{"family":"inet","local":"192.168.56.20","prefixlen":24,"broadcast":"192.168.56.255","scope":"global","label":"enp0s8","valid_life_time":4294967295,"preferred_life_time":4294967295}]}]
+Running timer as unit: r1-01-failsafe.timer
+Will run service as unit: r1-01-failsafe.service
+Running timer as unit: r1-01-rollback.timer
+Will run service as unit: r1-01-rollback.service
+NEXT                            LEFT LAST PASSED UNIT                 ACTIVATES
+Fri 2026-10-16 17:07:16 UTC 1min 59s -         - r1-01-rollback.timer r1-01-rollback.service
+Fri 2026-10-16 17:15:16 UTC     9min -         - r1-01-failsafe.timer r1-01-failsafe.service
+
+2 timers listed.
+Pass --all to see loaded but inactive timers, too.
+FAULT_BEFORE 2026-10-16T17:05:16+00:00
+FAULT_AFTER 2026-10-16T17:05:17+00:00
+[{"ifindex":3,"ifname":"enp0s8","flags":["BROADCAST","MULTICAST"],"mtu":1500,"qdisc":"pfifo_fast","operstate":"DOWN","linkmode":"DEFAULT","group":"default","txqlen":1000,"link_type":"ether","address":"08:00:27:3a:1b:80","broadcast":"ff:ff:ff:ff:ff:ff","altnames":["enx0800273a1b80"]}]

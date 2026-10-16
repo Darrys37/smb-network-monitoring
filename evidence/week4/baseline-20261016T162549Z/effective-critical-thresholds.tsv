@@ -1,0 +1,4 @@
+host	macro	value
+Linux by Zabbix agent	{$AGENT.TIMEOUT}	3m
+Linux by Zabbix agent	{$CPU.UTIL.CRIT}	90
+Linux by Zabbix agent	{$LOAD_AVG_PER_CPU.MAX.WARN}	1.5
