@@ -1,0 +1,64 @@
+Name
+	
+
+Host groups
+	
+Select
+
+
+IP
+	
+
+DNS
+	
+
+Port
+	
+
+Severity
+	
+Not classified
+Information
+Warning
+Average
+High
+Disaster
+	
+Status
+	
+Any
+Enabled
+Disabled
+
+Tags
+	
+And/Or
+Or
+	
+Contains
+		Remove
+Add
+
+
+Show hosts in maintenance
+	
+Show suppressed problems
+Save asApplyReset
+Name
+	Interface	Availability	Tags	
+Status
+	Latest data	Problems	Graphs	Dashboards	Web
+CLI01	192.168.56.30:10050	ZBX	
+class: os
+target: linux
+	Enabled	Latest data 85	1	Graphs 17	Dashboards 3	Web
+SRV01	192.168.56.20:10050	ZBX	
+class: os
+target: linux
+	Enabled	Latest data 90	1	Graphs 17	Dashboards 3	Web 1
+Zabbix server	127.0.0.1:10050	ZBX	
+class: os
+class: software
+target: linux
+	Enabled	Latest data 151	1	Graphs 17	Dashboards 4	Web
+Displaying 3 of 3 found

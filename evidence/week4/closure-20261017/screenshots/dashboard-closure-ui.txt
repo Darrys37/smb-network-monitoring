@@ -1,0 +1,66 @@
+All dashboards
+Global view
+Top hosts by CPU utilization
+Host name	Utilization	1m avg	5m avg	15m avg	Processes
+Zabbix server	
+	
+6.38 %
+	
+0.67
+	
+0.65
+	
+0.40
+	
+186
+Performance
+4
+.38
+Zabbix server
+Values per second
+System information
+Parameter	Value	Details
+Zabbix server is running	Yes	localhost:10051
+Zabbix server version	7.0.30	New update available
+Zabbix frontend version	7.0.30	New update available
+Number of hosts (enabled/disabled)	3	3 / 0
+Number of templates	356	
+Number of items (enabled/disabled/not supported)	337	326 / 11 / 0
+Number of triggers (enabled/disabled [problem/ok])	157	147 / 10 [0 / 147]
+Number of users (online)	3	1
+Required server performance, new values per second	4.59	
+Global scripts on Zabbix server	Disabled	
+High availability cluster	Disabled	
+Local time
+06:31
+Bangkok
+Graph
+Host availability
+3
+Available
+0
+Not available
+0
+Mixed
+0
+Unknown
+3
+Total
+Problems by severity
+0
+Disaster
+0
+High
+0
+Average
+0
+Warning
+0
+Information
+0
+Not classified
+Geomap
+Current problems
+Time			Info	Host	Problem • Severity	Duration	Update	Actions	Tags
+
+No data found

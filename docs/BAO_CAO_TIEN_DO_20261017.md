@@ -44,3 +44,10 @@ R1 là ngắt Host-only, R4 là chặn đường DNS, R5 là firewall HTTP; khô
 2. Chuẩn bị slide và diễn tập demo ba lần sau reboot; mỗi lần có log, event/incident mới, thời lượng và xác nhận rollback. Chưa chạy các lần diễn tập này.
 3. Backup độc lập ngoài laptop, gồm repository, SQLite, cấu hình Zabbix và bản báo cáo; xác minh khả năng phục hồi. Export YAML không thay thế toàn bộ MySQL Zabbix.
 4. Sau khi các bước trên đạt mới đóng gói và tạo release cuối. Chưa công bố đã push hoặc đã hoàn thành bản nộp.
+
+
+## Cập nhật nghiệm thu tuần 4
+
+Đã bổ sung 18 ảnh event lịch sử khớp Run ID, ảnh bảng lịch sử/dashboard/ba host; đối chiếu backup phục hồi tái tạo đúng 18 report. Các việc bổ sung ảnh tuần 4 trong danh sách cũ phía trên đã được xử lý; ảnh demo mới khi diễn tập tuần 5 vẫn là công việc riêng. Baseline giữ nguyên 30 phút 06 giây theo lựa chọn phiên ngắn, không nâng thành bốn giờ.
+
+Bản tổng hợp đầy đủ hiện hành: [TONG_HOP_TUAN_4.markdown](TONG_HOP_TUAN_4.markdown). Đọc bản này để xem bảng nghiệm thu, số liệu và giới hạn cuối; các mốc tiến độ phía trên là lịch sử tại thời điểm soạn.

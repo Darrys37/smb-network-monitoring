@@ -1,0 +1,49 @@
+Trigger details
+Host	SRV01
+Trigger	Linux: Zabbix agent is not available
+Severity	Average
+Problem expression	
+max(/SRV01/zabbix[host,agent,available],3m)=0
+
+Recovery expression	
+
+Event generation	Normal
+Allow manual close	Yes
+Enabled	Yes
+Event details
+Event	Linux: Zabbix agent is not available (for 3m)
+Operational data	
+available (1)
+Severity	Average
+Time	2026-10-17 12:27:01 AM
+Acknowledged	No
+Resolved by	Trigger
+Tags	
+class: os
+component: system
+scope: availability
+
+Description	
+For passive agents only, host availability is used with `3m` as a time threshold.
+
+Rank	Cause
+Actions
+Step	Time	User/Recipient	Action	Message/Command	Status	Info
+	2026-10-17 12:29:01 AM					
+	2026-10-17 12:27:01 AM					
+Event list [previous 20]
+Time	Recovery time	Status	Age	Duration	Update	Actions
+2026-10-17 12:27:01 AM	2026-10-17 12:29:01 AM	RESOLVED	5h 58m 11s	2m	Update	
+2026-10-05 07:12:01 PM	2026-10-05 07:15:01 PM	RESOLVED	11d 11h 13m	3m	Update	
+2026-10-05 06:56:01 PM	2026-10-05 06:57:01 PM	RESOLVED	11d 11h 29m	1m	Update	
+2026-10-05 05:08:01 PM	2026-10-05 05:09:01 PM	RESOLVED	11d 13h 17m	1m	Update	
+2026-10-03 09:13:01 PM	2026-10-03 09:14:01 PM	RESOLVED	13d 9h 12m	1m	Update	
+2026-10-03 03:24:01 PM	2026-10-03 07:50:01 PM	RESOLVED	13d 15h 1m	4h 26m	Update	
+2026-10-01 11:22:01 PM	2026-10-01 11:23:01 PM	RESOLVED	15d 7h 3m	1m	Update	
+2026-10-01 08:58:01 PM	2026-10-01 08:59:01 PM	RESOLVED	15d 9h 27m	1m	Update	
+2026-10-01 06:29:01 PM	2026-10-01 07:03:01 PM	RESOLVED	15d 11h 56m	34m	Update	
+2026-10-01 01:09:01 AM	2026-10-01 02:15:01 AM	RESOLVED	16d 5h 16m	1h 6m	Update	
+2026-09-28 06:09:01 PM	2026-09-30 11:37:01 PM	RESOLVED	18d 12h 16m	2d 5h 28m	Update	
+2026-09-28 04:30:01 PM	2026-09-28 04:34:01 PM	RESOLVED	18d 13h 55m	4m	Update	
+2026-09-28 04:17:01 PM	2026-09-28 04:19:01 PM	RESOLVED	18d 14h 8m	2m	Update	
+2026-09-22 09:47:01 AM	2026-09-22 09:51:01 AM	RESOLVED	24d 20h 38m	4m	Update	

@@ -116,6 +116,8 @@ Các thư mục evidence có checksum cần giữ nguyên byte khi lưu/chuyển
 
 ## Tài liệu báo cáo và demo
 
+- [Tổng hợp và nghiệm thu tuần 4](docs/TONG_HOP_TUAN_4.markdown).
+
 - [Tiến độ và việc tiếp theo ngày 17/10/2026](docs/BAO_CAO_TIEN_DO_20261017.md).
 - [Chương 2: kiến trúc và triển khai](docs/CHUONG_2_KIEN_TRUC_VA_TRIEN_KHAI.md).
 - [Chương 3: thực nghiệm và đánh giá](docs/CHUONG_3_THUC_NGHIEM_VA_DANH_GIA.md).

@@ -77,7 +77,7 @@ R6 cho thấy CPU/load cao theo luật, chưa chứng minh tác động ứng d�
 
 Mean CPU của luật là trung bình số học các mẫu, chưa dùng trọng số theo khoảng thời gian. Trigger CPU còn có dependency với load-high; bộ thử một worker chưa bao phủ trường hợp load-high trở thành problem và ảnh hưởng event CPU. Không suy rộng ba lượt này thành phát hiện mọi tình huống quá tải hoặc mọi tổ hợp trigger.
 
-Dữ liệu thô và event API thay cho việc chép tay số từ dashboard. Bộ này chưa cung cấp trọn bộ screenshot dashboard/Problems đã che thông tin theo mẫu nộp. Chưa chứng nhận ba lần demo thành công sau reboot, chưa tạo release cuối, và chưa có backup độc lập ngoài laptop. Đây là công việc hoàn thiện tuần 5.
+Dữ liệu thô và event API thay cho việc chép tay số từ dashboard. Hồ sơ đóng tuần 4 đã bổ sung ảnh dashboard, ba host, lịch sử và 18 ảnh chi tiết event tại `evidence/week4/closure-20261017/screenshots/`. Đây là ảnh lịch sử chụp sau đo, không phải ảnh active fault; xem `docs/TONG_HOP_TUAN_4.markdown` và closure audit. Chưa chứng nhận ba lần demo thành công sau reboot, chưa tạo release cuối, và chưa có backup độc lập ngoài laptop. Đây là công việc hoàn thiện tuần 5.
 
 ## 3.8. Truy vết từng lượt
 

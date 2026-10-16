@@ -1,0 +1,35 @@
+Trigger details
+Host	CLI01
+Trigger	CLI01: DNS resolution failed for example.com
+Severity	Warning
+Problem expression	
+max(/CLI01/net.dns[,example.com,A,2,1,udp],#3)=0
+
+Recovery expression	
+
+Event generation	Normal
+Allow manual close	No
+Enabled	Yes
+Event details
+Event	CLI01: DNS resolution failed for example.com
+Operational data	
+1
+Severity	Warning
+Time	2026-10-17 12:59:42 AM
+Acknowledged	No
+Resolved by	Trigger
+Tags	
+
+Description	
+
+Rank	Cause
+Actions
+Step	Time	User/Recipient	Action	Message/Command	Status	Info
+	2026-10-17 01:02:11 AM					
+	2026-10-17 12:59:42 AM					
+Event list [previous 20]
+Time	Recovery time	Status	Age	Duration	Update	Actions
+2026-10-17 12:59:42 AM	2026-10-17 01:02:11 AM	RESOLVED	5h 25m 21s	2m 29s	Update	
+2026-10-17 12:54:11 AM	2026-10-17 12:56:11 AM	RESOLVED	5h 30m 52s	2m	Update	
+2026-10-17 12:49:11 AM	2026-10-17 12:51:41 AM	RESOLVED	5h 35m 52s	2m 30s	Update	
+2026-10-08 08:21:41 PM	2026-10-08 08:25:41 PM	RESOLVED	8d 10h 3m	4m	Update	

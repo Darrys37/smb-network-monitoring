@@ -1,0 +1,79 @@
+{
+  "captured_at": "2026-10-16T23:24:44.299Z",
+  "timezone": "Asia/Bangkok",
+  "window": "2026-10-17 00:00:00 to 05:00:00",
+  "rows": [
+    {
+      "href": "tr_events.php?triggerid=25250&eventid=979",
+      "row": "\t04:38:37 AM\t\t\tWarning\t04:39:37 AM\tRESOLVED\t\tSRV01\tLinux: High CPU utilization (over 90% for 5m)\t1m\tUpdate\t\t\nclass: os\ncomponent: cpu\nscope: performance"
+    },
+    {
+      "href": "tr_events.php?triggerid=25250&eventid=977",
+      "row": "\t04:26:37 AM\t\t\tWarning\t04:27:37 AM\tRESOLVED\t\tSRV01\tLinux: High CPU utilization (over 90% for 5m)\t1m\tUpdate\t\t\nclass: os\ncomponent: cpu\nscope: performance"
+    },
+    {
+      "href": "tr_events.php?triggerid=25250&eventid=975",
+      "row": "\t04:14:38 AM\t\t\tWarning\t04:15:37 AM\tRESOLVED\t\tSRV01\tLinux: High CPU utilization (over 90% for 5m)\t59s\tUpdate\t\t\nclass: os\ncomponent: cpu\nscope: performance"
+    },
+    {
+      "href": "tr_events.php?triggerid=25334&eventid=973",
+      "row": "\t04:08:06 AM\t\t\tAverage\t04:09:01 AM\tRESOLVED\t\tSRV01\tSRV01: HTTP check failed\t55s\tUpdate\t\t"
+    },
+    {
+      "href": "tr_events.php?triggerid=25334&eventid=971",
+      "row": "\t01:07:36 AM\t\t\tAverage\t01:08:31 AM\tRESOLVED\t\tSRV01\tSRV01: HTTP check failed\t55s\tUpdate\t\t"
+    },
+    {
+      "href": "tr_events.php?triggerid=25334&eventid=969",
+      "row": "\t01:03:36 AM\t\t\tAverage\t01:05:31 AM\tRESOLVED\t\tSRV01\tSRV01: HTTP check failed\t1m 55s\tUpdate\t\t"
+    },
+    {
+      "href": "tr_events.php?triggerid=25335&eventid=967",
+      "row": "\t12:59:42 AM\t\t\tWarning\t01:02:11 AM\tRESOLVED\t\tCLI01\tCLI01: DNS resolution failed for example.com\t2m 29s\tUpdate\t\t"
+    },
+    {
+      "href": "tr_events.php?triggerid=25335&eventid=965",
+      "row": "\t12:54:11 AM\t\t\tWarning\t12:56:11 AM\tRESOLVED\t\tCLI01\tCLI01: DNS resolution failed for example.com\t2m\tUpdate\t\t"
+    },
+    {
+      "href": "tr_events.php?triggerid=25335&eventid=963",
+      "row": "\t12:49:11 AM\t\t\tWarning\t12:51:41 AM\tRESOLVED\t\tCLI01\tCLI01: DNS resolution failed for example.com\t2m 30s\tUpdate\t\t"
+    },
+    {
+      "href": "tr_events.php?triggerid=25260&eventid=957",
+      "row": "\t12:43:01 AM\t\t\tAverage\t12:45:01 AM\tRESOLVED\t\tSRV01\tLinux: Zabbix agent is not available (for 3m)\t2m\tUpdate\t\t\nclass: os\ncomponent: system\nscope: availability"
+    },
+    {
+      "href": "tr_events.php?triggerid=25260&eventid=951",
+      "row": "\t12:35:01 AM\t\t\tAverage\t12:37:01 AM\tRESOLVED\t\tSRV01\tLinux: Zabbix agent is not available (for 3m)\t2m\tUpdate\t\t\nclass: os\ncomponent: system\nscope: availability"
+    },
+    {
+      "href": "tr_events.php?triggerid=25260&eventid=945",
+      "row": "\t12:27:01 AM\t\t\tAverage\t12:29:01 AM\tRESOLVED\t\tSRV01\tLinux: Zabbix agent is not available (for 3m)\t2m\tUpdate\t\t\nclass: os\ncomponent: system\nscope: availability"
+    },
+    {
+      "href": "tr_events.php?triggerid=25334&eventid=943",
+      "row": "\t12:22:01 AM\t\t\tAverage\t12:23:02 AM\tRESOLVED\t\tSRV01\tSRV01: HTTP check failed\t1m 1s\tUpdate\t\t"
+    },
+    {
+      "href": "tr_events.php?triggerid=25334&eventid=941",
+      "row": "\t12:19:31 AM\t\t\tAverage\t12:20:31 AM\tRESOLVED\t\tSRV01\tSRV01: HTTP check failed\t1m\tUpdate\t\t"
+    },
+    {
+      "href": "tr_events.php?triggerid=25334&eventid=939",
+      "row": "\t12:18:01 AM\t\t\tAverage\t12:19:01 AM\tRESOLVED\t\tSRV01\tSRV01: HTTP check failed\t1m\tUpdate\t\t"
+    },
+    {
+      "href": "tr_events.php?triggerid=25334&eventid=937",
+      "row": "\t12:13:36 AM\t\t\tAverage\t12:15:31 AM\tRESOLVED\t\tSRV01\tSRV01: HTTP check failed\t1m 55s\tUpdate\t\t"
+    },
+    {
+      "href": "tr_events.php?triggerid=25334&eventid=935",
+      "row": "\t12:10:06 AM\t\t\tAverage\t12:12:01 AM\tRESOLVED\t\tSRV01\tSRV01: HTTP check failed\t1m 55s\tUpdate\t\t"
+    },
+    {
+      "href": "tr_events.php?triggerid=25334&eventid=933",
+      "row": "\t12:05:36 AM\t\t\tAverage\t12:07:31 AM\tRESOLVED\t\tSRV01\tSRV01: HTTP check failed\t1m 55s\tUpdate\t\t"
+    }
+  ]
+}

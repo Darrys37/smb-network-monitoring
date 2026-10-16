@@ -1,0 +1,10 @@
+{
+  "captured_at": "2026-10-16T23:31:25.956Z",
+  "source_url": "http://192.168.56.10:8080/zabbix.php?action=dashboard.view&dashboardid=1",
+  "screenshot": "05-dashboard-closure.jpg",
+  "available_hosts": 3,
+  "enabled_hosts": 3,
+  "open_problem_triggers": 0,
+  "unsupported_items": 0,
+  "note": "Post-reboot closure observation, outside original baseline and 18 trial windows; not an extension of baseline."
+}

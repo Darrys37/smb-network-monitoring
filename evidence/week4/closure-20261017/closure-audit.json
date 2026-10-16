@@ -1,0 +1,23 @@
+{
+  "verified_at_utc": "2026-10-16T23:27:34.904989+00:00",
+  "raw_manifest_verification": "See docs/KIEM_TRA_DU_LIEU_20261017.json and rerun verify_experiment.py",
+  "official_fault_trials": 18,
+  "unique_problem_ids": 18,
+  "historical_ui_events_joined": 18,
+  "historical_event_screenshots": 18,
+  "all_historical_ui_rows_resolved": true,
+  "screenshot_format": "JPEG verified by magic bytes",
+  "sqlite_backup_sha256": "5ae95455b0f8ed95729f1bd1907c09d9d33817a97c9d553606a4836ec0359a20",
+  "restored_database_integrity_check": "ok",
+  "restored_database_foreign_key_check": "no violations",
+  "restored_database_incident_count": 36,
+  "official_reports_reproduced_from_restored_copy": 18,
+  "reports_equal_frozen_json": true,
+  "source_or_trigger_changes_for_closure": false,
+  "limitations": [
+    "Historical screenshots were captured after the trials, not during active faults.",
+    "Restored SQLite copy was read with the report module; this is not a full VM/MySQL disaster-recovery drill.",
+    "Original baseline was user-approved short observation of 1806 seconds, not 4 hours."
+  ],
+  "result": "PASS"
+}

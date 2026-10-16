@@ -1,0 +1,81 @@
+All dashboards
+Global view
+Top hosts by CPU utilization
+Host name	Utilization	1m avg	5m avg	15m avg	Processes
+Zabbix server	
+	
+5.90 %
+	
+0.29
+	
+0.44
+	
+0.28
+	
+187
+Performance
+4
+.31
+Zabbix server
+Values per second
+System information
+Parameter	Value	Details
+Zabbix server is running	Yes	localhost:10051
+Zabbix server version	7.0.30	New update available
+Zabbix frontend version	7.0.30	New update available
+Number of hosts (enabled/disabled)	3	3 / 0
+Number of templates	356	
+Number of items (enabled/disabled/not supported)	337	326 / 11 / 0
+Number of triggers (enabled/disabled [problem/ok])	157	147 / 10 [3 / 144]
+Number of users (online)	3	1
+Required server performance, new values per second	4.59	
+Global scripts on Zabbix server	Disabled	
+High availability cluster	Disabled	
+Local time
+06:27
+Bangkok
+Graph
+Host availability
+3
+Available
+0
+Not available
+0
+Mixed
+0
+Unknown
+3
+Total
+Problems by severity
+0
+Disaster
+0
+High
+0
+Average
+3
+Warning
+0
+Information
+0
+Not classified
+Geomap
++
+−
+Leaflet | © OpenStreetMap contributors
+Current problems
+Time			Info	Host	Problem • Severity	Duration	Update	Actions	Tags
+06:19:24 AM				SRV01	Linux: SRV01 has been restarted (uptime < 10m)	7m 33s	Update		
+class: os
+component: system
+scope: notice
+
+06:19:16 AM				CLI01	Linux: CLI01 has been restarted (uptime < 10m)	7m 41s	Update		
+class: os
+component: system
+scope: notice
+
+06:19:01 AM				Zabbix server	Linux: Zabbix server has been restarted (uptime < 10m)	7m 56s	Update		
+class: os
+component: system
+scope: notice
