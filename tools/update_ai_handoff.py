@@ -52,6 +52,8 @@ def main(argv=None):
     for name in MANUAL:
         if not (output / name).is_file():
             raise ValueError(f"Missing manually maintained document: {name}")
+        path = output / name
+        path.write_bytes(path.read_bytes().replace(b"\r\n", b"\n"))
 
     source_info = {}
     for name, destination in SOURCES.items():
@@ -104,13 +106,17 @@ def main(argv=None):
                 )
             return f"[{label}]({url})"
 
-        text = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", rewrite_link, data.decode("utf-8"))
+        text = re.sub(
+            r"\[([^\]]+)\]\(([^)]+)\)",
+            rewrite_link,
+            data.decode("utf-8").replace("\r\n", "\n"),
+        )
         header = (
             f"> Bản dùng để chuyển chat/tài khoản. Nguồn: `{relative}` tại `{commit}`.\n"
             "> Nội dung lấy từ tài liệu nguồn; các liên kết được đổi để dùng ngoài project. "
             "Đọc file 01 về trạng thái cuối phiên trước khi tiếp tục.\n\n"
         )
-        (output / destination).write_text(header + text, encoding="utf-8")
+        (output / destination).write_bytes((header + text).encode("utf-8"))
         source_info[destination] = {
             "path": relative,
             "sha256": hashlib.sha256(data).hexdigest(),
@@ -131,8 +137,8 @@ def main(argv=None):
             for name in names
         },
     }
-    (output / "MANIFEST.json").write_text(
-        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    (output / "MANIFEST.json").write_bytes(
+        (json.dumps(manifest, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
     )
     print(
         json.dumps(
