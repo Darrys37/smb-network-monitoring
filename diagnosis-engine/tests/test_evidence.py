@@ -5,6 +5,7 @@ import pytest
 
 from evidence import collect_ping, collect_tcp
 
+
 @pytest.mark.parametrize(
     "returncode, expected_status",
     [
@@ -70,13 +71,13 @@ def test_ping_invalid_timeout(timeout):
             collect_ping("192.168.56.20", timeout=timeout)
 
     run.assert_not_called()
+
+
 def test_tcp_success():
     with patch("evidence.socket.create_connection") as connect:
         record = collect_tcp("192.168.56.20", 80)
 
-    connect.assert_called_once_with(
-        ("192.168.56.20", 80), timeout=2
-    )
+    connect.assert_called_once_with(("192.168.56.20", 80), timeout=2)
     assert record.check_type == "tcp"
     assert record.target == "192.168.56.20"
     assert record.collected_at > 0

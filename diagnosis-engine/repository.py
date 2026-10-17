@@ -1,10 +1,12 @@
 import json
 import sqlite3
-from pathlib import Path
 from dataclasses import asdict
-from models import EventRecord, EvidenceRecord, DiagnosisRecord
+from pathlib import Path
+
+from models import DiagnosisRecord, EventRecord, EvidenceRecord
 
 DEFAULT_DB_PATH = Path(__file__).resolve().parent / "diagnosis.db"
+
 
 def init_db(db_path=DEFAULT_DB_PATH):
     connection = sqlite3.connect(db_path)
@@ -60,40 +62,47 @@ def init_db(db_path=DEFAULT_DB_PATH):
         connection.commit()
     finally:
         connection.close()
+
+
 def save_event(event: EventRecord, db_path=DEFAULT_DB_PATH):
     hosts_json = json.dumps(
         [asdict(host) for host in event.hosts],
         ensure_ascii=False,
-     )
+    )
 
     connection = sqlite3.connect(db_path)
 
     try:
         connection.execute("PRAGMA foreign_keys = ON")
-        connection.execute("""
+        connection.execute(
+            """
              INSERT INTO incidents (
                  event_id, clock, name, severity, value, hosts_json
              )
              VALUES (?, ?, ?, ?, ?, ?)
              ON CONFLICT(event_id) DO NOTHING
-         """,(
-             event.event_id,
-             event.clock,
-             event.name,
-             event.severity,
-             event.value,
-             hosts_json,
-         ))
+         """,
+            (
+                event.event_id,
+                event.clock,
+                event.name,
+                event.severity,
+                event.value,
+                hosts_json,
+            ),
+        )
 
         row = connection.execute(
-             "SELECT id FROM incidents WHERE event_id = ?",
-             (event.event_id,),
-         ).fetchone()
+            "SELECT id FROM incidents WHERE event_id = ?",
+            (event.event_id,),
+        ).fetchone()
 
         connection.commit()
         return row[0]
     finally:
-        connection.close()          
+        connection.close()
+
+
 def save_evidence(
     incident_id: int,
     evidence: EvidenceRecord,
@@ -105,60 +114,66 @@ def save_evidence(
     try:
         connection.execute("PRAGMA foreign_keys = ON")
 
-        cursor = connection.execute("""
+        cursor = connection.execute(
+            """
             INSERT INTO evidence (
                 incident_id, check_type, target,
                 collected_at, result_json
             )
             VALUES (?, ?, ?, ?, ?)
-        """, (
-            incident_id,
-            evidence.check_type,
-            evidence.target,
-            evidence.collected_at,
-            result_json,
-        ))
+        """,
+            (
+                incident_id,
+                evidence.check_type,
+                evidence.target,
+                evidence.collected_at,
+                result_json,
+            ),
+        )
 
         connection.commit()
         return cursor.lastrowid
     finally:
         connection.close()
+
+
 def save_diagnosis(
     incident_id: int,
     diagnosis: DiagnosisRecord,
     db_path=DEFAULT_DB_PATH,
 ):
-    missing_json = json.dumps(
-        diagnosis.missing_info, ensure_ascii=False
-    )
-    actions_json = json.dumps(
-        diagnosis.next_actions, ensure_ascii=False
-    )
+    missing_json = json.dumps(diagnosis.missing_info, ensure_ascii=False)
+    actions_json = json.dumps(diagnosis.next_actions, ensure_ascii=False)
     connection = sqlite3.connect(db_path)
 
     try:
         connection.execute("PRAGMA foreign_keys = ON")
 
-        cursor = connection.execute("""
+        cursor = connection.execute(
+            """
             INSERT INTO diagnoses (
                 incident_id, rule_id, status, probable_cause,
                 reasoning, missing_info_json, next_actions_json
             )
             VALUES (?, ?, ?, ?, ?, ?, ?)
-        """, (
-            incident_id,
-            diagnosis.rule_id,
-            diagnosis.status,
-            diagnosis.probable_cause,
-            diagnosis.reasoning,
-            missing_json,
-            actions_json,
-        ))
+        """,
+            (
+                incident_id,
+                diagnosis.rule_id,
+                diagnosis.status,
+                diagnosis.probable_cause,
+                diagnosis.reasoning,
+                missing_json,
+                actions_json,
+            ),
+        )
 
         connection.commit()
         return cursor.lastrowid
     finally:
         connection.close()
+
+
 def save_incident_bundle(
     event: EventRecord,
     evidence,
@@ -182,20 +197,23 @@ def save_incident_bundle(
         connection.execute("PRAGMA foreign_keys = ON")
         connection.execute("BEGIN IMMEDIATE")
 
-        connection.execute("""
+        connection.execute(
+            """
             INSERT INTO incidents (
                 event_id, clock, name, severity, value, hosts_json
             )
             VALUES (?, ?, ?, ?, ?, ?)
             ON CONFLICT(event_id) DO NOTHING
-        """, (
-            event.event_id,
-            event.clock,
-            event.name,
-            event.severity,
-            event.value,
-            hosts_json,
-        ))
+        """,
+            (
+                event.event_id,
+                event.clock,
+                event.name,
+                event.severity,
+                event.value,
+                hosts_json,
+            ),
+        )
 
         incident_id = connection.execute(
             "SELECT id FROM incidents WHERE event_id = ?",
@@ -214,41 +232,47 @@ def save_incident_bundle(
                     "refusing to append a duplicate or mixed bundle"
                 )
 
-        connection.executemany("""
+        connection.executemany(
+            """
             INSERT INTO evidence (
                 incident_id, check_type, target,
                 collected_at, result_json
             )
             VALUES (?, ?, ?, ?, ?)
-        """, [
-            (
-                incident_id,
-                record.check_type,
-                record.target,
-                record.collected_at,
-                json.dumps(record.result, ensure_ascii=False),
-            )
-            for record in evidence
-        ])
+        """,
+            [
+                (
+                    incident_id,
+                    record.check_type,
+                    record.target,
+                    record.collected_at,
+                    json.dumps(record.result, ensure_ascii=False),
+                )
+                for record in evidence
+            ],
+        )
 
-        connection.executemany("""
+        connection.executemany(
+            """
             INSERT INTO diagnoses (
                 incident_id, rule_id, status, probable_cause,
                 reasoning, missing_info_json, next_actions_json
             )
             VALUES (?, ?, ?, ?, ?, ?, ?)
-        """, [
-            (
-                incident_id,
-                diagnosis.rule_id,
-                diagnosis.status,
-                diagnosis.probable_cause,
-                diagnosis.reasoning,
-                json.dumps(diagnosis.missing_info, ensure_ascii=False),
-                json.dumps(diagnosis.next_actions, ensure_ascii=False),
-            )
-            for diagnosis in diagnoses
-        ])
+        """,
+            [
+                (
+                    incident_id,
+                    diagnosis.rule_id,
+                    diagnosis.status,
+                    diagnosis.probable_cause,
+                    diagnosis.reasoning,
+                    json.dumps(diagnosis.missing_info, ensure_ascii=False),
+                    json.dumps(diagnosis.next_actions, ensure_ascii=False),
+                )
+                for diagnosis in diagnoses
+            ],
+        )
 
         connection.commit()
         return incident_id
@@ -263,13 +287,13 @@ def save_incident_bundle(
 def get_incident(event_id, db_path=DEFAULT_DB_PATH):
     """Read only: a missing database must never be silently created."""
     from contextlib import closing
+
     path = Path(db_path).resolve()
     if not path.is_file():
         raise ValueError("Database does not exist; save a problem first")
     with closing(sqlite3.connect(path.as_uri() + "?mode=ro", uri=True)) as conn:
         conn.row_factory = sqlite3.Row
-        row = conn.execute("SELECT * FROM incidents WHERE event_id=?",
-                           (str(event_id),)).fetchone()
+        row = conn.execute("SELECT * FROM incidents WHERE event_id=?", (str(event_id),)).fetchone()
         if row is None:
             raise ValueError("No stored incident for this event ID")
         return dict(row)
@@ -283,6 +307,7 @@ def save_recovery(problem, recovery, db_path=DEFAULT_DB_PATH):
     """
     import time
     from contextlib import closing
+
     event_id = str(problem.get("eventid", ""))
     stored = get_incident(event_id, db_path)
     recovery_id = str(recovery.get("eventid", ""))
@@ -296,7 +321,11 @@ def save_recovery(problem, recovery, db_path=DEFAULT_DB_PATH):
         if str(item.get("source")) != "0" or str(item.get("object")) != "0":
             raise ValueError("Expected trigger events")
     trigger_id = str(problem.get("objectid", ""))
-    if not trigger_id.isdigit() or int(trigger_id) <= 0 or str(recovery.get("objectid")) != trigger_id:
+    if (
+        not trigger_id.isdigit()
+        or int(trigger_id) <= 0
+        or str(recovery.get("objectid")) != trigger_id
+    ):
         raise ValueError("Problem and recovery must reference the same trigger")
     expected_hosts = {h["host_id"] for h in json.loads(stored["hosts_json"])}
     for item in (problem, recovery):
@@ -319,15 +348,23 @@ def save_recovery(problem, recovery, db_path=DEFAULT_DB_PATH):
                 problem_json TEXT NOT NULL,
                 recovery_json TEXT NOT NULL
             )""")
-            old = conn.execute("SELECT recovery_event_id, recovery_clock FROM recoveries WHERE incident_id=?",
-                               (stored["id"],)).fetchone()
+            old = conn.execute(
+                "SELECT recovery_event_id, recovery_clock FROM recoveries WHERE incident_id=?",
+                (stored["id"],),
+            ).fetchone()
             if old is not None:
                 if old != (recovery_id, recovery_clock):
                     raise ValueError("Conflicting recovery already stored; refusing overwrite")
                 return stored["id"]
-            conn.execute("INSERT INTO recoveries VALUES (?, ?, ?, ?, ?, ?)", (
-                stored["id"], recovery_id, recovery_clock, checked_at,
-                json.dumps(problem, ensure_ascii=False),
-                json.dumps(recovery, ensure_ascii=False),
-            ))
+            conn.execute(
+                "INSERT INTO recoveries VALUES (?, ?, ?, ?, ?, ?)",
+                (
+                    stored["id"],
+                    recovery_id,
+                    recovery_clock,
+                    checked_at,
+                    json.dumps(problem, ensure_ascii=False),
+                    json.dumps(recovery, ensure_ascii=False),
+                ),
+            )
     return stored["id"]

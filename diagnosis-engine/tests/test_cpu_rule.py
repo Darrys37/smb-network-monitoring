@@ -3,13 +3,11 @@ import pytest
 from models import EvidenceRecord
 from rules import diagnose_cpu
 
-
 NOW = 1700000200
 HOST_ID = "10683"
 
 
-def cpu(value=95, sample_clock=NOW, collected_at=NOW,
-        status="success", target=HOST_ID):
+def cpu(value=95, sample_clock=NOW, collected_at=NOW, status="success", target=HOST_ID):
     return EvidenceRecord(
         check_type="metric",
         target=target,

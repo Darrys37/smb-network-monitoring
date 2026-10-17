@@ -1,7 +1,9 @@
 """Synchronize a known incident's recovery using read-only Zabbix API calls."""
+
 import argparse
 import sqlite3
 from pathlib import Path
+
 from repository import DEFAULT_DB_PATH, get_incident, save_recovery
 from zabbix_client import get_event_by_id
 

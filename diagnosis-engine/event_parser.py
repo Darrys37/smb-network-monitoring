@@ -1,3 +1,5 @@
+"""Normalize API event identities and reject invalid field types/ranges."""
+
 from models import EventRecord, HostRecord
 
 
@@ -6,14 +8,16 @@ def _required(data, key):
         raise ValueError(f"Missing field: {key}")
     return data[key]
 
+
 def _text(data, key):
-    value = _required(data,key)
-    if not isinstance(value,str) or not value.strip():
-        raise ValueError(f"{key}: expeted non-empty text")
+    value = _required(data, key)
+    if not isinstance(value, str) or not value.strip():
+        raise ValueError(f"{key}: expected non-empty text")
     return value
 
+
 def _integer(data, key, minimum=0, maximum=None):
-    value = _required(data,key)
+    value = _required(data, key)
 
     if type(value) is int:
         number = value
@@ -25,27 +29,28 @@ def _integer(data, key, minimum=0, maximum=None):
     if number < minimum:
         raise ValueError(f"{key}: must be >= {minimum}")
     if maximum is not None and number > maximum:
-        raise ValueError(f"{key}: musbe <= {maximum}")
+        raise ValueError(f"{key}: must be <= {maximum}")
 
     return number
 
+
 def parse_event(raw):
     if not isinstance(raw, dict):
-        raise ValueError("event must be a dicitonary")
-    event_id = str(_integer(raw, "eventid",minimum=1))
+        raise ValueError("event must be a dictionary")
+    event_id = str(_integer(raw, "eventid", minimum=1))
     clock = _integer(raw, "clock")
-    name = _text(raw,"name")
+    name = _text(raw, "name")
     severity = _integer(raw, "severity", maximum=5)
-    value = _integer(raw,"value", maximum=1)
+    value = _integer(raw, "value", maximum=1)
 
     raw_hosts = _required(raw, "hosts")
     if not isinstance(raw_hosts, list):
         raise ValueError("hosts: expected a list")
 
-    hosts =[]
+    hosts = []
     for index, raw_host in enumerate(raw_hosts):
         if not isinstance(raw_host, dict):
-            raise ValueError(f"hosts[{index}]: expected a dicionary")
+            raise ValueError(f"hosts[{index}]: expected a dictionary")
         try:
             host_record = HostRecord(
                 host_id=str(_integer(raw_host, "hostid", minimum=1)),

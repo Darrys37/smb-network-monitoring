@@ -3,7 +3,6 @@ import pytest
 from models import EvidenceRecord
 from rules import diagnose_http_port
 
-
 TARGET = "192.168.56.20"
 NOW = 1700000200
 
@@ -27,9 +26,7 @@ def tcp(status="refused", target=TARGET, port=80, clock=NOW):
 
 
 def test_rule_matches():
-    diagnosis = diagnose_http_port(
-        TARGET, [ping(), tcp()], now=NOW
-    )
+    diagnosis = diagnose_http_port(TARGET, [ping(), tcp()], now=NOW)
 
     assert diagnosis.rule_id == "HTTP_PORT_REFUSED"
     assert diagnosis.status == "matched"

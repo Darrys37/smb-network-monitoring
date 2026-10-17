@@ -1,15 +1,18 @@
+import ipaddress
 import math
 import re
 import socket
-import ipaddress
 import subprocess
 import time
 
 from models import EvidenceRecord
 
+
 def get_host_metrics(*args, **kwargs):
     from zabbix_client import get_host_metrics as fetch_metrics
+
     return fetch_metrics(*args, **kwargs)
+
 
 def collect_ping(target: str, timeout: int = 2) -> EvidenceRecord:
     target = str(ipaddress.IPv4Address(target))
@@ -56,9 +59,7 @@ def collect_ping(target: str, timeout: int = 2) -> EvidenceRecord:
         result["status"] = "error"
         result["stderr"] = str(exc)
 
-    result["duration_ms"] = round(
-        (time.monotonic() - started) * 1000, 2
-    )
+    result["duration_ms"] = round((time.monotonic() - started) * 1000, 2)
 
     return EvidenceRecord(
         check_type="ping",
@@ -66,9 +67,9 @@ def collect_ping(target: str, timeout: int = 2) -> EvidenceRecord:
         collected_at=collected_at,
         result=result,
     )
-def collect_tcp(
-    target: str, port: int, timeout: int = 2
-) -> EvidenceRecord:
+
+
+def collect_tcp(target: str, port: int, timeout: int = 2) -> EvidenceRecord:
     target = str(ipaddress.IPv4Address(target))
 
     if type(port) is not int or not 1 <= port <= 65535:
@@ -86,9 +87,7 @@ def collect_tcp(
     }
 
     try:
-        with socket.create_connection(
-            (target, port), timeout=timeout
-        ):
+        with socket.create_connection((target, port), timeout=timeout):
             result["status"] = "success"
 
     except ConnectionRefusedError as exc:
@@ -106,9 +105,7 @@ def collect_tcp(
         result["error"] = str(exc)
         result["errno"] = exc.errno
 
-    result["duration_ms"] = round(
-        (time.monotonic() - started) * 1000, 2
-    )
+    result["duration_ms"] = round((time.monotonic() - started) * 1000, 2)
 
     return EvidenceRecord(
         check_type="tcp",
@@ -116,6 +113,8 @@ def collect_tcp(
         collected_at=collected_at,
         result=result,
     )
+
+
 def collect_dns(target: str, timeout: int = 2) -> EvidenceRecord:
     if not isinstance(target, str):
         raise ValueError("target must be a domain name")
@@ -124,10 +123,7 @@ def collect_dns(target: str, timeout: int = 2) -> EvidenceRecord:
     labels = target.split(".")
     pattern = r"[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?"
 
-    if (
-        len(target) > 253
-        or not all(re.fullmatch(pattern, label) for label in labels)
-    ):
+    if len(target) > 253 or not all(re.fullmatch(pattern, label) for label in labels):
         raise ValueError("target must be a valid ASCII domain name")
 
     if type(timeout) is not int or timeout <= 0:
@@ -150,8 +146,14 @@ def collect_dns(target: str, timeout: int = 2) -> EvidenceRecord:
     try:
         completed = subprocess.run(
             [
-                "dig", "-r", f"+time={timeout}", "+tries=1",
-                "-q", target + ".", "-t", "A",
+                "dig",
+                "-r",
+                f"+time={timeout}",
+                "+tries=1",
+                "-q",
+                target + ".",
+                "-t",
+                "A",
             ],
             capture_output=True,
             text=True,
@@ -189,7 +191,10 @@ def collect_dns(target: str, timeout: int = 2) -> EvidenceRecord:
                 result["status"] = "nxdomain"
             else:
                 result["status"] = "dns_error"
-        elif completed.returncode == 9 and "timed out" in (completed.stdout + completed.stderr).lower():
+        elif (
+            completed.returncode == 9
+            and "timed out" in (completed.stdout + completed.stderr).lower()
+        ):
             result["status"] = "timeout"
 
     except subprocess.TimeoutExpired:
@@ -200,9 +205,7 @@ def collect_dns(target: str, timeout: int = 2) -> EvidenceRecord:
         result["status"] = "error"
         result["stderr"] = str(exc)
 
-    result["duration_ms"] = round(
-        (time.monotonic() - started) * 1000, 2
-    )
+    result["duration_ms"] = round((time.monotonic() - started) * 1000, 2)
 
     return EvidenceRecord(
         check_type="dns",
@@ -210,6 +213,8 @@ def collect_dns(target: str, timeout: int = 2) -> EvidenceRecord:
         collected_at=collected_at,
         result=result,
     )
+
+
 def collect_metrics(host_id: str, max_age: int = 180):
     if type(max_age) is not int or max_age <= 0:
         raise ValueError("max_age must be a positive integer")
@@ -276,11 +281,13 @@ def collect_metrics(host_id: str, max_age: int = 180):
                 result["status"] = "invalid"
                 result["error"] = str(exc)
 
-        records.append(EvidenceRecord(
-            check_type="metric",
-            target=str(host_id),
-            collected_at=collected_at,
-            result=result,
-        ))
+        records.append(
+            EvidenceRecord(
+                check_type="metric",
+                target=str(host_id),
+                collected_at=collected_at,
+                result=result,
+            )
+        )
 
     return records

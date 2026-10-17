@@ -1,11 +1,15 @@
 """Additional collectors for the roadmap; all remote actions are read-only."""
+
 import math
 import time
+
 from models import EvidenceRecord
-from zabbix_client import get_items_by_keys, get_item_history
+from policy import CPU_HISTORY_WINDOW_SECONDS, EVIDENCE_MAX_AGE_SECONDS
+from zabbix_client import get_item_history, get_items_by_keys
 
 
-def collect_agent_metric(host_id, max_age=180):
+def collect_agent_metric(host_id, max_age=EVIDENCE_MAX_AGE_SECONDS):
+    """Stale enabled agent data is no_data, even if its current state is unsupported."""
     now = int(time.time())
     items = get_items_by_keys(host_id, ["agent.ping"])
     result = {"key": "agent.ping", "status": "missing", "max_age_seconds": max_age}
@@ -35,12 +39,22 @@ def collect_agent_metric(host_id, max_age=180):
 
 
 def collect_cpu_history(host_id):
+    """Collect the five-minute numeric history and raw corroborating items."""
     now = int(time.time())
-    result = {"key": "system.cpu.util", "units": "%", "status": "missing",
-              "window_seconds": 300, "samples": []}
-    items = get_items_by_keys(host_id, ["system.cpu.util", "system.cpu.num", "system.cpu.load[all,avg1]"])
+    result = {
+        "key": "system.cpu.util",
+        "units": "%",
+        "status": "missing",
+        "window_seconds": CPU_HISTORY_WINDOW_SECONDS,
+        "samples": [],
+    }
+    items = get_items_by_keys(
+        host_id, ["system.cpu.util", "system.cpu.num", "system.cpu.load[all,avg1]"]
+    )
     by_key = {item["key_"]: item for item in items}
-    result["support_items"] = {key: by_key[key] for key in ("system.cpu.num", "system.cpu.load[all,avg1]") if key in by_key}
+    result["support_items"] = {
+        key: by_key[key] for key in ("system.cpu.num", "system.cpu.load[all,avg1]") if key in by_key
+    }
     if "system.cpu.util" in by_key:
         item = by_key["system.cpu.util"]
         result["item_id"] = item["itemid"]
@@ -48,10 +62,16 @@ def collect_cpu_history(host_id):
             result["status"] = "unusable"
         else:
             try:
-                rows = get_item_history(item, now - 300, now)
-                samples = [{"clock": int(row["clock"]), "value": float(row["value"])} for row in rows]
-                if any(not math.isfinite(s["value"]) or not 0 <= s["value"] <= 100
-                       or not now - 300 <= s["clock"] <= now for s in samples):
+                rows = get_item_history(item, now - CPU_HISTORY_WINDOW_SECONDS, now)
+                samples = [
+                    {"clock": int(row["clock"]), "value": float(row["value"])} for row in rows
+                ]
+                if any(
+                    not math.isfinite(s["value"])
+                    or not 0 <= s["value"] <= 100
+                    or not now - CPU_HISTORY_WINDOW_SECONDS <= s["clock"] <= now
+                    for s in samples
+                ):
                     raise ValueError("Invalid CPU history")
                 if len({s["clock"] for s in samples}) != len(samples):
                     raise ValueError("Ambiguous duplicate CPU sample clocks")

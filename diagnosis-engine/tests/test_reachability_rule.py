@@ -3,7 +3,6 @@ import pytest
 from models import EvidenceRecord
 from rules import diagnose_reachability
 
-
 NOW = 1700000200
 TARGET = "192.168.56.20"
 
@@ -27,9 +26,7 @@ def tcp(status="timeout", target=TARGET, port=80, clock=NOW):
 
 
 def test_reachability_matches():
-    diagnosis = diagnose_reachability(
-        TARGET, [ping(), tcp()], now=NOW
-    )
+    diagnosis = diagnose_reachability(TARGET, [ping(), tcp()], now=NOW)
 
     assert diagnosis.rule_id == "REACHABILITY_SUSPECTED"
     assert diagnosis.status == "matched"

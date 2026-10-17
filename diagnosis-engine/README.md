@@ -1,4 +1,4 @@
-# Diagnosis engine — bản kỹ thuật tuần 5
+# Diagnosis engine — bản cleanup sau tuần 5
 
 Python CLI, Zabbix API và SQLite. Sáu luật roadmap có matched/not_matched/insufficient_evidence; người vận hành chọn event và quyết định xử lý. Không có daemon hoặc tự khắc phục.
 
@@ -44,3 +44,39 @@ Sau rollback, chạy recovery.py --event-id với event mới đã có recovery 
 - [Demo và rollback](../docs/KICH_BAN_DEMO_10_PHUT.md).
 
 280 tests trước đợt tuần4 là mốc lịch sử; kết quả test cuối tuần5 ghi trong hồ sơ final, không dùng unit test làm số fault thật. 18/18 mục tiêu khớp không phải accuracy tổng quát có mẫu âm. Legacy rules.py còn để tái lập dữ liệu cũ; bộ chính thức dùng roadmap. Giữ .env và DB runtime ngoài Git; backup bằng SQLite backup API.
+
+## Bản cleanup ngày 17/10/2026
+
+CLI và `diagnose_roadmap()` cùng mặc định HTTP scope `unknown`. Caller Python cũ
+muốn đánh giá web server cần khai báo `http_service="expected"`. Lệnh demo trong
+README gốc đã khai báo scope; điều kiện R1–R6 khi scope tường minh được giữ nguyên.
+
+`app.main()` điều phối; `collect_evidence()` chỉ thu/nhập; `evaluate_evidence()`
+chọn luật; `print_assessment()` trình bày; repository ghi transaction. `policy.py`
+giữ ngưỡng roadmap. Hai importer dùng `probe_evidence.py` kiểm tra envelope,
+UTF-8, giới hạn 64 KiB và tuổi dữ liệu; `dns_evidence.py` kiểm tra query/control.
+`--dns-evidence` yêu cầu cả `--dns-name` và `--dns-control-ip`.
+
+Probe DNS mới xuất version 1; file DNS cũ thiếu version vẫn đọc được nếu hợp lệ.
+Probe trên CLI01 vẫn chỉ cần dns_probe.py/evidence.py/models.py và ping/dig;
+HTTP probe trên SRV01 vẫn là một file Python độc lập. MON01 cần **toàn bộ module**,
+bao gồm policy.py, probe_evidence.py và dns_evidence.py, không chép riêng app.py.
+
+355 tests đạt trên Windows và MON01; 108 kết quả của 18 hồ sơ cũ được replay
+không đổi; 576 tổ hợp tổng hợp khớp bản trước khi scope tường minh. Dữ liệu/tag
+tuần 4–5 giữ nguyên; số liệu này không phải một chiến dịch fault live mới.
+
+Kiểm tra cho developer:
+
+```bash
+python -m pip install -r requirements-dev.txt
+python -m ruff check .
+python -m ruff format --check .
+python -m pytest -q
+```
+
+- [Logic và hướng phát triển](../docs/DIAGNOSIS_ENGINE_LOGIC_VA_PHAT_TRIEN.md).
+- [Giới thiệu, giải thích và gợi ý bảo vệ](../docs/GIOI_THIEU_VA_GIAI_THICH_DO_AN.md).
+
+Các báo cáo nghiệm thu tuần 5 mô tả phiên bản đã đóng tại tag
+`week5-technical-20261017`; hai tài liệu trên mô tả source sau cleanup.

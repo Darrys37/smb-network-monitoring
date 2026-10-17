@@ -1,4 +1,5 @@
 """Legacy filename. Prefer zabbix_client.py."""
+
 import runpy
 
 if __name__ == "__main__":

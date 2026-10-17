@@ -3,13 +3,13 @@ import pytest
 from models import EvidenceRecord
 from rules import diagnose_disk
 
-
 NOW = 1700000200
 HOST_ID = "10683"
 
 
-def disk(value=95, clock=NOW, target=HOST_ID,
-         key="vfs.fs.dependent.size[/,pused]", status="success"):
+def disk(
+    value=95, clock=NOW, target=HOST_ID, key="vfs.fs.dependent.size[/,pused]", status="success"
+):
     return EvidenceRecord(
         check_type="metric",
         target=target,
@@ -69,8 +69,6 @@ def test_disk_requires_usable_evidence(records):
 
 
 def test_disk_accepts_age_boundary():
-    diagnosis = diagnose_disk(
-        HOST_ID, [disk(clock=NOW - 180)], now=NOW
-    )
+    diagnosis = diagnose_disk(HOST_ID, [disk(clock=NOW - 180)], now=NOW)
 
     assert diagnosis.status == "matched"

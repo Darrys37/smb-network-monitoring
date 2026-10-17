@@ -3,13 +3,11 @@ import pytest
 from models import EvidenceRecord
 from rules import diagnose_dns_name
 
-
 NOW = 1700000200
 TARGET = "example.com"
 
 
-def dns(status="nxdomain", dns_status="NXDOMAIN",
-        target=TARGET, clock=NOW, record_type="A"):
+def dns(status="nxdomain", dns_status="NXDOMAIN", target=TARGET, clock=NOW, record_type="A"):
     return EvidenceRecord(
         check_type="dns",
         target=target,
@@ -34,9 +32,7 @@ def test_dns_rule_matches():
 
 @pytest.mark.parametrize("status", ["success", "no_answer"])
 def test_dns_rule_does_not_match_noerror(status):
-    diagnosis = diagnose_dns_name(
-        TARGET, [dns(status, "NOERROR")], now=NOW
-    )
+    diagnosis = diagnose_dns_name(TARGET, [dns(status, "NOERROR")], now=NOW)
 
     assert diagnosis.status == "not_matched"
     assert diagnosis.probable_cause is None
@@ -64,9 +60,7 @@ def test_dns_rule_requires_usable_evidence(records):
 
 
 def test_dns_rule_normalizes_name():
-    diagnosis = diagnose_dns_name(
-        "EXAMPLE.COM.", [dns()], now=NOW
-    )
+    diagnosis = diagnose_dns_name("EXAMPLE.COM.", [dns()], now=NOW)
 
     assert diagnosis.status == "matched"
 

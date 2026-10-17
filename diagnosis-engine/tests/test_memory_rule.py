@@ -3,13 +3,11 @@ import pytest
 from models import EvidenceRecord
 from rules import diagnose_memory
 
-
 NOW = 1700000200
 HOST_ID = "10683"
 
 
-def memory(value=95, clock=NOW, target=HOST_ID,
-           key="vm.memory.util", status="success"):
+def memory(value=95, clock=NOW, target=HOST_ID, key="vm.memory.util", status="success"):
     return EvidenceRecord(
         check_type="metric",
         target=target,
@@ -69,8 +67,6 @@ def test_memory_requires_usable_evidence(records):
 
 
 def test_memory_accepts_age_boundary():
-    diagnosis = diagnose_memory(
-        HOST_ID, [memory(clock=NOW - 180)], now=NOW
-    )
+    diagnosis = diagnose_memory(HOST_ID, [memory(clock=NOW - 180)], now=NOW)
 
     assert diagnosis.status == "matched"

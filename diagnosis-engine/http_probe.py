@@ -1,4 +1,5 @@
 """Read-only HTTP evidence, run on the service host. Standard library only."""
+
 import argparse
 import http.client
 import ipaddress
@@ -10,10 +11,15 @@ from pathlib import Path
 
 
 def local_addresses():
-    completed = subprocess.run(["ip", "-j", "-4", "address", "show"],
-                               capture_output=True, text=True, timeout=5, check=True)
-    return {a["local"] for link in json.loads(completed.stdout)
-            for a in link.get("addr_info", []) if a.get("family") == "inet"}
+    completed = subprocess.run(
+        ["ip", "-j", "-4", "address", "show"], capture_output=True, text=True, timeout=5, check=True
+    )
+    return {
+        a["local"]
+        for link in json.loads(completed.stdout)
+        for a in link.get("addr_info", [])
+        if a.get("family") == "inet"
+    }
 
 
 def collect_local_http(target, observer="srv01"):
@@ -24,9 +30,15 @@ def collect_local_http(target, observer="srv01"):
     if target not in local_addresses():
         raise ValueError("Target IP is not assigned to this host")
     stamp = int(time.time())
-    result = {"observer": actual, "port": 80, "path": "/",
-              "local_address_verified": True, "status": "error",
-              "http_status": None, "error": ""}
+    result = {
+        "observer": actual,
+        "port": 80,
+        "path": "/",
+        "local_address_verified": True,
+        "status": "error",
+        "http_status": None,
+        "error": "",
+    }
     # Numeric local address, no proxy, no redirects, no privileged commands.
     conn = http.client.HTTPConnection(target, 80, timeout=3)
     try:
@@ -40,8 +52,7 @@ def collect_local_http(target, observer="srv01"):
         result.update(status="error", error=str(exc))
     finally:
         conn.close()
-    return {"check_type": "local_http", "target": target,
-            "collected_at": stamp, "result": result}
+    return {"check_type": "local_http", "target": target, "collected_at": stamp, "result": result}
 
 
 def main():
@@ -52,8 +63,9 @@ def main():
     args = parser.parse_args()
     row = collect_local_http(args.target_ip, args.observer)
     with args.output.open("x", encoding="utf-8") as handle:
-        json.dump({"schema_version": 1, "observer": args.observer,
-                   "evidence": [row]}, handle, indent=2)
+        json.dump(
+            {"schema_version": 1, "observer": args.observer, "evidence": [row]}, handle, indent=2
+        )
     print(f"Saved {args.output}: {row['result']['status']}")
 
 

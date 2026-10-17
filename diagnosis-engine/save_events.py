@@ -8,9 +8,7 @@ from zabbix_client import get_recent_events
 
 def count_incidents():
     with closing(sqlite3.connect(DEFAULT_DB_PATH)) as connection:
-        return connection.execute(
-            "SELECT COUNT(*) FROM incidents"
-        ).fetchone()[0]
+        return connection.execute("SELECT COUNT(*) FROM incidents").fetchone()[0]
 
 
 def main():

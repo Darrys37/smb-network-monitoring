@@ -17,9 +17,7 @@ def test_dns_success():
         ";; ADDITIONAL SECTION:\n"
         "other.example. 60 IN A 192.0.2.99\n"
     )
-    completed = subprocess.CompletedProcess(
-        args=["dig"], returncode=0, stdout=output, stderr=""
-    )
+    completed = subprocess.CompletedProcess(args=["dig"], returncode=0, stdout=output, stderr="")
 
     with patch("evidence.subprocess.run", return_value=completed) as run:
         record = collect_dns("example.com")
@@ -43,12 +41,8 @@ def test_dns_success():
     ],
 )
 def test_dns_without_addresses(dns_status, expected_status):
-    output = (
-        f";; ->>HEADER<<- opcode: QUERY, status: {dns_status}, id: 1\n"
-    )
-    completed = subprocess.CompletedProcess(
-        args=["dig"], returncode=0, stdout=output, stderr=""
-    )
+    output = f";; ->>HEADER<<- opcode: QUERY, status: {dns_status}, id: 1\n"
+    completed = subprocess.CompletedProcess(args=["dig"], returncode=0, stdout=output, stderr="")
 
     with patch("evidence.subprocess.run", return_value=completed):
         record = collect_dns("example.com")

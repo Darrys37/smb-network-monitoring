@@ -5,7 +5,7 @@ import time
 from contextlib import closing
 from pathlib import Path
 
-from evidence import collect_ping, collect_tcp, collect_dns, collect_metrics
+from evidence import collect_dns, collect_metrics, collect_ping, collect_tcp
 from models import EventRecord, HostRecord
 from repository import init_db, save_event, save_evidence
 
@@ -60,6 +60,7 @@ def main():
             print(row[0], row[1], label, result["status"])
 
         print("Evidence integration OK: 7 records verified")
+
 
 if __name__ == "__main__":
     main()

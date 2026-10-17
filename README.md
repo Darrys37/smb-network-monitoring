@@ -2,6 +2,18 @@
 
 Đồ án sử dụng Zabbix để giám sát và phát sinh cảnh báo, kết hợp module Python CLI thu bằng chứng, áp dụng luật và lưu hồ sơ sự cố có giải thích. Người vận hành kiểm tra và xử lý sự cố; module không tự khắc phục.
 
+
+## Tài liệu tiếp nhận và source hiện tại
+
+- [Giới thiệu và giải thích đồ án](docs/GIOI_THIEU_VA_GIAI_THICH_DO_AN.md).
+- [Logic diagnosis engine, đọc code và phát triển](docs/DIAGNOSIS_ENGINE_LOGIC_VA_PHAT_TRIEN.md).
+
+Cleanup ngày 17/10/2026 thống nhất HTTP mặc định `unknown` giữa CLI/Python,
+tách rõ orchestration/collection/rules và chuẩn hóa nhập HTTP/DNS. Bản này đạt
+355 tests trên Windows và MON01; replay 108 kết quả trong 18 hồ sơ giữ nguyên.
+Kết quả thực nghiệm ở tag tuần 4–5 vẫn thuộc phiên bản lịch sử. Xem mục 16 của
+tài liệu logic để biết thay đổi tương thích, cách kiểm thử và cách giải thích code.
+
 ## Mô hình lab
 
 | Máy | IP Host-only | Vai trò |

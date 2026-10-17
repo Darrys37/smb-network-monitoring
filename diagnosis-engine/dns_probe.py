@@ -1,9 +1,11 @@
 """Run on CLI01, not MON01, to observe CLI01's default DNS resolver."""
+
 import argparse
 import json
 import socket
 from dataclasses import asdict, replace
 from pathlib import Path
+
 from evidence import collect_dns, collect_ping
 
 
@@ -15,11 +17,18 @@ def main():
     args = parser.parse_args()
     observer = socket.gethostname().lower().split(".")[0]
     name = args.name.lower().rstrip(".")
-    records = [collect_dns(name), replace(collect_ping(args.control_ip), check_type="dns_control_ping")]
+    records = [
+        collect_dns(name),
+        replace(collect_ping(args.control_ip), check_type="dns_control_ping"),
+    ]
     for record in records:
         record.result["observer"] = observer
     with args.output.open("x", encoding="utf-8") as stream:
-        json.dump({"observer": observer, "evidence": [asdict(r) for r in records]}, stream, indent=2)
+        json.dump(
+            {"schema_version": 1, "observer": observer, "evidence": [asdict(r) for r in records]},
+            stream,
+            indent=2,
+        )
     print("Saved:", args.output)
 
 

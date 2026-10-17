@@ -1,11 +1,12 @@
 import json
 import sqlite3
 from contextlib import closing
-from repository import save_incident_bundle
+
 import pytest
 
-from models import EventRecord, HostRecord, EvidenceRecord, DiagnosisRecord
-from repository import init_db, save_event, save_evidence, save_diagnosis
+from models import DiagnosisRecord, EventRecord, EvidenceRecord, HostRecord
+from repository import init_db, save_diagnosis, save_event, save_evidence, save_incident_bundle
+
 
 @pytest.fixture
 def sample_event():
@@ -65,12 +66,12 @@ def test_save_same_event_twice_does_not_duplicate(tmp_path, sample_event):
     second_id = save_event(sample_event, db_path)
 
     with closing(sqlite3.connect(db_path)) as connection:
-        count = connection.execute(
-            "SELECT COUNT(*) FROM incidents"
-        ).fetchone()[0]
+        count = connection.execute("SELECT COUNT(*) FROM incidents").fetchone()[0]
 
     assert first_id == second_id
     assert count == 1
+
+
 @pytest.fixture
 def sample_evidence():
     return EvidenceRecord(
@@ -81,16 +82,12 @@ def sample_evidence():
     )
 
 
-def test_save_evidence_persists_data(
-    tmp_path, sample_event, sample_evidence
-):
+def test_save_evidence_persists_data(tmp_path, sample_event, sample_evidence):
     db_path = tmp_path / "test.db"
     init_db(db_path)
     incident_id = save_event(sample_event, db_path)
 
-    evidence_id = save_evidence(
-        incident_id, sample_evidence, db_path
-    )
+    evidence_id = save_evidence(incident_id, sample_evidence, db_path)
 
     with closing(sqlite3.connect(db_path)) as connection:
         row = connection.execute(
@@ -103,9 +100,7 @@ def test_save_evidence_persists_data(
         ).fetchone()
 
     assert row is not None
-    assert row[:4] == (
-        incident_id, "ping", "192.168.56.20", 1700000010
-    )
+    assert row[:4] == (incident_id, "ping", "192.168.56.20", 1700000010)
     assert json.loads(row[4]) == sample_evidence.result
 
 
@@ -117,11 +112,11 @@ def test_evidence_requires_existing_incident(tmp_path, sample_evidence):
         save_evidence(999, sample_evidence, db_path)
 
     with closing(sqlite3.connect(db_path)) as connection:
-        count = connection.execute(
-            "SELECT COUNT(*) FROM evidence"
-        ).fetchone()[0]
+        count = connection.execute("SELECT COUNT(*) FROM evidence").fetchone()[0]
 
     assert count == 0
+
+
 @pytest.mark.parametrize(
     "status, cause",
     [
@@ -156,9 +151,7 @@ def test_save_diagnosis_persists_data(tmp_path, sample_event, status, cause):
         ).fetchone()
 
     assert row is not None
-    assert row[:5] == (
-        incident_id, "TEST_RULE", status, cause, "Test explanation"
-    )
+    assert row[:5] == (incident_id, "TEST_RULE", status, cause, "Test explanation")
     assert json.loads(row[5]) == ["Need service status"]
     assert json.loads(row[6]) == ["Inspect service"]
 
@@ -179,9 +172,7 @@ def test_diagnosis_requires_existing_incident(tmp_path):
         save_diagnosis(999, diagnosis, db_path)
 
     with closing(sqlite3.connect(db_path)) as connection:
-        count = connection.execute(
-            "SELECT COUNT(*) FROM diagnoses"
-        ).fetchone()[0]
+        count = connection.execute("SELECT COUNT(*) FROM diagnoses").fetchone()[0]
 
     assert count == 0
 
@@ -203,11 +194,10 @@ def test_diagnosis_rejects_invalid_status(tmp_path, sample_event):
         save_diagnosis(incident_id, diagnosis, db_path)
 
     with closing(sqlite3.connect(db_path)) as connection:
-        count = connection.execute(
-            "SELECT COUNT(*) FROM diagnoses"
-        ).fetchone()[0]
+        count = connection.execute("SELECT COUNT(*) FROM diagnoses").fetchone()[0]
 
     assert count == 0
+
 
 def bundle_records():
     evidence = EvidenceRecord(
@@ -230,9 +220,7 @@ def bundle_records():
 def bundle_snapshot(db_path):
     with closing(sqlite3.connect(db_path)) as connection:
         return {
-            table: connection.execute(
-                f"SELECT * FROM {table} ORDER BY id"
-            ).fetchall()
+            table: connection.execute(f"SELECT * FROM {table} ORDER BY id").fetchall()
             for table in ("incidents", "evidence", "diagnoses")
         }
 
@@ -242,9 +230,7 @@ def test_bundle_saves_linked_records(tmp_path, sample_event):
     init_db(db_path)
     evidence, diagnosis = bundle_records()
 
-    incident_id = save_incident_bundle(
-        sample_event, [evidence], [diagnosis], db_path
-    )
+    incident_id = save_incident_bundle(sample_event, [evidence], [diagnosis], db_path)
 
     with closing(sqlite3.connect(db_path)) as connection:
         event_row = connection.execute(
@@ -261,14 +247,10 @@ def test_bundle_saves_linked_records(tmp_path, sample_event):
     assert event_row == (sample_event.event_id,)
     assert evidence_row[0] == incident_id
     assert json.loads(evidence_row[1]) == evidence.result
-    assert diagnosis_row == (
-        incident_id, "HTTP_PORT_REFUSED", "matched"
-    )
+    assert diagnosis_row == (incident_id, "HTTP_PORT_REFUSED", "matched")
 
     snapshot = bundle_snapshot(db_path)
-    assert [len(snapshot[t]) for t in (
-        "incidents", "evidence", "diagnoses"
-    )] == [1, 1, 1]
+    assert [len(snapshot[t]) for t in ("incidents", "evidence", "diagnoses")] == [1, 1, 1]
 
 
 def test_bundle_rejects_repeat_without_changes(tmp_path, sample_event):
@@ -276,23 +258,17 @@ def test_bundle_rejects_repeat_without_changes(tmp_path, sample_event):
     init_db(db_path)
     evidence, diagnosis = bundle_records()
 
-    save_incident_bundle(
-        sample_event, [evidence], [diagnosis], db_path
-    )
+    save_incident_bundle(sample_event, [evidence], [diagnosis], db_path)
     before = bundle_snapshot(db_path)
 
     with pytest.raises(ValueError, match="already has"):
-        save_incident_bundle(
-            sample_event, [evidence], [diagnosis], db_path
-        )
+        save_incident_bundle(sample_event, [evidence], [diagnosis], db_path)
 
     assert bundle_snapshot(db_path) == before
 
 
 @pytest.mark.parametrize("existing_incident", [False, True])
-def test_bundle_rolls_back_on_invalid_diagnosis(
-    tmp_path, sample_event, existing_incident
-):
+def test_bundle_rolls_back_on_invalid_diagnosis(tmp_path, sample_event, existing_incident):
     from dataclasses import replace
 
     db_path = tmp_path / "test.db"
@@ -322,12 +298,8 @@ def test_bundle_completes_existing_incident(tmp_path, sample_event):
     original_id = save_event(sample_event, db_path)
     evidence, diagnosis = bundle_records()
 
-    incident_id = save_incident_bundle(
-        sample_event, [evidence], [diagnosis], db_path
-    )
+    incident_id = save_incident_bundle(sample_event, [evidence], [diagnosis], db_path)
 
     assert incident_id == original_id
     snapshot = bundle_snapshot(db_path)
-    assert [len(snapshot[t]) for t in (
-        "incidents", "evidence", "diagnoses"
-    )] == [1, 1, 1]
+    assert [len(snapshot[t]) for t in ("incidents", "evidence", "diagnoses")] == [1, 1, 1]

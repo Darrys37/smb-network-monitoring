@@ -16,13 +16,11 @@ def diagnose_http_port(target, evidence, now=None, max_age=180):
 
     for check_type in ("ping", "tcp"):
         candidates = [
-            record for record in evidence
+            record
+            for record in evidence
             if record.check_type == check_type
             and record.target == target
-            and (
-                check_type != "tcp"
-                or record.result.get("port") == 80
-            )
+            and (check_type != "tcp" or record.result.get("port") == 80)
         ]
 
         if not candidates:
@@ -37,9 +35,7 @@ def diagnose_http_port(target, evidence, now=None, max_age=180):
             continue
 
         allowed = (
-            {"success", "no_reply"}
-            if check_type == "ping"
-            else {"success", "refused", "timeout"}
+            {"success", "no_reply"} if check_type == "ping" else {"success", "refused", "timeout"}
         )
 
         if latest.result.get("status") not in allowed:
@@ -55,9 +51,7 @@ def diagnose_http_port(target, evidence, now=None, max_age=180):
             probable_cause=None,
             reasoning="Not enough recent evidence to evaluate this rule.",
             missing_info=tuple(missing),
-            next_actions=(
-                f"Repeat ping and TCP port 80 checks for {target}.",
-            ),
+            next_actions=(f"Repeat ping and TCP port 80 checks for {target}.",),
         )
 
     ping_status = selected["ping"].result["status"]
@@ -68,13 +62,9 @@ def diagnose_http_port(target, evidence, now=None, max_age=180):
             rule_id=rule_id,
             status="matched",
             probable_cause=(
-                "No service listening on TCP port 80, "
-                "or the connection is actively rejected."
+                "No service listening on TCP port 80, or the connection is actively rejected."
             ),
-            reasoning=(
-                f"{target} responds to ping, but TCP port 80 "
-                "refuses the connection."
-            ),
+            reasoning=(f"{target} responds to ping, but TCP port 80 refuses the connection."),
             missing_info=(
                 "Listening sockets and owning processes on the target.",
                 "Web service status and firewall rules on the target.",
@@ -97,6 +87,8 @@ def diagnose_http_port(target, evidence, now=None, max_age=180):
         missing_info=(),
         next_actions=(),
     )
+
+
 def diagnose_cpu(host_id, evidence, now=None, max_age=180):
     if type(max_age) is not int or max_age <= 0:
         raise ValueError("max_age must be a positive integer")
@@ -105,7 +97,8 @@ def diagnose_cpu(host_id, evidence, now=None, max_age=180):
         now = int(time.time())
 
     candidates = [
-        record for record in evidence
+        record
+        for record in evidence
         if record.check_type == "metric"
         and record.target == str(host_id)
         and record.result.get("key") == "system.cpu.util"
@@ -150,19 +143,23 @@ def diagnose_cpu(host_id, evidence, now=None, max_age=180):
     return DiagnosisRecord(
         rule_id="CPU_HIGH",
         status="matched" if high else "not_matched",
-        probable_cause=(
-            "High CPU demand at the sample time." if high else None
-        ),
+        probable_cause=("High CPU demand at the sample time." if high else None),
         reasoning=f"CPU utilization is {value:.2f}%; threshold is 90%.",
         missing_info=(
             "CPU history to determine whether high usage persists.",
             "Processes consuming CPU on the target.",
-        ) if high else (),
+        )
+        if high
+        else (),
         next_actions=(
             "Inspect CPU history in Zabbix.",
             "On the target: top",
-        ) if high else (),
+        )
+        if high
+        else (),
     )
+
+
 def diagnose_dns_name(target, evidence, now=None, max_age=180):
     if type(max_age) is not int or max_age <= 0:
         raise ValueError("max_age must be a positive integer")
@@ -172,7 +169,8 @@ def diagnose_dns_name(target, evidence, now=None, max_age=180):
 
     target = target.lower().rstrip(".")
     candidates = [
-        record for record in evidence
+        record
+        for record in evidence
         if record.check_type == "dns"
         and record.target.lower().rstrip(".") == target
         and record.result.get("record_type") == "A"
@@ -193,10 +191,7 @@ def diagnose_dns_name(target, evidence, now=None, max_age=180):
         elif result.get("status") == "nxdomain" and observed == "NXDOMAIN":
             problem = None
             matched = True
-        elif (
-            result.get("status") in ("success", "no_answer")
-            and observed == "NOERROR"
-        ):
+        elif result.get("status") in ("success", "no_answer") and observed == "NOERROR":
             problem = None
         else:
             problem = "No usable DNS response for evaluating name existence."
@@ -215,19 +210,24 @@ def diagnose_dns_name(target, evidence, now=None, max_age=180):
         rule_id="DNS_NAME_NOT_FOUND",
         status="matched" if matched else "not_matched",
         probable_cause=(
-            "Incorrect domain name or missing DNS name in the queried view."
-            if matched else None
+            "Incorrect domain name or missing DNS name in the queried view." if matched else None
         ),
         reasoning=f"DNS query for {target} returned {observed}.",
         missing_info=(
             "Expected domain name and DNS records.",
             "Whether the query used the intended DNS resolver.",
-        ) if matched else (),
+        )
+        if matched
+        else (),
         next_actions=(
             "Verify the domain spelling.",
             "Check the intended DNS resolver and authoritative records.",
-        ) if matched else (),
+        )
+        if matched
+        else (),
     )
+
+
 def diagnose_memory(host_id, evidence, now=None, max_age=180):
     if type(max_age) is not int or max_age <= 0:
         raise ValueError("max_age must be a positive integer")
@@ -236,7 +236,8 @@ def diagnose_memory(host_id, evidence, now=None, max_age=180):
         now = int(time.time())
 
     candidates = [
-        record for record in evidence
+        record
+        for record in evidence
         if record.check_type == "metric"
         and record.target == str(host_id)
         and record.result.get("key") == "vm.memory.util"
@@ -281,20 +282,24 @@ def diagnose_memory(host_id, evidence, now=None, max_age=180):
     return DiagnosisRecord(
         rule_id="MEMORY_HIGH",
         status="matched" if high else "not_matched",
-        probable_cause=(
-            "High memory usage at the sample time." if high else None
-        ),
+        probable_cause=("High memory usage at the sample time." if high else None),
         reasoning=f"Memory utilization is {value:.2f}%; threshold is 90%.",
         missing_info=(
             "Memory history and available memory on the target.",
             "Swap activity and processes consuming memory.",
-        ) if high else (),
+        )
+        if high
+        else (),
         next_actions=(
             "Inspect memory history in Zabbix.",
             "On the target: free -h",
             "On the target: top",
-        ) if high else (),
+        )
+        if high
+        else (),
     )
+
+
 def diagnose_reachability(target, evidence, now=None, max_age=180):
     if type(max_age) is not int or max_age <= 0:
         raise ValueError("max_age must be a positive integer")
@@ -307,13 +312,11 @@ def diagnose_reachability(target, evidence, now=None, max_age=180):
 
     for check_type in ("ping", "tcp"):
         candidates = [
-            record for record in evidence
+            record
+            for record in evidence
             if record.check_type == check_type
             and record.target == target
-            and (
-                check_type != "tcp"
-                or record.result.get("port") == 80
-            )
+            and (check_type != "tcp" or record.result.get("port") == 80)
         ]
 
         if not candidates:
@@ -324,9 +327,7 @@ def diagnose_reachability(target, evidence, now=None, max_age=180):
         age = now - latest.collected_at
         status = latest.result.get("status")
         allowed = (
-            {"success", "no_reply"}
-            if check_type == "ping"
-            else {"success", "refused", "timeout"}
+            {"success", "no_reply"} if check_type == "ping" else {"success", "refused", "timeout"}
         )
 
         if not 0 <= age <= max_age:
@@ -343,38 +344,35 @@ def diagnose_reachability(target, evidence, now=None, max_age=180):
             probable_cause=None,
             reasoning="Cannot evaluate target reachability reliably.",
             missing_info=tuple(missing),
-            next_actions=(
-                f"Repeat ping and TCP port 80 checks for {target}.",
-            ),
+            next_actions=(f"Repeat ping and TCP port 80 checks for {target}.",),
         )
 
-    matched = (
-        selected["ping"] == "no_reply"
-        and selected["tcp"] == "timeout"
-    )
+    matched = selected["ping"] == "no_reply" and selected["tcp"] == "timeout"
 
     return DiagnosisRecord(
         rule_id="REACHABILITY_SUSPECTED",
         status="matched" if matched else "not_matched",
         probable_cause=(
-            "Target unavailable, network path failure, or traffic filtering."
-            if matched else None
+            "Target unavailable, network path failure, or traffic filtering." if matched else None
         ),
-        reasoning=(
-            f"{target}: ping={selected['ping']}, "
-            f"TCP port 80={selected['tcp']}."
-        ),
+        reasoning=(f"{target}: ping={selected['ping']}, TCP port 80={selected['tcp']}."),
         missing_info=(
             "Target power state and network interface configuration.",
             "Routing and firewall state.",
             "Connectivity results from another monitoring point.",
-        ) if matched else (),
+        )
+        if matched
+        else (),
         next_actions=(
             "Inspect the target VM console and network interfaces.",
             "Check routing and firewall rules.",
             "Repeat connectivity checks from CLI01.",
-        ) if matched else (),
+        )
+        if matched
+        else (),
     )
+
+
 def diagnose_disk(host_id, evidence, now=None, max_age=180):
     if type(max_age) is not int or max_age <= 0:
         raise ValueError("max_age must be a positive integer")
@@ -383,7 +381,8 @@ def diagnose_disk(host_id, evidence, now=None, max_age=180):
         now = int(time.time())
 
     candidates = [
-        record for record in evidence
+        record
+        for record in evidence
         if record.check_type == "metric"
         and record.target == str(host_id)
         and record.result.get("key") == "vfs.fs.dependent.size[/,pused]"
@@ -428,21 +427,24 @@ def diagnose_disk(host_id, evidence, now=None, max_age=180):
     return DiagnosisRecord(
         rule_id="ROOT_DISK_HIGH",
         status="matched" if high else "not_matched",
-        probable_cause=(
-            "Root filesystem capacity is nearing exhaustion."
-            if high else None
-        ),
+        probable_cause=("Root filesystem capacity is nearing exhaustion." if high else None),
         reasoning=f"Filesystem / usage is {value:.2f}%; threshold is 90%.",
         missing_info=(
             "Available bytes and filesystem growth history.",
             "Directories consuming space and inode availability.",
-        ) if high else (),
+        )
+        if high
+        else (),
         next_actions=(
             "On the target: df -h /",
             "On the target: df -i /",
             "Inspect directory sizes and log retention before cleanup.",
-        ) if high else (),
+        )
+        if high
+        else (),
     )
+
+
 def diagnose_all(host_id, target_ip, evidence, dns_name=None, now=None):
     if now is None:
         now = int(time.time())
@@ -458,8 +460,6 @@ def diagnose_all(host_id, target_ip, evidence, dns_name=None, now=None):
     ]
 
     if dns_name is not None:
-        diagnoses.append(
-            diagnose_dns_name(dns_name, records, now=now)
-        )
+        diagnoses.append(diagnose_dns_name(dns_name, records, now=now))
 
     return diagnoses
