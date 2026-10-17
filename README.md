@@ -5,6 +5,8 @@
 
 ## Tài liệu tiếp nhận và source hiện tại
 
+- **[Bộ bốn file để bàn giao cho AI/chat khác](docs/AI_HANDOFF/00_BAT_DAU_O_DAY.md).**
+- [Bản đồ toàn bộ tài liệu](docs/README.md).
 - [Giới thiệu và giải thích đồ án](docs/GIOI_THIEU_VA_GIAI_THICH_DO_AN.md).
 - [Logic diagnosis engine, đọc code và phát triển](docs/DIAGNOSIS_ENGINE_LOGIC_VA_PHAT_TRIEN.md).
 
