@@ -15,3 +15,7 @@ docs/BAO_CAO_DO_AN_HOAN_THIEN.markdown -text
 outputs/week5-final-20261017/*.pptx -text
 # Raw evidence retains original CRLF, tabs and terminal output.
 evidence/week5/** -whitespace
+
+# Portable AI handoff checksums must survive Windows checkouts.
+docs/AI_HANDOFF/*.md text eol=lf
+docs/AI_HANDOFF/MANIFEST.json text eol=lf
