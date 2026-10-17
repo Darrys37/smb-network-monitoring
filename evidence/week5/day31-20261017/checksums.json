@@ -1,0 +1,16 @@
+{
+  "evidence/week5/day31-20261017/architecture-audit.json": "ecc38c02d8a3ceed5334a8d850314cb80dddc414db4b8ae97d24007f9e843ad5",
+  "evidence/week5/day31-20261017/cli01-live.json": "a9ba34a3f4401471c691944b8fc1527f6e7b49874e0957c36932804d8e3f57da",
+  "evidence/week5/day31-20261017/critical-sql-reviewed.json": "2e0efa9a9e9c9182d92bda240be14bd14943583eaaf67c1830d75080ab71752c",
+  "evidence/week5/day31-20261017/critical-sql-terminal.txt": "60d2f7c0545ac499c8cab19dc110ab8500ea2a0c0aa9ec93f1bf43c10dbdd80a",
+  "evidence/week5/day31-20261017/item-inventory.csv": "682a57ae17b242773f52111b46b19dbd7a6fa22ab822df3078bba018c395916b",
+  "evidence/week5/day31-20261017/mon01-live.json": "3226e39f3a0a44aee1d3489f76f47cd96912d124b52987dd8bc867b19eb30022",
+  "evidence/week5/day31-20261017/README.md": "d3805f786037b68062dfbfe51d26727b595bc8c2d0b8bd267793a461c6c3acb7",
+  "evidence/week5/day31-20261017/readonly-selects.sql": "343ecfda5eb8f2fff8f465b3609538d75236dc1b6052d1ca82fada3694b0fe19",
+  "evidence/week5/day31-20261017/srv01-live.json": "6de2ddb2c0198029755d628474dce22af1b43ef6a8b6db4245c6303e5843fa42",
+  "evidence/week5/day31-20261017/tools/day31_finalize.py": "5deba4423f0ac7f53dd9c2410145004d59b33ace98c88bc5cf3aba94e805d76d",
+  "evidence/week5/day31-20261017/tools/day31_remote_readonly.py": "156253764be67bed7a5c916efc5c59b7dfb411c82c9cd4533a96a2aa2420bbd8",
+  "evidence/week5/day31-20261017/trigger-scenario-map.csv": "f5c2cf0475798ca57e0c95ae64308c8d532aa9fd71c1061240ee70e7e5e231de",
+  "evidence/week5/day31-20261017/virtualbox-runtime.json": "879b720f13c60db5db26a0a4909c6e061715f734d8400ee6ec6a8577bff04c69",
+  "docs/NGAY_31_TUAN_5.markdown": "864a6000c74e79e3c966372ed6be37ac66066542a8ec6d8f7132872acfdf41f6"
+}

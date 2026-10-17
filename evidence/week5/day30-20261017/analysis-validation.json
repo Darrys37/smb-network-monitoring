@@ -1,0 +1,32 @@
+{
+  "result": "PASS",
+  "generated_at_utc": "2026-10-16T23:53:38.804051+00:00",
+  "day29_manifest_files_verified": 19,
+  "input_sha256": {
+    "evidence/week5/day29-20261017/checksums.json": "a73bcb6dcb5f067b3375e55949a6cbc7f1e385d06f8b02ef262d47d001ca1e86",
+    "evidence/week5/day29-20261017/clean-runs.csv": "df14bc8a7ffe5a35b79db1f6b8a920eaab282f64ea9b85fa5c6448bf2829f2be",
+    "evidence/week5/day29-20261017/scenario-summary.csv": "6252a01bac03d23fad0771a44a9433046290c73282b09f338f574ec85d73f517"
+  },
+  "valid_faults": 18,
+  "n_per_scenario": 3,
+  "statistics_checked_against_day29": 90,
+  "plot_point_count_per_timing_chart": 18,
+  "target_matched": 18,
+  "all_rule_output_count": 108,
+  "figure_files": [
+    "detection-time.png",
+    "detection-time.svg",
+    "detection-time.pdf",
+    "diagnosis-cli-time.png",
+    "diagnosis-cli-time.svg",
+    "diagnosis-cli-time.pdf",
+    "diagnosis-outcomes.png",
+    "diagnosis-outcomes.svg",
+    "diagnosis-outcomes.pdf"
+  ],
+  "matplotlib_version": "3.11.2",
+  "general_accuracy": null,
+  "method": "Descriptive raw points and medians, intervals from timestamps; no confidence intervals or healthy-negative accuracy.",
+  "visual_review": "PASS; three PNG figures inspected: labels, units, legends, points and footnotes readable, no clipping",
+  "local_document_links_verified": 73
+}

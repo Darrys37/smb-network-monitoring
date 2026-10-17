@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "statistics_numeric_comparisons": 54,
+  "counts_and_rates_verified": 48,
+  "dependency_mutation_and_restore": "PASS; temporary target status changes total 18 to 17 and R1 rate to 2/3, restored 18",
+  "native_excel_session_used": false,
+  "xlsx_zip_integrity": "PASS",
+  "exported_formula_count": 200,
+  "exported_error_cells": 0,
+  "exported_cached_totals": "18/18 and 100%",
+  "visual_review": "PASS; both worksheets and formula columns rendered and inspected"
+}

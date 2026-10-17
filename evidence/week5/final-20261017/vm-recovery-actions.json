@@ -1,0 +1,16 @@
+{
+  "description": "MON01 became unresponsive after the initial reboot; VirtualBox log reported lost heartbeat. Live snapshot failed with VERR_VM_UNEXPECTED_UNSTABLE_STATE and SUSPENDED_LS. ACPI/reset/poweroff did not finish. The identified MON01 GUI process was stopped and the VM started headless from its current VDI. No snapshot restore, disk deletion or engine edit was performed.",
+  "post_recovery_integrity": {
+    "integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "fk": [],
+    "count": [
+      36
+    ]
+  },
+  "snapshot_is_valid_backup": false,
+  "srv01_cli01_processes_not_stopped": true
+}

@@ -1,0 +1,115 @@
+{
+  "result": "PASS",
+  "completed_at_utc": "2026-10-17T02:48:09.329023+00:00",
+  "aborted_attempts": [
+    {
+      "run_id": "DEMO-01",
+      "started_at_utc": "2026-10-17T02:24:17.833300+00:00",
+      "kind": "automated technical rehearsal; excludes spoken presentation",
+      "status": "aborted_before_fault",
+      "unit": "week5-demo-01-1792203857",
+      "reason": "A reboot-related background problem appeared after the first empty poll; preflight interlock prevented fault injection.",
+      "included_in_successful_rehearsals": false,
+      "retry_run_id": "DEMO-01-retry1"
+    }
+  ],
+  "runs": [
+    {
+      "run_id": "DEMO-01-retry1",
+      "started_at_utc": "2026-10-17T02:40:01.719044+00:00",
+      "kind": "automated technical rehearsal; excludes spoken presentation",
+      "status": "PASS",
+      "unit": "week5-demo-01-retry1-1792204801",
+      "classified_background_problems_before": [
+        {
+          "eventid": "1027",
+          "objectid": "22388",
+          "clock": "1792203877",
+          "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+        }
+      ],
+      "cli_elapsed_seconds_including_ssh": 0.9219999999986612,
+      "problem_event_id": "1038",
+      "incident_id": 37,
+      "recovery_event_id": "1041",
+      "ended_at_utc": "2026-10-17T02:41:09.581836+00:00",
+      "elapsed_seconds": 67.875,
+      "nginx_restored": true,
+      "background_problems_after": [
+        {
+          "eventid": "1027",
+          "objectid": "22388",
+          "clock": "1792203877",
+          "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+        }
+      ],
+      "unexpected_background_problems_after": 0,
+      "engine_code_modified": false
+    },
+    {
+      "run_id": "DEMO-02",
+      "started_at_utc": "2026-10-17T02:41:09.582819+00:00",
+      "kind": "automated technical rehearsal; excludes spoken presentation",
+      "status": "PASS",
+      "unit": "week5-demo-02-1792204869",
+      "classified_background_problems_before": [
+        {
+          "eventid": "1027",
+          "objectid": "22388",
+          "clock": "1792203877",
+          "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+        }
+      ],
+      "cli_elapsed_seconds_including_ssh": 0.8910000000014406,
+      "problem_event_id": "1044",
+      "incident_id": 38,
+      "recovery_event_id": "1047",
+      "ended_at_utc": "2026-10-17T02:42:08.616190+00:00",
+      "elapsed_seconds": 59.03099999999904,
+      "nginx_restored": true,
+      "background_problems_after": [
+        {
+          "eventid": "1027",
+          "objectid": "22388",
+          "clock": "1792203877",
+          "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+        }
+      ],
+      "unexpected_background_problems_after": 0,
+      "engine_code_modified": false
+    },
+    {
+      "run_id": "DEMO-03",
+      "started_at_utc": "2026-10-17T02:42:08.617165+00:00",
+      "kind": "automated technical rehearsal; excludes spoken presentation",
+      "status": "PASS",
+      "unit": "week5-demo-03-1792204928",
+      "classified_background_problems_before": [
+        {
+          "eventid": "1027",
+          "objectid": "22388",
+          "clock": "1792203877",
+          "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+        }
+      ],
+      "cli_elapsed_seconds_including_ssh": 0.8909999999996217,
+      "problem_event_id": "1052",
+      "incident_id": 39,
+      "recovery_event_id": "1059",
+      "ended_at_utc": "2026-10-17T02:43:09.368516+00:00",
+      "elapsed_seconds": 60.75,
+      "nginx_restored": true,
+      "background_problems_after": [
+        {
+          "eventid": "1027",
+          "objectid": "22388",
+          "clock": "1792203877",
+          "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+        }
+      ],
+      "unexpected_background_problems_after": 0,
+      "engine_code_modified": false
+    }
+  ],
+  "scope": "Three automated technical rehearsals after reboot, with startup notifications explicitly classified. Full spoken ten-minute presentation is not measured."
+}

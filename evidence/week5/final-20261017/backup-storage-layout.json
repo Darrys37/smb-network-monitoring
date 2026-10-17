@@ -1,0 +1,29 @@
+{
+  "disks": [
+    {
+      "Number": 1,
+      "BusType": "NVMe",
+      "FriendlyName": "KINGSTON SNV2S1000G",
+      "OperationalStatus": "Online"
+    },
+    {
+      "Number": 0,
+      "BusType": "NVMe",
+      "FriendlyName": "SAMSUNG MZAL8512HDLU-00BL2",
+      "OperationalStatus": "Online"
+    }
+  ],
+  "limitation": "Two different physical NVMe drives in the same laptop; off-device copy not verified",
+  "partitions": [
+    {
+      "DriveLetter": "C",
+      "DiskNumber": 1,
+      "PartitionNumber": 3
+    },
+    {
+      "DriveLetter": "D",
+      "DiskNumber": 0,
+      "PartitionNumber": 2
+    }
+  ]
+}

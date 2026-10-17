@@ -124,4 +124,12 @@ Các thư mục evidence có checksum cần giữ nguyên byte khi lưu/chuyển
 - [Kịch bản demo 10 phút](docs/KICH_BAN_DEMO_10_PHUT.md).
 - [Bảng tổng hợp chính thức](evidence/week4/official-runs/TONG_HOP_THUC_NGHIEM_TUAN4.md), [dữ liệu từng lượt](evidence/week4/official-runs/all-trials.csv) và [công thức/thống kê JSON](evidence/week4/official-runs/experiment-summary.json).
 
-Chương 2/3 là bản thảo kỹ thuật, cần ghép với phần lý thuyết và mẫu nộp của trường. Kịch bản demo chưa thay thế biên bản ba lần diễn tập sau reboot. Các bước chụp ảnh dashboard, chuẩn bị slide, backup ngoài laptop và đóng gói release vẫn phải được xác nhận riêng.
+Chương2/3 đã hoàn thiện kỹ thuật và có bản báo cáo tổng hợp; ba luồng diễn tập kỹ thuật sau reboot và test cuối có bằng chứng tuần5. Bản nộp vẫn cần kiểm tra định dạng trường, năng lực trình bày và bản backup ngoài laptop. Xem TONG_HOP_TUAN_5.markdown để biết phạm vi nghiệm thu.
+
+## Bàn giao tuần 5
+
+- [Cài đặt và khôi phục](docs/HUONG_DAN_CAI_DAT_VA_KHOI_PHUC.md).
+- [Câu hỏi ôn bảo vệ](docs/CAU_HOI_BAO_VE.md).
+- [Kết quả và phần cần người thực hiện xác nhận](docs/TONG_HOP_TUAN_5.markdown).
+
+Tệp tổng hợp cuối công bố kết quả test/demo thực tế, bản nộp và vị trí backup; không dùng các ghi chú tiến độ cũ làm trạng thái hiện tại.

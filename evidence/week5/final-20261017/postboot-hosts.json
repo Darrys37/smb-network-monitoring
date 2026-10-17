@@ -1,0 +1,32 @@
+[
+  {
+    "hostid": "10084",
+    "host": "Zabbix server",
+    "interfaces": [
+      {
+        "type": "1",
+        "available": "1"
+      }
+    ]
+  },
+  {
+    "hostid": "10683",
+    "host": "SRV01",
+    "interfaces": [
+      {
+        "type": "1",
+        "available": "1"
+      }
+    ]
+  },
+  {
+    "hostid": "10684",
+    "host": "CLI01",
+    "interfaces": [
+      {
+        "type": "1",
+        "available": "1"
+      }
+    ]
+  }
+]

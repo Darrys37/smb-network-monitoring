@@ -1,0 +1,21 @@
+{
+  "evidence/week5/day29-20261017/attempts.csv": "c8a25d92971bc0be63ca4bf28ce0f5430f90004f0e8a1062559b6dedab5c5284",
+  "evidence/week5/day29-20261017/audit.json": "b42295a5b5431d6f23989e61a88ea5ee634b9e59d64521def2d22bdfbdd44d74",
+  "evidence/week5/day29-20261017/clean-runs.csv": "df14bc8a7ffe5a35b79db1f6b8a920eaab282f64ea9b85fa5c6448bf2829f2be",
+  "evidence/week5/day29-20261017/data-dictionary.json": "484c7047041dc922c2e611c1fabd6e8a1b0596c1572b0dcc76faa91258de6bce",
+  "evidence/week5/day29-20261017/data-preview.png": "7db04e1d2d0e62cc49e9729f179e953350a4359bf98eab82c4988a83ba74a46d",
+  "evidence/week5/day29-20261017/deviations.csv": "798701a66d2ca9e73f2a11cf90a48876cb98b4c5ee0a40eccbf166f9a8d98859",
+  "evidence/week5/day29-20261017/formulas-preview.png": "8b2da86d2fd5fc5c9997e5b05f15a2eb2604500176889b437027ea67a43e53d5",
+  "evidence/week5/day29-20261017/README.md": "66f1e144d9cd4b5c98ff301212be7e24f54d7a8ca0bec12a9467c91d275a66f6",
+  "evidence/week5/day29-20261017/scenario-summary.csv": "6252a01bac03d23fad0771a44a9433046290c73282b09f338f574ec85d73f517",
+  "evidence/week5/day29-20261017/summary-preview.png": "03c8579de5d786b353f4c009759fbed943e9de607a79b2ab6b4820d9cd08f3bf",
+  "evidence/week5/day29-20261017/tools/day29_audit.py": "d15585ba58ae370ceb82393dcfd69136476c6df1fd16713621ca4c96d13fd84a",
+  "evidence/week5/day29-20261017/tools/day29_finalize.py": "4369303e0be3920c6c16bff911d84830e12a194dd40c17e7f1d7cbbba403bd04",
+  "evidence/week5/day29-20261017/tools/day29_workbook.mjs": "e50daacba19a2de0efbd58a6a3ed68adf9d461713cb9bd03961bc7fa110e57ab",
+  "evidence/week5/day29-20261017/workbook-error-scan.ndjson": "acc0111e19cf44d2753fc9ecd164bf1b27fbd65597463a25cf48bd1c65e90146",
+  "evidence/week5/day29-20261017/workbook-input.json": "524c29e8901cded769ede5cede2ad3e854fbbae55d025886cea87a0018347d33",
+  "evidence/week5/day29-20261017/workbook-inspection.ndjson": "6c13c29798aa6fa61c8f1b32d21ceac4b2bf7e3dcdfb9cb96ca4211e91efe3ef",
+  "evidence/week5/day29-20261017/workbook-validation.json": "30a336f70f9bb30b37210aa4791b3946021dec6e2119802734c917c08afbee64",
+  "outputs/week5-day29-20261017/NGAY29_KIEM_TRA_DU_LIEU.xlsx": "d2f241b10888c2b3c00c32617155eb28ec8f18675d255736f65de8526ab8193d",
+  "docs/NGAY_29_TUAN_5.markdown": "b5b5c09bd126f53cf1d4c9c9ac64e17988a79005829fbb0481d972557681a330"
+}

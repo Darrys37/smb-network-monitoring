@@ -1,0 +1,13 @@
+{
+  "at_utc": "2026-10-17T02:40:01.719044+00:00",
+  "before_first_fault": true,
+  "reason": "MON01 recovered from hypervisor hang; only verified reboot uptime notifications may remain. No HTTP/agent/service failures permitted.",
+  "allowed_trigger_ids": [
+    "22388",
+    "25256",
+    "25300"
+  ],
+  "background_events_retained_in_each_run": true,
+  "week4_data_or_rules_modified": false,
+  "post_rehearsal_all_background_recovery_required": true
+}

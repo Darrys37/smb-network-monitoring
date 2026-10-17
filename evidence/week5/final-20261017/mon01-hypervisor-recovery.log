@@ -1,0 +1,20 @@
+00:28:56.692925 VMMDev: vmmDevHeartbeatFlatlinedTimer: Guest seems to be unresponsive. Last heartbeat received 4 seconds ago
+00:28:56.693547 VMMDev: GuestHeartBeat: Guest is alive (gone 4 888 427 803 ns)
+02:39:01.417219 VMMDev: vmmDevHeartbeatFlatlinedTimer: Guest seems to be unresponsive. Last heartbeat received 4 seconds ago
+02:39:01.417884 VMMDev: GuestHeartBeat: Guest is alive (gone 4 668 834 410 ns)
+03:05:56.207536 VMMDev: Heartbeat checking timer has been stopped (rc=VINF_SUCCESS)
+03:05:56.207585 VMMDev: Heartbeat flatline timer set to trigger after 4 000 000 000 ns
+03:05:56.209431 VMMDev: Guest Log: vbg_heartbeat_init: Setting up heartbeat to trigger every 2000 milliseconds
+03:09:40.873261 VMMDev: vmmDevHeartbeatFlatlinedTimer: Guest seems to be unresponsive. Last heartbeat received 4 seconds ago
+03:12:16.056089 Console: Machine state changed to 'LiveSnapshotting'
+03:16:06.094675 Changing the VM state from 'SUSPENDING_LS' to 'SUSPENDED_LS'
+03:16:06.094683 Console: Machine state changed to 'OnlineSnapshotting'
+03:16:06.999897 ERROR [COM]: aRC=E_FAIL (0x80004005) aIID={6ac83d89-6ee7-4e33-8ae6-b257b2e81be8} aComponent={ConsoleWrap} aText={Failed to save the machine state to 'C:\Users\Darrys\VirtualBox VMs\MON01\Snapshots\2026-10-17T02-30-19-411654300Z.sav' (VERR_VM_UNEXPECTED_UNSTABLE_STATE)}, preserve=false aResultDetail=-1916
+03:16:07.010673 Console: Machine state changed to 'Running'
+03:17:15.643887  RUNNING -> RESETTING, SUSPENDED -> RESETTING, RUNNING_LS -> RESETTING_LSvmR3HardReset:  RUNNING -> RESETTING, SUSPENDED -> RESETTING, RUNNING_LS -> RESETTING_LS failed, because the VM state is actually SUSPENDED_LS!
+03:17:15.643887 VMSetError: vmR3HardReset failed because the current VM state, SUSPENDED_LS, was not found in the state transition table ( RUNNING -> RESETTING, SUSPENDED -> RESETTING, RUNNING_LS -> RESETTING_LS)
+03:17:28.401587 Console: Machine state changed to 'Stopping'
+03:17:28.402231 Console::powerDown(): A request to power off the VM has been issued (mMachineState=Stopping, InUninit=0)
+03:17:28.402471  RUNNING -> POWERING_OFF, SUSPENDED -> POWERING_OFF, DEBUGGING -> POWERING_OFF, LOAD_FAILURE -> POWERING_OFF, GURU_MEDITATION -> POWERING_OFF, FATAL_ERROR -> POWERING_OFF, CREATED -> POWERING_OFF, RUNNING_LS -> POWERING_OFF_LS, DEBUGGING_LS -> POWERING_OFF_LS, GURU_MEDITATION_LS -> POWERING_OFF_LS, FATAL_ERROR_LS -> POWERING_OFF_LSVMR3PowerOff:  RUNNING -> POWERING_OFF, SUSPENDED -> POWERING_OFF, DEBUGGING -> POWERING_OFF, LOAD_FAILURE -> POWERING_OFF, GURU_MEDITATION -> POWERING_OFF, FATAL_ERROR -> POWERING_OFF, CREATED -> POWERING_OFF, RUNNING_LS -> POWERING_OFF_LS, DEBUGGING_LS -> POWERING_OFF_LS, GURU_MEDITATION_LS -> POWERING_OFF_LS, FATAL_ERROR_LS -> POWERING_OFF_LS failed, because the VM state is actually SUSPENDED_LS!
+03:17:28.402857 VMSetError: VMR3PowerOff failed because the current VM state, SUSPENDED_LS, was not found in the state transition table ( RUNNING -> POWERING_OFF, SUSPENDED -> POWERING_OFF, DEBUGGING -> POWERING_OFF, LOAD_FAILURE -> POWERING_OFF, GURU_MEDITATION -> POWERING_OFF, FATAL_ERROR -> POWERING_OFF, CREATED -> POWERING_OFF, RUNNING_LS -> POWERING_OFF_LS, DEBUGGING_LS -> POWERING_OFF_LS, GURU_MEDITATION_LS -> POWERING_OFF_LS, FATAL_ERROR_LS -> POWERING_OFF_LS)
+03:17:28.424136 ERROR [COM]: aRC=VBOX_E_VM_ERROR (0x80bb0003) aIID={6ac83d89-6ee7-4e33-8ae6-b257b2e81be8} aComponent={ConsoleWrap} aText={Could not power off the machine. (Error: VERR_VM_INVALID_VM_STATE)}, preserve=false aResultDetail=-1907

@@ -1,0 +1,7 @@
+﻿scenario,n_valid,n_detected,n_target_success,n_engine_errors,n_target_abstention,detection_rate,target_success_rate,dt_lower_seconds_min,dt_lower_seconds_median,dt_lower_seconds_max,dt_upper_seconds_min,dt_upper_seconds_median,dt_upper_seconds_max,cli_elapsed_seconds_min,cli_elapsed_seconds_median,cli_elapsed_seconds_max,rr_lower_seconds_min,rr_lower_seconds_median,rr_lower_seconds_max,rr_upper_seconds_min,rr_upper_seconds_median,rr_upper_seconds_max
+R1,3,3,3,0,0,1.0,1.0,15,19,32,15,20,32,6.656132771000102,6.660214351000832,6.6645233489998645,9,14,26,9,14,26
+R2,3,3,3,0,0,1.0,1.0,5,10,23,5,10,23,0.5816052900008799,0.6095698209992406,0.6380622520000543,8,16,21,8,16,21
+R3,3,3,3,0,0,1.0,1.0,183,269,295,183,269,295,0.4693581869996706,0.5827171430000817,0.6100030690004132,78,99,102,79,100,104
+R4,3,3,3,0,0,1.0,1.0,69,77,83,69,77,83,0.5636634089996733,0.7660349299994778,1.687615179000204,1,8,19,1,8,19
+R5,3,3,3,0,0,1.0,1.0,16,24,34,16,24,34,2.4460983559984015,2.5899169489994165,2.646103492000293,3,14,25,3,14,25
+R6,3,3,3,0,0,1.0,1.0,316,356,391,316,356,391,0.4869947229999525,0.5020442150016606,0.5221729459990456,32,46,51,32,46,51

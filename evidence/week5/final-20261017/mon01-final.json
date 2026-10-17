@@ -1,0 +1,5657 @@
+{
+  "captured_at_utc": "2026-10-17T02:48:01.988776+00:00",
+  "hostname": "mon01",
+  "os_release": "PRETTY_NAME=\"Ubuntu 26.04.1 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"26.04\"\nVERSION=\"26.04.1 LTS (Resolute Raccoon)\"\nVERSION_CODENAME=resolute\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=resolute\nLOGO=ubuntu-logo\n",
+  "kernel": {
+    "exit_code": 0,
+    "stdout": "7.0.0-34-generic",
+    "stderr": ""
+  },
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "interfaces": {
+    "exit_code": 0,
+    "stdout": "[{\"ifindex\":1,\"ifname\":\"lo\",\"flags\":[\"LOOPBACK\",\"UP\",\"LOWER_UP\"],\"mtu\":65536,\"qdisc\":\"noqueue\",\"operstate\":\"UNKNOWN\",\"group\":\"default\",\"txqlen\":1000,\"link_type\":\"loopback\",\"address\":\"00:00:00:00:00:00\",\"broadcast\":\"00:00:00:00:00:00\",\"addr_info\":[{\"family\":\"inet\",\"local\":\"127.0.0.1\",\"prefixlen\":8,\"scope\":\"host\",\"label\":\"lo\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295},{\"family\":\"inet6\",\"local\":\"::1\",\"prefixlen\":128,\"scope\":\"host\",\"noprefixroute\":true,\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295}]},{\"ifindex\":2,\"ifname\":\"enp0s3\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":1500,\"qdisc\":\"pfifo_fast\",\"operstate\":\"UP\",\"group\":\"default\",\"txqlen\":1000,\"link_type\":\"ether\",\"address\":\"08:00:27:b8:17:1d\",\"broadcast\":\"ff:ff:ff:ff:ff:ff\",\"altnames\":[\"enx080027b8171d\"],\"addr_info\":[{\"family\":\"inet\",\"local\":\"10.0.2.15\",\"prefixlen\":24,\"metric\":100,\"broadcast\":\"10.0.2.255\",\"scope\":\"global\",\"dynamic\":true,\"label\":\"enp0s3\",\"valid_life_time\":85778,\"preferred_life_time\":85778},{\"family\":\"inet6\",\"local\":\"fd17:625c:f037:2:a00:27ff:feb8:171d\",\"prefixlen\":64,\"scope\":\"global\",\"dynamic\":true,\"mngtmpaddr\":true,\"noprefixroute\":true,\"valid_life_time\":86212,\"preferred_life_time\":14212},{\"family\":\"inet6\",\"local\":\"fe80::a00:27ff:feb8:171d\",\"prefixlen\":64,\"scope\":\"link\",\"protocol\":\"kernel_ll\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295}]},{\"ifindex\":3,\"ifname\":\"enp0s8\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":1500,\"qdisc\":\"pfifo_fast\",\"operstate\":\"UP\",\"group\":\"default\",\"txqlen\":1000,\"link_type\":\"ether\",\"address\":\"08:00:27:b2:8e:f2\",\"broadcast\":\"ff:ff:ff:ff:ff:ff\",\"altnames\":[\"enx080027b28ef2\"],\"addr_info\":[{\"family\":\"inet\",\"local\":\"192.168.56.10\",\"prefixlen\":24,\"broadcast\":\"192.168.56.255\",\"scope\":\"global\",\"label\":\"enp0s8\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295},{\"family\":\"inet6\",\"local\":\"fe80::a00:27ff:feb2:8ef2\",\"prefixlen\":64,\"scope\":\"link\",\"protocol\":\"kernel_ll\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295}]}]",
+    "stderr": ""
+  },
+  "routes": {
+    "exit_code": 0,
+    "stdout": "[{\"dst\":\"default\",\"gateway\":\"10.0.2.2\",\"dev\":\"enp0s3\",\"protocol\":\"dhcp\",\"prefsrc\":\"10.0.2.15\",\"metric\":100,\"flags\":[]},{\"dst\":\"1.0.0.1\",\"gateway\":\"10.0.2.2\",\"dev\":\"enp0s3\",\"protocol\":\"dhcp\",\"prefsrc\":\"10.0.2.15\",\"metric\":100,\"flags\":[]},{\"dst\":\"1.1.1.1\",\"gateway\":\"10.0.2.2\",\"dev\":\"enp0s3\",\"protocol\":\"dhcp\",\"prefsrc\":\"10.0.2.15\",\"metric\":100,\"flags\":[]},{\"dst\":\"10.0.2.0/24\",\"dev\":\"enp0s3\",\"protocol\":\"kernel\",\"scope\":\"link\",\"prefsrc\":\"10.0.2.15\",\"metric\":100,\"flags\":[]},{\"dst\":\"10.0.2.2\",\"dev\":\"enp0s3\",\"protocol\":\"dhcp\",\"scope\":\"link\",\"prefsrc\":\"10.0.2.15\",\"metric\":100,\"flags\":[]},{\"dst\":\"192.168.56.0/24\",\"dev\":\"enp0s8\",\"protocol\":\"kernel\",\"scope\":\"link\",\"prefsrc\":\"192.168.56.10\",\"flags\":[]}]",
+    "stderr": ""
+  },
+  "ntp": {
+    "exit_code": 0,
+    "stdout": "NTPSynchronized=yes",
+    "stderr": ""
+  },
+  "listeners": {
+    "exit_code": 0,
+    "stdout": "State  Recv-Q Send-Q Local Address:Port  Peer Address:Port\nLISTEN 0      4096      127.0.0.54:53         0.0.0.0:*   \nLISTEN 0      4096   127.0.0.53%lo:53         0.0.0.0:*   \nLISTEN 0      511          0.0.0.0:8080       0.0.0.0:*   \nLISTEN 0      4096         0.0.0.0:10051      0.0.0.0:*   \nLISTEN 0      70         127.0.0.1:33060      0.0.0.0:*   \nLISTEN 0      4096         0.0.0.0:22         0.0.0.0:*   \nLISTEN 0      511          0.0.0.0:80         0.0.0.0:*   \nLISTEN 0      151        127.0.0.1:3306       0.0.0.0:*   \nLISTEN 0      4096            [::]:10051         [::]:*   \nLISTEN 0      4096               *:10050            *:*   \nLISTEN 0      4096            [::]:22            [::]:*   \nLISTEN 0      511             [::]:80            [::]:*",
+    "stderr": ""
+  },
+  "resolver": {
+    "exit_code": 0,
+    "stdout": "Global\n         Protocols: -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported\n  resolv.conf mode: stub\n\nLink 2 (enp0s3)\n    Current Scopes: DNS\n         Protocols: +DefaultRoute -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported\nCurrent DNS Server: 1.1.1.1\n       DNS Servers: 1.1.1.1 1.0.0.1 fd17:625c:f037:2::3\n     Default Route: yes\n\nLink 3 (enp0s8)\n    Current Scopes: none\n         Protocols: -DefaultRoute -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported\n     Default Route: no",
+    "stderr": ""
+  },
+  "services": {
+    "zabbix-agent2": {
+      "exit_code": 0,
+      "stdout": "active",
+      "stderr": ""
+    },
+    "zabbix-server": {
+      "exit_code": 0,
+      "stdout": "active",
+      "stderr": ""
+    },
+    "mysql": {
+      "exit_code": 0,
+      "stdout": "active",
+      "stderr": ""
+    },
+    "nginx": {
+      "exit_code": 0,
+      "stdout": "active",
+      "stderr": ""
+    }
+  },
+  "http": {
+    "exit_code": 0,
+    "stdout": "200",
+    "stderr": ""
+  },
+  "agent_settings": {
+    "zabbix_agent2.conf": [
+      "Server=127.0.0.1",
+      "ServerActive=127.0.0.1",
+      "Hostname=Zabbix server"
+    ]
+  },
+  "api_version": "7.0.30",
+  "effective_config": {
+    "items": [
+      {
+        "itemid": "42237",
+        "hostid": "10084",
+        "name": "Zabbix agent ping",
+        "key_": "agent.ping",
+        "type": "0",
+        "value_type": "3",
+        "delay": "1m",
+        "history": "31d",
+        "trends": "365d",
+        "status": "0",
+        "units": "",
+        "master_itemid": "0",
+        "preprocessing": []
+      },
+      {
+        "itemid": "42240",
+        "hostid": "10084",
+        "name": "System uptime",
+        "key_": "system.uptime",
+        "type": "0",
+        "value_type": "3",
+        "delay": "30s",
+        "history": "31d",
+        "trends": "0",
+        "status": "0",
+        "units": "uptime",
+        "master_itemid": "0",
+        "preprocessing": []
+      },
+      {
+        "itemid": "42249",
+        "hostid": "10084",
+        "name": "Load average (1m avg)",
+        "key_": "system.cpu.load[all,avg1]",
+        "type": "0",
+        "value_type": "0",
+        "delay": "1m",
+        "history": "31d",
+        "trends": "365d",
+        "status": "0",
+        "units": "",
+        "master_itemid": "0",
+        "preprocessing": []
+      },
+      {
+        "itemid": "42260",
+        "hostid": "10084",
+        "name": "Number of CPUs",
+        "key_": "system.cpu.num",
+        "type": "0",
+        "value_type": "3",
+        "delay": "1m",
+        "history": "31d",
+        "trends": "365d",
+        "status": "0",
+        "units": "",
+        "master_itemid": "0",
+        "preprocessing": [
+          {
+            "type": "20",
+            "params": "1d",
+            "error_handler": "0",
+            "error_handler_params": ""
+          }
+        ]
+      },
+      {
+        "itemid": "42264",
+        "hostid": "10084",
+        "name": "CPU idle time",
+        "key_": "system.cpu.util[,idle]",
+        "type": "0",
+        "value_type": "0",
+        "delay": "1m",
+        "history": "31d",
+        "trends": "365d",
+        "status": "0",
+        "units": "%",
+        "master_itemid": "0",
+        "preprocessing": []
+      },
+      {
+        "itemid": "42266",
+        "hostid": "10084",
+        "name": "Zabbix agent availability",
+        "key_": "zabbix[host,agent,available]",
+        "type": "5",
+        "value_type": "3",
+        "delay": "1m",
+        "history": "31d",
+        "trends": "365d",
+        "status": "0",
+        "units": "",
+        "master_itemid": "0",
+        "preprocessing": []
+      },
+      {
+        "itemid": "42269",
+        "hostid": "10084",
+        "name": "CPU utilization",
+        "key_": "system.cpu.util",
+        "type": "18",
+        "value_type": "0",
+        "delay": "0",
+        "history": "31d",
+        "trends": "365d",
+        "status": "0",
+        "units": "%",
+        "master_itemid": "42264",
+        "preprocessing": [
+          {
+            "type": "21",
+            "params": "return (100 - value)",
+            "error_handler": "0",
+            "error_handler_params": ""
+          }
+        ]
+      },
+      {
+        "itemid": "42270",
+        "hostid": "10084",
+        "name": "Memory utilization",
+        "key_": "vm.memory.util",
+        "type": "18",
+        "value_type": "0",
+        "delay": "0",
+        "history": "31d",
+        "trends": "365d",
+        "status": "0",
+        "units": "%",
+        "master_itemid": "42244",
+        "preprocessing": [
+          {
+            "type": "21",
+            "params": "return (100-value);",
+            "error_handler": "0",
+            "error_handler_params": ""
+          }
+        ]
+      },
+      {
+        "itemid": "50782",
+        "hostid": "10683",
+        "name": "Zabbix agent ping",
+        "key_": "agent.ping",
+        "type": "0",
+        "value_type": "3",
+        "delay": "1m",
+        "history": "31d",
+        "trends": "365d",
+        "status": "0",
+        "units": "",
+        "master_itemid": "0",
+        "preprocessing": []
+      },
+      {
+        "itemid": "50791",
+        "hostid": "10683",
+        "name": "Load average (1m avg)",
+        "key_": "system.cpu.load[all,avg1]",
+        "type": "0",
+        "value_type": "0",
+        "delay": "1m",
+        "history": "31d",
+        "trends": "365d",
+        "status": "0",
+        "units": "",
+        "master_itemid": "0",
+        "preprocessing": []
+      },
+      {
+        "itemid": "50793",
+        "hostid": "10683",
+        "name": "Number of CPUs",
+        "key_": "system.cpu.num",
+        "type": "0",
+        "value_type": "3",
+        "delay": "1m",
+        "history": "31d",
+        "trends": "365d",
+        "status": "0",
+        "units": "",
+        "master_itemid": "0",
+        "preprocessing": [
+          {
+            "type": "20",
+            "params": "1d",
+            "error_handler": "0",
+            "error_handler_params": ""
+          }
+        ]
+      },
+      {
+        "itemid": "50797",
+        "hostid": "10683",
+        "name": "CPU idle time",
+        "key_": "system.cpu.util[,idle]",
+        "type": "0",
+        "value_type": "0",
+        "delay": "1m",
+        "history": "31d",
+        "trends": "365d",
+        "status": "0",
+        "units": "%",
+        "master_itemid": "0",
+        "preprocessing": []
+      },
+      {
+        "itemid": "50814",
+        "hostid": "10683",
+        "name": "System uptime",
+        "key_": "system.uptime",
+        "type": "0",
+        "value_type": "3",
+        "delay": "30s",
+        "history": "31d",
+        "trends": "0",
+        "status": "0",
+        "units": "uptime",
+        "master_itemid": "0",
+        "preprocessing": []
+      },
+      {
+        "itemid": "50821",
+        "hostid": "10683",
+        "name": "Zabbix agent availability",
+        "key_": "zabbix[host,agent,available]",
+        "type": "5",
+        "value_type": "3",
+        "delay": "1m",
+        "history": "31d",
+        "trends": "365d",
+        "status": "0",
+        "units": "",
+        "master_itemid": "0",
+        "preprocessing": []
+      },
+      {
+        "itemid": "50822",
+        "hostid": "10683",
+        "name": "CPU utilization",
+        "key_": "system.cpu.util",
+        "type": "18",
+        "value_type": "0",
+        "delay": "0",
+        "history": "31d",
+        "trends": "365d",
+        "status": "0",
+        "units": "%",
+        "master_itemid": "50797",
+        "preprocessing": [
+          {
+            "type": "21",
+            "params": "return (100 - value)",
+            "error_handler": "0",
+            "error_handler_params": ""
+          }
+        ]
+      },
+      {
+        "itemid": "50823",
+        "hostid": "10683",
+        "name": "Memory utilization",
+        "key_": "vm.memory.util",
+        "type": "18",
+        "value_type": "0",
+        "delay": "0",
+        "history": "31d",
+        "trends": "365d",
+        "status": "0",
+        "units": "%",
+        "master_itemid": "50819",
+        "preprocessing": [
+          {
+            "type": "21",
+            "params": "return (100-value);",
+            "error_handler": "0",
+            "error_handler_params": ""
+          }
+        ]
+      },
+      {
+        "itemid": "50894",
+        "hostid": "10684",
+        "name": "Zabbix agent ping",
+        "key_": "agent.ping",
+        "type": "0",
+        "value_type": "3",
+        "delay": "1m",
+        "history": "31d",
+        "trends": "365d",
+        "status": "0",
+        "units": "",
+        "master_itemid": "0",
+        "preprocessing": []
+      },
+      {
+        "itemid": "50903",
+        "hostid": "10684",
+        "name": "Load average (1m avg)",
+        "key_": "system.cpu.load[all,avg1]",
+        "type": "0",
+        "value_type": "0",
+        "delay": "1m",
+        "history": "31d",
+        "trends": "365d",
+        "status": "0",
+        "units": "",
+        "master_itemid": "0",
+        "preprocessing": []
+      },
+      {
+        "itemid": "50905",
+        "hostid": "10684",
+        "name": "Number of CPUs",
+        "key_": "system.cpu.num",
+        "type": "0",
+        "value_type": "3",
+        "delay": "1m",
+        "history": "31d",
+        "trends": "365d",
+        "status": "0",
+        "units": "",
+        "master_itemid": "0",
+        "preprocessing": [
+          {
+            "type": "20",
+            "params": "1d",
+            "error_handler": "0",
+            "error_handler_params": ""
+          }
+        ]
+      },
+      {
+        "itemid": "50909",
+        "hostid": "10684",
+        "name": "CPU idle time",
+        "key_": "system.cpu.util[,idle]",
+        "type": "0",
+        "value_type": "0",
+        "delay": "1m",
+        "history": "31d",
+        "trends": "365d",
+        "status": "0",
+        "units": "%",
+        "master_itemid": "0",
+        "preprocessing": []
+      },
+      {
+        "itemid": "50926",
+        "hostid": "10684",
+        "name": "System uptime",
+        "key_": "system.uptime",
+        "type": "0",
+        "value_type": "3",
+        "delay": "30s",
+        "history": "31d",
+        "trends": "0",
+        "status": "0",
+        "units": "uptime",
+        "master_itemid": "0",
+        "preprocessing": []
+      },
+      {
+        "itemid": "50933",
+        "hostid": "10684",
+        "name": "Zabbix agent availability",
+        "key_": "zabbix[host,agent,available]",
+        "type": "5",
+        "value_type": "3",
+        "delay": "1m",
+        "history": "31d",
+        "trends": "365d",
+        "status": "0",
+        "units": "",
+        "master_itemid": "0",
+        "preprocessing": []
+      },
+      {
+        "itemid": "50934",
+        "hostid": "10684",
+        "name": "CPU utilization",
+        "key_": "system.cpu.util",
+        "type": "18",
+        "value_type": "0",
+        "delay": "0",
+        "history": "31d",
+        "trends": "365d",
+        "status": "0",
+        "units": "%",
+        "master_itemid": "50909",
+        "preprocessing": [
+          {
+            "type": "21",
+            "params": "return (100 - value)",
+            "error_handler": "0",
+            "error_handler_params": ""
+          }
+        ]
+      },
+      {
+        "itemid": "50935",
+        "hostid": "10684",
+        "name": "Memory utilization",
+        "key_": "vm.memory.util",
+        "type": "18",
+        "value_type": "0",
+        "delay": "0",
+        "history": "31d",
+        "trends": "365d",
+        "status": "0",
+        "units": "%",
+        "master_itemid": "50931",
+        "preprocessing": [
+          {
+            "type": "21",
+            "params": "return (100-value);",
+            "error_handler": "0",
+            "error_handler_params": ""
+          }
+        ]
+      },
+      {
+        "itemid": "51006",
+        "hostid": "10683",
+        "name": "Failed step of scenario \"SRV01 HTTP\".",
+        "key_": "web.test.fail[SRV01 HTTP]",
+        "type": "9",
+        "value_type": "3",
+        "delay": "30s",
+        "history": "30d",
+        "trends": "90d",
+        "status": "0",
+        "units": "",
+        "master_itemid": "0",
+        "preprocessing": []
+      },
+      {
+        "itemid": "51008",
+        "hostid": "10683",
+        "name": "Response code for step \"Homepage\" of scenario \"SRV01 HTTP\".",
+        "key_": "web.test.rspcode[SRV01 HTTP,Homepage]",
+        "type": "9",
+        "value_type": "3",
+        "delay": "30s",
+        "history": "30d",
+        "trends": "90d",
+        "status": "0",
+        "units": "",
+        "master_itemid": "0",
+        "preprocessing": []
+      },
+      {
+        "itemid": "51009",
+        "hostid": "10683",
+        "name": "Response time for step \"Homepage\" of scenario \"SRV01 HTTP\".",
+        "key_": "web.test.time[SRV01 HTTP,Homepage,resp]",
+        "type": "9",
+        "value_type": "0",
+        "delay": "30s",
+        "history": "30d",
+        "trends": "90d",
+        "status": "0",
+        "units": "s",
+        "master_itemid": "0",
+        "preprocessing": []
+      },
+      {
+        "itemid": "51011",
+        "hostid": "10684",
+        "name": "R4 DNS example.com from CLI01",
+        "key_": "net.dns[,example.com,A,2,1,udp]",
+        "type": "0",
+        "value_type": "3",
+        "delay": "30s",
+        "history": "7d",
+        "trends": "0",
+        "status": "0",
+        "units": "",
+        "master_itemid": "0",
+        "preprocessing": []
+      }
+    ],
+    "triggers": [
+      {
+        "triggerid": "13075",
+        "description": "Zabbix server: Excessive value cache usage",
+        "expression": "{33803}>{$ZABBIX.SERVER.UTIL.MAX:\"value cache\"}",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33803",
+            "itemid": "23620",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "13436",
+        "description": "Zabbix server: Utilization of vmware collector processes is high",
+        "expression": "{33801}>{$ZABBIX.SERVER.UTIL.MAX:\"vmware collector\"}",
+        "recovery_expression": "{33801}<{$ZABBIX.SERVER.UTIL.MIN:\"vmware collector\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33801",
+            "itemid": "23328",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "13467",
+        "description": "Zabbix server: Utilization of alerter processes is high",
+        "expression": "{33764}>{$ZABBIX.SERVER.UTIL.MAX:\"alerter\"}",
+        "recovery_expression": "{33764}<{$ZABBIX.SERVER.UTIL.MIN:\"alerter\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33764",
+            "itemid": "23252",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "13468",
+        "description": "Zabbix server: Utilization of configuration syncer processes is high",
+        "expression": "{33768}>{$ZABBIX.SERVER.UTIL.MAX:\"configuration syncer\"}",
+        "recovery_expression": "{33768}<{$ZABBIX.SERVER.UTIL.MIN:\"configuration syncer\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33768",
+            "itemid": "23253",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "13471",
+        "description": "Zabbix server: Utilization of escalator processes is high",
+        "expression": "{33773}>{$ZABBIX.SERVER.UTIL.MAX:\"escalator\"}",
+        "recovery_expression": "{33773}<{$ZABBIX.SERVER.UTIL.MIN:\"escalator\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33773",
+            "itemid": "23256",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "13472",
+        "description": "Zabbix server: Utilization of history syncer processes is high",
+        "expression": "{33775}>{$ZABBIX.SERVER.UTIL.MAX:\"history syncer\"}",
+        "recovery_expression": "{33775}<{$ZABBIX.SERVER.UTIL.MIN:\"history syncer\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33775",
+            "itemid": "23257",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "13473",
+        "description": "Zabbix server: Utilization of housekeeper processes is high",
+        "expression": "{33776}>{$ZABBIX.SERVER.UTIL.MAX:\"housekeeper\"}",
+        "recovery_expression": "{33776}<{$ZABBIX.SERVER.UTIL.MIN:\"housekeeper\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33776",
+            "itemid": "23258",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "13474",
+        "description": "Zabbix server: Utilization of http poller processes is high",
+        "expression": "{33778}>{$ZABBIX.SERVER.UTIL.MAX:\"http poller\"}",
+        "recovery_expression": "{33778}<{$ZABBIX.SERVER.UTIL.MIN:\"http poller\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33778",
+            "itemid": "23259",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "13475",
+        "description": "Zabbix server: Utilization of icmp pinger processes is high",
+        "expression": "{33779}>{$ZABBIX.SERVER.UTIL.MAX:\"icmp pinger\"}",
+        "recovery_expression": "{33779}<{$ZABBIX.SERVER.UTIL.MIN:\"icmp pinger\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33779",
+            "itemid": "23260",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "13476",
+        "description": "Zabbix server: Utilization of ipmi poller processes is high",
+        "expression": "{33781}>{$ZABBIX.SERVER.UTIL.MAX:\"ipmi poller\"}",
+        "recovery_expression": "{33781}<{$ZABBIX.SERVER.UTIL.MIN:\"ipmi poller\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33781",
+            "itemid": "23261",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "13477",
+        "description": "Zabbix server: Utilization of java poller processes is high",
+        "expression": "{33782}>{$ZABBIX.SERVER.UTIL.MAX:\"java poller\"}",
+        "recovery_expression": "{33782}<{$ZABBIX.SERVER.UTIL.MIN:\"java poller\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33782",
+            "itemid": "23262",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "13479",
+        "description": "Zabbix server: Utilization of poller processes is high",
+        "expression": "{33786}>{$ZABBIX.SERVER.UTIL.MAX:\"poller\"}",
+        "recovery_expression": "{33786}<{$ZABBIX.SERVER.UTIL.MIN:\"poller\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33786",
+            "itemid": "23264",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "13480",
+        "description": "Zabbix server: Utilization of proxy poller processes is high",
+        "expression": "{33789}>{$ZABBIX.SERVER.UTIL.MAX:\"proxy poller\"}",
+        "recovery_expression": "{33789}<{$ZABBIX.SERVER.UTIL.MIN:\"proxy poller\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33789",
+            "itemid": "23265",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "13481",
+        "description": "Zabbix server: Utilization of self-monitoring processes is high",
+        "expression": "{33792}>{$ZABBIX.SERVER.UTIL.MAX:\"self-monitoring\"}",
+        "recovery_expression": "{33792}<{$ZABBIX.SERVER.UTIL.MIN:\"self-monitoring\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33792",
+            "itemid": "23266",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "13482",
+        "description": "Zabbix server: Utilization of snmp trapper processes is high",
+        "expression": "{33795}>{$ZABBIX.SERVER.UTIL.MAX:\"snmp trapper\"}",
+        "recovery_expression": "{33795}<{$ZABBIX.SERVER.UTIL.MIN:\"snmp trapper\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33795",
+            "itemid": "23267",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "13483",
+        "description": "Zabbix server: Utilization of timer processes is high",
+        "expression": "{33797}>{$ZABBIX.SERVER.UTIL.MAX:\"timer\"}",
+        "recovery_expression": "{33797}<{$ZABBIX.SERVER.UTIL.MIN:\"timer\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33797",
+            "itemid": "23268",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "13484",
+        "description": "Zabbix server: Utilization of trapper processes is high",
+        "expression": "{33798}>{$ZABBIX.SERVER.UTIL.MAX:\"trapper\"}",
+        "recovery_expression": "{33798}<{$ZABBIX.SERVER.UTIL.MIN:\"trapper\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33798",
+            "itemid": "23269",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "13485",
+        "description": "Zabbix server: Utilization of unreachable poller processes is high",
+        "expression": "{33800}>{$ZABBIX.SERVER.UTIL.MAX:\"unreachable poller\"}",
+        "recovery_expression": "{33800}<{$ZABBIX.SERVER.UTIL.MIN:\"unreachable poller\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33800",
+            "itemid": "23270",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "13486",
+        "description": "Zabbix server: More than 100 items have been missing data for over 10 minutes",
+        "expression": "{12895}>100",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "12895",
+            "itemid": "23271",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "13487",
+        "description": "Zabbix server: Excessive configuration cache usage",
+        "expression": "{33802}>{$ZABBIX.SERVER.UTIL.MAX:\"configuration cache\"}",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33802",
+            "itemid": "23273",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "13488",
+        "description": "Zabbix server: Excessive history cache usage",
+        "expression": "{33805}>{$ZABBIX.SERVER.UTIL.MAX:\"history cache\"}",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33805",
+            "itemid": "23274",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "13489",
+        "description": "Zabbix server: Excessive history index cache usage",
+        "expression": "{33806}>{$ZABBIX.SERVER.UTIL.MAX:\"index cache\"}",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33806",
+            "itemid": "23275",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "13490",
+        "description": "Zabbix server: Excessive trends cache usage",
+        "expression": "{33807}>{$ZABBIX.SERVER.UTIL.MAX:\"trend cache\"}",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33807",
+            "itemid": "23276",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "13537",
+        "description": "Zabbix server: Excessive vmware cache usage",
+        "expression": "{33804}>{$ZABBIX.SERVER.UTIL.MAX:\"vmware cache\"}",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33804",
+            "itemid": "23635",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "13558",
+        "description": "Zabbix server: Zabbix value cache working in low-memory mode",
+        "expression": "{13161}=1",
+        "recovery_expression": "",
+        "priority": "4",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "13161",
+            "itemid": "23662",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "13560",
+        "description": "Zabbix server: Utilization of task manager processes is high",
+        "expression": "{33796}>{$ZABBIX.SERVER.UTIL.MAX:\"task manager\"}",
+        "recovery_expression": "{33796}<{$ZABBIX.SERVER.UTIL.MIN:\"task manager\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33796",
+            "itemid": "23664",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "13563",
+        "description": "Zabbix server: Utilization of ipmi manager processes is high",
+        "expression": "{33780}>{$ZABBIX.SERVER.UTIL.MAX:\"ipmi manager\"}",
+        "recovery_expression": "{33780}<{$ZABBIX.SERVER.UTIL.MIN:\"ipmi manager\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33780",
+            "itemid": "25367",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "13567",
+        "description": "Zabbix server: Utilization of alert manager processes is high",
+        "expression": "{33765}>{$ZABBIX.SERVER.UTIL.MAX:\"alert manager\"}",
+        "recovery_expression": "{33765}<{$ZABBIX.SERVER.UTIL.MIN:\"alert manager\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33765",
+            "itemid": "25371",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "13570",
+        "description": "Zabbix server: Utilization of preprocessing manager processes is high",
+        "expression": "{33787}>{$ZABBIX.SERVER.UTIL.MAX:\"preprocessing manager\"}",
+        "recovery_expression": "{33787}<{$ZABBIX.SERVER.UTIL.MIN:\"preprocessing manager\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33787",
+            "itemid": "25667",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "13571",
+        "description": "Zabbix server: Utilization of preprocessing worker processes is high",
+        "expression": "{33788}>{$ZABBIX.SERVER.UTIL.MAX:\"preprocessing worker\"}",
+        "recovery_expression": "{33788}<{$ZABBIX.SERVER.UTIL.MIN:\"preprocessing worker\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33788",
+            "itemid": "25668",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "15854",
+        "description": "Zabbix server: Utilization of LLD manager processes is high",
+        "expression": "{33783}>{$ZABBIX.SERVER.UTIL.MAX:\"LLD manager\"}",
+        "recovery_expression": "{33783}<{$ZABBIX.SERVER.UTIL.MIN:\"LLD manager\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33783",
+            "itemid": "28536",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "15856",
+        "description": "Zabbix server: Utilization of LLD worker processes is high",
+        "expression": "{33784}>{$ZABBIX.SERVER.UTIL.MAX:\"LLD worker\"}",
+        "recovery_expression": "{33784}<{$ZABBIX.SERVER.UTIL.MIN:\"LLD worker\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33784",
+            "itemid": "28538",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "16274",
+        "description": "Zabbix server: Utilization of alert syncer processes is high",
+        "expression": "{33766}>{$ZABBIX.SERVER.UTIL.MAX:\"alert syncer\"}",
+        "recovery_expression": "{33766}<{$ZABBIX.SERVER.UTIL.MIN:\"alert syncer\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33766",
+            "itemid": "29823",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "17537",
+        "description": "Zabbix server: Utilization of availability manager processes is high",
+        "expression": "{33767}>{$ZABBIX.SERVER.UTIL.MAX:\"availability manager\"}",
+        "recovery_expression": "{33767}<{$ZABBIX.SERVER.UTIL.MIN:\"availability manager\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33767",
+            "itemid": "33026",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "17538",
+        "description": "Zabbix server: Utilization of history poller processes is high",
+        "expression": "{33774}>{$ZABBIX.SERVER.UTIL.MAX:\"history poller\"}",
+        "recovery_expression": "{33774}<{$ZABBIX.SERVER.UTIL.MIN:\"history poller\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33774",
+            "itemid": "33027",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "18532",
+        "description": "Zabbix server: Utilization of report manager processes is high",
+        "expression": "{33790}>{$ZABBIX.SERVER.UTIL.MAX:\"report manager\"}",
+        "recovery_expression": "{33790}<{$ZABBIX.SERVER.UTIL.MIN:\"report manager\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33790",
+            "itemid": "34319",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "18533",
+        "description": "Zabbix server: Utilization of report writer processes is high",
+        "expression": "{33791}>{$ZABBIX.SERVER.UTIL.MAX:\"report writer\"}",
+        "recovery_expression": "{33791}<{$ZABBIX.SERVER.UTIL.MIN:\"report writer\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33791",
+            "itemid": "34318",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "18981",
+        "description": "Zabbix server: Utilization of service manager processes is high",
+        "expression": "{33793}>{$ZABBIX.SERVER.UTIL.MAX:\"service manager\"}",
+        "recovery_expression": "{33793}<{$ZABBIX.SERVER.UTIL.MIN:\"service manager\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33793",
+            "itemid": "35277",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "18982",
+        "description": "Zabbix server: Utilization of trigger housekeeper processes is high",
+        "expression": "{33799}>{$ZABBIX.SERVER.UTIL.MAX:\"trigger housekeeper\"}",
+        "recovery_expression": "{33799}<{$ZABBIX.SERVER.UTIL.MIN:\"trigger housekeeper\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33799",
+            "itemid": "35275",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "18983",
+        "description": "Zabbix server: Version has changed",
+        "expression": "{23310}<>{23311} and length({23312})>0",
+        "recovery_expression": "",
+        "priority": "1",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "23310",
+            "itemid": "35276",
+            "parameter": "$,#1"
+          },
+          {
+            "functionid": "23311",
+            "itemid": "35276",
+            "parameter": "$,#2"
+          },
+          {
+            "functionid": "23312",
+            "itemid": "35276",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "21198",
+        "description": "Zabbix server: Utilization of ODBC poller processes is high",
+        "expression": "{33785}>{$ZABBIX.SERVER.UTIL.MAX:\"ODBC poller\"}",
+        "recovery_expression": "{33785}<{$ZABBIX.SERVER.UTIL.MIN:\"ODBC poller\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33785",
+            "itemid": "39823",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "22382",
+        "description": "Linux: Configured max number of open filedescriptors is too low",
+        "expression": "{30605}<{$KERNEL.MAXFILES.MIN}",
+        "recovery_expression": "",
+        "priority": "1",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "30605",
+            "itemid": "42251",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "22383",
+        "description": "Linux: Configured max number of processes is too low",
+        "expression": "{30606}<{$KERNEL.MAXPROC.MIN}",
+        "recovery_expression": "",
+        "priority": "1",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "30606",
+            "itemid": "42252",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "22392"
+          }
+        ]
+      },
+      {
+        "triggerid": "22384",
+        "description": "Linux: High CPU utilization",
+        "expression": "{30607}>{$CPU.UTIL.CRIT}",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "30607",
+            "itemid": "42269",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "22395"
+          }
+        ]
+      },
+      {
+        "triggerid": "22385",
+        "description": "Linux: System name has changed",
+        "expression": "{32783} and length({32784})>0",
+        "recovery_expression": "",
+        "priority": "1",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "32783",
+            "itemid": "42231",
+            "parameter": "$"
+          },
+          {
+            "functionid": "32784",
+            "itemid": "42231",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "22386",
+        "description": "Linux: System time is out of sync",
+        "expression": "{33877}=0",
+        "recovery_expression": "{33878}=1",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33877",
+            "itemid": "42232",
+            "parameter": "$,{$SYSTEM.FUZZYTIME.MAX}"
+          },
+          {
+            "functionid": "33878",
+            "itemid": "42232",
+            "parameter": "$,{$SYSTEM.FUZZYTIME.MIN}"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "22387",
+        "description": "Linux: Operating system description has changed",
+        "expression": "{32785} and length({32786})>0",
+        "recovery_expression": "",
+        "priority": "1",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "32785",
+            "itemid": "42234",
+            "parameter": "$"
+          },
+          {
+            "functionid": "32786",
+            "itemid": "42234",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "22385"
+          }
+        ]
+      },
+      {
+        "triggerid": "22388",
+        "description": "Linux: {HOST.NAME} has been restarted",
+        "expression": "{30615}<10m",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "30615",
+            "itemid": "42240",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "22389",
+        "description": "Linux: /etc/passwd has been changed",
+        "expression": "{30616}<>{30617}",
+        "recovery_expression": "",
+        "priority": "1",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "30616",
+            "itemid": "42242",
+            "parameter": "$,#1"
+          },
+          {
+            "functionid": "30617",
+            "itemid": "42242",
+            "parameter": "$,#2"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "22385"
+          },
+          {
+            "triggerid": "22387"
+          }
+        ]
+      },
+      {
+        "triggerid": "22390",
+        "description": "Linux: High memory utilization",
+        "expression": "{30618}>{$MEMORY.UTIL.MAX}",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "30618",
+            "itemid": "42270",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "22394"
+          }
+        ]
+      },
+      {
+        "triggerid": "22391",
+        "description": "Linux: Zabbix agent is not available",
+        "expression": "{30619}=0",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "30619",
+            "itemid": "42266",
+            "parameter": "$,{$AGENT.TIMEOUT}"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "22392",
+        "description": "Linux: Getting closer to process limit",
+        "expression": "{30620}/{30621}*100>80",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "30620",
+            "itemid": "42253",
+            "parameter": "$"
+          },
+          {
+            "functionid": "30621",
+            "itemid": "42252",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "22393",
+        "description": "Linux: High swap space usage",
+        "expression": "{30955}<{$SWAP.PFREE.MIN.WARN} and {30956}>0",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "30955",
+            "itemid": "42236",
+            "parameter": "$,5m"
+          },
+          {
+            "functionid": "30956",
+            "itemid": "42238",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "22390"
+          },
+          {
+            "triggerid": "22394"
+          }
+        ]
+      },
+      {
+        "triggerid": "22394",
+        "description": "Linux: Lack of available memory",
+        "expression": "{30957}<{$MEMORY.AVAILABLE.MIN} and {30958}>0",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "30957",
+            "itemid": "42243",
+            "parameter": "$,5m"
+          },
+          {
+            "functionid": "30958",
+            "itemid": "42245",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "22395",
+        "description": "Linux: Load average is too high",
+        "expression": "{30626}/{30627}>{$LOAD_AVG_PER_CPU.MAX.WARN}\r\nand {30628}>0\r\nand {30629}>0",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "30626",
+            "itemid": "42249",
+            "parameter": "$,5m"
+          },
+          {
+            "functionid": "30627",
+            "itemid": "42260",
+            "parameter": "$"
+          },
+          {
+            "functionid": "30628",
+            "itemid": "42257",
+            "parameter": "$"
+          },
+          {
+            "functionid": "30629",
+            "itemid": "42259",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "23162",
+        "description": "Linux: Number of installed packages has been changed",
+        "expression": "{32788}<>0",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "32788",
+            "itemid": "42235",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "23225",
+        "description": "Zabbix server: Utilization of connector manager processes is high",
+        "expression": "{33769}>{$ZABBIX.SERVER.UTIL.MAX:\"connector manager\"}",
+        "recovery_expression": "{33769}<{$ZABBIX.SERVER.UTIL.MIN:\"connector manager\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33769",
+            "itemid": "44789",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "23226",
+        "description": "Zabbix server: Utilization of connector worker processes is high",
+        "expression": "{33770}>{$ZABBIX.SERVER.UTIL.MAX:\"connector worker\"}",
+        "recovery_expression": "{33770}<{$ZABBIX.SERVER.UTIL.MIN:\"connector worker\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33770",
+            "itemid": "44790",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "23288",
+        "description": "Zabbix server: Utilization of discovery manager processes is high",
+        "expression": "{33771}>{$ZABBIX.SERVER.UTIL.MAX:\"discovery manager\"}",
+        "recovery_expression": "{33771}<{$ZABBIX.SERVER.UTIL.MIN:\"discovery manager\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33771",
+            "itemid": "45498",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "23289",
+        "description": "Zabbix server: Utilization of discovery worker processes is high",
+        "expression": "{33772}>{$ZABBIX.SERVER.UTIL.MAX:\"discovery worker\"}",
+        "recovery_expression": "{33772}<{$ZABBIX.SERVER.UTIL.MIN:\"discovery worker\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33772",
+            "itemid": "45499",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "23299",
+        "description": "Zabbix server: Utilization of agent poller processes is high",
+        "expression": "{33763}>{$ZABBIX.SERVER.UTIL.MAX:\"agent poller\"}",
+        "recovery_expression": "{33763}<{$ZABBIX.SERVER.UTIL.MIN:\"agent poller\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33763",
+            "itemid": "45517",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "23300",
+        "description": "Zabbix server: Utilization of http agent poller processes is high",
+        "expression": "{33777}>{$ZABBIX.SERVER.UTIL.MAX:\"http agent poller\"}",
+        "recovery_expression": "{33777}<{$ZABBIX.SERVER.UTIL.MIN:\"http agent poller\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33777",
+            "itemid": "45518",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "23396",
+        "description": "Zabbix server: Utilization of snmp poller processes is high",
+        "expression": "{33794}>{$ZABBIX.SERVER.UTIL.MAX:\"snmp poller\"}",
+        "recovery_expression": "{33794}<{$ZABBIX.SERVER.UTIL.MIN:\"snmp poller\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33794",
+            "itemid": "46048",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "23732",
+        "description": "Zabbix server: Utilization of browser poller processes is high",
+        "expression": "{33812}>{$ZABBIX.SERVER.UTIL.MAX:\"browser poller\"}",
+        "recovery_expression": "{33812}<{$ZABBIX.SERVER.UTIL.MIN:\"browser poller\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33812",
+            "itemid": "47207",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "23733",
+        "description": "Zabbix server: Utilization of configuration syncer worker processes is high",
+        "expression": "{33813}>{$ZABBIX.SERVER.UTIL.MAX:\"configuration syncer worker\"}",
+        "recovery_expression": "{33813}<{$ZABBIX.SERVER.UTIL.MIN:\"configuration syncer worker\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33813",
+            "itemid": "47208",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "23734",
+        "description": "Zabbix server: Utilization of internal poller processes is high",
+        "expression": "{33814}>{$ZABBIX.SERVER.UTIL.MAX:\"internal poller\"}",
+        "recovery_expression": "{33814}<{$ZABBIX.SERVER.UTIL.MIN:\"internal poller\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33814",
+            "itemid": "47209",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "23735",
+        "description": "Zabbix server: Utilization of proxy group manager processes is high",
+        "expression": "{33815}>{$ZABBIX.SERVER.UTIL.MAX:\"proxy group manager\"}",
+        "recovery_expression": "{33815}<{$ZABBIX.SERVER.UTIL.MIN:\"proxy group manager\"}",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "33815",
+            "itemid": "47210",
+            "parameter": "$,10m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "24634",
+        "description": "Zabbix server: Wrong template assigned",
+        "expression": "{35019}=0",
+        "recovery_expression": "",
+        "priority": "5",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "35019",
+            "itemid": "49209",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25227",
+        "description": "Linux: FS [/]: Space is critically low",
+        "expression": "{36096}>{$VFS.FS.PUSED.MAX.CRIT:\"/\"}",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36096",
+            "itemid": "50745",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25228",
+        "description": "Linux: FS [/boot]: Space is critically low",
+        "expression": "{36097}>{$VFS.FS.PUSED.MAX.CRIT:\"/boot\"}",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36097",
+            "itemid": "50752",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25229",
+        "description": "Linux: FS [/]: Space is low",
+        "expression": "{36098}>{$VFS.FS.PUSED.MAX.WARN:\"/\"}",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36098",
+            "itemid": "50745",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25227"
+          }
+        ]
+      },
+      {
+        "triggerid": "25230",
+        "description": "Linux: FS [/boot]: Space is low",
+        "expression": "{36099}>{$VFS.FS.PUSED.MAX.WARN:\"/boot\"}",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36099",
+            "itemid": "50752",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25228"
+          }
+        ]
+      },
+      {
+        "triggerid": "25231",
+        "description": "Linux: FS [/]: Running out of free inodes",
+        "expression": "{36100}<{$VFS.FS.INODE.PFREE.MIN.CRIT:\"/\"}",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36100",
+            "itemid": "50746",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25232",
+        "description": "Linux: FS [/boot]: Running out of free inodes",
+        "expression": "{36101}<{$VFS.FS.INODE.PFREE.MIN.CRIT:\"/boot\"}",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36101",
+            "itemid": "50753",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25233",
+        "description": "Linux: FS [/]: Running out of free inodes",
+        "expression": "{36102}<{$VFS.FS.INODE.PFREE.MIN.WARN:\"/\"}",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36102",
+            "itemid": "50746",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25231"
+          }
+        ]
+      },
+      {
+        "triggerid": "25234",
+        "description": "Linux: FS [/boot]: Running out of free inodes",
+        "expression": "{36103}<{$VFS.FS.INODE.PFREE.MIN.WARN:\"/boot\"}",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36103",
+            "itemid": "50753",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25232"
+          }
+        ]
+      },
+      {
+        "triggerid": "25235",
+        "description": "Linux: FS [/]: Filesystem has become read-only",
+        "expression": "{36104}=0 and {36105}=1",
+        "recovery_expression": "{36105}=0",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36104",
+            "itemid": "50742",
+            "parameter": "$,#2"
+          },
+          {
+            "functionid": "36105",
+            "itemid": "50742",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25236",
+        "description": "Linux: FS [/boot]: Filesystem has become read-only",
+        "expression": "{36106}=0 and {36107}=1",
+        "recovery_expression": "{36107}=0",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36106",
+            "itemid": "50749",
+            "parameter": "$,#2"
+          },
+          {
+            "functionid": "36107",
+            "itemid": "50749",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25237",
+        "description": "Linux: Interface enp0s3: Ethernet has changed to lower speed than it was before",
+        "expression": "{36108}<0 and {36109}>0\r\nand\r\n({36110}=6 or {36110}=1)\r\nand\r\n({36111}<>2)",
+        "recovery_expression": "({36108}>0 and {36112}>0) or\r\n({36111}=2)",
+        "priority": "1",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36108",
+            "itemid": "50770",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36109",
+            "itemid": "50770",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36110",
+            "itemid": "50768",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36111",
+            "itemid": "50766",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36112",
+            "itemid": "50770",
+            "parameter": "$,#2"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25241"
+          }
+        ]
+      },
+      {
+        "triggerid": "25238",
+        "description": "Linux: Interface enp0s8: Ethernet has changed to lower speed than it was before",
+        "expression": "{36113}<0 and {36114}>0\r\nand\r\n({36115}=6 or {36115}=1)\r\nand\r\n({36116}<>2)",
+        "recovery_expression": "({36113}>0 and {36117}>0) or\r\n({36116}=2)",
+        "priority": "1",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36113",
+            "itemid": "50771",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36114",
+            "itemid": "50771",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36115",
+            "itemid": "50769",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36116",
+            "itemid": "50767",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36117",
+            "itemid": "50771",
+            "parameter": "$,#2"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25242"
+          }
+        ]
+      },
+      {
+        "triggerid": "25239",
+        "description": "Linux: Interface enp0s3: High error rate",
+        "expression": "{36118}>{$IF.ERRORS.WARN:\"enp0s3\"}\r\nor {36119}>{$IF.ERRORS.WARN:\"enp0s3\"}",
+        "recovery_expression": "{36120}<{$IF.ERRORS.WARN:\"enp0s3\"}*0.8\r\nand {36121}<{$IF.ERRORS.WARN:\"enp0s3\"}*0.8",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36118",
+            "itemid": "50756",
+            "parameter": "$,5m"
+          },
+          {
+            "functionid": "36119",
+            "itemid": "50762",
+            "parameter": "$,5m"
+          },
+          {
+            "functionid": "36120",
+            "itemid": "50756",
+            "parameter": "$,5m"
+          },
+          {
+            "functionid": "36121",
+            "itemid": "50762",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25241"
+          }
+        ]
+      },
+      {
+        "triggerid": "25240",
+        "description": "Linux: Interface enp0s8: High error rate",
+        "expression": "{36122}>{$IF.ERRORS.WARN:\"enp0s8\"}\r\nor {36123}>{$IF.ERRORS.WARN:\"enp0s8\"}",
+        "recovery_expression": "{36124}<{$IF.ERRORS.WARN:\"enp0s8\"}*0.8\r\nand {36125}<{$IF.ERRORS.WARN:\"enp0s8\"}*0.8",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36122",
+            "itemid": "50757",
+            "parameter": "$,5m"
+          },
+          {
+            "functionid": "36123",
+            "itemid": "50763",
+            "parameter": "$,5m"
+          },
+          {
+            "functionid": "36124",
+            "itemid": "50757",
+            "parameter": "$,5m"
+          },
+          {
+            "functionid": "36125",
+            "itemid": "50763",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25242"
+          }
+        ]
+      },
+      {
+        "triggerid": "25241",
+        "description": "Linux: Interface enp0s3: Link down",
+        "expression": "{$IFCONTROL:\"enp0s3\"}=1 and {36126}=2 and ({36127}<>{36128})",
+        "recovery_expression": "{36126}<>2 or {$IFCONTROL:\"enp0s3\"}=0",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36126",
+            "itemid": "50766",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36127",
+            "itemid": "50766",
+            "parameter": "$,#1"
+          },
+          {
+            "functionid": "36128",
+            "itemid": "50766",
+            "parameter": "$,#2"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25242",
+        "description": "Linux: Interface enp0s8: Link down",
+        "expression": "{$IFCONTROL:\"enp0s8\"}=1 and {36129}=2 and ({36130}<>{36131})",
+        "recovery_expression": "{36129}<>2 or {$IFCONTROL:\"enp0s8\"}=0",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36129",
+            "itemid": "50767",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36130",
+            "itemid": "50767",
+            "parameter": "$,#1"
+          },
+          {
+            "functionid": "36131",
+            "itemid": "50767",
+            "parameter": "$,#2"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25243",
+        "description": "Linux: Interface enp0s3: High bandwidth usage",
+        "expression": "({36132}>({$IF.UTIL.MAX:\"enp0s3\"}/100)*{36133} or\r\n{36134}>({$IF.UTIL.MAX:\"enp0s3\"}/100)*{36133}) and\r\n{36133}>0",
+        "recovery_expression": "{36132}<(({$IF.UTIL.MAX:\"enp0s3\"}-3)/100)*{36133} and\r\n{36134}<(({$IF.UTIL.MAX:\"enp0s3\"}-3)/100)*{36133}",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36132",
+            "itemid": "50758",
+            "parameter": "$,15m"
+          },
+          {
+            "functionid": "36133",
+            "itemid": "50770",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36134",
+            "itemid": "50764",
+            "parameter": "$,15m"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25241"
+          }
+        ]
+      },
+      {
+        "triggerid": "25244",
+        "description": "Linux: Interface enp0s8: High bandwidth usage",
+        "expression": "({36135}>({$IF.UTIL.MAX:\"enp0s8\"}/100)*{36136} or\r\n{36137}>({$IF.UTIL.MAX:\"enp0s8\"}/100)*{36136}) and\r\n{36136}>0",
+        "recovery_expression": "{36135}<(({$IF.UTIL.MAX:\"enp0s8\"}-3)/100)*{36136} and\r\n{36137}<(({$IF.UTIL.MAX:\"enp0s8\"}-3)/100)*{36136}",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36135",
+            "itemid": "50759",
+            "parameter": "$,15m"
+          },
+          {
+            "functionid": "36136",
+            "itemid": "50771",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36137",
+            "itemid": "50765",
+            "parameter": "$,15m"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25242"
+          }
+        ]
+      },
+      {
+        "triggerid": "25245",
+        "description": "Linux: sda: Disk read/write request responses are too high",
+        "expression": "{36138} > {$VFS.DEV.READ.AWAIT.WARN:\"sda\"} or {36139} > {$VFS.DEV.WRITE.AWAIT.WARN:\"sda\"}",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10084"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36138",
+            "itemid": "50772",
+            "parameter": "$,15m"
+          },
+          {
+            "functionid": "36139",
+            "itemid": "50773",
+            "parameter": "$,15m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25246",
+        "description": "Linux: Configured max number of open filedescriptors is too low",
+        "expression": "{36140}<{$KERNEL.MAXFILES.MIN}",
+        "recovery_expression": "",
+        "priority": "1",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36140",
+            "itemid": "50784",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25247",
+        "description": "Linux: Configured max number of processes is too low",
+        "expression": "{36141}<{$KERNEL.MAXPROC.MIN}",
+        "recovery_expression": "",
+        "priority": "1",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36141",
+            "itemid": "50785",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25248"
+          }
+        ]
+      },
+      {
+        "triggerid": "25248",
+        "description": "Linux: Getting closer to process limit",
+        "expression": "{36142}/{36143}*100>80",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36142",
+            "itemid": "50786",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36143",
+            "itemid": "50785",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25249",
+        "description": "Linux: Load average is too high",
+        "expression": "{36144}/{36145}>{$LOAD_AVG_PER_CPU.MAX.WARN}\r\nand {36146}>0\r\nand {36147}>0",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36144",
+            "itemid": "50791",
+            "parameter": "$,5m"
+          },
+          {
+            "functionid": "36145",
+            "itemid": "50793",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36146",
+            "itemid": "50792",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36147",
+            "itemid": "50790",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25250",
+        "description": "Linux: High CPU utilization",
+        "expression": "{36148}>{$CPU.UTIL.CRIT}",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36148",
+            "itemid": "50822",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25249"
+          }
+        ]
+      },
+      {
+        "triggerid": "25251",
+        "description": "Linux: System name has changed",
+        "expression": "{36149} and length({36150})>0",
+        "recovery_expression": "",
+        "priority": "1",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36149",
+            "itemid": "50805",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36150",
+            "itemid": "50805",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25252",
+        "description": "Linux: System time is out of sync",
+        "expression": "{36151}=0",
+        "recovery_expression": "{36152}=1",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36151",
+            "itemid": "50806",
+            "parameter": "$,{$SYSTEM.FUZZYTIME.MAX}"
+          },
+          {
+            "functionid": "36152",
+            "itemid": "50806",
+            "parameter": "$,{$SYSTEM.FUZZYTIME.MIN}"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25253",
+        "description": "Linux: Operating system description has changed",
+        "expression": "{36153} and length({36154})>0",
+        "recovery_expression": "",
+        "priority": "1",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36153",
+            "itemid": "50808",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36154",
+            "itemid": "50808",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25251"
+          }
+        ]
+      },
+      {
+        "triggerid": "25254",
+        "description": "Linux: Number of installed packages has been changed",
+        "expression": "{36155}<>0",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36155",
+            "itemid": "50809",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25255",
+        "description": "Linux: High swap space usage",
+        "expression": "{36156}<{$SWAP.PFREE.MIN.WARN} and {36157}>0",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36156",
+            "itemid": "50811",
+            "parameter": "$,5m"
+          },
+          {
+            "functionid": "36157",
+            "itemid": "50812",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25258"
+          },
+          {
+            "triggerid": "25259"
+          }
+        ]
+      },
+      {
+        "triggerid": "25256",
+        "description": "Linux: {HOST.NAME} has been restarted",
+        "expression": "{36158}<10m",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36158",
+            "itemid": "50814",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25257",
+        "description": "Linux: /etc/passwd has been changed",
+        "expression": "{36159}<>{36160}",
+        "recovery_expression": "",
+        "priority": "1",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36159",
+            "itemid": "50816",
+            "parameter": "$,#1"
+          },
+          {
+            "functionid": "36160",
+            "itemid": "50816",
+            "parameter": "$,#2"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25251"
+          },
+          {
+            "triggerid": "25253"
+          }
+        ]
+      },
+      {
+        "triggerid": "25258",
+        "description": "Linux: Lack of available memory",
+        "expression": "{36161}<{$MEMORY.AVAILABLE.MIN} and {36162}>0",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36161",
+            "itemid": "50818",
+            "parameter": "$,5m"
+          },
+          {
+            "functionid": "36162",
+            "itemid": "50820",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25259",
+        "description": "Linux: High memory utilization",
+        "expression": "{36163}>{$MEMORY.UTIL.MAX}",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36163",
+            "itemid": "50823",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25258"
+          }
+        ]
+      },
+      {
+        "triggerid": "25260",
+        "description": "Linux: Zabbix agent is not available",
+        "expression": "{36164}=0",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36164",
+            "itemid": "50821",
+            "parameter": "$,{$AGENT.TIMEOUT}"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25271",
+        "description": "Linux: FS [/]: Running out of free inodes",
+        "expression": "{36188}<{$VFS.FS.INODE.PFREE.MIN.CRIT:\"/\"}",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36188",
+            "itemid": "50858",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25272",
+        "description": "Linux: FS [/boot]: Running out of free inodes",
+        "expression": "{36189}<{$VFS.FS.INODE.PFREE.MIN.CRIT:\"/boot\"}",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36189",
+            "itemid": "50865",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25273",
+        "description": "Linux: FS [/]: Running out of free inodes",
+        "expression": "{36190}<{$VFS.FS.INODE.PFREE.MIN.WARN:\"/\"}",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36190",
+            "itemid": "50858",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25271"
+          }
+        ]
+      },
+      {
+        "triggerid": "25274",
+        "description": "Linux: FS [/boot]: Running out of free inodes",
+        "expression": "{36191}<{$VFS.FS.INODE.PFREE.MIN.WARN:\"/boot\"}",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36191",
+            "itemid": "50865",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25272"
+          }
+        ]
+      },
+      {
+        "triggerid": "25275",
+        "description": "Linux: FS [/]: Space is critically low",
+        "expression": "{36192}>{$VFS.FS.PUSED.MAX.CRIT:\"/\"}",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36192",
+            "itemid": "50856",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25276",
+        "description": "Linux: FS [/boot]: Space is critically low",
+        "expression": "{36193}>{$VFS.FS.PUSED.MAX.CRIT:\"/boot\"}",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36193",
+            "itemid": "50863",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25277",
+        "description": "Linux: FS [/]: Space is low",
+        "expression": "{36194}>{$VFS.FS.PUSED.MAX.WARN:\"/\"}",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36194",
+            "itemid": "50856",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25275"
+          }
+        ]
+      },
+      {
+        "triggerid": "25278",
+        "description": "Linux: FS [/boot]: Space is low",
+        "expression": "{36195}>{$VFS.FS.PUSED.MAX.WARN:\"/boot\"}",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36195",
+            "itemid": "50863",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25276"
+          }
+        ]
+      },
+      {
+        "triggerid": "25279",
+        "description": "Linux: FS [/]: Filesystem has become read-only",
+        "expression": "{36196}=0 and {36197}=1",
+        "recovery_expression": "{36197}=0",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36196",
+            "itemid": "50853",
+            "parameter": "$,#2"
+          },
+          {
+            "functionid": "36197",
+            "itemid": "50853",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25280",
+        "description": "Linux: FS [/boot]: Filesystem has become read-only",
+        "expression": "{36198}=0 and {36199}=1",
+        "recovery_expression": "{36199}=0",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36198",
+            "itemid": "50860",
+            "parameter": "$,#2"
+          },
+          {
+            "functionid": "36199",
+            "itemid": "50860",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25281",
+        "description": "Linux: Interface enp0s3: High error rate",
+        "expression": "{36200}>{$IF.ERRORS.WARN:\"enp0s3\"}\r\nor {36201}>{$IF.ERRORS.WARN:\"enp0s3\"}",
+        "recovery_expression": "{36202}<{$IF.ERRORS.WARN:\"enp0s3\"}*0.8\r\nand {36203}<{$IF.ERRORS.WARN:\"enp0s3\"}*0.8",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36200",
+            "itemid": "50868",
+            "parameter": "$,5m"
+          },
+          {
+            "functionid": "36201",
+            "itemid": "50874",
+            "parameter": "$,5m"
+          },
+          {
+            "functionid": "36202",
+            "itemid": "50868",
+            "parameter": "$,5m"
+          },
+          {
+            "functionid": "36203",
+            "itemid": "50874",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25285"
+          }
+        ]
+      },
+      {
+        "triggerid": "25282",
+        "description": "Linux: Interface enp0s8: High error rate",
+        "expression": "{36204}>{$IF.ERRORS.WARN:\"enp0s8\"}\r\nor {36205}>{$IF.ERRORS.WARN:\"enp0s8\"}",
+        "recovery_expression": "{36206}<{$IF.ERRORS.WARN:\"enp0s8\"}*0.8\r\nand {36207}<{$IF.ERRORS.WARN:\"enp0s8\"}*0.8",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36204",
+            "itemid": "50869",
+            "parameter": "$,5m"
+          },
+          {
+            "functionid": "36205",
+            "itemid": "50875",
+            "parameter": "$,5m"
+          },
+          {
+            "functionid": "36206",
+            "itemid": "50869",
+            "parameter": "$,5m"
+          },
+          {
+            "functionid": "36207",
+            "itemid": "50875",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25286"
+          }
+        ]
+      },
+      {
+        "triggerid": "25283",
+        "description": "Linux: Interface enp0s3: High bandwidth usage",
+        "expression": "({36208}>({$IF.UTIL.MAX:\"enp0s3\"}/100)*{36209} or\r\n{36210}>({$IF.UTIL.MAX:\"enp0s3\"}/100)*{36209}) and\r\n{36209}>0",
+        "recovery_expression": "{36208}<(({$IF.UTIL.MAX:\"enp0s3\"}-3)/100)*{36209} and\r\n{36210}<(({$IF.UTIL.MAX:\"enp0s3\"}-3)/100)*{36209}",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36208",
+            "itemid": "50870",
+            "parameter": "$,15m"
+          },
+          {
+            "functionid": "36209",
+            "itemid": "50880",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36210",
+            "itemid": "50876",
+            "parameter": "$,15m"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25285"
+          }
+        ]
+      },
+      {
+        "triggerid": "25284",
+        "description": "Linux: Interface enp0s8: High bandwidth usage",
+        "expression": "({36211}>({$IF.UTIL.MAX:\"enp0s8\"}/100)*{36212} or\r\n{36213}>({$IF.UTIL.MAX:\"enp0s8\"}/100)*{36212}) and\r\n{36212}>0",
+        "recovery_expression": "{36211}<(({$IF.UTIL.MAX:\"enp0s8\"}-3)/100)*{36212} and\r\n{36213}<(({$IF.UTIL.MAX:\"enp0s8\"}-3)/100)*{36212}",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36211",
+            "itemid": "50871",
+            "parameter": "$,15m"
+          },
+          {
+            "functionid": "36212",
+            "itemid": "50881",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36213",
+            "itemid": "50877",
+            "parameter": "$,15m"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25286"
+          }
+        ]
+      },
+      {
+        "triggerid": "25285",
+        "description": "Linux: Interface enp0s3: Link down",
+        "expression": "{$IFCONTROL:\"enp0s3\"}=1 and {36214}=2 and ({36215}<>{36216})",
+        "recovery_expression": "{36214}<>2 or {$IFCONTROL:\"enp0s3\"}=0",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36214",
+            "itemid": "50878",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36215",
+            "itemid": "50878",
+            "parameter": "$,#1"
+          },
+          {
+            "functionid": "36216",
+            "itemid": "50878",
+            "parameter": "$,#2"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25286",
+        "description": "Linux: Interface enp0s8: Link down",
+        "expression": "{$IFCONTROL:\"enp0s8\"}=1 and {36217}=2 and ({36218}<>{36219})",
+        "recovery_expression": "{36217}<>2 or {$IFCONTROL:\"enp0s8\"}=0",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36217",
+            "itemid": "50879",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36218",
+            "itemid": "50879",
+            "parameter": "$,#1"
+          },
+          {
+            "functionid": "36219",
+            "itemid": "50879",
+            "parameter": "$,#2"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25287",
+        "description": "Linux: Interface enp0s3: Ethernet has changed to lower speed than it was before",
+        "expression": "{36220}<0 and {36221}>0\r\nand\r\n({36222}=6 or {36222}=1)\r\nand\r\n({36223}<>2)",
+        "recovery_expression": "({36220}>0 and {36224}>0) or\r\n({36223}=2)",
+        "priority": "1",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36220",
+            "itemid": "50880",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36221",
+            "itemid": "50880",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36222",
+            "itemid": "50882",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36223",
+            "itemid": "50878",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36224",
+            "itemid": "50880",
+            "parameter": "$,#2"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25285"
+          }
+        ]
+      },
+      {
+        "triggerid": "25288",
+        "description": "Linux: Interface enp0s8: Ethernet has changed to lower speed than it was before",
+        "expression": "{36225}<0 and {36226}>0\r\nand\r\n({36227}=6 or {36227}=1)\r\nand\r\n({36228}<>2)",
+        "recovery_expression": "({36225}>0 and {36229}>0) or\r\n({36228}=2)",
+        "priority": "1",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36225",
+            "itemid": "50881",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36226",
+            "itemid": "50881",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36227",
+            "itemid": "50883",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36228",
+            "itemid": "50879",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36229",
+            "itemid": "50881",
+            "parameter": "$,#2"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25286"
+          }
+        ]
+      },
+      {
+        "triggerid": "25289",
+        "description": "Linux: sda: Disk read/write request responses are too high",
+        "expression": "{36230} > {$VFS.DEV.READ.AWAIT.WARN:\"sda\"} or {36231} > {$VFS.DEV.WRITE.AWAIT.WARN:\"sda\"}",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36230",
+            "itemid": "50884",
+            "parameter": "$,15m"
+          },
+          {
+            "functionid": "36231",
+            "itemid": "50885",
+            "parameter": "$,15m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25290",
+        "description": "Linux: Configured max number of open filedescriptors is too low",
+        "expression": "{36232}<{$KERNEL.MAXFILES.MIN}",
+        "recovery_expression": "",
+        "priority": "1",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36232",
+            "itemid": "50896",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25291",
+        "description": "Linux: Configured max number of processes is too low",
+        "expression": "{36233}<{$KERNEL.MAXPROC.MIN}",
+        "recovery_expression": "",
+        "priority": "1",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36233",
+            "itemid": "50897",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25292"
+          }
+        ]
+      },
+      {
+        "triggerid": "25292",
+        "description": "Linux: Getting closer to process limit",
+        "expression": "{36234}/{36235}*100>80",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36234",
+            "itemid": "50898",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36235",
+            "itemid": "50897",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25293",
+        "description": "Linux: Load average is too high",
+        "expression": "{36236}/{36237}>{$LOAD_AVG_PER_CPU.MAX.WARN}\r\nand {36238}>0\r\nand {36239}>0",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36236",
+            "itemid": "50903",
+            "parameter": "$,5m"
+          },
+          {
+            "functionid": "36237",
+            "itemid": "50905",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36238",
+            "itemid": "50904",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36239",
+            "itemid": "50902",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25294",
+        "description": "Linux: High CPU utilization",
+        "expression": "{36240}>{$CPU.UTIL.CRIT}",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36240",
+            "itemid": "50934",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25293"
+          }
+        ]
+      },
+      {
+        "triggerid": "25295",
+        "description": "Linux: System name has changed",
+        "expression": "{36241} and length({36242})>0",
+        "recovery_expression": "",
+        "priority": "1",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36241",
+            "itemid": "50917",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36242",
+            "itemid": "50917",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25296",
+        "description": "Linux: System time is out of sync",
+        "expression": "{36243}=0",
+        "recovery_expression": "{36244}=1",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36243",
+            "itemid": "50918",
+            "parameter": "$,{$SYSTEM.FUZZYTIME.MAX}"
+          },
+          {
+            "functionid": "36244",
+            "itemid": "50918",
+            "parameter": "$,{$SYSTEM.FUZZYTIME.MIN}"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25297",
+        "description": "Linux: Operating system description has changed",
+        "expression": "{36245} and length({36246})>0",
+        "recovery_expression": "",
+        "priority": "1",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36245",
+            "itemid": "50920",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36246",
+            "itemid": "50920",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25295"
+          }
+        ]
+      },
+      {
+        "triggerid": "25298",
+        "description": "Linux: Number of installed packages has been changed",
+        "expression": "{36247}<>0",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36247",
+            "itemid": "50921",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25299",
+        "description": "Linux: High swap space usage",
+        "expression": "{36248}<{$SWAP.PFREE.MIN.WARN} and {36249}>0",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36248",
+            "itemid": "50923",
+            "parameter": "$,5m"
+          },
+          {
+            "functionid": "36249",
+            "itemid": "50924",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25302"
+          },
+          {
+            "triggerid": "25303"
+          }
+        ]
+      },
+      {
+        "triggerid": "25300",
+        "description": "Linux: {HOST.NAME} has been restarted",
+        "expression": "{36250}<10m",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36250",
+            "itemid": "50926",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25301",
+        "description": "Linux: /etc/passwd has been changed",
+        "expression": "{36251}<>{36252}",
+        "recovery_expression": "",
+        "priority": "1",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36251",
+            "itemid": "50928",
+            "parameter": "$,#1"
+          },
+          {
+            "functionid": "36252",
+            "itemid": "50928",
+            "parameter": "$,#2"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25295"
+          },
+          {
+            "triggerid": "25297"
+          }
+        ]
+      },
+      {
+        "triggerid": "25302",
+        "description": "Linux: Lack of available memory",
+        "expression": "{36253}<{$MEMORY.AVAILABLE.MIN} and {36254}>0",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36253",
+            "itemid": "50930",
+            "parameter": "$,5m"
+          },
+          {
+            "functionid": "36254",
+            "itemid": "50932",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25303",
+        "description": "Linux: High memory utilization",
+        "expression": "{36255}>{$MEMORY.UTIL.MAX}",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36255",
+            "itemid": "50935",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25302"
+          }
+        ]
+      },
+      {
+        "triggerid": "25304",
+        "description": "Linux: Zabbix agent is not available",
+        "expression": "{36256}=0",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36256",
+            "itemid": "50933",
+            "parameter": "$,{$AGENT.TIMEOUT}"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25315",
+        "description": "Linux: FS [/]: Running out of free inodes",
+        "expression": "{36280}<{$VFS.FS.INODE.PFREE.MIN.CRIT:\"/\"}",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36280",
+            "itemid": "50970",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25316",
+        "description": "Linux: FS [/boot]: Running out of free inodes",
+        "expression": "{36281}<{$VFS.FS.INODE.PFREE.MIN.CRIT:\"/boot\"}",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36281",
+            "itemid": "50977",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25317",
+        "description": "Linux: FS [/]: Running out of free inodes",
+        "expression": "{36282}<{$VFS.FS.INODE.PFREE.MIN.WARN:\"/\"}",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36282",
+            "itemid": "50970",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25315"
+          }
+        ]
+      },
+      {
+        "triggerid": "25318",
+        "description": "Linux: FS [/boot]: Running out of free inodes",
+        "expression": "{36283}<{$VFS.FS.INODE.PFREE.MIN.WARN:\"/boot\"}",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36283",
+            "itemid": "50977",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25316"
+          }
+        ]
+      },
+      {
+        "triggerid": "25319",
+        "description": "Linux: FS [/]: Space is critically low",
+        "expression": "{36284}>{$VFS.FS.PUSED.MAX.CRIT:\"/\"}",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36284",
+            "itemid": "50968",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25320",
+        "description": "Linux: FS [/boot]: Space is critically low",
+        "expression": "{36285}>{$VFS.FS.PUSED.MAX.CRIT:\"/boot\"}",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36285",
+            "itemid": "50975",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25321",
+        "description": "Linux: FS [/]: Space is low",
+        "expression": "{36286}>{$VFS.FS.PUSED.MAX.WARN:\"/\"}",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36286",
+            "itemid": "50968",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25319"
+          }
+        ]
+      },
+      {
+        "triggerid": "25322",
+        "description": "Linux: FS [/boot]: Space is low",
+        "expression": "{36287}>{$VFS.FS.PUSED.MAX.WARN:\"/boot\"}",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36287",
+            "itemid": "50975",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25320"
+          }
+        ]
+      },
+      {
+        "triggerid": "25323",
+        "description": "Linux: FS [/]: Filesystem has become read-only",
+        "expression": "{36288}=0 and {36289}=1",
+        "recovery_expression": "{36289}=0",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36288",
+            "itemid": "50965",
+            "parameter": "$,#2"
+          },
+          {
+            "functionid": "36289",
+            "itemid": "50965",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25324",
+        "description": "Linux: FS [/boot]: Filesystem has become read-only",
+        "expression": "{36290}=0 and {36291}=1",
+        "recovery_expression": "{36291}=0",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36290",
+            "itemid": "50972",
+            "parameter": "$,#2"
+          },
+          {
+            "functionid": "36291",
+            "itemid": "50972",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25325",
+        "description": "Linux: Interface enp0s3: High error rate",
+        "expression": "{36292}>{$IF.ERRORS.WARN:\"enp0s3\"}\r\nor {36293}>{$IF.ERRORS.WARN:\"enp0s3\"}",
+        "recovery_expression": "{36294}<{$IF.ERRORS.WARN:\"enp0s3\"}*0.8\r\nand {36295}<{$IF.ERRORS.WARN:\"enp0s3\"}*0.8",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36292",
+            "itemid": "50980",
+            "parameter": "$,5m"
+          },
+          {
+            "functionid": "36293",
+            "itemid": "50986",
+            "parameter": "$,5m"
+          },
+          {
+            "functionid": "36294",
+            "itemid": "50980",
+            "parameter": "$,5m"
+          },
+          {
+            "functionid": "36295",
+            "itemid": "50986",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25329"
+          }
+        ]
+      },
+      {
+        "triggerid": "25326",
+        "description": "Linux: Interface enp0s8: High error rate",
+        "expression": "{36296}>{$IF.ERRORS.WARN:\"enp0s8\"}\r\nor {36297}>{$IF.ERRORS.WARN:\"enp0s8\"}",
+        "recovery_expression": "{36298}<{$IF.ERRORS.WARN:\"enp0s8\"}*0.8\r\nand {36299}<{$IF.ERRORS.WARN:\"enp0s8\"}*0.8",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36296",
+            "itemid": "50981",
+            "parameter": "$,5m"
+          },
+          {
+            "functionid": "36297",
+            "itemid": "50987",
+            "parameter": "$,5m"
+          },
+          {
+            "functionid": "36298",
+            "itemid": "50981",
+            "parameter": "$,5m"
+          },
+          {
+            "functionid": "36299",
+            "itemid": "50987",
+            "parameter": "$,5m"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25330"
+          }
+        ]
+      },
+      {
+        "triggerid": "25327",
+        "description": "Linux: Interface enp0s3: High bandwidth usage",
+        "expression": "({36300}>({$IF.UTIL.MAX:\"enp0s3\"}/100)*{36301} or\r\n{36302}>({$IF.UTIL.MAX:\"enp0s3\"}/100)*{36301}) and\r\n{36301}>0",
+        "recovery_expression": "{36300}<(({$IF.UTIL.MAX:\"enp0s3\"}-3)/100)*{36301} and\r\n{36302}<(({$IF.UTIL.MAX:\"enp0s3\"}-3)/100)*{36301}",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36300",
+            "itemid": "50982",
+            "parameter": "$,15m"
+          },
+          {
+            "functionid": "36301",
+            "itemid": "50992",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36302",
+            "itemid": "50988",
+            "parameter": "$,15m"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25329"
+          }
+        ]
+      },
+      {
+        "triggerid": "25328",
+        "description": "Linux: Interface enp0s8: High bandwidth usage",
+        "expression": "({36303}>({$IF.UTIL.MAX:\"enp0s8\"}/100)*{36304} or\r\n{36305}>({$IF.UTIL.MAX:\"enp0s8\"}/100)*{36304}) and\r\n{36304}>0",
+        "recovery_expression": "{36303}<(({$IF.UTIL.MAX:\"enp0s8\"}-3)/100)*{36304} and\r\n{36305}<(({$IF.UTIL.MAX:\"enp0s8\"}-3)/100)*{36304}",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36303",
+            "itemid": "50983",
+            "parameter": "$,15m"
+          },
+          {
+            "functionid": "36304",
+            "itemid": "50993",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36305",
+            "itemid": "50989",
+            "parameter": "$,15m"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25330"
+          }
+        ]
+      },
+      {
+        "triggerid": "25329",
+        "description": "Linux: Interface enp0s3: Link down",
+        "expression": "{$IFCONTROL:\"enp0s3\"}=1 and {36306}=2 and ({36307}<>{36308})",
+        "recovery_expression": "{36306}<>2 or {$IFCONTROL:\"enp0s3\"}=0",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36306",
+            "itemid": "50990",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36307",
+            "itemid": "50990",
+            "parameter": "$,#1"
+          },
+          {
+            "functionid": "36308",
+            "itemid": "50990",
+            "parameter": "$,#2"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25330",
+        "description": "Linux: Interface enp0s8: Link down",
+        "expression": "{$IFCONTROL:\"enp0s8\"}=1 and {36309}=2 and ({36310}<>{36311})",
+        "recovery_expression": "{36309}<>2 or {$IFCONTROL:\"enp0s8\"}=0",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36309",
+            "itemid": "50991",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36310",
+            "itemid": "50991",
+            "parameter": "$,#1"
+          },
+          {
+            "functionid": "36311",
+            "itemid": "50991",
+            "parameter": "$,#2"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25331",
+        "description": "Linux: Interface enp0s3: Ethernet has changed to lower speed than it was before",
+        "expression": "{36312}<0 and {36313}>0\r\nand\r\n({36314}=6 or {36314}=1)\r\nand\r\n({36315}<>2)",
+        "recovery_expression": "({36312}>0 and {36316}>0) or\r\n({36315}=2)",
+        "priority": "1",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36312",
+            "itemid": "50992",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36313",
+            "itemid": "50992",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36314",
+            "itemid": "50994",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36315",
+            "itemid": "50990",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36316",
+            "itemid": "50992",
+            "parameter": "$,#2"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25329"
+          }
+        ]
+      },
+      {
+        "triggerid": "25332",
+        "description": "Linux: Interface enp0s8: Ethernet has changed to lower speed than it was before",
+        "expression": "{36317}<0 and {36318}>0\r\nand\r\n({36319}=6 or {36319}=1)\r\nand\r\n({36320}<>2)",
+        "recovery_expression": "({36317}>0 and {36321}>0) or\r\n({36320}=2)",
+        "priority": "1",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36317",
+            "itemid": "50993",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36318",
+            "itemid": "50993",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36319",
+            "itemid": "50995",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36320",
+            "itemid": "50991",
+            "parameter": "$"
+          },
+          {
+            "functionid": "36321",
+            "itemid": "50993",
+            "parameter": "$,#2"
+          }
+        ],
+        "dependencies": [
+          {
+            "triggerid": "25330"
+          }
+        ]
+      },
+      {
+        "triggerid": "25333",
+        "description": "Linux: sda: Disk read/write request responses are too high",
+        "expression": "{36322} > {$VFS.DEV.READ.AWAIT.WARN:\"sda\"} or {36323} > {$VFS.DEV.WRITE.AWAIT.WARN:\"sda\"}",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "1",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36322",
+            "itemid": "50996",
+            "parameter": "$,15m"
+          },
+          {
+            "functionid": "36323",
+            "itemid": "50997",
+            "parameter": "$,15m"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25334",
+        "description": "SRV01: HTTP check failed",
+        "expression": "{36324}>0",
+        "recovery_expression": "",
+        "priority": "3",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10683"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36324",
+            "itemid": "51006",
+            "parameter": "$"
+          }
+        ],
+        "dependencies": []
+      },
+      {
+        "triggerid": "25335",
+        "description": "CLI01: DNS resolution failed for example.com",
+        "expression": "{36325}=0",
+        "recovery_expression": "",
+        "priority": "2",
+        "status": "0",
+        "type": "0",
+        "manual_close": "0",
+        "hosts": [
+          {
+            "hostid": "10684"
+          }
+        ],
+        "functions": [
+          {
+            "functionid": "36325",
+            "itemid": "51011",
+            "parameter": "$,#3"
+          }
+        ],
+        "dependencies": []
+      }
+    ],
+    "web_scenarios": [
+      {
+        "httptestid": "1",
+        "hostid": "10683",
+        "name": "SRV01 HTTP",
+        "delay": "30s",
+        "retries": "1",
+        "status": "0",
+        "steps": [
+          {
+            "name": "Homepage",
+            "url": "http://192.168.56.20/",
+            "timeout": "5s",
+            "status_codes": "200"
+          }
+        ]
+      }
+    ],
+    "referenced_text_macros": []
+  },
+  "items_runtime": [
+    {
+      "itemid": "42237",
+      "hostid": "10084",
+      "name": "Zabbix agent ping",
+      "key_": "agent.ping",
+      "type": "0",
+      "value_type": "3",
+      "delay": "1m",
+      "history": "31d",
+      "trends": "365d",
+      "status": "0",
+      "units": "",
+      "master_itemid": "0",
+      "state": "0",
+      "error": "",
+      "preprocessing": [],
+      "lastclock": "1792205277",
+      "lastvalue": "1"
+    },
+    {
+      "itemid": "42249",
+      "hostid": "10084",
+      "name": "Load average (1m avg)",
+      "key_": "system.cpu.load[all,avg1]",
+      "type": "0",
+      "value_type": "0",
+      "delay": "1m",
+      "history": "31d",
+      "trends": "365d",
+      "status": "0",
+      "units": "",
+      "master_itemid": "0",
+      "state": "0",
+      "error": "",
+      "preprocessing": [],
+      "lastclock": "1792205229",
+      "lastvalue": "0.578125"
+    },
+    {
+      "itemid": "42260",
+      "hostid": "10084",
+      "name": "Number of CPUs",
+      "key_": "system.cpu.num",
+      "type": "0",
+      "value_type": "3",
+      "delay": "1m",
+      "history": "31d",
+      "trends": "365d",
+      "status": "0",
+      "units": "",
+      "master_itemid": "0",
+      "state": "0",
+      "error": "",
+      "preprocessing": [
+        {
+          "type": "20",
+          "params": "1d",
+          "error_handler": "0",
+          "error_handler_params": ""
+        }
+      ],
+      "lastclock": "1792204705",
+      "lastvalue": "2"
+    },
+    {
+      "itemid": "42269",
+      "hostid": "10084",
+      "name": "CPU utilization",
+      "key_": "system.cpu.util",
+      "type": "18",
+      "value_type": "0",
+      "delay": "0",
+      "history": "31d",
+      "trends": "365d",
+      "status": "0",
+      "units": "%",
+      "master_itemid": "42264",
+      "state": "0",
+      "error": "",
+      "preprocessing": [
+        {
+          "type": "21",
+          "params": "return (100 - value)",
+          "error_handler": "0",
+          "error_handler_params": ""
+        }
+      ],
+      "lastclock": "1792205244",
+      "lastvalue": "9.746835000000004"
+    },
+    {
+      "itemid": "42264",
+      "hostid": "10084",
+      "name": "CPU idle time",
+      "key_": "system.cpu.util[,idle]",
+      "type": "0",
+      "value_type": "0",
+      "delay": "1m",
+      "history": "31d",
+      "trends": "365d",
+      "status": "0",
+      "units": "%",
+      "master_itemid": "0",
+      "state": "0",
+      "error": "",
+      "preprocessing": [],
+      "lastclock": "1792205244",
+      "lastvalue": "90.253165"
+    },
+    {
+      "itemid": "42240",
+      "hostid": "10084",
+      "name": "System uptime",
+      "key_": "system.uptime",
+      "type": "0",
+      "value_type": "3",
+      "delay": "30s",
+      "history": "31d",
+      "trends": "0",
+      "status": "0",
+      "units": "uptime",
+      "master_itemid": "0",
+      "state": "0",
+      "error": "",
+      "preprocessing": [],
+      "lastclock": "1792205280",
+      "lastvalue": "637"
+    },
+    {
+      "itemid": "42270",
+      "hostid": "10084",
+      "name": "Memory utilization",
+      "key_": "vm.memory.util",
+      "type": "18",
+      "value_type": "0",
+      "delay": "0",
+      "history": "31d",
+      "trends": "365d",
+      "status": "0",
+      "units": "%",
+      "master_itemid": "42244",
+      "state": "0",
+      "error": "",
+      "preprocessing": [
+        {
+          "type": "21",
+          "params": "return (100-value);",
+          "error_handler": "0",
+          "error_handler_params": ""
+        }
+      ],
+      "lastclock": "1792205224",
+      "lastvalue": "35.087559999999996"
+    },
+    {
+      "itemid": "42266",
+      "hostid": "10084",
+      "name": "Zabbix agent availability",
+      "key_": "zabbix[host,agent,available]",
+      "type": "5",
+      "value_type": "3",
+      "delay": "1m",
+      "history": "31d",
+      "trends": "365d",
+      "status": "0",
+      "units": "",
+      "master_itemid": "0",
+      "state": "0",
+      "error": "",
+      "preprocessing": [],
+      "lastclock": "1792205246",
+      "lastvalue": "1"
+    },
+    {
+      "itemid": "50782",
+      "hostid": "10683",
+      "name": "Zabbix agent ping",
+      "key_": "agent.ping",
+      "type": "0",
+      "value_type": "3",
+      "delay": "1m",
+      "history": "31d",
+      "trends": "365d",
+      "status": "0",
+      "units": "",
+      "master_itemid": "0",
+      "state": "0",
+      "error": "",
+      "preprocessing": [],
+      "lastclock": "1792205242",
+      "lastvalue": "1"
+    },
+    {
+      "itemid": "50791",
+      "hostid": "10683",
+      "name": "Load average (1m avg)",
+      "key_": "system.cpu.load[all,avg1]",
+      "type": "0",
+      "value_type": "0",
+      "delay": "1m",
+      "history": "31d",
+      "trends": "365d",
+      "status": "0",
+      "units": "",
+      "master_itemid": "0",
+      "state": "0",
+      "error": "",
+      "preprocessing": [],
+      "lastclock": "1792205251",
+      "lastvalue": "0.045898"
+    },
+    {
+      "itemid": "50793",
+      "hostid": "10683",
+      "name": "Number of CPUs",
+      "key_": "system.cpu.num",
+      "type": "0",
+      "value_type": "3",
+      "delay": "1m",
+      "history": "31d",
+      "trends": "365d",
+      "status": "0",
+      "units": "",
+      "master_itemid": "0",
+      "state": "0",
+      "error": "",
+      "preprocessing": [
+        {
+          "type": "20",
+          "params": "1d",
+          "error_handler": "0",
+          "error_handler_params": ""
+        }
+      ],
+      "lastclock": "1792204714",
+      "lastvalue": "1"
+    },
+    {
+      "itemid": "50822",
+      "hostid": "10683",
+      "name": "CPU utilization",
+      "key_": "system.cpu.util",
+      "type": "18",
+      "value_type": "0",
+      "delay": "0",
+      "history": "31d",
+      "trends": "365d",
+      "status": "0",
+      "units": "%",
+      "master_itemid": "50797",
+      "state": "0",
+      "error": "",
+      "preprocessing": [
+        {
+          "type": "21",
+          "params": "return (100 - value)",
+          "error_handler": "0",
+          "error_handler_params": ""
+        }
+      ],
+      "lastclock": "1792205257",
+      "lastvalue": "9.827872999999997"
+    },
+    {
+      "itemid": "50797",
+      "hostid": "10683",
+      "name": "CPU idle time",
+      "key_": "system.cpu.util[,idle]",
+      "type": "0",
+      "value_type": "0",
+      "delay": "1m",
+      "history": "31d",
+      "trends": "365d",
+      "status": "0",
+      "units": "%",
+      "master_itemid": "0",
+      "state": "0",
+      "error": "",
+      "preprocessing": [],
+      "lastclock": "1792205257",
+      "lastvalue": "90.172127"
+    },
+    {
+      "itemid": "50814",
+      "hostid": "10683",
+      "name": "System uptime",
+      "key_": "system.uptime",
+      "type": "0",
+      "value_type": "3",
+      "delay": "30s",
+      "history": "31d",
+      "trends": "0",
+      "status": "0",
+      "units": "uptime",
+      "master_itemid": "0",
+      "state": "0",
+      "error": "",
+      "preprocessing": [],
+      "lastclock": "1792205274",
+      "lastvalue": "1465"
+    },
+    {
+      "itemid": "50823",
+      "hostid": "10683",
+      "name": "Memory utilization",
+      "key_": "vm.memory.util",
+      "type": "18",
+      "value_type": "0",
+      "delay": "0",
+      "history": "31d",
+      "trends": "365d",
+      "status": "0",
+      "units": "%",
+      "master_itemid": "50819",
+      "state": "0",
+      "error": "",
+      "preprocessing": [
+        {
+          "type": "21",
+          "params": "return (100-value);",
+          "error_handler": "0",
+          "error_handler_params": ""
+        }
+      ],
+      "lastclock": "1792205279",
+      "lastvalue": "14.871314999999996"
+    },
+    {
+      "itemid": "51006",
+      "hostid": "10683",
+      "name": "Failed step of scenario \"SRV01 HTTP\".",
+      "key_": "web.test.fail[SRV01 HTTP]",
+      "type": "9",
+      "value_type": "3",
+      "delay": "30s",
+      "history": "30d",
+      "trends": "90d",
+      "status": "0",
+      "units": "",
+      "master_itemid": "0",
+      "state": "0",
+      "error": "",
+      "preprocessing": [],
+      "lastclock": "1792205281",
+      "lastvalue": "0"
+    },
+    {
+      "itemid": "51008",
+      "hostid": "10683",
+      "name": "Response code for step \"Homepage\" of scenario \"SRV01 HTTP\".",
+      "key_": "web.test.rspcode[SRV01 HTTP,Homepage]",
+      "type": "9",
+      "value_type": "3",
+      "delay": "30s",
+      "history": "30d",
+      "trends": "90d",
+      "status": "0",
+      "units": "",
+      "master_itemid": "0",
+      "state": "0",
+      "error": "",
+      "preprocessing": [],
+      "lastclock": "1792205281",
+      "lastvalue": "200"
+    },
+    {
+      "itemid": "51009",
+      "hostid": "10683",
+      "name": "Response time for step \"Homepage\" of scenario \"SRV01 HTTP\".",
+      "key_": "web.test.time[SRV01 HTTP,Homepage,resp]",
+      "type": "9",
+      "value_type": "0",
+      "delay": "30s",
+      "history": "30d",
+      "trends": "90d",
+      "status": "0",
+      "units": "s",
+      "master_itemid": "0",
+      "state": "0",
+      "error": "",
+      "preprocessing": [],
+      "lastclock": "1792205281",
+      "lastvalue": "0.003006"
+    },
+    {
+      "itemid": "50821",
+      "hostid": "10683",
+      "name": "Zabbix agent availability",
+      "key_": "zabbix[host,agent,available]",
+      "type": "5",
+      "value_type": "3",
+      "delay": "1m",
+      "history": "31d",
+      "trends": "365d",
+      "status": "0",
+      "units": "",
+      "master_itemid": "0",
+      "state": "0",
+      "error": "",
+      "preprocessing": [],
+      "lastclock": "1792205281",
+      "lastvalue": "1"
+    },
+    {
+      "itemid": "50894",
+      "hostid": "10684",
+      "name": "Zabbix agent ping",
+      "key_": "agent.ping",
+      "type": "0",
+      "value_type": "3",
+      "delay": "1m",
+      "history": "31d",
+      "trends": "365d",
+      "status": "0",
+      "units": "",
+      "master_itemid": "0",
+      "state": "0",
+      "error": "",
+      "preprocessing": [],
+      "lastclock": "1792205234",
+      "lastvalue": "1"
+    },
+    {
+      "itemid": "51011",
+      "hostid": "10684",
+      "name": "R4 DNS example.com from CLI01",
+      "key_": "net.dns[,example.com,A,2,1,udp]",
+      "type": "0",
+      "value_type": "3",
+      "delay": "30s",
+      "history": "7d",
+      "trends": "0",
+      "status": "0",
+      "units": "",
+      "master_itemid": "0",
+      "state": "0",
+      "error": "",
+      "preprocessing": [],
+      "lastclock": "1792205261",
+      "lastvalue": "1"
+    },
+    {
+      "itemid": "50903",
+      "hostid": "10684",
+      "name": "Load average (1m avg)",
+      "key_": "system.cpu.load[all,avg1]",
+      "type": "0",
+      "value_type": "0",
+      "delay": "1m",
+      "history": "31d",
+      "trends": "365d",
+      "status": "0",
+      "units": "",
+      "master_itemid": "0",
+      "state": "0",
+      "error": "",
+      "preprocessing": [],
+      "lastclock": "1792205243",
+      "lastvalue": "0.05127"
+    },
+    {
+      "itemid": "50905",
+      "hostid": "10684",
+      "name": "Number of CPUs",
+      "key_": "system.cpu.num",
+      "type": "0",
+      "value_type": "3",
+      "delay": "1m",
+      "history": "31d",
+      "trends": "365d",
+      "status": "0",
+      "units": "",
+      "master_itemid": "0",
+      "state": "0",
+      "error": "",
+      "preprocessing": [
+        {
+          "type": "20",
+          "params": "1d",
+          "error_handler": "0",
+          "error_handler_params": ""
+        }
+      ],
+      "lastclock": "1792204705",
+      "lastvalue": "1"
+    },
+    {
+      "itemid": "50934",
+      "hostid": "10684",
+      "name": "CPU utilization",
+      "key_": "system.cpu.util",
+      "type": "18",
+      "value_type": "0",
+      "delay": "0",
+      "history": "31d",
+      "trends": "365d",
+      "status": "0",
+      "units": "%",
+      "master_itemid": "50909",
+      "state": "0",
+      "error": "",
+      "preprocessing": [
+        {
+          "type": "21",
+          "params": "return (100 - value)",
+          "error_handler": "0",
+          "error_handler_params": ""
+        }
+      ],
+      "lastclock": "1792205249",
+      "lastvalue": "9.458456999999996"
+    },
+    {
+      "itemid": "50909",
+      "hostid": "10684",
+      "name": "CPU idle time",
+      "key_": "system.cpu.util[,idle]",
+      "type": "0",
+      "value_type": "0",
+      "delay": "1m",
+      "history": "31d",
+      "trends": "365d",
+      "status": "0",
+      "units": "%",
+      "master_itemid": "0",
+      "state": "0",
+      "error": "",
+      "preprocessing": [],
+      "lastclock": "1792205249",
+      "lastvalue": "90.541543"
+    },
+    {
+      "itemid": "50926",
+      "hostid": "10684",
+      "name": "System uptime",
+      "key_": "system.uptime",
+      "type": "0",
+      "value_type": "3",
+      "delay": "30s",
+      "history": "31d",
+      "trends": "0",
+      "status": "0",
+      "units": "uptime",
+      "master_itemid": "0",
+      "state": "0",
+      "error": "",
+      "preprocessing": [],
+      "lastclock": "1792205267",
+      "lastvalue": "1459"
+    },
+    {
+      "itemid": "50935",
+      "hostid": "10684",
+      "name": "Memory utilization",
+      "key_": "vm.memory.util",
+      "type": "18",
+      "value_type": "0",
+      "delay": "0",
+      "history": "31d",
+      "trends": "365d",
+      "status": "0",
+      "units": "%",
+      "master_itemid": "50931",
+      "state": "0",
+      "error": "",
+      "preprocessing": [
+        {
+          "type": "21",
+          "params": "return (100-value);",
+          "error_handler": "0",
+          "error_handler_params": ""
+        }
+      ],
+      "lastclock": "1792205271",
+      "lastvalue": "22.027386000000007"
+    },
+    {
+      "itemid": "50933",
+      "hostid": "10684",
+      "name": "Zabbix agent availability",
+      "key_": "zabbix[host,agent,available]",
+      "type": "5",
+      "value_type": "3",
+      "delay": "1m",
+      "history": "31d",
+      "trends": "365d",
+      "status": "0",
+      "units": "",
+      "master_itemid": "0",
+      "state": "0",
+      "error": "",
+      "preprocessing": [],
+      "lastclock": "1792205273",
+      "lastvalue": "1"
+    }
+  ],
+  "hosts": [
+    {
+      "hostid": "10084",
+      "host": "Zabbix server",
+      "name": "Zabbix server",
+      "status": "0",
+      "parentTemplates": [],
+      "interfaces": [
+        {
+          "type": "1",
+          "ip": "127.0.0.1",
+          "port": "10050",
+          "useip": "1",
+          "available": "1"
+        }
+      ]
+    },
+    {
+      "hostid": "10683",
+      "host": "SRV01",
+      "name": "SRV01",
+      "status": "0",
+      "parentTemplates": [],
+      "interfaces": [
+        {
+          "type": "1",
+          "ip": "192.168.56.20",
+          "port": "10050",
+          "useip": "1",
+          "available": "1"
+        }
+      ]
+    },
+    {
+      "hostid": "10684",
+      "host": "CLI01",
+      "name": "CLI01",
+      "status": "0",
+      "parentTemplates": [],
+      "interfaces": [
+        {
+          "type": "1",
+          "ip": "192.168.56.30",
+          "port": "10050",
+          "useip": "1",
+          "available": "1"
+        }
+      ]
+    }
+  ],
+  "open_problems": [],
+  "source_hashes": {
+    "app.py": "f94a8ac45c584e7c176504fb32624ca19a77769eaf9267432841475a5e805fba",
+    "check_events.py": "9c88ecc6cb709f9761b27ec63c0c956e209a3e55137d8806d99597888021d65e",
+    "check_evidence.py": "af63fb365baf99d01aaecda5a4af25f0d6e496cac444fd1d9614d98b4803c44c",
+    "dns_probe.py": "022409eabe5ac5254c0afb168ea95ad2043ebab05db124f4a422eed578ada438",
+    "event_parser.py": "8e79813df6982ffef6db16a86911e6c7c965caf96c22ed6ffdecceeea1740af7",
+    "evidence.py": "a982b7126af2033f4616fdfd912ec48f22eaa65b884c09269a00a9b7644c863e",
+    "http_evidence.py": "4bb9972ac95af204e5c96147e70ab68d5d448251b441954b3900be28bde69cb5",
+    "http_probe.py": "2bd3d25b286d394212a065abb7b7154a53457992d2c26da4137cb87227d2bcc2",
+    "models.py": "42a2e790e6badc40e1f5ccd5cda6ceb94d53657cf03bbb3a39d41a25b66eabc0",
+    "pytest.ini": "c809c969ec7e11b9ff37784e9c6fcc0b7c5148d168e18b05aed797e03fbd6ead",
+    "recovery.py": "4222edf7e9e2b992ba33f686c3fd4ec1e10995b7270335d609d0cf893fa22ac1",
+    "report.py": "e77be30b1e7e49df2fee171eb435b22a1fa2af37512b4b0ba9522d75faef2314",
+    "repository.py": "40637f9850d566611da671a23af29cfc6b3715351dda26180a862c4144c95a89",
+    "requirements.txt": "b0306ff41f54551aaca52eea2907ccbf05fe33a3b3df871650d7d4b02df31f33",
+    "roadmap_evidence.py": "5be7975c7c029647b4542c56d5cdb1c53dbb9a71baf224d91abf137e4c7c6ac8",
+    "roadmap_rules.py": "46dfaf6e163787104248507ed9a0a8458980ae519d7d56b98a064aed913751b0",
+    "rules.py": "360f4e4ef9a17d96e43eeaa88fa032a20a6250dba252d7c52005c5a4dfce7024",
+    "save_events.py": "ab19099e478d9cc25b616b360ec384336c80c56cb0e7a2b40b4d5abf5ce0e540",
+    "scan_git_token.py": "7d0e5318bd8780dc76810a7b3a9dbaf296dde0b939c47b7e3678635aff967f23",
+    "tests/test_api_client.py": "a094d159a56404be87b881672c8d64c2f5820f06ae0213eeeed8cf5050c04850",
+    "tests/test_app_flow.py": "062024b935d4ecb34bd037f7a316a99a93bb14f00125d09f798e83f3a9754e23",
+    "tests/test_cpu_rule.py": "c4812b654782d41892a9f7c03f86e4424227491ba55a9bf8c84370ba2d41fdc5",
+    "tests/test_disk_rule.py": "a571f43ce64492a1852b1b3f5c408d024e06e08ab84fd75d5bc80ec90f3837c8",
+    "tests/test_dns.py": "5bb7d936601c5f8f4df3e0efd1dba36756ef789dae2f1bb93ee866f838bb49ee",
+    "tests/test_dns_rule.py": "09b992cdca7a5dbc73ee0ac8b1914ad121fc1b9f1122f6a96a2921165fb88105",
+    "tests/test_event_parser.py": "a2a9c32630e84c85de97c35e19060a45b3f6905c5d1fb518dff1f9531c53d27d",
+    "tests/test_evidence.py": "f466fd5ba868651260437c6738f67c6a7fe118e61e741014be6d3ad850ca76f4",
+    "tests/test_http_scope_replay.py": "e020d64ce5f12218ca1fe92ee7b5618ab96f77252ce7cfd7abafa4490a4c2bfd",
+    "tests/test_memory_rule.py": "b6f95fe67cea94ed1898f72c8cf7f7caea65e8263860155e2ffa1ff3e1c1bdf9",
+    "tests/test_metrics.py": "138ffb2f541f54cc33a2aa379d9d3f3718f5ee31797382714a1f4b86f1c2d2c8",
+    "tests/test_new_collectors.py": "99fc18d9e5417322e2150c3bf3e8df3df1e3added4b4a0514a8dfa36b6939315",
+    "tests/test_reachability_rule.py": "cc2053efd6c1a4f3ee61be920ba61e10436f10bf6fbf6a7389cc44c3bb4d085c",
+    "tests/test_recovery_report.py": "a3ab154beadc70f2f22acdf88f7bf47fbce4b68ae5256b5782a3a94519f2c5e9",
+    "tests/test_repository.py": "709781ea1cc9341bc4458a904270bf2de7405f0562afb9888720def80de6476f",
+    "tests/test_roadmap_rules.py": "374b98f9e7735b593aa22bfd9b1714cf839c3e043f3cdbdd5b653e484d899200",
+    "tests/test_rules.py": "1f4d0ff4b3549509119c0aa0d7834ad88cd4c384fd3482398811b16078e7b2b9",
+    "tests/test_smoke.py": "2c8d9f54650e903b63976d5f66332c069c8bfcb4c6cfb8febc1422bc971d154b",
+    "tests/test_week4_http.py": "2f64a8c56af91db62cdf303b1cdc044b45e89a06ddeed05e944c1a5cd7f6342e",
+    "zabbix-client.py": "4248d66a661663862c370ff4ead9d836cf6288a7d7fd6a36a7eb368beed85118",
+    "zabbix_client.py": "7501a7fd85e291e787d45ffd0c02fbf43dee32367df11529c04fdb4ea1138b59"
+  },
+  "sqlite": {
+    "integrity_check": [
+      [
+        "ok"
+      ]
+    ],
+    "foreign_key_check": [],
+    "schema": [
+      [
+        "diagnoses",
+        "CREATE TABLE diagnoses (\n                id INTEGER PRIMARY KEY,\n                incident_id INTEGER NOT NULL,\n                rule_id TEXT NOT NULL,\n                status TEXT NOT NULL CHECK (\n                    status IN (\n                        'matched',\n                        'not_matched',\n                        'insufficient_evidence'\n                    )\n                ),\n                probable_cause TEXT,\n                reasoning TEXT NOT NULL,\n                missing_info_json TEXT NOT NULL,\n                next_actions_json TEXT NOT NULL,\n                created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,\n                FOREIGN KEY (incident_id) REFERENCES incidents(id)\n            )"
+      ],
+      [
+        "evidence",
+        "CREATE TABLE evidence (\n                id INTEGER PRIMARY KEY,\n                incident_id INTEGER NOT NULL,\n                check_type TEXT NOT NULL,\n                target TEXT NOT NULL,\n                collected_at INTEGER NOT NULL,\n                result_json TEXT NOT NULL,\n                FOREIGN KEY (incident_id) REFERENCES incidents(id)\n            )"
+      ],
+      [
+        "incidents",
+        "CREATE TABLE incidents (\n                id INTEGER PRIMARY KEY,\n                event_id TEXT NOT NULL UNIQUE,\n                clock INTEGER NOT NULL CHECK (clock >=0),\n                name TEXT NOT NULL,\n                severity INTEGER NOT NULL\n                    CHECK (severity BETWEEN 0 AND 5),\n                value INTEGER NOT NULL\n                    CHECK (value IN (0,1)),\n                hosts_json TEXT NOT NULL,\n                created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP\n            )"
+      ],
+      [
+        "recoveries",
+        "CREATE TABLE recoveries (\n                incident_id INTEGER PRIMARY KEY REFERENCES incidents(id),\n                recovery_event_id TEXT NOT NULL,\n                recovery_clock INTEGER NOT NULL,\n                verified_at INTEGER NOT NULL,\n                problem_json TEXT NOT NULL,\n                recovery_json TEXT NOT NULL\n            )"
+      ]
+    ],
+    "counts": {
+      "incidents": 39,
+      "evidence": 301,
+      "diagnoses": 172,
+      "recoveries": 29
+    }
+  }
+}

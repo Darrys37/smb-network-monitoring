@@ -1,6 +1,6 @@
 # Chương 3. Thực nghiệm và đánh giá
 
-Bản thảo từ bộ dữ liệu chính thức ngày 16–17/10/2026. Các số được tạo từ `all-trials.csv` và `experiment-summary.json`, không lấy từ dry run hoặc số unit test. Cần ghép vào mẫu báo cáo của trường trước khi nộp.
+Bản kỹ thuật hoàn thiện tuần 5 từ bộ dữ liệu chính thức ngày 16–17/10/2026. Các số được tạo từ `all-trials.csv` và `experiment-summary.json`, không lấy từ dry run hoặc số unit test. Cần ghép vào mẫu báo cáo của trường trước khi nộp.
 
 ## 3.1. Mục tiêu và môi trường
 
@@ -57,9 +57,11 @@ Có một lần R5-03 được tạo watcher nhưng lệnh gây fault bị chặ
 
 Tổng cộng detection 18/18 và target success end-to-end 18/18 trong bộ fault hợp lệ này. Số đếm này chỉ đo luật mục tiêu trên các lỗi được tạo; không phải accuracy phân loại trên lưu lượng vận hành bình thường.
 
-![Từng thời gian phát hiện và CLI](../evidence/week4/official-runs/figures/thoi-gian-phat-hien-va-cli.png)
+![Thời gian phát hiện đã kiểm tra ngày 30](../evidence/week5/day30-20261017/detection-time.png)
 
-![Kết quả luật mục tiêu](../evidence/week4/official-runs/figures/ket-qua-luat-muc-tieu.png)
+![Thời gian CLI chẩn đoán](../evidence/week5/day30-20261017/diagnosis-cli-time.png)
+
+![Kết quả luật mục tiêu](../evidence/week5/day30-20261017/diagnosis-outcomes.png)
 
 Bảng dùng cận dưới detection theo clock; CSV giữ cả cận trên và sai số lượng tử. Vạch median chỉ mô tả ba điểm, không phải ước lượng có khoảng tin cậy. Các file SVG/PDF tương ứng dùng để đưa hình vào bản nộp.
 
@@ -77,7 +79,7 @@ R6 cho thấy CPU/load cao theo luật, chưa chứng minh tác động ứng d�
 
 Mean CPU của luật là trung bình số học các mẫu, chưa dùng trọng số theo khoảng thời gian. Trigger CPU còn có dependency với load-high; bộ thử một worker chưa bao phủ trường hợp load-high trở thành problem và ảnh hưởng event CPU. Không suy rộng ba lượt này thành phát hiện mọi tình huống quá tải hoặc mọi tổ hợp trigger.
 
-Dữ liệu thô và event API thay cho việc chép tay số từ dashboard. Hồ sơ đóng tuần 4 đã bổ sung ảnh dashboard, ba host, lịch sử và 18 ảnh chi tiết event tại `evidence/week4/closure-20261017/screenshots/`. Đây là ảnh lịch sử chụp sau đo, không phải ảnh active fault; xem `docs/TONG_HOP_TUAN_4.markdown` và closure audit. Chưa chứng nhận ba lần demo thành công sau reboot, chưa tạo release cuối, và chưa có backup độc lập ngoài laptop. Đây là công việc hoàn thiện tuần 5.
+Dữ liệu thô và event API thay cho việc chép tay số từ dashboard. Hồ sơ đóng tuần 4 đã bổ sung ảnh dashboard, ba host, lịch sử và 18 ảnh chi tiết event tại `evidence/week4/closure-20261017/screenshots/`. Đây là ảnh lịch sử chụp sau đo, không phải ảnh active fault; xem `docs/TONG_HOP_TUAN_4.markdown` và closure audit. Tuần5 đã ghi ba lượt diễn tập kỹ thuật sau reboot và có bộ release/backup địa phương riêng; xem biên bản tuần5. Chưa chứng nhận năng lực thuyết trình của sinh viên hoặc backup ngoài laptop.
 
 ## 3.8. Truy vết từng lượt
 
@@ -103,3 +105,30 @@ Dữ liệu thô và event API thay cho việc chép tay số từ dashboard. H�
 | R6-03 | 979 → 980 | 36 | matched | [raw](../evidence/week4/official-runs/R6-03/run.json) |
 
 [CSV toàn bộ lượt](../evidence/week4/official-runs/all-trials.csv) · [JSON công thức, cỡ mẫu và thống kê](../evidence/week4/official-runs/experiment-summary.json) · [Phụ lục vận hành](../evidence/week4/official-runs/PHU_LUC_VAN_HANH_THUC_NGHIEM.md)
+
+## 3.9. Nghiệm thu bảng và biểu đồ ngày 30
+
+Bộ hình trong mục 3.5 được tái tạo từ dữ liệu đã nghiệm thu ngày 29; 90 số min/median/max khớp dữ liệu nguồn. Mỗi hình có bản PNG, SVG và PDF để đưa vào báo cáo. [Phân tích ngày 30](NGAY_30_TUAN_5.markdown) cung cấp bảng hai cận DT, kết quả mục tiêu, từng điểm trên hình và bốn phát hiện có liên kết hồ sơ gốc.
+
+- R6 có DT median 356 s, R3 269 s, R2 10 s. Sự khác biệt phù hợp với điều kiện trigger khác nhau; chưa cô lập nguyên nhân bằng thực nghiệm đối chứng.
+- R6 có CLI median thấp nhất (0,502 s), R1 cao nhất (6,660 s), dù R6 phát hiện chậm hơn. Detection và CLI là hai giai đoạn, không thể thay thế nhau.
+- Sáu nhóm đều khớp mục tiêu 3/3; không có mẫu âm để tính accuracy tổng quát. Lượt hủy trước fault không vào mẫu số.
+- 24/108 đầu ra luật thiếu evidence vẫn được giữ; không gán thành true negative hoặc lỗi luật mục tiêu.
+
+[Dữ liệu điểm vẽ](../evidence/week5/day30-20261017/plotted-points.csv) · [Bảng thống kê](../evidence/week5/day30-20261017/timing-summary.csv) · [Kết quả chẩn đoán](../evidence/week5/day30-20261017/diagnosis-outcomes.csv) · [Kiểm tra tái tạo](../evidence/week5/day30-20261017/analysis-validation.json).
+
+Hoàn thành đầu ra ngày 30; Chương 3 tiếp tục được rà soát đầy đủ vào ngày 32. Không thay đổi engine hoặc bằng chứng tuần 4.
+
+## 3.10. Cảnh báo sai, tiêu chí chấm và khả năng tái lập
+
+Đơn vị thử là một fault chủ động tạo có Run ID, log trước/sau và kiểm tra precondition; không phải từng dòng history, từng diagnosis hay từng event ngẫu nhiên. 19 attempt gồm18 fault hợp lệ và1 hủy trước fault. Sáu nhóm mỗi nhóm3, không có bộ âm độc lập. Không loại một fault hợp lệ chỉ vì engine lỗi/thiếu dữ liệu/không phát hiện; trong bộ đã thu các trường hợp mục tiêu đó đều bằng0.
+
+Chấm mục tiêu theo điều kiện luật và ground truth của fault. R1 ngắt Host-only, R2 dừng Nginx, R3 dừng Agent, R4 chặn DNS tại CLI01, R5 lọc TCP80 từ MON01, R6 stress CPU. Các tên nguyên nhân là giả thuyết giới hạn đúng bằng chứng; không gán nhãn resolver upstream hỏng, VM mất nguồn hoặc gateway hỏng cho những fault khác.
+
+**Cảnh báo sai:** baseline có0 problem mới trong1806s, tương đương0 sự kiện/giờ chỉ trong cửa sổ quan sát. Chưa có event nền để phân loại false alert, chưa thử tập âm engine, không có mẫu số TN/FP để tính FPR hoặc specificity. Chẩn đoán matched ngoài mục tiêu trong18 run bằng0, nhưng điều đó không thay tập âm độc lập. 24 insufficient_evidence ở108 đầu ra giữ nguyên; HTTP absent cũng không tính TN. Các problem reboot ngoài cửa sổ tuần4 được phân loại riêng trong hồ sơ diễn tập tuần5, không gộp để thay kết quả baseline.
+
+Mỗi lượt engine chỉ chạy/lưu một lần; event hồi phục khi đang collection làm kiểm tra cuối từ chối là hành vi bảo vệ, không lý do sửa dữ liệu. Với R2/R5, probe HTTP tạo mới sau problem; với R4, DNS/IPcontrol cùng observer. Probe cũ R2-03 được giữ riêng; R5-03 hủy và retry có ID riêng. Không impute, cắt outlier hoặc đổi timestamp để rút ngắn thời gian.
+
+Nguồn tái lập: [clean runs](../evidence/week5/day29-20261017/clean-runs.csv), [attempt register](../evidence/week5/day29-20261017/attempts.csv), [công thức và audit](../evidence/week5/day29-20261017/audit.json), [mã tạo bảng/hình](../evidence/week5/day30-20261017/tools/day30_analysis.py). Manifest giữ byte của nguồn. Bảng/hình có min/median/max, cỡ mẫu và cận thời gian; không cung cấp kiểm định hoặc confidence interval suy rộng từ n=3.
+
+Các lượt demo sau reboot là tập diễn tập riêng trong `evidence/week5/final-20261017`, không nâng cỡ mẫu18 của thực nghiệm đóng băng. Test cuối kiểm tra phần mềm; không thay baseline hoặc fault trial. Môi trường thực tế và cấu hình đã được đối chiếu lại ở [Chương2](CHUONG_2_KIEN_TRUC_VA_TRIEN_KHAI.md).

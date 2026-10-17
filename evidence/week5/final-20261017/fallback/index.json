@@ -1,0 +1,12 @@
+{
+  "kind": "historical fallback; not new live screenshots",
+  "source": "evidence/week4/closure-20261017/screenshots",
+  "visually_reviewed": true,
+  "credentials_visible": false,
+  "ips": "Private lab addresses and loopback only; retained as topology identifiers",
+  "files": [
+    "05-dashboard-closure.jpg",
+    "event-939.jpg",
+    "04-hosts-postcheck.jpg"
+  ]
+}

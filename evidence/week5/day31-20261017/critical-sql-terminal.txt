@@ -1,0 +1,20 @@
+ 
+DAY31_BEGIN
+Linux by Zabbix agent[3C{$AGENT.TIMEOUT}[8C3m
+Linux by Zabbix agent   {$CPU.UTIL.CRIT}        90
+Linux by Zabbix agent   {$LOAD_AVG_PER_CPU.MAX.WARN}    1.5
+Zabbix server   Linux by Zabbix agent
+Zabbix server   Zabbix server health
+SRV01   Linux by Zabbix agent
+CLI01   Linux by Zabbix agent
+GLOBAL_OVERRIDES[8C0
+25249   36144   50791   min     $,5m
+25249   36145   50793   last    $
+25249   36146   50792   last    $
+25249   36147   50790   last    $
+25250   36148   50822   min     $,5m
+25260   36164   50821   max     $,{$AGENT.TIMEOUT}
+25334   36324   51006   last    $
+25335   36325   51011   max     $,#3
+DAY31_END
+phat@mon01:~$ 

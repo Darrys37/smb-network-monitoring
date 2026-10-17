@@ -1,138 +1,46 @@
-# Diagnosis engine — chuẩn bị Tuần 4 (chưa freeze)
+# Diagnosis engine — bản kỹ thuật tuần 5
 
-Python CLI + Zabbix API + SQLite, không FastAPI, không AI/ML và không tự sửa lỗi.
-Đây là bản tiếp nối gói 26 file gửi ngày 01/10/2026; không viết lại bằng chứng cũ.
+Python CLI, Zabbix API và SQLite. Sáu luật roadmap có matched/not_matched/insufficient_evidence; người vận hành chọn event và quyết định xử lý. Không có daemon hoặc tự khắc phục.
 
-## Chạy
+## Cài và kiểm tra
 
-Giữ `.env` cũ trên MON01 (không commit). `.env.example` chỉ là mẫu;
-URL cần đúng frontend đang dùng, không mặc định thay URL hiện tại.
+Trên MON01, trong thư mục module:
 
 ```bash
-cd ~/do-an/diagnosis-engine
-source .venv/bin/activate
-python -m pytest -q
-python app.py
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+cp -n .env.example .env
+chmod 600 .env
 ```
 
-Chẩn đoán problem đang mở trên SRV01 (thay EVENT_ID bằng số thật):
+Nhập ZABBIX_URL và token đọc trong .env bằng editor cục bộ; không commit token. URL API lab là http://192.168.56.10:8080/api_jsonrpc.php. Khóa mẫu đã sửa thành ZABBIX_URL (bản cũ viết nhầm ZABBIX_URLL).
 
 ```bash
-python app.py --event-id EVENT_ID --save
+.venv/bin/python -m pytest -q
+.venv/bin/python app.py --host-id 10683
 ```
 
-Mặc định chạy bộ roadmap, luôn trả sáu đánh giá; thiếu cấu hình/evidence thì
-`insufficient_evidence`. Không coi sáu dòng kết quả là sáu lỗi hoặc sáu ca PASS.
-`--host-id` mặc định 10683, `--target-ip` mặc định 192.168.56.20. Nếu đổi host,
-phải đổi đúng cả hai; người cấu hình chịu trách nhiệm ánh xạ IP-host.
-Chạy thủ công là phương án được roadmap cho phép; chưa có polling nền.
+Không truyền event-id thì chỉ liệt kê problem. Để chạy/lưu, chọn problem mới còn mở đúng host, khai báo target/control/scope và probe mới. Xem [README gốc](../README.md) và [hướng dẫn đầy đủ](../docs/HUONG_DAN_CAI_DAT_VA_KHOI_PHUC.md).
 
-Tái lập cách đánh giá cũ (HTTP/reachability/CPU/RAM/disk) bằng `--ruleset legacy`.
-Hồ sơ cũ giữ nguyên rule ID, không đổi nhãn thành R1–R6 và không chẩn đoán lại
-với bằng chứng cũ để giả tạo một kết quả mới.
+## Probe và scope
 
-## R1–R6 và bằng chứng
+- R1/R3/R6 trên SRV01: host10683, target192.168.56.20, control192.168.56.30, HTTP expected.
+- R2/R5: thêm local HTTP JSON tạo trên SRV01, đúng observer srv01, địa chỉ dịch vụ, port80/path/, tuổi≤180s. TCP timeout thiếu local HTTP là insufficient; TCP refused có thể khớp R2 dù chưa có local HTTP nhưng không chứng minh Nginx dừng.
+- R4: host10684, target.30, control R1.20, HTTP absent; DNS JSON tạo trên CLI01 cho example.com và IP control1.1.1.1 cùng observer cli01. Chuyển về MON01 khi còn fresh; không lấy DNS MON01 thay CLI01.
+- R6: history300s, ≥3 mẫu, span≥240s, maxgap≤120s, cuối≤180s, mean≥90 và load≥CPUcount. CPU count có heartbeat1d, cho phép tuổi86580s; load≤180s. Không đồng nhất mean của luật với trigger min>90/5m.
 
-| Luật | Điều kiện triển khai | Giới hạn |
-|---|---|---|
-| R1_HOST_OR_LOCAL_CONNECTIVITY | Ping đích không trả lời, TCP80 timeout, host đối chứng cùng mạng còn ping được | Nghi host/đường cục bộ; không khẳng định host tắt |
-| R2_HTTP_SERVICE_SUSPECTED | Ping thành công, TCP refused; hoặc timeout kèm HTTP tại SRV01 thất bại | HTTP cục bộ 200 thì không khớp; timeout thiếu local probe thì thiếu bằng chứng; không khẳng định Nginx đã dừng |
-| R3_AGENT_UNAVAILABLE | Ping còn, agent.ping từng có nhưng quá 180s không có mẫu, TCP10050 refused/timeout | Dành cho passive agent trong lab; không suy từ item chưa từng có dữ liệu hoặc bị disabled |
-| R4_DNS_RESOLVER_SUSPECTED | CLI01 ping IP đối chứng được, DNS lỗi/timeout/NXDOMAIN/no A answer | Cần tên ứng dụng thật, resolver đúng; NXDOMAIN không có nghĩa DNS server hỏng |
-| R5_HTTP_ACCESS_FILTER_SUSPECTED | Ping còn, TCP80 từ MON01 timeout/refused, HTTP HEAD tới IP dịch vụ ngay trên SRV01 trả 200 | Nghi firewall/đường truy cập; chưa chứng minh firewall là nguyên nhân duy nhất |
-| R6_SUSTAINED_CPU_HIGH | CPU trung bình >=90%, đủ lịch sử, load 1m >= số CPU | Suy đoán quá tải; cần response baseline và process để giải thích |
+Lệnh probe HTTP trên SRV01: `python3 ~/http_probe.py --target-ip 192.168.56.20 --observer srv01 --output <tên-mới.json>`.
+DNS trên CLI01 cần dns_probe.py/evidence.py/models.py, dig và ping; không cần token API.
 
-Tất cả chọn evidence mới nhất, tuổi 0–180s; không lùi về mẫu tốt cũ khi mẫu mới lỗi.
-R6 lấy lịch sử 300s, yêu cầu >=3 mẫu, phủ >=240s, khoảng trống <=120s,
-mẫu cuối <=180s; dùng `history.get` theo `value_type`. Cần các item
-`system.cpu.util`, `system.cpu.num`, `system.cpu.load[all,avg1]`.
-Ngưỡng này là cấu hình rule, không tự động đồng bộ với macro trigger Zabbix.
+## Lưu và recovery
 
-`rules.py` cũ và các test của nó giữ nguyên; RAM/disk là chức năng bổ sung.
-`roadmap_rules.py` mới có fixture khớp/không khớp/thiếu dữ liệu cho từng R1–R6.
-Fixture test không thay cho thực nghiệm 18 run của Tuần 4.
+app.py --save dùng transaction bundle, event_id duy nhất và từ chối trộn evidence/diagnoses đã lưu. Kiểm tra event trước/sau collection; đây chưa phải khóa xuyên Zabbix/SQLite.
+Sau rollback, chạy recovery.py --event-id với event mới đã có recovery thật. Report theo incident-id hỗ trợ json/md/csv. Chưa có recovery lưu thì unverified, có recovery xác minh thì closed; không sửa evidence gốc. Report CSV là một dòng mỗi diagnosis, khác CSV trial một dòng mỗi Run ID.
 
-## Host-only, đối chứng R1 và HTTP R5
+## Tài liệu và kiểm chứng
 
-Bỏ `--gateway-ip` và `--peer-ip` của nhánh roadmap cũ. R1 dùng
-`--control-ip 192.168.56.30`: CLI01 là host đối chứng cùng Host-only, không phải router.
-Không mặc định gán một IP đối chứng khi chưa được người vận hành cấu hình.
-TCP error errno113 vẫn là thiếu bằng chứng; không đổi thành timeout để làm đẹp kết quả.
+- [Kiến trúc, điều kiện luật và SQLite](../docs/CHUONG_2_KIEN_TRUC_VA_TRIEN_KHAI.md).
+- [Thực nghiệm và giới hạn](../docs/CHUONG_3_THUC_NGHIEM_VA_DANH_GIA.md).
+- [Demo và rollback](../docs/KICH_BAN_DEMO_10_PHUT.md).
 
-R5 thay bằng `R5_HTTP_ACCESS_FILTER_SUSPECTED`. Script `http_probe.py` độc lập,
-chỉ dùng Python standard library và lệnh `ip`; chạy trên SRV01, không cần token,
-không cần sudo. Nó xác minh hostname và IP thuộc máy này, gửi HEAD tới chính
-`http://192.168.56.20/`, không dùng proxy và không theo redirect.
-
-```bash
-# SRV01, thư mục chứa http_probe.py; tên output phải chưa tồn tại
-python3 http_probe.py --output http-srv01.json
-```
-
-Chuyển JSON về MON01, nhập bằng `--http-evidence PATH`; tuổi <=180s,
-observer mặc định srv01, IP phải khớp target. Lỗi import dừng trước khi lưu DB.
-Đây là file do người vận hành cung cấp, không có chữ ký chứng minh nguồn.
-Không đưa nhãn lỗi thử nghiệm hoặc tên bảng firewall vào điều kiện luật.
-
-R2 và R5 dùng phân nhánh đã định trước: local HTTP200 ưu tiên hướng đường truy cập;
-local failure hỗ trợ hướng dịch vụ. R2/R5 đều thiếu bằng chứng nếu chỉ timeout
-mà không có local probe. R5 matched vẫn cần xem rules/counters và một máy đo khác
-để quy kết firewall. Phép đo cục bộ không đi qua cùng đường vào như MON01.
-Ngưỡng 180s không bảo đảm trạng thái chưa thay đổi giữa hai phép đo: thu liên tiếp
-trong cùng cửa sổ lỗi; nếu đã rollback phải lấy lại bằng chứng cho lần thử mới.
-
-R4 dùng file đo từ CLI01, không dùng DNS của MON01 giả làm CLI01.
-Đặt các file Python/requirements cần thiết trên CLI01 và cài dependencies, `dig`/`ping`.
-Không cần đưa token Zabbix sang CLI01: dns_probe chỉ gọi lệnh cục bộ.
-
-```bash
-# Trên CLI01; thay service.test bằng tên thực của ca DNS đã thiết kế:
-python dns_probe.py --name service.test --control-ip 192.168.56.20 --output dns-cli01.json
-```
-
-Chép file về MON01, chạy trong 180s với `--dns-name service.test --dns-evidence PATH`.
-Tên observer mặc định `cli01` (hostname chữ thường); dùng `--dns-observer` nếu khác.
-File được coi là evidence do người vận hành cung cấp, chưa có chữ ký xác thực nguồn.
-Web scenario hiện dùng IP trực tiếp, nên không gán DNS của tên bất kỳ làm nguyên nhân
-HTTP event 458. DNS là ca riêng cần thiết kế tên và cấu hình trên CLI01.
-
-## Recovery và xuất báo cáo
-
-```bash
-python recovery.py --event-id 458
-python report.py --incident-id 11 --format json --output reports/incident-11-v2.json
-python report.py --incident-id 11 --format md --output reports/incident-11-v2.md
-python report.py --incident-id 11 --format csv --output reports/incident-11-v2.csv
-```
-
-Recovery đọc problem và event liên kết từ API, kiểm tra ID, trigger, host, value,
-thời điểm rồi thêm bảng `recoveries` vào SQLite trong transaction. Chạy lặp không
-thêm bản ghi; recovery xung đột bị từ chối. Không đổi `incidents.value=1` thành 0.
-`lifecycle_status=closed` được suy từ bản ghi recovery đã lưu; chưa có recovery
-thì `unverified`, không mặc định sự cố còn mở. File JSON recovery cũ vẫn giữ nguyên.
-Nếu API không còn cho đọc event (housekeeping/quyền), dừng với thông báo; không
-lấy dữ liệu tự chế để đóng incident. Cần một ca thật mới nếu không lấy lại được.
-
-CSV có một dòng cho mỗi diagnosis, event/recovery ID, thời điểm, khoảng cách event
-và evidence JSON có timestamp. Đây là CSV hồ sơ, chưa phải CSV thực nghiệm có
-Run ID/fault injection time/ground truth. Không thể suy detection time từ dữ liệu
-chưa ghi thời điểm gây lỗi. File xuất dùng exclusive create, không ghi đè báo cáo cũ.
-Các lỗi API không xóa dữ liệu; các bundle trùng tiếp tục bị từ chối như phiên bản cũ.
-
-## Bảo mật và lịch sử Git
-
-Gói này không chứa `.env` hoặc token thật được chủ động cấu hình.
-Điều đó không chứng minh lịch sử Git trên laptop sạch.
-Trên Windows, từ repository do-an, chạy Python script `scan_git_token.py`, nhập
-API token bằng prompt ẩn, không dán token vào chat/lệnh có history.
-Script chỉ in số lượng trùng, kiểm tra tracked working files và blob trong các
-ref Git hiện có (`--all`). Không kiểm tra credential cũ chưa biết, remote chưa fetch,
-reflog/unreachable objects hoặc file ngoài repo. Nếu từng có token cũ, quét riêng
-và thu hồi token đã lộ; không tự rewrite history.
-
-## Tài liệu API đã đối chiếu
-
-- https://www.zabbix.com/documentation/7.0/en/manual/api/reference/history/get
-- https://www.zabbix.com/documentation/7.0/en/manual/api/reference/event/object
-
-`r_eventid` là liên kết recovery; `history` phải khớp kiểu giá trị của item.
+280 tests trước đợt tuần4 là mốc lịch sử; kết quả test cuối tuần5 ghi trong hồ sơ final, không dùng unit test làm số fault thật. 18/18 mục tiêu khớp không phải accuracy tổng quát có mẫu âm. Legacy rules.py còn để tái lập dữ liệu cũ; bộ chính thức dùng roadmap. Giữ .env và DB runtime ngoài Git; backup bằng SQLite backup API.

@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "files": 684,
+  "by_group": {
+    "evidence/week4/official-runs": 535,
+    "evidence/week4/baseline-20261016T162549Z": 43,
+    "evidence/week4/closure-20261017": 53,
+    "evidence/week5/day29-20261017": 19,
+    "evidence/week5/day30-20261017": 20,
+    "evidence/week5/day31-20261017": 14
+  }
+}

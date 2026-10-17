@@ -3,3 +3,5 @@
 /evidence/week4/official-runs/*.db
 /evidence/week4/official-runs/final-state-*/*.db
 /evidence/week4/pre-freeze-20261016/*.db
+
+/evidence/week5/final-20261017/*.db

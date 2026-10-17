@@ -1,0 +1,7 @@
+﻿scenario,n_valid,matched_target,not_matched_target,insufficient_target,no_detection,engine_errors,target_success_rate
+R1,3,3,0,0,0,0,1.0
+R2,3,3,0,0,0,0,1.0
+R3,3,3,0,0,0,0,1.0
+R4,3,3,0,0,0,0,1.0
+R5,3,3,0,0,0,0,1.0
+R6,3,3,0,0,0,0,1.0

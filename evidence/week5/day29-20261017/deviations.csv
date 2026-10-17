@@ -1,0 +1,8 @@
+﻿scope,classification,treatment,resolution
+R5-03,excluded_before_fault,Giữ lượt hủy trong attempts; không đưa vào mẫu số fault hợp lệ.,documented; preserve source
+R5-03-retry1,valid_replacement,Giữ nguyên Run ID retry và liên kết lượt gốc; không đổi thành R5-03.,documented; preserve source
+R2-03,unused_pre_event_probe,Probe trước event chỉ lưu vết; dữ liệu chẩn đoán dùng probe mới sau event.,documented; preserve source
+R5-02,secondary_abstention,"R6 thiếu span 240 giây (thực tế 239); giữ insufficient_evidence, không loại lượt R5.",documented; preserve source
+baseline,approved_short_session,1806 giây; không coi là baseline 4 giờ hoặc gộp phiên cũ.,documented; preserve source
+all screenshots,retrospective,Ảnh trang event sau phục hồi; không phải ảnh đang gây lỗi.,documented; preserve source
+final-state-20261016T213953Z,comparison_scope_error,Giữ kiểm tra lệch scope; đối chiếu chính thức dùng final-state-20261016T214108Z.,documented; preserve source

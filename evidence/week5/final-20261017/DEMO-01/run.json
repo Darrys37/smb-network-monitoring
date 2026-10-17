@@ -1,0 +1,10 @@
+{
+  "run_id": "DEMO-01",
+  "started_at_utc": "2026-10-17T02:24:17.833300+00:00",
+  "kind": "automated technical rehearsal; excludes spoken presentation",
+  "status": "aborted_before_fault",
+  "unit": "week5-demo-01-1792203857",
+  "reason": "A reboot-related background problem appeared after the first empty poll; preflight interlock prevented fault injection.",
+  "included_in_successful_rehearsals": false,
+  "retry_run_id": "DEMO-01-retry1"
+}

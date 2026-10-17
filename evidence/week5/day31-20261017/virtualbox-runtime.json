@@ -1,0 +1,29 @@
+{
+  "CLI01": [
+    "memory=2048",
+    "cpuexecutioncap=100",
+    "cpus=1",
+    "VMState=\"running\"",
+    "nic1=\"nat\"",
+    "hostonlyadapter2=\"VirtualBox Host-Only Ethernet Adapter\"",
+    "nic2=\"hostonly\""
+  ],
+  "SRV01": [
+    "memory=3048",
+    "cpuexecutioncap=100",
+    "cpus=1",
+    "VMState=\"running\"",
+    "nic1=\"nat\"",
+    "hostonlyadapter2=\"VirtualBox Host-Only Ethernet Adapter\"",
+    "nic2=\"hostonly\""
+  ],
+  "MON01": [
+    "memory=4096",
+    "cpuexecutioncap=100",
+    "cpus=2",
+    "VMState=\"running\"",
+    "nic1=\"nat\"",
+    "hostonlyadapter2=\"VirtualBox Host-Only Ethernet Adapter\"",
+    "nic2=\"hostonly\""
+  ]
+}

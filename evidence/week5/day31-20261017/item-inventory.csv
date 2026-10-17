@@ -1,0 +1,29 @@
+﻿hostid,itemid,key_,type,value_type,delay,master_itemid,history,trends,status,units,preprocessing
+10084,42237,agent.ping,0,3,1m,0,31d,365d,0,,[]
+10084,42240,system.uptime,0,3,30s,0,31d,0,0,uptime,[]
+10084,42249,"system.cpu.load[all,avg1]",0,0,1m,0,31d,365d,0,,[]
+10084,42260,system.cpu.num,0,3,1m,0,31d,365d,0,,"[{""type"": ""20"", ""params"": ""1d"", ""error_handler"": ""0"", ""error_handler_params"": """"}]"
+10084,42264,"system.cpu.util[,idle]",0,0,1m,0,31d,365d,0,%,[]
+10084,42266,"zabbix[host,agent,available]",5,3,1m,0,31d,365d,0,,[]
+10084,42269,system.cpu.util,18,0,0,42264,31d,365d,0,%,"[{""type"": ""21"", ""params"": ""return (100 - value)"", ""error_handler"": ""0"", ""error_handler_params"": """"}]"
+10084,42270,vm.memory.util,18,0,0,42244,31d,365d,0,%,"[{""type"": ""21"", ""params"": ""return (100-value);"", ""error_handler"": ""0"", ""error_handler_params"": """"}]"
+10683,50782,agent.ping,0,3,1m,0,31d,365d,0,,[]
+10683,50791,"system.cpu.load[all,avg1]",0,0,1m,0,31d,365d,0,,[]
+10683,50793,system.cpu.num,0,3,1m,0,31d,365d,0,,"[{""type"": ""20"", ""params"": ""1d"", ""error_handler"": ""0"", ""error_handler_params"": """"}]"
+10683,50797,"system.cpu.util[,idle]",0,0,1m,0,31d,365d,0,%,[]
+10683,50814,system.uptime,0,3,30s,0,31d,0,0,uptime,[]
+10683,50821,"zabbix[host,agent,available]",5,3,1m,0,31d,365d,0,,[]
+10683,50822,system.cpu.util,18,0,0,50797,31d,365d,0,%,"[{""type"": ""21"", ""params"": ""return (100 - value)"", ""error_handler"": ""0"", ""error_handler_params"": """"}]"
+10683,50823,vm.memory.util,18,0,0,50819,31d,365d,0,%,"[{""type"": ""21"", ""params"": ""return (100-value);"", ""error_handler"": ""0"", ""error_handler_params"": """"}]"
+10684,50894,agent.ping,0,3,1m,0,31d,365d,0,,[]
+10684,50903,"system.cpu.load[all,avg1]",0,0,1m,0,31d,365d,0,,[]
+10684,50905,system.cpu.num,0,3,1m,0,31d,365d,0,,"[{""type"": ""20"", ""params"": ""1d"", ""error_handler"": ""0"", ""error_handler_params"": """"}]"
+10684,50909,"system.cpu.util[,idle]",0,0,1m,0,31d,365d,0,%,[]
+10684,50926,system.uptime,0,3,30s,0,31d,0,0,uptime,[]
+10684,50933,"zabbix[host,agent,available]",5,3,1m,0,31d,365d,0,,[]
+10684,50934,system.cpu.util,18,0,0,50909,31d,365d,0,%,"[{""type"": ""21"", ""params"": ""return (100 - value)"", ""error_handler"": ""0"", ""error_handler_params"": """"}]"
+10684,50935,vm.memory.util,18,0,0,50931,31d,365d,0,%,"[{""type"": ""21"", ""params"": ""return (100-value);"", ""error_handler"": ""0"", ""error_handler_params"": """"}]"
+10683,51006,web.test.fail[SRV01 HTTP],9,3,30s,0,30d,90d,0,,[]
+10683,51008,"web.test.rspcode[SRV01 HTTP,Homepage]",9,3,30s,0,30d,90d,0,,[]
+10683,51009,"web.test.time[SRV01 HTTP,Homepage,resp]",9,0,30s,0,30d,90d,0,s,[]
+10684,51011,"net.dns[,example.com,A,2,1,udp]",0,3,30s,0,7d,0,0,,[]

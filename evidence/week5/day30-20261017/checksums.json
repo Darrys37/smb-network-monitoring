@@ -1,0 +1,22 @@
+{
+  "evidence/week5/day30-20261017/analysis-validation.json": "07b5af5aef981a7e0e4c097c1f8f3d20f7e305cc13cb5b505c7a7afc176e5b5e",
+  "evidence/week5/day30-20261017/detection-time.pdf": "c1cd937fe1cb928ce1510b7596bb6aa804aa6834d33109efe486c8329669a632",
+  "evidence/week5/day30-20261017/detection-time.png": "0245b55c6622b5bed797e1416b1256eca06b12b8d185cba99e19888f4a1a7f40",
+  "evidence/week5/day30-20261017/detection-time.svg": "d7942187d33a2fb9a3b24a14255402319455f6658242edd23b4497ec6f3ee183",
+  "evidence/week5/day30-20261017/diagnosis-cli-time.pdf": "628a3624146b04fcdbd46b87c3b6c507e88e89fee7f057fe1d5d94b7e8d230fe",
+  "evidence/week5/day30-20261017/diagnosis-cli-time.png": "b9718820cc2a3dbd2904d3230487d137525a11235cc8c76a3b2c4965ee68ab1e",
+  "evidence/week5/day30-20261017/diagnosis-cli-time.svg": "95aefc3c055b811c15c79b20f0025e0e2bc0a1bed28f71d31b81914d3b1139c6",
+  "evidence/week5/day30-20261017/diagnosis-outcomes.csv": "fd55ddcdf22f9ca004171dd40a72338a07c762d43e90117d72972f213c1fe3c1",
+  "evidence/week5/day30-20261017/diagnosis-outcomes.pdf": "efcf369ca220463d894bb7ca4d67f5cc48572611d8037390ea0806a0a9b6f71d",
+  "evidence/week5/day30-20261017/diagnosis-outcomes.png": "946ae25afbcc71b153e471a55dc69c03b7fbef194e670eff106481ef6d2335a4",
+  "evidence/week5/day30-20261017/diagnosis-outcomes.svg": "292d888068a4d2cef9e49cce2371793c739199024547096cd699602b57bb3a7e",
+  "evidence/week5/day30-20261017/PHAN_TICH_NGAY_30.markdown": "b22a3be654240f1be0d48cc8c58d0bf541ef04078b3b458f4efa7d6ba2b44fba",
+  "evidence/week5/day30-20261017/plotted-points.csv": "e406b933cdbd6f6a2f94d4530b490085e070803bd1a9a6633e6bf24e88b29579",
+  "evidence/week5/day30-20261017/README.md": "e19f2a4edf989caaee9401db183e5a97f19613adab63ec5b9237394b087fa68a",
+  "evidence/week5/day30-20261017/rule-status-counts.csv": "4a68f52560816c1d5006496b7d2ac15d275db280ca9f070b5f6114b6d551489d",
+  "evidence/week5/day30-20261017/timing-summary.csv": "d7bd1e6f34f42642728c6480b729d3dbd34c097602715029750a2531f4c1223c",
+  "evidence/week5/day30-20261017/tools/day30_analysis.py": "2e520d08ca098789a6e77e5e32b8ffce82b47acb56c9a5c7247ec5b1fe9c30dc",
+  "evidence/week5/day30-20261017/tools/day30_install.py": "123c36c061a4a3c2537c4500e437d2f372a62205a1ced99cb1ad45018f6d7280",
+  "evidence/week5/day30-20261017/tools/requirements.txt": "de950d3b75e4ad1a760c121533e06390c84574f7dd0b53c0eaa742ab6d5c2f38",
+  "docs/NGAY_30_TUAN_5.markdown": "b1775f4dd7d3d2b295ee9ae71fe98a0582d18c52f18a9db126e04dcf5cabad64"
+}

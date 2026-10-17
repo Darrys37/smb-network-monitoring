@@ -1,0 +1,32 @@
+{
+  "run_id": "DEMO-01-retry1",
+  "started_at_utc": "2026-10-17T02:40:01.719044+00:00",
+  "kind": "automated technical rehearsal; excludes spoken presentation",
+  "status": "PASS",
+  "unit": "week5-demo-01-retry1-1792204801",
+  "classified_background_problems_before": [
+    {
+      "eventid": "1027",
+      "objectid": "22388",
+      "clock": "1792203877",
+      "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+    }
+  ],
+  "cli_elapsed_seconds_including_ssh": 0.9219999999986612,
+  "problem_event_id": "1038",
+  "incident_id": 37,
+  "recovery_event_id": "1041",
+  "ended_at_utc": "2026-10-17T02:41:09.581836+00:00",
+  "elapsed_seconds": 67.875,
+  "nginx_restored": true,
+  "background_problems_after": [
+    {
+      "eventid": "1027",
+      "objectid": "22388",
+      "clock": "1792203877",
+      "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+    }
+  ],
+  "unexpected_background_problems_after": 0,
+  "engine_code_modified": false
+}

@@ -1,0 +1,20 @@
+{
+  "result": "PASS",
+  "generated_at_utc": "2026-10-17T02:48:30.462883+00:00",
+  "live_rehearsals_passed": 3,
+  "unit_tests_mon01": 280,
+  "unit_tests_windows": 280,
+  "source_files_unchanged": 40,
+  "baseline_config_unchanged": true,
+  "sqlite_backup_integrity": "ok",
+  "sqlite_counts": {
+    "incidents": 39,
+    "evidence": 301,
+    "diagnoses": 172,
+    "recoveries": 29
+  },
+  "documentation_links_verified": 252,
+  "sample_env_key_fixed": true,
+  "vm_recovery_issue_disclosed": true,
+  "release_scope": "Technical handover; student oral competence, school-specific final formatting and off-device backup are not certified."
+}

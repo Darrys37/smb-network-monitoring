@@ -2,3 +2,16 @@ evidence/week4/official-runs/** -text
 evidence/week4/baseline-20261016T162549Z/** -text
 evidence/week4/closure-20261017/** -text
 docs/TONG_HOP_TUAN_4.markdown -text
+evidence/week5/day29-20261017/** -text
+docs/NGAY_29_TUAN_5.markdown -text
+outputs/week5-day29-20261017/*.xlsx -text
+evidence/week5/day30-20261017/** -text
+docs/NGAY_30_TUAN_5.markdown -text
+evidence/week5/day31-20261017/** -text
+docs/NGAY_31_TUAN_5.markdown -text
+evidence/week5/final-20261017/** -text
+docs/TONG_HOP_TUAN_5.markdown -text
+docs/BAO_CAO_DO_AN_HOAN_THIEN.markdown -text
+outputs/week5-final-20261017/*.pptx -text
+# Raw evidence retains original CRLF, tabs and terminal output.
+evidence/week5/** -whitespace

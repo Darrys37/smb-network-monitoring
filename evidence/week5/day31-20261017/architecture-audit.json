@@ -1,0 +1,53 @@
+{
+  "result": "PASS",
+  "generated_at_utc": "2026-10-17T00:02:06.628399+00:00",
+  "capture_times_utc": {
+    "mon01": "2026-10-16T23:56:42.097619+00:00",
+    "srv01": "2026-10-16T23:57:05.128771+00:00",
+    "cli01": "2026-10-16T23:57:09.414852+00:00"
+  },
+  "vm_services_active": true,
+  "http200_from_each_vm": true,
+  "ntp_synchronized": true,
+  "exact_inter_vm_clock_offset_measured": false,
+  "zabbix_api_version": "7.0.30",
+  "open_problem_count": 0,
+  "agent_interfaces_available": 3,
+  "baseline_effective_config_equal": true,
+  "item_scope_count": 28,
+  "trigger_scope_count": 157,
+  "frozen_source_files_compared_mon01_and_windows": 40,
+  "source_unchanged": true,
+  "critical_macros_and_template_links_verified_by_sql": true,
+  "selected_trigger_functions_sql_verified": 8,
+  "sqlite_integrity": "ok",
+  "sqlite_foreign_key_errors": 0,
+  "sqlite_row_counts": {
+    "incidents": 36,
+    "evidence": 268,
+    "diagnoses": 154,
+    "recoveries": 26
+  },
+  "sqlite_lifecycle_report_states": [
+    "unverified",
+    "closed"
+  ],
+  "prior_evidence_checksum_files_verified": {
+    "evidence/week4/official-runs": 535,
+    "evidence/week4/baseline-20261016T162549Z": 43,
+    "evidence/week4/closure-20261017": 53,
+    "evidence/week5/day29-20261017": 19,
+    "evidence/week5/day30-20261017": 20
+  },
+  "engine_or_zabbix_config_modified": false,
+  "new_fault_injected": false,
+  "unit_tests_rerun": false,
+  "unit_test_note": "Documentation-only change; live checks, hash/config comparison and read-only DB integrity are relevant verification. Historical 280 tests are not claimed as a new run.",
+  "notes": [
+    "R1/R2/R5 official trials use the same HTTP trigger 25334, not three independent triggers.",
+    "R2 may match TCP refusal with local HTTP missing; timeout without local HTTP remains insufficient.",
+    "Absent recovery in report is unverified, not evidence of a still-open event.",
+    "API parentTemplates result is not sufficient for inherited template verification with this token; SQL links used."
+  ],
+  "documentation_links_verified": 43
+}

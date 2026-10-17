@@ -1,0 +1,157 @@
+{
+  "run_id": {
+    "type": "str",
+    "unit": "identifier/status/count or relative project path",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  },
+  "scenario": {
+    "type": "str",
+    "unit": "identifier/status/count or relative project path",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  },
+  "problem_event_id": {
+    "type": "str",
+    "unit": "identifier/status/count or relative project path",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  },
+  "recovery_event_id": {
+    "type": "str",
+    "unit": "identifier/status/count or relative project path",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  },
+  "incident_id": {
+    "type": "int",
+    "unit": "identifier/status/count or relative project path",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  },
+  "fault_before_epoch": {
+    "type": "int",
+    "unit": "seconds since Unix epoch UTC",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  },
+  "fault_after_epoch": {
+    "type": "int",
+    "unit": "seconds since Unix epoch UTC",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  },
+  "problem_epoch": {
+    "type": "int",
+    "unit": "seconds since Unix epoch UTC",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  },
+  "rollback_before_epoch": {
+    "type": "int",
+    "unit": "seconds since Unix epoch UTC",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  },
+  "rollback_after_epoch": {
+    "type": "int",
+    "unit": "seconds since Unix epoch UTC",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  },
+  "recovery_epoch": {
+    "type": "int",
+    "unit": "seconds since Unix epoch UTC",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  },
+  "cli_elapsed_seconds": {
+    "type": "float",
+    "unit": "seconds",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  },
+  "target_status": {
+    "type": "str",
+    "unit": "identifier/status/count or relative project path",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  },
+  "valid_fault": {
+    "type": "int",
+    "unit": "identifier/status/count or relative project path",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  },
+  "detected": {
+    "type": "int",
+    "unit": "identifier/status/count or relative project path",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  },
+  "engine_exit_code": {
+    "type": "int",
+    "unit": "identifier/status/count or relative project path",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  },
+  "review_issue_count": {
+    "type": "int",
+    "unit": "identifier/status/count or relative project path",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  },
+  "dt_lower_seconds": {
+    "type": "int",
+    "unit": "seconds",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  },
+  "dt_upper_seconds": {
+    "type": "int",
+    "unit": "seconds",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  },
+  "rr_lower_seconds": {
+    "type": "int",
+    "unit": "seconds",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  },
+  "rr_upper_seconds": {
+    "type": "int",
+    "unit": "seconds",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  },
+  "target_success": {
+    "type": "int",
+    "unit": "identifier/status/count or relative project path",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  },
+  "collection_epoch": {
+    "type": "int",
+    "unit": "seconds since Unix epoch UTC",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  },
+  "local_restored_epoch": {
+    "type": "int",
+    "unit": "seconds since Unix epoch UTC",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  },
+  "event_interval_seconds": {
+    "type": "int",
+    "unit": "seconds",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  },
+  "timestamp_resolution_seconds": {
+    "type": "int",
+    "unit": "seconds",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  },
+  "dt_quantized_lower_seconds": {
+    "type": "int",
+    "unit": "seconds",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  },
+  "dt_quantized_upper_seconds": {
+    "type": "int",
+    "unit": "seconds",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  },
+  "http_scope": {
+    "type": "str",
+    "unit": "identifier/status/count or relative project path",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  },
+  "screenshot": {
+    "type": "str",
+    "unit": "identifier/status/count or relative project path",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  },
+  "raw_folder": {
+    "type": "str",
+    "unit": "identifier/status/count or relative project path",
+    "source": "Run folder logs/event/report; derived fields use audit.json definitions"
+  }
+}

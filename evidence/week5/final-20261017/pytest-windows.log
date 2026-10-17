@@ -1,0 +1,203 @@
+
+=================================== ERRORS ====================================
+__________________ ERROR collecting tests/test_api_client.py __________________
+ImportError while importing test module 'C:\Users\Darrys\do-an\diagnosis-engine\tests\test_api_client.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\do-an\diagnosis-engine\tests\test_api_client.py:4: in <module>
+    import zabbix_client as api
+E   ModuleNotFoundError: No module named 'zabbix_client'
+___________________ ERROR collecting tests/test_app_flow.py ___________________
+ImportError while importing test module 'C:\Users\Darrys\do-an\diagnosis-engine\tests\test_app_flow.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\do-an\diagnosis-engine\tests\test_app_flow.py:5: in <module>
+    import app
+E   ModuleNotFoundError: No module named 'app'
+___________________ ERROR collecting tests/test_cpu_rule.py ___________________
+ImportError while importing test module 'C:\Users\Darrys\do-an\diagnosis-engine\tests\test_cpu_rule.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\do-an\diagnosis-engine\tests\test_cpu_rule.py:3: in <module>
+    from models import EvidenceRecord
+E   ModuleNotFoundError: No module named 'models'
+__________________ ERROR collecting tests/test_disk_rule.py ___________________
+ImportError while importing test module 'C:\Users\Darrys\do-an\diagnosis-engine\tests\test_disk_rule.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\do-an\diagnosis-engine\tests\test_disk_rule.py:3: in <module>
+    from models import EvidenceRecord
+E   ModuleNotFoundError: No module named 'models'
+_____________________ ERROR collecting tests/test_dns.py ______________________
+ImportError while importing test module 'C:\Users\Darrys\do-an\diagnosis-engine\tests\test_dns.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\do-an\diagnosis-engine\tests\test_dns.py:6: in <module>
+    from evidence import collect_dns
+E   ModuleNotFoundError: No module named 'evidence'
+___________________ ERROR collecting tests/test_dns_rule.py ___________________
+ImportError while importing test module 'C:\Users\Darrys\do-an\diagnosis-engine\tests\test_dns_rule.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\do-an\diagnosis-engine\tests\test_dns_rule.py:3: in <module>
+    from models import EvidenceRecord
+E   ModuleNotFoundError: No module named 'models'
+_________________ ERROR collecting tests/test_event_parser.py _________________
+ImportError while importing test module 'C:\Users\Darrys\do-an\diagnosis-engine\tests\test_event_parser.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\do-an\diagnosis-engine\tests\test_event_parser.py:3: in <module>
+    from event_parser import parse_event
+E   ModuleNotFoundError: No module named 'event_parser'
+___________________ ERROR collecting tests/test_evidence.py ___________________
+ImportError while importing test module 'C:\Users\Darrys\do-an\diagnosis-engine\tests\test_evidence.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\do-an\diagnosis-engine\tests\test_evidence.py:6: in <module>
+    from evidence import collect_ping, collect_tcp
+E   ModuleNotFoundError: No module named 'evidence'
+______________ ERROR collecting tests/test_http_scope_replay.py _______________
+ImportError while importing test module 'C:\Users\Darrys\do-an\diagnosis-engine\tests\test_http_scope_replay.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\do-an\diagnosis-engine\tests\test_http_scope_replay.py:6: in <module>
+    from models import EvidenceRecord
+E   ModuleNotFoundError: No module named 'models'
+_________________ ERROR collecting tests/test_memory_rule.py __________________
+ImportError while importing test module 'C:\Users\Darrys\do-an\diagnosis-engine\tests\test_memory_rule.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\do-an\diagnosis-engine\tests\test_memory_rule.py:3: in <module>
+    from models import EvidenceRecord
+E   ModuleNotFoundError: No module named 'models'
+___________________ ERROR collecting tests/test_metrics.py ____________________
+ImportError while importing test module 'C:\Users\Darrys\do-an\diagnosis-engine\tests\test_metrics.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\do-an\diagnosis-engine\tests\test_metrics.py:5: in <module>
+    from evidence import collect_metrics
+E   ModuleNotFoundError: No module named 'evidence'
+________________ ERROR collecting tests/test_new_collectors.py ________________
+ImportError while importing test module 'C:\Users\Darrys\do-an\diagnosis-engine\tests\test_new_collectors.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\do-an\diagnosis-engine\tests\test_new_collectors.py:4: in <module>
+    import roadmap_evidence as collectors
+E   ModuleNotFoundError: No module named 'roadmap_evidence'
+______________ ERROR collecting tests/test_reachability_rule.py _______________
+ImportError while importing test module 'C:\Users\Darrys\do-an\diagnosis-engine\tests\test_reachability_rule.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\do-an\diagnosis-engine\tests\test_reachability_rule.py:3: in <module>
+    from models import EvidenceRecord
+E   ModuleNotFoundError: No module named 'models'
+_______________ ERROR collecting tests/test_recovery_report.py ________________
+ImportError while importing test module 'C:\Users\Darrys\do-an\diagnosis-engine\tests\test_recovery_report.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\do-an\diagnosis-engine\tests\test_recovery_report.py:7: in <module>
+    import recovery as sync
+E   ModuleNotFoundError: No module named 'recovery'
+__________________ ERROR collecting tests/test_repository.py __________________
+ImportError while importing test module 'C:\Users\Darrys\do-an\diagnosis-engine\tests\test_repository.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\do-an\diagnosis-engine\tests\test_repository.py:4: in <module>
+    from repository import save_incident_bundle
+E   ModuleNotFoundError: No module named 'repository'
+________________ ERROR collecting tests/test_roadmap_rules.py _________________
+ImportError while importing test module 'C:\Users\Darrys\do-an\diagnosis-engine\tests\test_roadmap_rules.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\do-an\diagnosis-engine\tests\test_roadmap_rules.py:3: in <module>
+    from models import EvidenceRecord
+E   ModuleNotFoundError: No module named 'models'
+____________________ ERROR collecting tests/test_rules.py _____________________
+ImportError while importing test module 'C:\Users\Darrys\do-an\diagnosis-engine\tests\test_rules.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\do-an\diagnosis-engine\tests\test_rules.py:3: in <module>
+    from models import EvidenceRecord
+E   ModuleNotFoundError: No module named 'models'
+__________________ ERROR collecting tests/test_week4_http.py __________________
+ImportError while importing test module 'C:\Users\Darrys\do-an\diagnosis-engine\tests\test_week4_http.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\do-an\diagnosis-engine\tests\test_week4_http.py:5: in <module>
+    from models import EvidenceRecord
+E   ModuleNotFoundError: No module named 'models'
+=========================== short test summary info ===========================
+ERROR ..\..\..\do-an\diagnosis-engine\tests\test_api_client.py
+ERROR ..\..\..\do-an\diagnosis-engine\tests\test_app_flow.py
+ERROR ..\..\..\do-an\diagnosis-engine\tests\test_cpu_rule.py
+ERROR ..\..\..\do-an\diagnosis-engine\tests\test_disk_rule.py
+ERROR ..\..\..\do-an\diagnosis-engine\tests\test_dns.py
+ERROR ..\..\..\do-an\diagnosis-engine\tests\test_dns_rule.py
+ERROR ..\..\..\do-an\diagnosis-engine\tests\test_event_parser.py
+ERROR ..\..\..\do-an\diagnosis-engine\tests\test_evidence.py
+ERROR ..\..\..\do-an\diagnosis-engine\tests\test_http_scope_replay.py
+ERROR ..\..\..\do-an\diagnosis-engine\tests\test_memory_rule.py
+ERROR ..\..\..\do-an\diagnosis-engine\tests\test_metrics.py
+ERROR ..\..\..\do-an\diagnosis-engine\tests\test_new_collectors.py
+ERROR ..\..\..\do-an\diagnosis-engine\tests\test_reachability_rule.py
+ERROR ..\..\..\do-an\diagnosis-engine\tests\test_recovery_report.py
+ERROR ..\..\..\do-an\diagnosis-engine\tests\test_repository.py
+ERROR ..\..\..\do-an\diagnosis-engine\tests\test_roadmap_rules.py
+ERROR ..\..\..\do-an\diagnosis-engine\tests\test_rules.py
+ERROR ..\..\..\do-an\diagnosis-engine\tests\test_week4_http.py
+!!!!!!!!!!!!!!!!!! Interrupted: 18 errors during collection !!!!!!!!!!!!!!!!!!!
+18 errors in 0.55s

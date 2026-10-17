@@ -1,0 +1,60 @@
+{
+  "captured_at_utc": "2026-10-17T02:48:04.404493+00:00",
+  "hostname": "srv01",
+  "os_release": "PRETTY_NAME=\"Ubuntu 26.04.1 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"26.04\"\nVERSION=\"26.04.1 LTS (Resolute Raccoon)\"\nVERSION_CODENAME=resolute\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=resolute\nLOGO=ubuntu-logo\n",
+  "kernel": {
+    "exit_code": 0,
+    "stdout": "7.0.0-34-generic",
+    "stderr": ""
+  },
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "interfaces": {
+    "exit_code": 0,
+    "stdout": "[{\"ifindex\":1,\"ifname\":\"lo\",\"flags\":[\"LOOPBACK\",\"UP\",\"LOWER_UP\"],\"mtu\":65536,\"qdisc\":\"noqueue\",\"operstate\":\"UNKNOWN\",\"group\":\"default\",\"txqlen\":1000,\"link_type\":\"loopback\",\"address\":\"00:00:00:00:00:00\",\"broadcast\":\"00:00:00:00:00:00\",\"addr_info\":[{\"family\":\"inet\",\"local\":\"127.0.0.1\",\"prefixlen\":8,\"scope\":\"host\",\"label\":\"lo\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295},{\"family\":\"inet6\",\"local\":\"::1\",\"prefixlen\":128,\"scope\":\"host\",\"noprefixroute\":true,\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295}]},{\"ifindex\":2,\"ifname\":\"enp0s3\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":1500,\"qdisc\":\"pfifo_fast\",\"operstate\":\"UP\",\"group\":\"default\",\"txqlen\":1000,\"link_type\":\"ether\",\"address\":\"08:00:27:53:72:39\",\"broadcast\":\"ff:ff:ff:ff:ff:ff\",\"altnames\":[\"enx080027537239\"],\"addr_info\":[{\"family\":\"inet\",\"local\":\"10.0.2.15\",\"prefixlen\":24,\"metric\":100,\"broadcast\":\"10.0.2.255\",\"scope\":\"global\",\"dynamic\":true,\"label\":\"enp0s3\",\"valid_life_time\":84943,\"preferred_life_time\":84943},{\"family\":\"inet6\",\"local\":\"fd17:625c:f037:2:a00:27ff:fe53:7239\",\"prefixlen\":64,\"scope\":\"global\",\"dynamic\":true,\"mngtmpaddr\":true,\"noprefixroute\":true,\"valid_life_time\":86241,\"preferred_life_time\":14241},{\"family\":\"inet6\",\"local\":\"fe80::a00:27ff:fe53:7239\",\"prefixlen\":64,\"scope\":\"link\",\"protocol\":\"kernel_ll\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295}]},{\"ifindex\":3,\"ifname\":\"enp0s8\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":1500,\"qdisc\":\"pfifo_fast\",\"operstate\":\"UP\",\"group\":\"default\",\"txqlen\":1000,\"link_type\":\"ether\",\"address\":\"08:00:27:3a:1b:80\",\"broadcast\":\"ff:ff:ff:ff:ff:ff\",\"altnames\":[\"enx0800273a1b80\"],\"addr_info\":[{\"family\":\"inet\",\"local\":\"192.168.56.20\",\"prefixlen\":24,\"broadcast\":\"192.168.56.255\",\"scope\":\"global\",\"label\":\"enp0s8\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295},{\"family\":\"inet6\",\"local\":\"fe80::a00:27ff:fe3a:1b80\",\"prefixlen\":64,\"scope\":\"link\",\"protocol\":\"kernel_ll\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295}]}]",
+    "stderr": ""
+  },
+  "routes": {
+    "exit_code": 0,
+    "stdout": "[{\"dst\":\"default\",\"gateway\":\"10.0.2.2\",\"dev\":\"enp0s3\",\"protocol\":\"dhcp\",\"prefsrc\":\"10.0.2.15\",\"metric\":100,\"flags\":[]},{\"dst\":\"1.0.0.1\",\"gateway\":\"10.0.2.2\",\"dev\":\"enp0s3\",\"protocol\":\"dhcp\",\"prefsrc\":\"10.0.2.15\",\"metric\":100,\"flags\":[]},{\"dst\":\"1.1.1.1\",\"gateway\":\"10.0.2.2\",\"dev\":\"enp0s3\",\"protocol\":\"dhcp\",\"prefsrc\":\"10.0.2.15\",\"metric\":100,\"flags\":[]},{\"dst\":\"10.0.2.0/24\",\"dev\":\"enp0s3\",\"protocol\":\"kernel\",\"scope\":\"link\",\"prefsrc\":\"10.0.2.15\",\"metric\":100,\"flags\":[]},{\"dst\":\"10.0.2.2\",\"dev\":\"enp0s3\",\"protocol\":\"dhcp\",\"scope\":\"link\",\"prefsrc\":\"10.0.2.15\",\"metric\":100,\"flags\":[]},{\"dst\":\"192.168.56.0/24\",\"dev\":\"enp0s8\",\"protocol\":\"kernel\",\"scope\":\"link\",\"prefsrc\":\"192.168.56.20\",\"flags\":[]}]",
+    "stderr": ""
+  },
+  "ntp": {
+    "exit_code": 0,
+    "stdout": "NTPSynchronized=yes",
+    "stderr": ""
+  },
+  "listeners": {
+    "exit_code": 0,
+    "stdout": "State  Recv-Q Send-Q Local Address:Port  Peer Address:Port\nLISTEN 0      4096   127.0.0.53%lo:53         0.0.0.0:*   \nLISTEN 0      4096         0.0.0.0:22         0.0.0.0:*   \nLISTEN 0      511          0.0.0.0:80         0.0.0.0:*   \nLISTEN 0      4096      127.0.0.54:53         0.0.0.0:*   \nLISTEN 0      4096               *:10050            *:*   \nLISTEN 0      4096            [::]:22            [::]:*   \nLISTEN 0      511             [::]:80            [::]:*",
+    "stderr": ""
+  },
+  "resolver": {
+    "exit_code": 0,
+    "stdout": "Global\n         Protocols: -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported\n  resolv.conf mode: stub\n\nLink 2 (enp0s3)\n    Current Scopes: DNS\n         Protocols: +DefaultRoute -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported\nCurrent DNS Server: 1.1.1.1\n       DNS Servers: 1.1.1.1 1.0.0.1 fd17:625c:f037:2::3\n     Default Route: yes\n\nLink 3 (enp0s8)\n    Current Scopes: none\n         Protocols: -DefaultRoute -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported\n     Default Route: no",
+    "stderr": ""
+  },
+  "services": {
+    "zabbix-agent2": {
+      "exit_code": 0,
+      "stdout": "active",
+      "stderr": ""
+    },
+    "nginx": {
+      "exit_code": 0,
+      "stdout": "active",
+      "stderr": ""
+    }
+  },
+  "http": {
+    "exit_code": 0,
+    "stdout": "200",
+    "stderr": ""
+  },
+  "agent_settings": {
+    "zabbix_agent2.conf": [
+      "Server=192.168.56.10",
+      "ServerActive=192.168.56.10",
+      "Hostname=SRV01"
+    ]
+  }
+}

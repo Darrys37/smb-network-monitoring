@@ -1,0 +1,34 @@
+{
+  "result": "PASS",
+  "generated_at": "2026-10-16T23:48:01.177179+00:00",
+  "valid_faults": 18,
+  "attempts": 19,
+  "excluded_before_fault": 1,
+  "photo_event_joins": 18,
+  "unique_event_ids": 18,
+  "unique_incident_ids": 18,
+  "checksum_manifests": {
+    "evidence\\week4\\official-runs\\checksums-final.json": 535,
+    "evidence\\week4\\baseline-20261016T162549Z\\checksums.json": 43,
+    "evidence\\week4\\closure-20261017\\checksums.json": 53
+  },
+  "verified_files": 631,
+  "unresolved_data_errors": 0,
+  "all_rule_status_counts": {
+    "matched": 18,
+    "not_matched": 66,
+    "insufficient_evidence": 24
+  },
+  "general_accuracy": null,
+  "false_positive_rate": null,
+  "negative_sample_limitation": "No labeled healthy negative trials; not_matched and not_applicable are not TN.",
+  "raw_data_modified": false,
+  "formula_definitions": {
+    "DT": "[problem - fault_after, problem - fault_before]",
+    "RR": "[recovery - rollback_after, recovery - rollback_before]",
+    "CLI": "Elapsed complete CLI call, not pure rule inference",
+    "target_success_rate": "Target matched with valid fault and no review issues / all valid faults",
+    "median_min_max": "Python statistics.median, min, max, per scenario n=3",
+    "quantization": "DT bounds widened by 1 second each side; not measured NTP offset"
+  }
+}

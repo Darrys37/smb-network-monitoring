@@ -1,0 +1,89 @@
+{
+  "source": "critical-sql-terminal.txt; manually executed readonly-selects.sql on MON01 via SSH/sudo mysql",
+  "verified_at_utc": "2026-10-17T00:02:06.584889+00:00",
+  "critical_macros": {
+    "{$AGENT.TIMEOUT}": "3m",
+    "{$CPU.UTIL.CRIT}": "90",
+    "{$LOAD_AVG_PER_CPU.MAX.WARN}": "1.5"
+  },
+  "host_overrides_absent": true,
+  "critical_global_override_count": 0,
+  "template_links": [
+    {
+      "host": "Zabbix server",
+      "template": "Linux by Zabbix agent"
+    },
+    {
+      "host": "Zabbix server",
+      "template": "Zabbix server health"
+    },
+    {
+      "host": "SRV01",
+      "template": "Linux by Zabbix agent"
+    },
+    {
+      "host": "CLI01",
+      "template": "Linux by Zabbix agent"
+    }
+  ],
+  "selected_trigger_functions": [
+    {
+      "triggerid": "25249",
+      "functionid": "36144",
+      "itemid": "50791",
+      "function": "min",
+      "parameter": "$,5m"
+    },
+    {
+      "triggerid": "25249",
+      "functionid": "36145",
+      "itemid": "50793",
+      "function": "last",
+      "parameter": "$"
+    },
+    {
+      "triggerid": "25249",
+      "functionid": "36146",
+      "itemid": "50792",
+      "function": "last",
+      "parameter": "$"
+    },
+    {
+      "triggerid": "25249",
+      "functionid": "36147",
+      "itemid": "50790",
+      "function": "last",
+      "parameter": "$"
+    },
+    {
+      "triggerid": "25250",
+      "functionid": "36148",
+      "itemid": "50822",
+      "function": "min",
+      "parameter": "$,5m"
+    },
+    {
+      "triggerid": "25260",
+      "functionid": "36164",
+      "itemid": "50821",
+      "function": "max",
+      "parameter": "$,{$AGENT.TIMEOUT}"
+    },
+    {
+      "triggerid": "25334",
+      "functionid": "36324",
+      "itemid": "51006",
+      "function": "last",
+      "parameter": "$"
+    },
+    {
+      "triggerid": "25335",
+      "functionid": "36325",
+      "itemid": "51011",
+      "function": "max",
+      "parameter": "$,#3"
+    }
+  ],
+  "functions_match_baseline": true,
+  "scope_limitation": "8 functions for experiment triggers plus CPU load dependency; not all 157 triggers SQL-checked today. API config comparison covers all 157 triggers in the baseline host scope."
+}

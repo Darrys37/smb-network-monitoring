@@ -1,0 +1,7 @@
+﻿scenario,example_run_id,triggerid,problem_event_id,event_name
+R1,R1-01,25334,933,SRV01: HTTP check failed
+R2,R2-01,25334,939,SRV01: HTTP check failed
+R3,R3-01,25260,945,Linux: Zabbix agent is not available (for 3m)
+R4,R4-01,25335,963,CLI01: DNS resolution failed for example.com
+R5,R5-01,25334,969,SRV01: HTTP check failed
+R6,R6-01,25250,975,Linux: High CPU utilization (over 90% for 5m)

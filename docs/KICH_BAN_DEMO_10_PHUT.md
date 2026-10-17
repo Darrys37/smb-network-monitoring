@@ -1,12 +1,12 @@
 # Kịch bản demo 10 phút
 
-Bản hướng dẫn chuẩn bị cho tuần 5, chưa phải biên bản đã diễn tập. Chọn một lỗi HTTP đơn giản; không chạy đồng thời CPU, DNS hoặc ngắt card mạng. Dữ liệu 18 trial là bằng chứng dự phòng, không trình bày lại như một fault đang xảy ra.
+Kịch bản thuyết trình10 phút; kết quả diễn tập kỹ thuật thật được lưu riêng trong biên bản tuần5. Chọn một lỗi HTTP đơn giản; không chạy đồng thời CPU, DNS hoặc ngắt card mạng. Dữ liệu 18 trial là bằng chứng dự phòng, không trình bày lại như một fault đang xảy ra.
 
 ## 0:00–2:00 — Bài toán và trạng thái nền
 
 Giới thiệu MON01 giám sát SRV01/CLI01; Zabbix phát hiện problem, module Python CLI thu bằng chứng và giải thích theo luật. Cho xem topology và dashboard có timestamp mới. Nêu scope lab: R5 là firewall HTTP, không có gateway chung giữa ba host.
 
-Kiểm tra cả ba VM đang chạy, đồng bộ giờ và không còn fault/stress; SRV01 ping được, nginx/agent active, HTTP 200 và Problems nền đã được phân loại. Mở sẵn terminal MON01/SRV01 và giao diện Zabbix `http://192.168.56.10:8080/` bằng tài khoản đã cấu hình. Không đưa token hoặc mật khẩu lên màn hình chia sẻ.
+Sau reboot, chờ các problem uptime<10m phục hồi và quan sát nhiều poll liên tiếp không còn problem. Kiểm tra cả ba VM đang chạy, đồng bộ giờ và không còn fault/stress; SRV01 ping được, nginx/agent active, HTTP 200 và Problems nền đã được phân loại. Mở sẵn terminal MON01/SRV01 và giao diện Zabbix `http://192.168.56.10:8080/` bằng tài khoản đã cấu hình. Không đưa token hoặc mật khẩu lên màn hình chia sẻ.
 
 ## 2:00–3:00 — Gây lỗi có rollback dự phòng
 
@@ -88,9 +88,13 @@ Mở bảng 18 trial và hai hình kết quả trong bộ evidence. Nêu rõ m�
 
 Kết thúc bằng đóng góp có trong code: xác minh problem, evidence có timestamp/observer/scope, sáu luật có trạng thái thiếu dữ liệu, SQLite chống trộn bundle, recovery đã đối chiếu và report truy vết được. Hướng mở rộng: tập âm độc lập, baseline dài hơn, nhiều topology/tải và đo response-time đầy đủ.
 
-## Hồ sơ dự phòng và diễn tập còn phải làm
+## Hồ sơ dự phòng và nghiệm thu diễn tập
 
 - R2-01: problem 939, recovery 940, incident 22; mở `evidence/week4/official-runs/R2-01/incident.md` khi cần minh họa hồ sơ lịch sử.
 - `all-trials.csv`, `experiment-summary.json` và `figures/` cung cấp số liệu/hình dự phòng; không giả là màn hình live.
-- Cần diễn tập ba lần sau một lần reboot lab, ghi thời lượng thực tế, lỗi, event/incident mới và xác nhận rollback. Chưa được đánh dấu hoàn thành chỉ vì đã có kịch bản này.
+- Kết quả ba lượt kỹ thuật sau reboot phải có Run ID, thời lượng, event/incident/recovery mới và rollback. Xem biên bản cuối tuần5; không suy thời lượng luồng tự động thành thời lượng nói10 phút.
 - Cần chụp dashboard/Problems có timestamp và che thông tin nhạy cảm; kiểm tra backup ngoài laptop trước khi đóng gói bản nộp.
+
+## Kết quả thực hiện tuần5
+
+Ba luồng kỹ thuật live sau reboot đã có bằng chứng problem→diagnosis→rollback→recovery/closed: [bảng thời lượng](../evidence/week5/final-20261017/rehearsal-times.csv). Lượt bị chặn trước fault do problem reboot giữ riêng; lỗi hypervisor và khôi phục MON01 ghi trong biên bản. Thời lượng này không bao gồm phần nói, thao tác trình chiếu hoặc đánh giá trình bày10 phút.

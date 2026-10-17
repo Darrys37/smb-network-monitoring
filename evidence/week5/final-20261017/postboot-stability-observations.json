@@ -1,0 +1,587 @@
+[
+  {
+    "at_utc": "2026-10-17T02:24:46.634886+00:00",
+    "open_problems": [
+      {
+        "eventid": "1025",
+        "objectid": "25300",
+        "clock": "1792203856",
+        "name": "Linux: CLI01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1026",
+        "objectid": "25256",
+        "clock": "1792203864",
+        "name": "Linux: SRV01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1027",
+        "objectid": "22388",
+        "clock": "1792203877",
+        "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+      }
+    ]
+  },
+  {
+    "at_utc": "2026-10-17T02:24:57.751077+00:00",
+    "open_problems": [
+      {
+        "eventid": "1025",
+        "objectid": "25300",
+        "clock": "1792203856",
+        "name": "Linux: CLI01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1026",
+        "objectid": "25256",
+        "clock": "1792203864",
+        "name": "Linux: SRV01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1027",
+        "objectid": "22388",
+        "clock": "1792203877",
+        "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+      }
+    ]
+  },
+  {
+    "at_utc": "2026-10-17T02:25:08.771241+00:00",
+    "open_problems": [
+      {
+        "eventid": "1025",
+        "objectid": "25300",
+        "clock": "1792203856",
+        "name": "Linux: CLI01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1026",
+        "objectid": "25256",
+        "clock": "1792203864",
+        "name": "Linux: SRV01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1027",
+        "objectid": "22388",
+        "clock": "1792203877",
+        "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+      }
+    ]
+  },
+  {
+    "at_utc": "2026-10-17T02:25:20.373753+00:00",
+    "open_problems": [
+      {
+        "eventid": "1025",
+        "objectid": "25300",
+        "clock": "1792203856",
+        "name": "Linux: CLI01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1026",
+        "objectid": "25256",
+        "clock": "1792203864",
+        "name": "Linux: SRV01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1027",
+        "objectid": "22388",
+        "clock": "1792203877",
+        "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+      }
+    ]
+  },
+  {
+    "at_utc": "2026-10-17T02:25:31.349081+00:00",
+    "open_problems": [
+      {
+        "eventid": "1025",
+        "objectid": "25300",
+        "clock": "1792203856",
+        "name": "Linux: CLI01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1026",
+        "objectid": "25256",
+        "clock": "1792203864",
+        "name": "Linux: SRV01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1027",
+        "objectid": "22388",
+        "clock": "1792203877",
+        "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+      }
+    ]
+  },
+  {
+    "at_utc": "2026-10-17T02:25:42.339721+00:00",
+    "open_problems": [
+      {
+        "eventid": "1025",
+        "objectid": "25300",
+        "clock": "1792203856",
+        "name": "Linux: CLI01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1026",
+        "objectid": "25256",
+        "clock": "1792203864",
+        "name": "Linux: SRV01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1027",
+        "objectid": "22388",
+        "clock": "1792203877",
+        "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+      }
+    ]
+  },
+  {
+    "at_utc": "2026-10-17T02:25:53.355381+00:00",
+    "open_problems": [
+      {
+        "eventid": "1025",
+        "objectid": "25300",
+        "clock": "1792203856",
+        "name": "Linux: CLI01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1026",
+        "objectid": "25256",
+        "clock": "1792203864",
+        "name": "Linux: SRV01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1027",
+        "objectid": "22388",
+        "clock": "1792203877",
+        "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+      }
+    ]
+  },
+  {
+    "at_utc": "2026-10-17T02:26:04.367507+00:00",
+    "open_problems": [
+      {
+        "eventid": "1025",
+        "objectid": "25300",
+        "clock": "1792203856",
+        "name": "Linux: CLI01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1026",
+        "objectid": "25256",
+        "clock": "1792203864",
+        "name": "Linux: SRV01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1027",
+        "objectid": "22388",
+        "clock": "1792203877",
+        "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+      }
+    ]
+  },
+  {
+    "at_utc": "2026-10-17T02:26:15.419488+00:00",
+    "open_problems": [
+      {
+        "eventid": "1025",
+        "objectid": "25300",
+        "clock": "1792203856",
+        "name": "Linux: CLI01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1026",
+        "objectid": "25256",
+        "clock": "1792203864",
+        "name": "Linux: SRV01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1027",
+        "objectid": "22388",
+        "clock": "1792203877",
+        "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+      }
+    ]
+  },
+  {
+    "at_utc": "2026-10-17T02:26:26.926876+00:00",
+    "open_problems": [
+      {
+        "eventid": "1025",
+        "objectid": "25300",
+        "clock": "1792203856",
+        "name": "Linux: CLI01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1026",
+        "objectid": "25256",
+        "clock": "1792203864",
+        "name": "Linux: SRV01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1027",
+        "objectid": "22388",
+        "clock": "1792203877",
+        "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+      }
+    ]
+  },
+  {
+    "at_utc": "2026-10-17T02:26:37.959583+00:00",
+    "open_problems": [
+      {
+        "eventid": "1025",
+        "objectid": "25300",
+        "clock": "1792203856",
+        "name": "Linux: CLI01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1026",
+        "objectid": "25256",
+        "clock": "1792203864",
+        "name": "Linux: SRV01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1027",
+        "objectid": "22388",
+        "clock": "1792203877",
+        "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+      }
+    ]
+  },
+  {
+    "at_utc": "2026-10-17T02:26:49.092201+00:00",
+    "open_problems": [
+      {
+        "eventid": "1025",
+        "objectid": "25300",
+        "clock": "1792203856",
+        "name": "Linux: CLI01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1026",
+        "objectid": "25256",
+        "clock": "1792203864",
+        "name": "Linux: SRV01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1027",
+        "objectid": "22388",
+        "clock": "1792203877",
+        "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+      }
+    ]
+  },
+  {
+    "at_utc": "2026-10-17T02:27:00.296836+00:00",
+    "open_problems": [
+      {
+        "eventid": "1025",
+        "objectid": "25300",
+        "clock": "1792203856",
+        "name": "Linux: CLI01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1026",
+        "objectid": "25256",
+        "clock": "1792203864",
+        "name": "Linux: SRV01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1027",
+        "objectid": "22388",
+        "clock": "1792203877",
+        "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+      }
+    ]
+  },
+  {
+    "at_utc": "2026-10-17T02:27:11.243135+00:00",
+    "open_problems": [
+      {
+        "eventid": "1025",
+        "objectid": "25300",
+        "clock": "1792203856",
+        "name": "Linux: CLI01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1026",
+        "objectid": "25256",
+        "clock": "1792203864",
+        "name": "Linux: SRV01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1027",
+        "objectid": "22388",
+        "clock": "1792203877",
+        "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+      }
+    ]
+  },
+  {
+    "at_utc": "2026-10-17T02:27:22.276085+00:00",
+    "open_problems": [
+      {
+        "eventid": "1025",
+        "objectid": "25300",
+        "clock": "1792203856",
+        "name": "Linux: CLI01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1026",
+        "objectid": "25256",
+        "clock": "1792203864",
+        "name": "Linux: SRV01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1027",
+        "objectid": "22388",
+        "clock": "1792203877",
+        "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+      }
+    ]
+  },
+  {
+    "at_utc": "2026-10-17T02:27:33.822059+00:00",
+    "open_problems": [
+      {
+        "eventid": "1025",
+        "objectid": "25300",
+        "clock": "1792203856",
+        "name": "Linux: CLI01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1026",
+        "objectid": "25256",
+        "clock": "1792203864",
+        "name": "Linux: SRV01 has been restarted (uptime < 10m)"
+      },
+      {
+        "eventid": "1027",
+        "objectid": "22388",
+        "clock": "1792203877",
+        "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+      }
+    ]
+  },
+  {
+    "at_utc": "2026-10-17T02:28:23.035454+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:28:41.039587+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:28:59.043361+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:29:17.045867+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:29:35.050200+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:29:53.053709+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:30:11.056152+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:30:29.059556+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:30:47.062052+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:31:05.066247+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:31:23.069479+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:31:41.074756+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:31:59.077882+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:32:17.081379+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:32:35.084381+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:32:53.087704+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:33:11.090261+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:33:29.094004+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:33:47.097165+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:34:05.101454+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:34:23.104225+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:34:41.107385+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:34:59.111477+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:35:17.115297+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:35:35.119070+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:35:53.123263+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:36:11.125983+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:36:29.129675+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:36:47.135404+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:37:05.140431+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:37:23.143975+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:37:41.147570+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:37:59.150873+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:38:17.153430+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:38:35.156329+00:00",
+    "transport_error_type": "TimeoutError"
+  },
+  {
+    "at_utc": "2026-10-17T02:38:48.107630+00:00",
+    "open_problems": [
+      {
+        "eventid": "1027",
+        "objectid": "22388",
+        "clock": "1792203877",
+        "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+      }
+    ]
+  },
+  {
+    "at_utc": "2026-10-17T02:38:59.211210+00:00",
+    "open_problems": [
+      {
+        "eventid": "1027",
+        "objectid": "22388",
+        "clock": "1792203877",
+        "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+      }
+    ]
+  },
+  {
+    "at_utc": "2026-10-17T02:39:10.217476+00:00",
+    "open_problems": [
+      {
+        "eventid": "1027",
+        "objectid": "22388",
+        "clock": "1792203877",
+        "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+      }
+    ]
+  },
+  {
+    "at_utc": "2026-10-17T02:39:21.398506+00:00",
+    "open_problems": [
+      {
+        "eventid": "1027",
+        "objectid": "22388",
+        "clock": "1792203877",
+        "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+      }
+    ]
+  },
+  {
+    "at_utc": "2026-10-17T02:39:32.087338+00:00",
+    "open_problems": [
+      {
+        "eventid": "1027",
+        "objectid": "22388",
+        "clock": "1792203877",
+        "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+      }
+    ]
+  },
+  {
+    "at_utc": "2026-10-17T02:39:43.071141+00:00",
+    "open_problems": [
+      {
+        "eventid": "1027",
+        "objectid": "22388",
+        "clock": "1792203877",
+        "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+      }
+    ]
+  },
+  {
+    "at_utc": "2026-10-17T02:39:54.800945+00:00",
+    "open_problems": [
+      {
+        "eventid": "1027",
+        "objectid": "22388",
+        "clock": "1792203877",
+        "name": "Linux: Zabbix server has been restarted (uptime < 10m)"
+      }
+    ]
+  }
+]

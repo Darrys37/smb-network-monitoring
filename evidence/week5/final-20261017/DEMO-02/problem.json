@@ -1,0 +1,27 @@
+{
+  "eventid": "1044",
+  "source": "0",
+  "object": "0",
+  "objectid": "25334",
+  "clock": "1792204891",
+  "value": "1",
+  "acknowledged": "0",
+  "ns": "142663339",
+  "name": "SRV01: HTTP check failed",
+  "severity": "3",
+  "r_eventid": "0",
+  "c_eventid": "0",
+  "correlationid": "0",
+  "userid": "0",
+  "suppressed": "0",
+  "cause_eventid": "0",
+  "hosts": [
+    {
+      "hostid": "10683",
+      "host": "SRV01",
+      "name": "SRV01"
+    }
+  ],
+  "opdata": "",
+  "urls": []
+}
