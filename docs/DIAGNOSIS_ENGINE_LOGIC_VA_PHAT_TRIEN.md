@@ -2,7 +2,7 @@
 
 Đối tượng đọc: AI hoặc lập trình viên tiếp nhận đồ án. Tài liệu đủ để hiểu kiến trúc, lần theo một ca xử lý và chọn đúng phần source cần sửa, thay vì đọc toàn bộ repository. Khi thực sự thay đổi tính năng, vẫn phải đọc và kiểm tra những hàm bị tác động; đây không phải cam kết mọi thay đổi đều an toàn chỉ bằng tài liệu.
 
-**Phiên bản tài liệu: bản cleanup ngày 17/10/2026, sau mốc kỹ thuật `26b581e` / tag `week5-technical-20261017`.** Tài liệu mô tả source mới trong cùng commit với nó. Tag tuần 5 và evidence gốc vẫn là mốc lịch sử; không lấy hash source cũ để khẳng định code mới chưa thay đổi. Những mục “hướng phát triển” vẫn là đề xuất, chưa phải chức năng đã có.
+**Phiên bản tài liệu: bản tối ưu đọc Zabbix ngày 17/10/2026, sau cleanup `7d32be7`; mốc kỹ thuật tuần 5 vẫn là `26b581e` / tag `week5-technical-20261017`.** Tài liệu mô tả source mới trong cùng commit với nó. Tag tuần 5 và evidence gốc vẫn là mốc lịch sử; không lấy hash source cũ để khẳng định code mới chưa thay đổi. Những mục “hướng phát triển” vẫn là đề xuất, chưa phải chức năng đã có.
 
 ## 1. Hiểu hệ thống trong hai phút
 
@@ -61,8 +61,12 @@ Khi dùng `--dns-evidence`, CLI bắt buộc có cả `--dns-name` và `--dns-co
 build_parser → parse args → validate_args
   → require_open_event(event_id, host_id)
   → ghi collection_started = Unix seconds
-  → collect_evidence: ping target + TCP80 + bốn metric ngữ cảnh
-  → nếu roadmap: TCP10050 + agent_metric + cpu_history
+  → collect_evidence: ping target + TCP80
+  → nếu legacy: bốn metric ngữ cảnh, kết thúc collection
+  → nếu roadmap: TCP10050 → collect_roadmap_metrics(host_id)
+      → một item.get lấy sáu key, ghi thời điểm nhận phản hồi
+      → bốn metric ngữ cảnh + agent_metric
+      → history.get CPU nếu item CPU dùng được → cpu_history
   → ping control nếu có và khác target
   → nạp external HTTP/DNS nếu được cung cấp
   → evaluate_evidence → diagnose_roadmap(...) → sáu DiagnosisRecord
@@ -71,7 +75,7 @@ build_parser → parse args → validate_args
   → nếu --save: init_db → save_incident_bundle → incident_id
 ```
 
-Collection diễn ra tuần tự, không phải snapshot nguyên tử của cả lab. `now` đánh giá luật được lấy sau khi thu. Evidence phản ánh lúc thu, **không tự tái dựng trạng thái tại event.clock**. Engine có thể được gọi muộn sau event; cần phân biệt event time, collection time và sample time của metric.
+Collection diễn ra tuần tự, không phải snapshot nguyên tử của cả lab. Trong roadmap, bốn metric, agent_metric và cpu_history dùng cùng mốc thời gian nhận một phản hồi item.get; sample_clock vẫn là thời điểm mẫu do Zabbix trả về. History là lời gọi riêng, kết thúc cửa sổ tại mốc nhận item.get. Xem mục 17 về giới hạn đồng thời và số request. `now` đánh giá luật được lấy sau khi thu. Evidence phản ánh lúc thu, **không tự tái dựng trạng thái tại event.clock**. Engine có thể được gọi muộn sau event; cần phân biệt event time, collection time và sample time của metric.
 
 `require_open_event` làm hai lời gọi: problem.get để bảo đảm event còn trong tập problem có quyền đọc trên host; event.get để kiểm tra ID, value1, r_eventid0 và host membership. Parser chuẩn hóa ID thành chuỗi số, clock/severity/value thành số nguyên, không chấp nhận bool thay số nguyên.
 
@@ -413,13 +417,13 @@ Roadmap môn học đã đóng phần kỹ thuật, từ ngày31 không thêm fe
 | 2 | `app.main()` | Chỉ điều phối các bước; không chứa điều kiện chi tiết R1–R6 |
 | 3 | `build_parser()` / `validate_args()` | Người vận hành khai báo host/event/scope/observer và file probe |
 | 4 | `require_open_event()` | Xác minh problem còn mở, đúng host trước và sau collection |
-| 5 | `collect_evidence()` | Thu tuần tự; giữ nguyên thứ tự cũ; importer chỉ đọc file ngoài |
+| 5 | `collect_evidence()` | Probe target trước; roadmap gộp item.get; importer chỉ đọc file ngoài |
 | 6 | `evaluate_evidence()` / `diagnose_roadmap()` | Chọn bộ luật, áp dụng scope và trả sáu kết quả độc lập |
 | 7 | `r1()` … `r6()` | Mỗi hàm đọc bằng chứng, xét điều kiện, trả lý do và dữ liệu thiếu |
 | 8 | `print_assessment()` / `save_incident_bundle()` | Trình bày và ghi transaction; rule không trực tiếp ghi DB |
 | 9 | `sync_recovery()` / `load_report()` | Bổ sung recovery xác minh, rồi đọc hồ sơ cũ để báo cáo |
 
-Tên `r1`–`r6`, rule_id, schema SQLite, thứ tự output và dòng `Saved incident ID:` được giữ để tương thích. Biến ngắn như p/t/a trong luật đã đổi thành `target_ping`, `target_tcp`, `agent`; mỗi hàm có mô tả trách nhiệm. R6 tách `_validated_cpu_samples()` và `_validated_cpu_support()` để phần kết luận chỉ còn bốn ý: history dùng được → đủ độ phủ → CPU cao → có load/count hỗ trợ.
+Tên `r1`–`r6`, rule_id, schema SQLite, thứ tự kết luận R1–R6 và dòng `Saved incident ID:` được giữ để tương thích. Biến ngắn như p/t/a trong luật đã đổi thành `target_ping`, `target_tcp`, `agent`; mỗi hàm có mô tả trách nhiệm. R6 tách `_validated_cpu_samples()` và `_validated_cpu_support()` để phần kết luận chỉ còn bốn ý: history dùng được → đủ độ phủ → CPU cao → có load/count hỗ trợ.
 
 ### 16.2. Policy dùng chung
 
@@ -478,3 +482,45 @@ SQLite trước/sau đồng bộ giữ 39 incidents, 301 evidence, 172 diagnoses
 Source MON01 trước cập nhật được giữ tại `/home/phat/diagnosis-before-cleanup-20261017T100804Z`. Bản probe cũ SRV01 ở `/home/phat/probes-before-cleanup-20261017T100902Z`; bản probe cũ CLI01 ở `/home/phat/probes-before-cleanup-20261017T101001Z`. Đây là backup source tại VM; không thay thế backup SQLite nhất quán hoặc bản ngoài thiết bị.
 
 Trong phiên làm việc, MON01 từng mất phản hồi; người thực hiện đã reset VM. Sau reset đã kiểm tra lại SSH, dịch vụ, tính toàn vẹn DB rồi mới đồng bộ source. Chưa xác định nguyên nhân gián đoạn VM, nên kết quả kiểm thử code không được diễn giải thành đã loại trừ mọi lỗi vận hành VirtualBox. Không có fault mới được chủ động tạo trong cleanup này.
+
+
+## 17. Tối ưu đọc Zabbix sau cleanup
+
+### 17.1. Vấn đề và cách xử lý
+
+Trước tối ưu, một lượt roadmap đọc item ba lần: bốn metric ngữ cảnh; agent.ping; CPU util/count/load. CPU util và load bị lấy lặp. `collect_roadmap_metrics(host_id)` hiện lấy hợp của sáu key bằng một `item.get`, sau đó dùng chính dữ liệu đó để xây dựng sáu EvidenceRecord. History CPU vẫn dùng `history.get` riêng khi item CPU tồn tại, enabled, supported và có đơn vị `%`.
+
+| Phần đọc API trong một lượt roadmap thành công, có history CPU | Trước (`7d32be7`) | Sau |
+|---|---:|---:|
+| item.get | 3 | 1 |
+| history.get | 1 | 1 |
+| problem.get + event.get trước/sau collection | 4 | 4 |
+| Tổng | 8 | 6 |
+
+Số request giảm 25% cho đường chạy trên, không có nghĩa thời gian chạy giảm 25%. Nếu CPU item thiếu hoặc không dùng được thì không gọi history; nếu xảy ra lỗi thì luồng có thể dừng sớm. Không bỏ lần xác minh event cuối để tiết kiệm request.
+
+### 17.2. Cách đọc source mới
+
+- `evidence.METRIC_UNITS`: bốn metric ngữ cảnh và đơn vị mong đợi.
+- `evidence.metric_records_from_items(...)`: chuẩn hóa dữ liệu đã có, không gọi mạng; `collect_metrics(...)` vẫn là collector độc lập cho legacy/caller cũ.
+- `roadmap_evidence.collect_roadmap_metrics(...)`: lấy sáu key một lần, ghi `now` sau khi nhận phản hồi, tạo bốn metric, agent_metric và cpu_history.
+- `_agent_metric_from_items(...)`: diễn giải item agent đã nhận; giữ quy tắc stale trước unsupported.
+- `_cpu_history_from_items(...)`: dùng item CPU/support đã nhận để yêu cầu và kiểm tra history; hàm này vẫn có I/O, không phải hàm thuần.
+- `collect_agent_metric(...)` và `collect_cpu_history(...)` còn dùng được độc lập; CLI roadmap dùng hàm gộp, không gọi thêm hai hàm này.
+
+Không có cache toàn cục hay tái sử dụng dữ liệu từ lượt trước/host khác. Mẫu cũ vẫn bị đánh giá theo `lastclock`; lấy cùng phản hồi không biến sáu item thành mẫu được Zabbix đo cùng lúc. `now` đánh giá luật vẫn lấy sau toàn bộ collection, nên thời gian chờ history/probe tiếp theo vẫn làm evidence già đi bình thường.
+
+Thứ tự evidence mới là ping target → TCP80 → TCP10050 → bốn metric → agent_metric → cpu_history → control/probe ngoài. Rule chọn theo loại/target/port và timestamp, không dựa vào chỉ số vị trí trong list. Caller mới cũng phải dùng các thuộc tính này. Legacy giữ luồng ping → TCP80 → bốn metric. Không đổi schema SQLite, schema report/probe, default HTTP scope hay điều kiện R1–R6.
+
+### 17.3. Kiểm chứng và giới hạn
+
+- 369 tests đạt trên Windows và bản thử riêng trên MON01; Ruff lint/format đạt. 14 test mới tập trung vào số request, thời điểm nhận dữ liệu, không giữ cache, nhánh legacy và không ghi DB khi item/history API lỗi.
+- 15 tình huống collector được đối chiếu với source chưa sửa ở `7d32be7`, cùng dữ liệu và thời gian cho cùng EvidenceRecord. Đây là so sánh dữ liệu cố định, không cam kết hai lần đo live khác nhau phải giống nhau.
+- Đánh giá lại 18 hồ sơ tuần 4: đủ 108 kết luận giữ nguyên mọi trường. Hồ sơ cũ và tag nghiệm thu không bị sửa.
+- Thu thử thật trên MON01 với SRV01 bình thường: 10 evidence, đúng một item.get và một history.get. Không có DNS probe nên R4 trả insufficient_evidence; năm luật còn lại not_matched. Lần thu này không tạo incident, không tiêm fault.
+- Mốc thời gian chung được lấy khi nhận item.get, thay cho các mốc riêng trước đây. Gần ranh giới freshness hoặc khi hệ thống đang chuyển trạng thái, dữ liệu live có thể khác; đây không phải thay ngưỡng luật. Chưa có benchmark trước/sau đủ để công bố tỷ lệ tăng tốc.
+
+Khi thêm metric mới vào roadmap, ưu tiên thêm key vào lần đọc chung rồi chuẩn hóa thành evidence; không đặt API call trong rule. Nếu phát triển cache dài hạn hoặc chạy song song, cần thiết kế riêng freshness, thời điểm quan sát, lỗi từng nguồn và quyền ghi hồ sơ.
+
+
+Bản tối ưu đã triển khai trên MON01 và đạt lại 369 tests sau triển khai; DB runtime và `.env` không đổi. Source trước tối ưu được lưu tại `/home/phat/diagnosis-before-optimization-20261017T124751Z`. Probe HTTP/DNS không đổi giao thức hoặc cách gọi; đợt này không tạo fault mới.

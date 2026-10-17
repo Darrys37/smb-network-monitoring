@@ -3,15 +3,37 @@
 import math
 import time
 
+from evidence import METRIC_UNITS, metric_records_from_items
 from models import EvidenceRecord
 from policy import CPU_HISTORY_WINDOW_SECONDS, EVIDENCE_MAX_AGE_SECONDS
 from zabbix_client import get_item_history, get_items_by_keys
+
+
+def collect_roadmap_metrics(host_id):
+    """Read item values once per run; history still needs its own API request.
+
+    All six records share the time when item.get returned. Sample clocks stay
+    unchanged, and CPU history ends at this time. No cache survives this call.
+    """
+    keys = [*METRIC_UNITS, "agent.ping", "system.cpu.num"]
+    items = get_items_by_keys(host_id, keys)
+    now = int(time.time())
+    agent_items = [item for item in items if item["key_"] == "agent.ping"]
+    return [
+        *metric_records_from_items(host_id, items, now, EVIDENCE_MAX_AGE_SECONDS),
+        _agent_metric_from_items(host_id, agent_items, now, EVIDENCE_MAX_AGE_SECONDS),
+        _cpu_history_from_items(host_id, items, now),
+    ]
 
 
 def collect_agent_metric(host_id, max_age=EVIDENCE_MAX_AGE_SECONDS):
     """Stale enabled agent data is no_data, even if its current state is unsupported."""
     now = int(time.time())
     items = get_items_by_keys(host_id, ["agent.ping"])
+    return _agent_metric_from_items(host_id, items, now, max_age)
+
+
+def _agent_metric_from_items(host_id, items, now, max_age):
     result = {"key": "agent.ping", "status": "missing", "max_age_seconds": max_age}
     if len(items) == 1:
         item = items[0]
@@ -41,6 +63,13 @@ def collect_agent_metric(host_id, max_age=EVIDENCE_MAX_AGE_SECONDS):
 def collect_cpu_history(host_id):
     """Collect the five-minute numeric history and raw corroborating items."""
     now = int(time.time())
+    items = get_items_by_keys(
+        host_id, ["system.cpu.util", "system.cpu.num", "system.cpu.load[all,avg1]"]
+    )
+    return _cpu_history_from_items(host_id, items, now)
+
+
+def _cpu_history_from_items(host_id, items, now):
     result = {
         "key": "system.cpu.util",
         "units": "%",
@@ -48,9 +77,6 @@ def collect_cpu_history(host_id):
         "window_seconds": CPU_HISTORY_WINDOW_SECONDS,
         "samples": [],
     }
-    items = get_items_by_keys(
-        host_id, ["system.cpu.util", "system.cpu.num", "system.cpu.load[all,avg1]"]
-    )
     by_key = {item["key_"]: item for item in items}
     result["support_items"] = {
         key: by_key[key] for key in ("system.cpu.num", "system.cpu.load[all,avg1]") if key in by_key

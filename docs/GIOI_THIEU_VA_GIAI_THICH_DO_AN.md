@@ -1,6 +1,6 @@
 # Giới thiệu và giải thích đồ án giám sát mạng
 
-Bản giới thiệu cập nhật theo cleanup ngày 17/10/2026. Kết quả thực nghiệm tuần 4–5 được giữ là kết quả lịch sử; phần cleanup có kiểm thử hồi quy riêng.
+Bản giới thiệu cập nhật theo cleanup và tối ưu đọc Zabbix ngày 17/10/2026. Kết quả thực nghiệm tuần 4–5 được giữ là kết quả lịch sử; các thay đổi sau đó có kiểm thử hồi quy riêng.
 
 ## 1. Đồ án làm gì?
 
@@ -154,3 +154,15 @@ Bản cleanup đạt **355 kiểm thử trên Windows và MON01**, giữ nguyên
 Khi bảo vệ, nên mở `app.main()` để giải thích luồng, chọn R2/R5 để chứng minh vai trò của các góc nhìn, rồi mở một report cũ để chỉ ra evidence, reasoning và recovery. Tài liệu kỹ thuật kèm theo có bảng đọc source theo từng bước và đoạn trình bày ngắn ở mục 16.
 
 Source đã đồng bộ trên MON01; HTTP probe trên SRV01 và DNS probe trên CLI01 đã kiểm tra bằng phép đo thật ở trạng thái bình thường. SQLite và cấu hình bí mật giữ nguyên. MON01 có một lần mất phản hồi trong phiên làm việc, được người thực hiện reset rồi kiểm tra lại trước khi cập nhật; nguyên nhân gián đoạn VM chưa được kết luận.
+
+
+## 14. Tối ưu sau cleanup: đọc dữ liệu một lần cho mỗi lượt
+
+Engine trước đây hỏi Zabbix ba lần để lấy các item của cùng host. Bản mới gom sáu key vào một lần đọc, rồi dùng chung dữ liệu đó cho metric ngữ cảnh, Agent và phần hỗ trợ chẩn đoán CPU. History CPU vẫn đọc riêng. Với lượt roadmap thành công có history, tổng request giảm từ 8 xuống 6; hai lần kiểm tra event vẫn đầy đủ.
+
+Các mẫu vẫn giữ thời điểm đo thật, nên mẫu cũ không trở thành mẫu mới chỉ vì vừa gọi API. Không dùng lại dữ liệu từ lượt trước. Cách gộp này giảm thao tác lặp và làm luồng dễ giải thích hơn; chưa có đo đạc đủ để khẳng định tăng tốc một tỷ lệ cụ thể.
+
+Bản tối ưu đạt 369 tests trên Windows và bản thử riêng trên MON01, so sánh 15 tình huống collector với bản trước và đánh giá lại đủ 108 kết luận cũ. Phép thu thật ở trạng thái bình thường xác nhận đúng một lần đọc item và một lần đọc history, không tạo incident mới. Chi tiết về thứ tự thu, thời điểm dữ liệu và cách thêm tính năng nằm ở mục 17 tài liệu logic.
+
+
+Bản tối ưu đã triển khai trên MON01 và đạt lại 369 tests sau triển khai; DB runtime và `.env` không đổi. Source trước tối ưu được lưu tại `/home/phat/diagnosis-before-optimization-20261017T124751Z`. Probe HTTP/DNS không đổi giao thức hoặc cách gọi; đợt này không tạo fault mới.

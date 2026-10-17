@@ -34,17 +34,15 @@ def setup(monkeypatch):
     monkeypatch.setattr(app, "collect_metrics", lambda _: [])
     monkeypatch.setattr(
         app,
-        "collect_agent_metric",
-        lambda h: EvidenceRecord(
-            "agent_metric", h, 1700000086, {"key": "agent.ping", "status": "missing"}
-        ),
-    )
-    monkeypatch.setattr(
-        app,
-        "collect_cpu_history",
-        lambda h: EvidenceRecord(
-            "cpu_history", h, 1700000086, {"key": "system.cpu.util", "status": "missing"}
-        ),
+        "collect_roadmap_metrics",
+        lambda h: [
+            EvidenceRecord(
+                "agent_metric", h, 1700000086, {"key": "agent.ping", "status": "missing"}
+            ),
+            EvidenceRecord(
+                "cpu_history", h, 1700000086, {"key": "system.cpu.util", "status": "missing"}
+            ),
+        ],
     )
 
 
@@ -86,7 +84,7 @@ def test_app_api_failure_does_not_mutate_existing_db(tmp_path, monkeypatch):
     def fail(_):
         raise RuntimeError("Zabbix API connection error")
 
-    monkeypatch.setattr(app, "collect_metrics", fail)
+    monkeypatch.setattr(app, "collect_roadmap_metrics", fail)
     monkeypatch.setattr("sys.argv", ["app.py", "--event-id", "458", "--save", "--db", str(db)])
     with pytest.raises(RuntimeError):
         app.main()

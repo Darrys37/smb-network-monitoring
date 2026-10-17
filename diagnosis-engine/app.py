@@ -15,7 +15,7 @@ from evidence import collect_metrics, collect_ping, collect_tcp
 from http_evidence import load_http_evidence
 from policy import DEFAULT_HTTP_SERVICE, HTTP_SERVICE_SCOPES
 from repository import DEFAULT_DB_PATH, init_db, save_incident_bundle
-from roadmap_evidence import collect_agent_metric, collect_cpu_history
+from roadmap_evidence import collect_roadmap_metrics
 from roadmap_rules import diagnose_roadmap
 from rules import diagnose_all
 from zabbix_client import get_event_by_id, get_open_problems
@@ -86,22 +86,17 @@ def validate_args(parser, args):
 
 
 def collect_evidence(args):
-    """Collect sequentially in the original order; failures abort the run."""
+    """Probe the target, batch item reads, then collect/import extra evidence."""
     records = [
         collect_ping(args.target_ip),
         collect_tcp(args.target_ip, 80),
-        *collect_metrics(args.host_id),
     ]
 
     if args.ruleset == "legacy":
+        records.extend(collect_metrics(args.host_id))
         return records
-    records.extend(
-        [
-            collect_tcp(args.target_ip, 10050),
-            collect_agent_metric(args.host_id),
-            collect_cpu_history(args.host_id),
-        ]
-    )
+    records.append(collect_tcp(args.target_ip, 10050))
+    records.extend(collect_roadmap_metrics(args.host_id))
     if args.control_ip and args.control_ip != args.target_ip:
         records.append(collect_ping(args.control_ip))
     if args.http_evidence:

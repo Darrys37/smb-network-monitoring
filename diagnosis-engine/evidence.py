@@ -7,6 +7,13 @@ import time
 
 from models import EvidenceRecord
 
+METRIC_UNITS = {
+    "system.cpu.util": "%",
+    "vm.memory.util": "%",
+    "system.cpu.load[all,avg1]": "",
+    "vfs.fs.dependent.size[/,pused]": "%",
+}
+
 
 def get_host_metrics(*args, **kwargs):
     from zabbix_client import get_host_metrics as fetch_metrics
@@ -219,19 +226,20 @@ def collect_metrics(host_id: str, max_age: int = 180):
     if type(max_age) is not int or max_age <= 0:
         raise ValueError("max_age must be a positive integer")
 
-    expected = {
-        "system.cpu.util": "%",
-        "vm.memory.util": "%",
-        "system.cpu.load[all,avg1]": "",
-        "vfs.fs.dependent.size[/,pused]": "%",
-    }
-
     items = get_host_metrics(host_id)
     collected_at = int(time.time())
+    return metric_records_from_items(host_id, items, collected_at, max_age)
+
+
+def metric_records_from_items(host_id, items, collected_at, max_age=180):
+    """Normalize the four context metrics without fetching data again."""
+    if type(max_age) is not int or max_age <= 0:
+        raise ValueError("max_age must be a positive integer")
+
     by_key = {item["key_"]: item for item in items}
     records = []
 
-    for key, units in expected.items():
+    for key, units in METRIC_UNITS.items():
         item = by_key.get(key)
         result = {
             "key": key,

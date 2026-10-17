@@ -1,4 +1,4 @@
-# Diagnosis engine — bản cleanup sau tuần 5
+# Diagnosis engine — bản tối ưu sau tuần 5
 
 Python CLI, Zabbix API và SQLite. Sáu luật roadmap có matched/not_matched/insufficient_evidence; người vận hành chọn event và quyết định xử lý. Không có daemon hoặc tự khắc phục.
 
@@ -80,3 +80,17 @@ python -m pytest -q
 
 Các báo cáo nghiệm thu tuần 5 mô tả phiên bản đã đóng tại tag
 `week5-technical-20261017`; hai tài liệu trên mô tả source sau cleanup.
+
+
+## Tối ưu đọc item ngày 17/10/2026
+
+CLI roadmap dùng `collect_roadmap_metrics()` đọc sáu key một lần, rồi tạo bốn
+metric ngữ cảnh, agent_metric và cpu_history. History CPU vẫn có request riêng.
+Với lượt thành công có history, tổng API giảm từ 8 xuống 6; vẫn kiểm tra event
+trước/sau collection. Không có cache qua các lượt; không đổi tuổi mẫu hoặc rule.
+
+369 tests đạt trên Windows và bản thử riêng trên MON01. 15 tình huống collector
+khớp source `7d32be7`; 108 kết luận lịch sử giữ nguyên. Thu thật ở trạng thái
+bình thường xác nhận một item.get và một history.get. Chưa có benchmark để công
+bố tỷ lệ tăng tốc. Xem mục 17 tài liệu logic để hiểu mốc thời gian chung và thứ
+tự evidence mới; các kết quả 355 tests ở trên thuộc đợt cleanup trước đó.

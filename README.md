@@ -145,3 +145,14 @@ Chương2/3 đã hoàn thiện kỹ thuật và có bản báo cáo tổng hợp
 - [Kết quả và phần cần người thực hiện xác nhận](docs/TONG_HOP_TUAN_5.markdown).
 
 Tệp tổng hợp cuối công bố kết quả test/demo thực tế, bản nộp và vị trí backup; không dùng các ghi chú tiến độ cũ làm trạng thái hiện tại.
+
+
+## Cập nhật tối ưu sau cleanup
+
+Ngày 17/10/2026: gộp ba lần `item.get` thành một lần trong mỗi lượt roadmap;
+giữ history CPU và kiểm tra event trước/sau. Đường chạy thành công có history
+dùng 6 request thay cho 8. Không đổi điều kiện sáu luật hoặc cấu trúc hồ sơ.
+369 tests đạt trên Windows và bản thử riêng trên MON01; 108 kết luận cũ giữ
+nguyên khi đánh giá lại. Chi tiết và giới hạn nằm ở mục 17 của
+[tài liệu logic](docs/DIAGNOSIS_ENGINE_LOGIC_VA_PHAT_TRIEN.md) và mục 14 của
+[tài liệu giới thiệu](docs/GIOI_THIEU_VA_GIAI_THICH_DO_AN.md).
