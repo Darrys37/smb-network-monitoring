@@ -7,6 +7,8 @@ import shlex
 import time
 import uuid
 
+from paramiko import SSHException, AuthenticationException, BadHostKeyException
+
 from .collector import collect
 from .core import LABELS, read, register, review, save_new
 from .faults import plan, scripts
@@ -68,12 +70,20 @@ class Pilot:
     def __init__(self, transport, root, engine, profile, log=print):
         self.transport,self.root,self.engine,self.profile,self.log = transport,Path(root),Path(engine),profile,log
 
-    def wait_baseline(self, limit=480):
+    def wait_baseline(self, limit=1200):
         deadline=time.monotonic()+limit
         while True:
-            service=self.transport.runner('srv01', SERVICE_STATUS)
-            monitor=self.transport.runner('mon01', MON_STATUS)
-            if baseline_ok(service,monitor): return {'service':service,'monitor':monitor}
+            try:
+                service=self.transport.runner('srv01', SERVICE_STATUS)
+                monitor=self.transport.runner('mon01', MON_STATUS)
+            except (AuthenticationException, BadHostKeyException):
+                raise
+            except (SSHException, OSError, TimeoutError) as exc:
+                # A control-channel timeout does not certify a healthy baseline.
+                self.transport.drop('srv01');self.transport.drop('mon01')
+                self.log(json.dumps({'state':'baseline_probe_error','error_type':type(exc).__name__}),flush=True)
+            else:
+                if baseline_ok(service,monitor): return {'service':service,'monitor':monitor}
             if time.monotonic()>=deadline: raise RuntimeError('Baseline did not stabilize')
             self.log(json.dumps({'state':'waiting_baseline','at':int(time.time())}),flush=True)
             time.sleep(15)

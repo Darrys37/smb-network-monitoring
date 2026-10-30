@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-30T17:15:59.229776+07:00",
+  "generated_at": "2026-10-30T17:28:59.247331+07:00",
   "source_commit": "34bf592cf83e0fa39d36a1fecf8a836d3dc25eab",
   "engine_tree": "44ced0643fb0d3c34673ab5b2912a5645b2894c6",
   "repository": "https://github.com/Darrys37/smb-network-monitoring",
@@ -18,7 +18,7 @@
   },
   "files": {
     "00_BAT_DAU_O_DAY.md": "8620cc3d716bc60cc96e3b40e336013f03e7fc709dce5b5d81bb642b6a5499c1",
-    "01_HIEN_TRANG_VA_CACH_TIEP_TUC.md": "4e545c701ac75c06544bb1c711e2cf1b695cc4f95d53d3ec7876b3073e5fa9bb",
+    "01_HIEN_TRANG_VA_CACH_TIEP_TUC.md": "0ada55e33e8d397ba31a2dbfece5dc95bd4de3b688cf0a10aae7c90036968b3c",
     "02_GIOI_THIEU_DO_AN.md": "4819b1b1ae2a54316de55ae55d193cbd4e9492702557b29963d794dd27364f5a",
     "03_LOGIC_DIAGNOSIS_ENGINE.md": "639d8c95357c965f9adb2a33dffa2ba49a8094d249063cf302ab931b9e4392ae"
   }

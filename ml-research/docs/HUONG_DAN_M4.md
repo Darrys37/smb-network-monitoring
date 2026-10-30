@@ -54,3 +54,7 @@ M4 có code benchmark; M5 cần bộ mới khóa riêng. SQLite hiện là proto
 - [Định nghĩa support, confidence, lift](https://rasbt.github.io/mlxtend/user_guide/frequent_patterns/association_rules/).
 - [Cấu trúc cây sklearn](https://scikit-learn.org/stable/auto_examples/tree/plot_unveil_tree_structure.html).
 - [Chia tập theo nhóm và thời gian](https://scikit-learn.org/stable/modules/cross_validation.html).
+
+## Độ ổn định điều phối
+
+Sau timeout SSH thật, đã thêm retry có giới hạn cho bước kiểm tra baseline, không retry che lỗi observation. Authentication/host key lỗi vẫn dừng. Deadline baseline tối đa 20 phút; không hạ tiêu chí CPU/history/dịch vụ/cảnh báo. Cảnh báo load average phải tự phục hồi trước lượt mới. Các attempt gián đoạn vẫn uncertain và retry có ID mới. Bộ kiểm thử sau sửa có 36 tests đạt.

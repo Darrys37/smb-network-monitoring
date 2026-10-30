@@ -9,15 +9,20 @@ class SSHTransport:
         self.password, self.clients = password, {}
 
     def command(self, host, command, stdin_data=None):
-        if host in self.clients and not self.clients[host].get_transport().is_active():
-            self.drop(host)
+        if host in self.clients:
+            active=self.clients[host].get_transport()
+            if active is None or not active.is_active():self.drop(host)
         if host not in self.clients:
             ip = {'mon01':'192.168.56.10','srv01':'192.168.56.20','cli01':'192.168.56.30'}[host]
             client = paramiko.SSHClient()
             client.load_host_keys(str(Path.home()/'.ssh/known_hosts'))
             client.set_missing_host_key_policy(paramiko.RejectPolicy())
-            client.connect(ip, username='phat', password=self.password, look_for_keys=False,
-                           allow_agent=False, timeout=8, auth_timeout=8)
+            try:
+                client.connect(ip, username='phat', password=self.password, look_for_keys=False,
+                               allow_agent=False, timeout=8, auth_timeout=8)
+            except Exception:
+                client.close()
+                raise
             self.clients[host] = client
         try:
             stdin, stdout, stderr = self.clients[host].exec_command(command, timeout=12)
