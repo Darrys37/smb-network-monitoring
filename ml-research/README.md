@@ -37,3 +37,7 @@ Fault interface-down có thể làm mất cả SSH tới observer. Source errors
 Execution-snapshots lưu source và hash khi mở mỗi batch mới. Batch đầu tiên trước khi thêm cơ chế này là dữ liệu pilot kiểm tra protocol, chưa có source manifest lúc khởi chạy; không dùng nó làm test cuối. Các script shell thực thi và log phải được lưu cùng evidence khi tổng kết.
 
 Dataset export hiện chỉ là dữ liệu pilot, mỗi valid run một dòng. Feature whitelist gồm 7 cột trạng thái và 5 cột số, thuộc các nhóm quan sát đã công bố; chưa phải đúng bảy scalar. CPU mean chỉ có khi history đủ độ phủ; chưa thay thế toàn bộ semantics R6 vì chưa có load/core trong feature v2. Không gọi CSV này là bằng chứng mô hình đã đạt chất lượng.
+
+## Pipeline M4 và demo candidate
+
+Code offline M4 và wrapper shadow đã được thêm; việc train vẫn bị chặn khi lịch pilot chưa hoàn tất. Đọc [hướng dẫn M4](docs/HUONG_DAN_M4.md), STATUS.md và AUTORUN_RESULT.md nếu đã được sinh. Không dùng trạng thái code đã có để suy ra benchmark đã chạy xong.
