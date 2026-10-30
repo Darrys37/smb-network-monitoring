@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "labels": {
+    "healthy": {"family": [], "verification": "services, connectivity and workload checks"},
+    "interface_down": {"family": ["host_or_local_connectivity"], "verification": "interface state and independent fault markers"},
+    "nginx_stopped": {"family": ["http_service"], "verification": "systemctl nginx and local listener"},
+    "agent_stopped": {"family": ["agent_unavailable"], "verification": "systemctl zabbix-agent2 and listener"},
+    "dns_egress_blocked": {"family": ["dns_path"], "verification": "DNS firewall counters and control connectivity"},
+    "remote_http_filtered": {"family": ["http_access_path"], "verification": "firewall rule/counters and local HTTP"},
+    "cpu_stress": {"family": ["sustained_cpu_high"], "verification": "stress process, CPU history and load"}
+  },
+  "validity_states": ["pending", "valid", "invalid", "uncertain"],
+  "note": "Injection labels are not universal causal conclusions. Multi-fault requires a label set."
+}

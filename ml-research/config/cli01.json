@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "profile_id": "cli01-client-v1",
+  "host_id": "10684",
+  "target_ip": "192.168.56.30",
+  "observer": "cli01",
+  "control_ip": "192.168.56.20",
+  "http_service": "absent",
+  "dns_name": "example.com",
+  "dns_control_ip": "1.1.1.1",
+  "topology_version": "host-only-flat-v1"
+}

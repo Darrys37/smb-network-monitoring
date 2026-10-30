@@ -1,0 +1,23 @@
+{
+  "run_id": "nginx-20261030T061649Z",
+  "session_id": "pilot-session-01",
+  "rollback_verified": true,
+  "review": {
+    "schema_version": 1,
+    "session_id": "pilot-session-01",
+    "run_id": "nginx-20261030T061649Z",
+    "registration_sha256": "fc2460b9279e362db40f135331107a6ae93a7bb1e9f9a0db416a8822aa9a7081",
+    "reviewed_at": 1793341062,
+    "validity": "valid",
+    "labels": [
+      "nginx_stopped"
+    ],
+    "references": [
+      {
+        "sha256": "62298e72296058ea52321da5e2a100abcb2487d64a15d6ab4440bbf83da17904",
+        "original_name": "independent-service-log.json"
+      }
+    ]
+  },
+  "note": "First pilot trial only, not a complete dataset"
+}

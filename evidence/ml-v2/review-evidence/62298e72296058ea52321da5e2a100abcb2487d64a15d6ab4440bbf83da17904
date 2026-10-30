@@ -1,0 +1,38 @@
+[
+  {
+    "stage": "preflight",
+    "observed_at": 1793341027,
+    "output": "1793341026\nactive\nactive\n200",
+    "exit": 0
+  },
+  {
+    "stage": "fault_verified",
+    "observed_at": 1793341028,
+    "output": "1793341027\ninactive\nactive\n000",
+    "exit": 0
+  },
+  {
+    "stage": "fault_hold",
+    "observed_at": 1793341040,
+    "output": "1793341039\ninactive\nactive\n000",
+    "exit": 0
+  },
+  {
+    "stage": "fault_hold",
+    "observed_at": 1793341050,
+    "output": "1793341049\ninactive\nactive\n000",
+    "exit": 0
+  },
+  {
+    "stage": "fault_hold",
+    "observed_at": 1793341060,
+    "output": "1793341060\ninactive\nactive\n000",
+    "exit": 0
+  },
+  {
+    "stage": "rollback_verified",
+    "observed_at": 1793341062,
+    "output": "1793341061\nactive\nactive\n200",
+    "exit": 0
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "baseline_tests": 369,
+  "new_contract_tests": 8,
+  "live_smoke_srv01_evidence": 13,
+  "live_smoke_cli01_evidence": 12,
+  "valid_fault_runs": 1,
+  "fault_observations": 2,
+  "fault_event": "1144",
+  "recovery_event": "1145",
+  "runtime_incidents": 39,
+  "engine_source_changed": false,
+  "milestones": {
+    "M1": "implemented",
+    "M2": "implemented and live smoke tested",
+    "M3": "started; one fault only",
+    "M4": "not started"
+  }
+}

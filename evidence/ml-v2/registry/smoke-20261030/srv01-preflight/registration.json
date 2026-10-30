@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "session_id": "smoke-20261030",
+  "run_id": "srv01-preflight",
+  "planned_labels": [
+    "healthy"
+  ],
+  "registered_at": 1793340809,
+  "validity": "pending"
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "eventid": "1144",
+    "objectid": "25334",
+    "clock": "1793341051",
+    "name": "SRV01: HTTP check failed",
+    "severity": "3",
+    "r_eventid": "0"
+  }
+]
