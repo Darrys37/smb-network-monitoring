@@ -50,3 +50,15 @@ Worker cũ đã dừng do SSHException; sau kiểm tra thật, dịch vụ/HTTP/
 36 tests đạt, có evidence tại `evidence/ml-v2/verification/m4-code-20261030T102759686247Z`. CPU attempt bị gián đoạn được giữ uncertain. Tại mốc ghi: 19 attempt đã chốt, 14 valid; không phải accuracy. Baseline đã đạt trước khi worker mới PID 17188 mở CPU retry lúc khoảng 17:26. Tiến trình cũ PID 5468/18004 đã kết thúc, không còn là PID hiện hành.
 
 Worker tiếp tục chạy nền theo lịch đã duyệt. Xem `verification/ml-supervisor.log` trong workspace để biết lượt/gate hiện hành; `ml-supervisor-status.json` ghi phase và số đếm tại lúc đổi phase, không phải bộ đếm realtime. Chưa fit mô hình v2. Đọc `AUTORUN_RESULT.md` và báo cáo benchmark chỉ sau khi worker báo hoàn tất.
+
+## Bổ sung nghiệm thu ML 30/10/2026 18:02 UTC+7
+
+Người dùng yêu cầu tiếp tục tới khi hoàn chỉnh phần ML. Đã thêm `locked_test_v2.py`, `registry_v2.py`, protocol `docs/NGHIEM_THU_VM_V1.md`: train từ pilot, thêm 42 test run mới (hai block x ba lượt x bảy trạng thái), khóa source/config/nhãn trước test, embargo history 600 giây, chỉ mở điểm sau khi thu xong. Đây là ngân sách nghiệm thu ban đầu thay cho đề xuất 210 lượt chưa chốt; không suy ra chất lượng production hoặc chuyển PC.
+
+43 tests ML và 369 tests baseline vừa chạy đạt; evidence `evidence/ml-v2/verification/acceptance-code-20261030T105732091265Z`. Engine source không đổi. Test code có fixture tổng hợp để kiểm tra toàn luồng; không đưa fixture vào dữ liệu thực nghiệm.
+
+Worker pilot PID 17188 vẫn chạy. Worker nghiệm thu PID 24132 đang chờ PID 17188 kết thúc thành công; không chạy fault song song. Worker mới sẽ backup VM/local, khóa train, thu test với shadow trực tiếp trong fault, kiểm tra model/SQLite/live tương đương, đánh giá và lưu registry/reports/backup. Chưa coi các bước tương lai này là đã hoàn tất.
+
+Đọc `verification/ml-acceptance-status.json` và `ml-acceptance.log` trong workspace để theo dõi. Trong lúc worker 24132 chờ, không sửa các helper `ml_acceptance.py`, `resume_ml_pilot.py`, `ml_supervisor.py`, `ml_vm_preflight.py`: worker kiểm tra hash và sẽ dừng nếu helper đổi. Không sửa source pipeline/collector sau khi `locked-test-v1/development-freeze.json` được tạo, nếu còn muốn giữ test đó là test khóa riêng.
+
+Kết quả nghiệm thu chỉ có khi phase=`COMPLETE_INITIAL_VM_ML_ACCEPTANCE`, có `ACCEPTANCE_RESULT.md`, báo cáo evaluation thật và postflight. Luật vẫn candidate/validated cho nghiên cứu shadow, không active. Máy thật/multi-fault/topology/suppression thuộc M8, chưa được chứng minh bằng đợt này.

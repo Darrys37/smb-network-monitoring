@@ -41,3 +41,7 @@ Dataset export hiện chỉ là dữ liệu pilot, mỗi valid run một dòng. 
 ## Pipeline M4 và demo candidate
 
 Code offline M4 và wrapper shadow đã được thêm; việc train vẫn bị chặn khi lịch pilot chưa hoàn tất. Đọc [hướng dẫn M4](docs/HUONG_DAN_M4.md), STATUS.md và AUTORUN_RESULT.md nếu đã được sinh. Không dùng trạng thái code đã có để suy ra benchmark đã chạy xong.
+
+## Test mới và registry M5–M7
+
+Đọc [protocol nghiệm thu VM v1](docs/NGHIEM_THU_VM_V1.md). Code `locked_test_v2.py` khóa dữ liệu/config rồi đánh giá test mới; `registry_v2.py` lưu phiên bản luật/đánh giá/lifecycle riêng. Đây là code đã kiểm thử; xem trạng thái worker và báo cáo thật trước khi kết luận đã hoàn tất test.

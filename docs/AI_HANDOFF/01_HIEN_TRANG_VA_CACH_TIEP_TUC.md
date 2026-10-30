@@ -1,5 +1,18 @@
 # Hiện trạng và cách tiếp tục đồ án
 
+## Bổ sung nghiệm thu ML 30/10/2026 18:02 UTC+7
+
+Người dùng yêu cầu tiếp tục tới khi hoàn chỉnh phần ML. Đã thêm `locked_test_v2.py`, `registry_v2.py`, protocol `docs/NGHIEM_THU_VM_V1.md`: train từ pilot, thêm 42 test run mới (hai block x ba lượt x bảy trạng thái), khóa source/config/nhãn trước test, embargo history 600 giây, chỉ mở điểm sau khi thu xong. Đây là ngân sách nghiệm thu ban đầu thay cho đề xuất 210 lượt chưa chốt; không suy ra chất lượng production hoặc chuyển PC.
+
+43 tests ML và 369 tests baseline vừa chạy đạt; evidence `evidence/ml-v2/verification/acceptance-code-20261030T105732091265Z`. Engine source không đổi. Test code có fixture tổng hợp để kiểm tra toàn luồng; không đưa fixture vào dữ liệu thực nghiệm.
+
+Worker pilot PID 17188 vẫn chạy. Worker nghiệm thu PID 24132 đang chờ PID 17188 kết thúc thành công; không chạy fault song song. Worker mới sẽ backup VM/local, khóa train, thu test với shadow trực tiếp trong fault, kiểm tra model/SQLite/live tương đương, đánh giá và lưu registry/reports/backup. Chưa coi các bước tương lai này là đã hoàn tất.
+
+Đọc `verification/ml-acceptance-status.json` và `ml-acceptance.log` trong workspace để theo dõi. Trong lúc worker 24132 chờ, không sửa các helper `ml_acceptance.py`, `resume_ml_pilot.py`, `ml_supervisor.py`, `ml_vm_preflight.py`: worker kiểm tra hash và sẽ dừng nếu helper đổi. Không sửa source pipeline/collector sau khi `locked-test-v1/development-freeze.json` được tạo, nếu còn muốn giữ test đó là test khóa riêng.
+
+Kết quả nghiệm thu chỉ có khi phase=`COMPLETE_INITIAL_VM_ML_ACCEPTANCE`, có `ACCEPTANCE_RESULT.md`, báo cáo evaluation thật và postflight. Luật vẫn candidate/validated cho nghiên cứu shadow, không active. Máy thật/multi-fault/topology/suppression thuộc M8, chưa được chứng minh bằng đợt này.
+
+
 ## Cập nhật điều phối 30/10/2026 17:28 UTC+7
 
 Worker cũ đã dừng do SSHException; sau kiểm tra thật, dịch vụ/HTTP/DNS đã tốt, không còn stress/timer nhưng Zabbix còn cảnh báo load average. Không đóng cưỡng bức event. Đã sửa retry chỉ cho lỗi kết nối tạm thời trong kiểm tra baseline, giữ deadline; lỗi xác thực/host key vẫn dừng ngay. Client kết nối lỗi được đóng. Gate baseline giữ nguyên tiêu chí, thời gian chờ tối đa tăng từ 8 lên 20 phút để cảnh báo/load tự phục hồi; collector, feature và thời lượng fault không đổi.
