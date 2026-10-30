@@ -1,0 +1,7 @@
+{
+  "remote_directory": "/home/phat/ml-experiments/90a0d5bd4531",
+  "unit": "mlv2-90a0d5bd4531",
+  "hold_seconds": 40,
+  "fault_script": "#!/bin/bash\nset -euo pipefail\nexec >>/home/phat/ml-experiments/90a0d5bd4531/fault.log 2>&1\necho FAULT_BEFORE $(date -u +%s)\nnft add table inet mlv2_90a0d5bd4531\nnft 'add chain inet mlv2_90a0d5bd4531 input { type filter hook input priority 0; policy accept; }'\nnft add rule inet mlv2_90a0d5bd4531 input ip saddr 192.168.56.10 tcp dport 80 counter drop\nnft list table inet mlv2_90a0d5bd4531\necho FAULT_VERIFIED $(date -u +%s)\n",
+  "rollback_script": "#!/bin/bash\nset -euo pipefail\nexec >>/home/phat/ml-experiments/90a0d5bd4531/rollback.log 2>&1\necho ROLLBACK_BEFORE $(date -u +%s)\ntables=\"$(nft list tables)\"\nif printf '%s\\n' \"$tables\" | grep -Fxq 'table inet mlv2_90a0d5bd4531'; then\n  nft delete table inet mlv2_90a0d5bd4531\nfi\necho ROLLBACK_AFTER $(date -u +%s)\n"
+}

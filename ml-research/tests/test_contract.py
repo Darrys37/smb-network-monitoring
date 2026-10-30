@@ -3,7 +3,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from mlv2.core import read, register, review, validate_profile, validate_observation
+from mlv2.core import read, register, review, save_new, validate_profile, validate_observation
 from mlv2.collector import collect
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -68,6 +68,13 @@ class ContractTests(unittest.TestCase):
             log.write_text('source changed later')
             archived = Path(directory)/'review-evidence'/value['references'][0]['sha256']
             self.assertEqual(archived.read_text(), 'services active')
+
+    def test_failed_json_write_does_not_publish_partial_file(self):
+        with tempfile.TemporaryDirectory(dir=ROOT) as directory:
+            target=Path(directory)/'bad.json'
+            with self.assertRaises(ValueError):save_new(target,{'bad':float('nan')})
+            self.assertFalse(target.exists())
+            self.assertEqual(list(Path(directory).iterdir()),[])
 
 
 if __name__ == '__main__': unittest.main(verbosity=2)

@@ -14,3 +14,17 @@ Việc tiếp theo: hoàn thiện run scheduler/fault scripts cho R1/R3/R4/R5/R6
 Evidence thật nằm trong `evidence/ml-v2` ở root repository. Phiên bản engine baseline được giữ nguyên; M1/M2 được thêm như module riêng trên nhánh feature/ml-research-v2.
 
 Postflight đã xác minh event 1144 có recovery 1145; SRV01 không còn problem mở, Nginx active và HTTP200. Source engine trên MON01 và số hàng SQLite runtime không đổi.
+
+## M3 — kết quả đợt pilot đầu
+
+Đã chạy 10 attempt trong pilot-v2-s01; 7 attempt hợp lệ, 3 attempt uncertain được giữ nguyên. Có đủ bảy trạng thái (healthy + sáu fault) ở SRV01. Retry có ID và parent riêng, không ghi đè lượt cũ. Có 24 cửa sổ đo toàn bộ, không được coi là từng ấy sự cố độc lập.
+
+Đã thêm scheduler 42 lượt có resume, fault/rollback scripts, source execution snapshots, quality report và CSV pilot. CSV dùng cửa sổ cuối mỗi valid run, feature whitelist tách metadata. Chưa train v2; chưa có phiên test độc lập.
+
+Bộ kiểm thử ML hiện có 22 tests đạt, gồm lỗi timer đã hết, cửa sổ sau deadline failsafe, lệch clock giữa máy, provenance và ghi JSON không để lại file dở. Baseline 369 tests đã chạy đạt ở mốc trước; source engine không đổi.
+
+Lỗi điều phối đã phát hiện: cleanup timer đã bị systemd thu hồi; timestamp giây nguyên khác máy làm ranh giới rollback chưa chắc chắn. Đã giữ log lỗi, bổ sung timer LoadState và coordinator monotonic timeline; chạy retry riêng. Phiên đầu chưa có source manifest lúc khởi chạy được ghi là pilot debug, không dùng làm test cuối.
+
+Postflight: Nginx/Agent active, HTTP200, DNS/control tốt, interface enp0s8 UP; không còn firewall table/timer mlv2. Engine source và 39 incidents runtime không đổi; SQLite integrity ok.
+
+Tiếp theo: hoàn tất các lượt/phiên còn lại theo lịch và audit; chưa đủ cơ sở tính accuracy/FPR tổng quát. Tổng hợp chi tiết tại evidence/ml-v2/quality/QUALITY.md.

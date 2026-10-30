@@ -1,0 +1,8 @@
+﻿session_id,run_id,window_id,label,ping_status,tcp80_status,tcp10050_status,local_http_status,dns_status,agent_status,control_ping_status,cpu_percent,ram_percent,cpu_mean,cpu_coverage_seconds,cpu_max_gap_seconds
+pilot-v2-s01,r01-01-healthy,w-c5fa2fa758594364a2568d45fb2a83bf,healthy,success,success,success,http_200,success,success,success,10.476190000000003,17.694383000000002,9.8652214,240,61
+pilot-v2-s01,r01-02-cpu_stress,w-ecc3009a7a9d4039be96c5dbfabce959,cpu_stress,success,success,success,http_200,success,success,success,100.0,17.764353,100.0,240,60
+pilot-v2-s01,r01-03-dns_egress_blocked,w-29782632afeb4a508b18bc3f6c1c1708,dns_egress_blocked,success,success,success,http_200,timeout,success,success,11.473566000000005,17.570966999999996,10.149204600000004,240,60
+pilot-v2-s01,r01-04-remote_http_filtered-retry1,w-6944002b014142a1a902f69c2edaa362,remote_http_filtered,success,timeout,success,http_200,success,success,success,11.701323000000002,17.815416,,178,60
+pilot-v2-s01,r01-05-agent_stopped-retry1,w-d1486087b98f4f58bfdab5b645ab4663,agent_stopped,success,success,refused,http_200,success,no_data,success,,,,,
+pilot-v2-s01,r01-06-interface_down,w-c3ae3c7beed1468d998703a99aa9d9ee,interface_down,no_reply,unknown,timeout,unknown,unknown,success,success,9.095940999999996,17.738449000000003,,67,60
+pilot-v2-s01,r01-07-nginx_stopped-retry1,w-af7e045134074750b01a3fb0eeeb89b3,nginx_stopped,success,refused,success,failed,success,success,success,10.026188000000005,17.560100000000006,,84,60

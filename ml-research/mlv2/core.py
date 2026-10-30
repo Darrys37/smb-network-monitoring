@@ -2,8 +2,10 @@
 import hashlib
 import ipaddress
 import json
+import os
 from pathlib import Path
 import re
+import tempfile
 import time
 import uuid
 
@@ -41,9 +43,23 @@ def validate_profile(profile):
 def save_new(path, value):
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open('x', encoding='utf-8', newline='\n') as stream:
-        json.dump(value, stream, ensure_ascii=False, indent=2, allow_nan=False)
-        stream.write('\n')
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(mode='w', encoding='utf-8', newline='\n',
+                                         dir=path.parent, prefix='.pending-', delete=False) as stream:
+            temporary = Path(stream.name)
+            json.dump(value, stream, ensure_ascii=False, indent=2, allow_nan=False)
+            stream.write('\n')
+            stream.flush()
+            os.fsync(stream.fileno())
+        # Windows rename refuses overwrite; POSIX link gives the same guarantee.
+        if os.name == 'nt':
+            os.rename(temporary, path)
+        else:
+            os.link(temporary, path)
+    finally:
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
 
 
 def read(path):

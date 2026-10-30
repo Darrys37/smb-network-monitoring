@@ -1,0 +1,9 @@
+{
+  "parent_run_id": "r01-05-agent_stopped",
+  "attempt": {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-05-agent_stopped-retry1",
+    "label": "agent_stopped"
+  },
+  "reason": "Original timing/operation uncertainty; no raw data replaced"
+}

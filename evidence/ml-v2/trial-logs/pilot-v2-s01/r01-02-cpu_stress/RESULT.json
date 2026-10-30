@@ -1,0 +1,38 @@
+{
+  "session_id": "pilot-v2-s01",
+  "run_id": "r01-02-cpu_stress",
+  "label": "cpu_stress",
+  "valid": true,
+  "error_type": "timer_cleanup_after_valid_observation",
+  "review": {
+    "schema_version": 1,
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-02-cpu_stress",
+    "registration_sha256": "83b7baf51a1eed197a895104cf568f74be6084f3af15ddbe176d706157518de4",
+    "reviewed_at": 1793342795,
+    "validity": "valid",
+    "labels": [
+      "cpu_stress"
+    ],
+    "references": [
+      {
+        "sha256": "098441d21f1f04a0893d784bdf70d9acc60267ab07c3c8657ea8f9a1835ecd25",
+        "original_name": "preflight.json"
+      },
+      {
+        "sha256": "a6d8b38bbc67bf5fb8368b4103dae7bf43ea34150d6b14cb9d37aca029e8602a",
+        "original_name": "postflight.json"
+      },
+      {
+        "sha256": "1f4465dfd6880c97fe0959d1ba5feefc83c4dd038b72c32297879d8645fef506",
+        "original_name": "independent-logs.json"
+      },
+      {
+        "sha256": "7c5c733890a70265d2853b055d86344b9400616d9edcd7bc31286e42b70d0644",
+        "original_name": "cleanup-issue.json"
+      }
+    ]
+  },
+  "remote_log_directory": "/home/phat/ml-experiments/dc746b038309",
+  "note": "Explicit recovery review; raw logs retained"
+}

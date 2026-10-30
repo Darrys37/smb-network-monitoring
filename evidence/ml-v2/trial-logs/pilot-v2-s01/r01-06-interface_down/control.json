@@ -1,0 +1,7 @@
+{
+  "remote_directory": "/home/phat/ml-experiments/22d11e337673",
+  "unit": "mlv2-22d11e337673",
+  "hold_seconds": 55,
+  "fault_script": "#!/bin/bash\nset -euo pipefail\nexec >>/home/phat/ml-experiments/22d11e337673/fault.log 2>&1\necho FAULT_BEFORE $(date -u +%s)\nip link set dev enp0s8 down\nip -j link show dev enp0s8 | python3 -c 'import json,sys; assert \"UP\" not in json.load(sys.stdin)[0][\"flags\"]'\necho FAULT_VERIFIED $(date -u +%s)\n",
+  "rollback_script": "#!/bin/bash\nset -euo pipefail\nexec >>/home/phat/ml-experiments/22d11e337673/rollback.log 2>&1\necho ROLLBACK_BEFORE $(date -u +%s)\nip link set dev enp0s8 up\necho ROLLBACK_AFTER $(date -u +%s)\n"
+}

@@ -1,0 +1,212 @@
+[
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-01-healthy",
+    "label": "healthy"
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-02-cpu_stress",
+    "label": "cpu_stress"
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-03-dns_egress_blocked",
+    "label": "dns_egress_blocked"
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-04-remote_http_filtered",
+    "label": "remote_http_filtered"
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-05-agent_stopped",
+    "label": "agent_stopped"
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-06-interface_down",
+    "label": "interface_down"
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-07-nginx_stopped",
+    "label": "nginx_stopped"
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-01-nginx_stopped",
+    "label": "nginx_stopped"
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-02-cpu_stress",
+    "label": "cpu_stress"
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-03-dns_egress_blocked",
+    "label": "dns_egress_blocked"
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-04-remote_http_filtered",
+    "label": "remote_http_filtered"
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-05-agent_stopped",
+    "label": "agent_stopped"
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-06-interface_down",
+    "label": "interface_down"
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-07-healthy",
+    "label": "healthy"
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-01-cpu_stress",
+    "label": "cpu_stress"
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-02-dns_egress_blocked",
+    "label": "dns_egress_blocked"
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-03-agent_stopped",
+    "label": "agent_stopped"
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-04-interface_down",
+    "label": "interface_down"
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-05-remote_http_filtered",
+    "label": "remote_http_filtered"
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-06-nginx_stopped",
+    "label": "nginx_stopped"
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-07-healthy",
+    "label": "healthy"
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-01-interface_down",
+    "label": "interface_down"
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-02-nginx_stopped",
+    "label": "nginx_stopped"
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-03-cpu_stress",
+    "label": "cpu_stress"
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-04-dns_egress_blocked",
+    "label": "dns_egress_blocked"
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-05-remote_http_filtered",
+    "label": "remote_http_filtered"
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-06-healthy",
+    "label": "healthy"
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-07-agent_stopped",
+    "label": "agent_stopped"
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-01-cpu_stress",
+    "label": "cpu_stress"
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-02-agent_stopped",
+    "label": "agent_stopped"
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-03-healthy",
+    "label": "healthy"
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-04-dns_egress_blocked",
+    "label": "dns_egress_blocked"
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-05-nginx_stopped",
+    "label": "nginx_stopped"
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-06-interface_down",
+    "label": "interface_down"
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-07-remote_http_filtered",
+    "label": "remote_http_filtered"
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-01-agent_stopped",
+    "label": "agent_stopped"
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-02-healthy",
+    "label": "healthy"
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-03-dns_egress_blocked",
+    "label": "dns_egress_blocked"
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-04-cpu_stress",
+    "label": "cpu_stress"
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-05-nginx_stopped",
+    "label": "nginx_stopped"
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-06-interface_down",
+    "label": "interface_down"
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-07-remote_http_filtered",
+    "label": "remote_http_filtered"
+  }
+]

@@ -1,0 +1,182 @@
+{
+  "service": {
+    "time": 1793344119,
+    "nginx": {
+      "code": 0,
+      "stdout": "active"
+    },
+    "agent": {
+      "code": 0,
+      "stdout": "active"
+    },
+    "http": {
+      "code": 0,
+      "stdout": "200"
+    },
+    "clock": {
+      "code": 0,
+      "stdout": "yes"
+    },
+    "stress": {
+      "code": 1,
+      "stdout": ""
+    },
+    "dns": {
+      "code": 0,
+      "stdout": "104.20.23.154\n172.66.147.243"
+    },
+    "control": {
+      "code": 0,
+      "stdout": "PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.\n64 bytes from 1.1.1.1: icmp_seq=1 ttl=64 time=50.7 ms\n\n--- 1.1.1.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 50.692/50.692/50.692/0.000 ms"
+    }
+  },
+  "monitor": {
+    "problems": [],
+    "metrics": [
+      {
+        "check_type": "metric",
+        "target": "10683",
+        "collected_at": 1793344120,
+        "result": {
+          "key": "system.cpu.util",
+          "units": "%",
+          "max_age_seconds": 180,
+          "status": "success",
+          "value": 11.746874000000005,
+          "sample_clock": 1793344117,
+          "age_seconds": 3,
+          "item_id": "50822",
+          "raw_value": "11.746874000000005",
+          "error": ""
+        }
+      },
+      {
+        "check_type": "metric",
+        "target": "10683",
+        "collected_at": 1793344120,
+        "result": {
+          "key": "vm.memory.util",
+          "units": "%",
+          "max_age_seconds": 180,
+          "status": "success",
+          "value": 17.560100000000006,
+          "sample_clock": 1793344079,
+          "age_seconds": 41,
+          "item_id": "50823",
+          "raw_value": "17.560100000000006",
+          "error": ""
+        }
+      },
+      {
+        "check_type": "metric",
+        "target": "10683",
+        "collected_at": 1793344120,
+        "result": {
+          "key": "system.cpu.load[all,avg1]",
+          "units": "",
+          "max_age_seconds": 180,
+          "status": "success",
+          "value": 0.032715,
+          "sample_clock": 1793344111,
+          "age_seconds": 9,
+          "item_id": "50791",
+          "raw_value": "0.032715",
+          "error": ""
+        }
+      },
+      {
+        "check_type": "metric",
+        "target": "10683",
+        "collected_at": 1793344120,
+        "result": {
+          "key": "vfs.fs.dependent.size[/,pused]",
+          "units": "%",
+          "max_age_seconds": 180,
+          "status": "success",
+          "value": 54.0893737075449,
+          "sample_clock": 1793344077,
+          "age_seconds": 43,
+          "item_id": "50856",
+          "raw_value": "54.0893737075449",
+          "error": ""
+        }
+      },
+      {
+        "check_type": "agent_metric",
+        "target": "10683",
+        "collected_at": 1793344120,
+        "result": {
+          "key": "agent.ping",
+          "status": "success",
+          "max_age_seconds": 180,
+          "item": {
+            "itemid": "50782",
+            "key_": "agent.ping",
+            "value_type": "3",
+            "status": "0",
+            "units": "",
+            "state": "0",
+            "error": "",
+            "lastclock": "1793344102",
+            "lastvalue": "1"
+          },
+          "sample_clock": 1793344102
+        }
+      },
+      {
+        "check_type": "cpu_history",
+        "target": "10683",
+        "collected_at": 1793344120,
+        "result": {
+          "key": "system.cpu.util",
+          "units": "%",
+          "status": "success",
+          "window_seconds": 300,
+          "samples": [
+            {
+              "clock": 1793343973,
+              "value": 8.553971000000004
+            },
+            {
+              "clock": 1793343997,
+              "value": 9.204165000000003
+            },
+            {
+              "clock": 1793344057,
+              "value": 10.026188000000005
+            },
+            {
+              "clock": 1793344117,
+              "value": 11.746874000000005
+            }
+          ],
+          "support_items": {
+            "system.cpu.num": {
+              "itemid": "50793",
+              "key_": "system.cpu.num",
+              "value_type": "3",
+              "status": "0",
+              "units": "",
+              "state": "0",
+              "error": "",
+              "lastclock": "1793339673",
+              "lastvalue": "1"
+            },
+            "system.cpu.load[all,avg1]": {
+              "itemid": "50791",
+              "key_": "system.cpu.load[all,avg1]",
+              "value_type": "0",
+              "status": "0",
+              "units": "",
+              "state": "0",
+              "error": "",
+              "lastclock": "1793344111",
+              "lastvalue": "0.032715"
+            }
+          },
+          "item_id": "50822"
+        }
+      }
+    ]
+  }
+}

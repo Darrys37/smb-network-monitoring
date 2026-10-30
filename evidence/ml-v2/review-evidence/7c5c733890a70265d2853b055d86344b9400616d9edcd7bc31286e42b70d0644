@@ -1,0 +1,5 @@
+{
+  "error": "Expired timer cleanup failed after successful rollback and baseline verification",
+  "resolution": "Inspect timer LoadState and accept already_collected; stress rollback is now idempotent",
+  "data_recollected": false
+}

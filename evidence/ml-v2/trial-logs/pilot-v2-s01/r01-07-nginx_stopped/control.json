@@ -1,0 +1,7 @@
+{
+  "remote_directory": "/home/phat/ml-experiments/9a28bf25c23c",
+  "unit": "mlv2-9a28bf25c23c",
+  "hold_seconds": 40,
+  "fault_script": "#!/bin/bash\nset -euo pipefail\nexec >>/home/phat/ml-experiments/9a28bf25c23c/fault.log 2>&1\necho FAULT_BEFORE $(date -u +%s)\nsystemctl stop nginx\ntest \"$(systemctl is-active nginx)\" = inactive\necho FAULT_VERIFIED $(date -u +%s)\n",
+  "rollback_script": "#!/bin/bash\nset -euo pipefail\nexec >>/home/phat/ml-experiments/9a28bf25c23c/rollback.log 2>&1\necho ROLLBACK_BEFORE $(date -u +%s)\nsystemctl start nginx\necho ROLLBACK_AFTER $(date -u +%s)\n"
+}

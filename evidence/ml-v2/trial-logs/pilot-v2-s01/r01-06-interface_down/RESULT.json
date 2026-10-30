@@ -1,0 +1,33 @@
+{
+  "session_id": "pilot-v2-s01",
+  "run_id": "r01-06-interface_down",
+  "label": "interface_down",
+  "valid": true,
+  "error_type": null,
+  "review": {
+    "schema_version": 1,
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-06-interface_down",
+    "registration_sha256": "ec067481e00588300fb724eab946e68c3ee11fea1487dc2dfe104bdfd50ef475",
+    "reviewed_at": 1793343465,
+    "validity": "valid",
+    "labels": [
+      "interface_down"
+    ],
+    "references": [
+      {
+        "sha256": "24dfb824271486e8bdabe687578131fff9e28e738ff18201892c7f94d977b194",
+        "original_name": "preflight.json"
+      },
+      {
+        "sha256": "e6957be8cec4c591cffa1086ea7ab99f13666aeed7a79f7329f25e0647faf1ea",
+        "original_name": "postflight.json"
+      },
+      {
+        "sha256": "f051ab9766f68d55fc75120705825152cfaa616e0ff171a56844c1a687d5dfc1",
+        "original_name": "independent-logs.json"
+      }
+    ]
+  },
+  "remote_log_directory": "/home/phat/ml-experiments/22d11e337673"
+}

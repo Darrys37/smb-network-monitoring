@@ -1,0 +1,7 @@
+{
+  "remote_directory": "/home/phat/ml-experiments/8b8ec15ce381",
+  "unit": "mlv2-8b8ec15ce381",
+  "hold_seconds": 210,
+  "fault_script": "#!/bin/bash\nset -euo pipefail\nexec >>/home/phat/ml-experiments/8b8ec15ce381/fault.log 2>&1\necho FAULT_BEFORE $(date -u +%s)\nsystemctl stop zabbix-agent2\ntest \"$(systemctl is-active zabbix-agent2)\" = inactive\necho FAULT_VERIFIED $(date -u +%s)\n",
+  "rollback_script": "#!/bin/bash\nset -euo pipefail\nexec >>/home/phat/ml-experiments/8b8ec15ce381/rollback.log 2>&1\necho ROLLBACK_BEFORE $(date -u +%s)\nsystemctl start zabbix-agent2\necho ROLLBACK_AFTER $(date -u +%s)\n"
+}

@@ -1,0 +1,25 @@
+{
+  "features": [
+    "ping_status",
+    "tcp80_status",
+    "tcp10050_status",
+    "local_http_status",
+    "dns_status",
+    "agent_status",
+    "control_ping_status",
+    "cpu_percent",
+    "ram_percent",
+    "cpu_mean",
+    "cpu_coverage_seconds",
+    "cpu_max_gap_seconds"
+  ],
+  "metadata": [
+    "session_id",
+    "run_id",
+    "window_id",
+    "label"
+  ],
+  "selection": "latest decision_time per valid reviewed run",
+  "training_permitted": false,
+  "note": "Pilot audit export; final evaluation requires completed independent sessions."
+}

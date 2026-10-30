@@ -1,0 +1,4 @@
+{
+  "fault.log": "FAULT_BEFORE 1793342054\nRunning as unit: mlv2-stress-dc746b038309.service; invocation ID: 7cd0fe5b67b340678b0747c29f5d223d\nactive\nFAULT_VERIFIED 1793342055\n",
+  "rollback.log": "ROLLBACK_BEFORE 1793342389\nROLLBACK_AFTER 1793342389\nROLLBACK_BEFORE 1793342474\nFailed to stop mlv2-stress-dc746b038309.service: Unit mlv2-stress-dc746b038309.service not loaded.\n"
+}
