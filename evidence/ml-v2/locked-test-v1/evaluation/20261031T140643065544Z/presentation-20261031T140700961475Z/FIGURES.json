@@ -1,0 +1,28 @@
+{
+  "input_sha256": {
+    "manifest.json": "35b91372b36ea529063404331f5a5eb7b06dfc8bc7213d05d5f4f5759fa4da7e",
+    "metrics.json": "2cf4976af061bfb871fe22b898ce287031fae3905c6cbeb74b23ebd161270d2a",
+    "locked_test_predictions.csv": "637c077353e4e5eaaa0ed60c223e9b17d722c40ac84c4237f38e62e08721d0a9",
+    "family_comparison.csv": "422b9f4365c1b697a3493f10dd79c0de152b7ac9d8d551838f03b7575489c646",
+    "same_input_latency.json": "fd352a6d96671cccc92abf500e8a7989dec135cb6eeb0cd2734b0b9fb92a12d9",
+    "candidate_rules.sqlite": "0e3440b9240dd1994607de5cd3ff53fbda6147eba0c8e3436d22a26e85f3edf0",
+    "research_registry.sqlite": "2e7041fef743ed7281bb89e5f9f8a4bf602f96567810bfc00d98500fe6c76deb",
+    "live_shadow_equivalence.json": "02c0d951ebc3a5e2a7bdd1a87ff81c609d18ba6c957e0f30354dc2afb8fef4ce"
+  },
+  "external_input_sha256": {
+    "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\analysis-not-training\\synthetic-feature-mask-20261031T083753046423Z\\COUNTERFACTUAL.json": "29b9a9921a1b0c0b4d2daa58d08b9e4f702e3e1ac18090dd629a860725dd593c",
+    "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\locked-test-v1\\evaluation\\20261031T140643065544Z\\detection-audit\\detection.json": "36c9a029c23c16d39f25f2d82f8baddaa0d511ebdfd5a1f6d7508ca8bbaa1ef8"
+  },
+  "output_sha256": {
+    "BAO_CAO_NGHIEM_THU.md": "7399bd2271d16c388a5e8b89dcc53856c0785a9b322a8f5bd6c84e440628a3e3",
+    "confusion_matrices.png": "9719c965dcf27269f515fc40d4e5cf15d0ad9abdb689ad599124ec7d1ae9e0e7",
+    "confusion_matrices.svg": "e30f08cf39c51ecf748d327aa036212a4a01d5c3d3ac856ab0f86e42024fcd20",
+    "family_comparison.png": "3347bdea688d57f4c564b750cee6e919ca358aeb2ad759e567aa0d830dad775a",
+    "family_comparison.svg": "13d045c219e5f6ab435619cbea4a021cbe095cff2c7ade720b5a0051cb350495",
+    "LUAT_HOC_DUOC.md": "ce930564e006c2d02a10f5a7d1fb6a20039debf6627489d0a549af6ae0705013",
+    "model_comparison.png": "b5a578ac4346ea3c61e0c51711ffa33f176ca67753cba9c6de5f18d91e217df1",
+    "model_comparison.svg": "7f9d20dc595f0e0d7445d34deecb360c3b51104f86a857e4c69438ebac0d05c3",
+    "PILOT_COUNTERFACTUAL.json": "29b9a9921a1b0c0b4d2daa58d08b9e4f702e3e1ac18090dd629a860725dd593c",
+    "ZABBIX_DETECTION.json": "36c9a029c23c16d39f25f2d82f8baddaa0d511ebdfd5a1f6d7508ca8bbaa1ef8"
+  }
+}

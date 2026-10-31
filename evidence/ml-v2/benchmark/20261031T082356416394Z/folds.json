@@ -1,0 +1,122 @@
+[
+  {
+    "train_sessions": [
+      "pilot-v2-s02"
+    ],
+    "test_sessions": [
+      "pilot-v2-s01"
+    ],
+    "train_runs": [
+      "r01-01-interface_down",
+      "r01-02-nginx_stopped",
+      "r01-03-cpu_stress",
+      "r01-04-dns_egress_blocked",
+      "r01-05-remote_http_filtered",
+      "r01-06-healthy",
+      "r01-07-agent_stopped-retry1",
+      "r02-01-cpu_stress",
+      "r02-02-agent_stopped-retry2",
+      "r02-03-healthy",
+      "r02-04-dns_egress_blocked",
+      "r02-05-nginx_stopped",
+      "r02-06-interface_down",
+      "r02-07-remote_http_filtered",
+      "r03-01-agent_stopped",
+      "r03-02-healthy",
+      "r03-03-dns_egress_blocked",
+      "r03-04-cpu_stress-retry1",
+      "r03-05-nginx_stopped",
+      "r03-06-interface_down",
+      "r03-07-remote_http_filtered"
+    ],
+    "test_runs": [
+      "r01-01-healthy",
+      "r01-02-cpu_stress",
+      "r01-03-dns_egress_blocked",
+      "r01-04-remote_http_filtered-retry1",
+      "r01-05-agent_stopped-retry1",
+      "r01-06-interface_down",
+      "r01-07-nginx_stopped-retry1",
+      "r02-01-nginx_stopped",
+      "r02-02-cpu_stress",
+      "r02-03-dns_egress_blocked",
+      "r02-04-remote_http_filtered",
+      "r02-05-agent_stopped-retry1",
+      "r02-06-interface_down",
+      "r02-07-healthy",
+      "r03-01-cpu_stress-retry1",
+      "r03-02-dns_egress_blocked",
+      "r03-03-agent_stopped",
+      "r03-04-interface_down",
+      "r03-05-remote_http_filtered",
+      "r03-06-nginx_stopped",
+      "r03-07-healthy"
+    ],
+    "cart_numeric_batch_ms_per_run": 0.1981666666671074,
+    "cart_discrete_batch_ms_per_run": 0.19029523809876991,
+    "cart_no_quality_batch_ms_per_run": 0.1905428571262746,
+    "cart_missingness_batch_ms_per_run": 0.2181523809451305,
+    "cart_common_batch_ms_per_run": 0.16445238092966888,
+    "fp_rules_train": 16
+  },
+  {
+    "train_sessions": [
+      "pilot-v2-s01"
+    ],
+    "test_sessions": [
+      "pilot-v2-s02"
+    ],
+    "train_runs": [
+      "r01-01-healthy",
+      "r01-02-cpu_stress",
+      "r01-03-dns_egress_blocked",
+      "r01-04-remote_http_filtered-retry1",
+      "r01-05-agent_stopped-retry1",
+      "r01-06-interface_down",
+      "r01-07-nginx_stopped-retry1",
+      "r02-01-nginx_stopped",
+      "r02-02-cpu_stress",
+      "r02-03-dns_egress_blocked",
+      "r02-04-remote_http_filtered",
+      "r02-05-agent_stopped-retry1",
+      "r02-06-interface_down",
+      "r02-07-healthy",
+      "r03-01-cpu_stress-retry1",
+      "r03-02-dns_egress_blocked",
+      "r03-03-agent_stopped",
+      "r03-04-interface_down",
+      "r03-05-remote_http_filtered",
+      "r03-06-nginx_stopped",
+      "r03-07-healthy"
+    ],
+    "test_runs": [
+      "r01-01-interface_down",
+      "r01-02-nginx_stopped",
+      "r01-03-cpu_stress",
+      "r01-04-dns_egress_blocked",
+      "r01-05-remote_http_filtered",
+      "r01-06-healthy",
+      "r01-07-agent_stopped-retry1",
+      "r02-01-cpu_stress",
+      "r02-02-agent_stopped-retry2",
+      "r02-03-healthy",
+      "r02-04-dns_egress_blocked",
+      "r02-05-nginx_stopped",
+      "r02-06-interface_down",
+      "r02-07-remote_http_filtered",
+      "r03-01-agent_stopped",
+      "r03-02-healthy",
+      "r03-03-dns_egress_blocked",
+      "r03-04-cpu_stress-retry1",
+      "r03-05-nginx_stopped",
+      "r03-06-interface_down",
+      "r03-07-remote_http_filtered"
+    ],
+    "cart_numeric_batch_ms_per_run": 0.33902857142363374,
+    "cart_discrete_batch_ms_per_run": 0.13961428573696008,
+    "cart_no_quality_batch_ms_per_run": 0.18501904759475674,
+    "cart_missingness_batch_ms_per_run": 0.1937857142755612,
+    "cart_common_batch_ms_per_run": 0.16993333329515908,
+    "fp_rules_train": 11
+  }
+]

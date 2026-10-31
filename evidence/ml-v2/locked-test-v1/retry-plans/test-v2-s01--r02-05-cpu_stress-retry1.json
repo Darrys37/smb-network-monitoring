@@ -1,0 +1,8 @@
+{
+  "parent_run_id": "r02-05-cpu_stress",
+  "attempt": {
+    "session_id": "test-v2-s01",
+    "run_id": "r02-05-cpu_stress-retry1",
+    "label": "cpu_stress"
+  }
+}

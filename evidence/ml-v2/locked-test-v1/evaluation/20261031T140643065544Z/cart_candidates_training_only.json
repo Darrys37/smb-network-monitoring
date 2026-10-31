@@ -1,0 +1,231 @@
+[
+  {
+    "rule_id": "cart-leaf-2",
+    "conditions": [
+      {
+        "feature": "dns_status",
+        "op": "ne",
+        "value": "success"
+      },
+      {
+        "feature": "local_http_status",
+        "op": "ne",
+        "value": "http_200"
+      }
+    ],
+    "label": "interface_down",
+    "training_runs": 6,
+    "leaf_class_fraction": 1.0,
+    "class_fractions": {
+      "agent_stopped": 0.0,
+      "cpu_stress": 0.0,
+      "dns_egress_blocked": 0.0,
+      "healthy": 0.0,
+      "interface_down": 1.0,
+      "nginx_stopped": 0.0,
+      "remote_http_filtered": 0.0
+    }
+  },
+  {
+    "rule_id": "cart-leaf-3",
+    "conditions": [
+      {
+        "feature": "dns_status",
+        "op": "ne",
+        "value": "success"
+      },
+      {
+        "feature": "local_http_status",
+        "op": "eq",
+        "value": "http_200"
+      }
+    ],
+    "label": "dns_egress_blocked",
+    "training_runs": 6,
+    "leaf_class_fraction": 1.0,
+    "class_fractions": {
+      "agent_stopped": 0.0,
+      "cpu_stress": 0.0,
+      "dns_egress_blocked": 1.0,
+      "healthy": 0.0,
+      "interface_down": 0.0,
+      "nginx_stopped": 0.0,
+      "remote_http_filtered": 0.0
+    }
+  },
+  {
+    "rule_id": "cart-leaf-5",
+    "conditions": [
+      {
+        "feature": "dns_status",
+        "op": "eq",
+        "value": "success"
+      },
+      {
+        "feature": "agent_status",
+        "op": "ne",
+        "value": "success"
+      }
+    ],
+    "label": "agent_stopped",
+    "training_runs": 6,
+    "leaf_class_fraction": 1.0,
+    "class_fractions": {
+      "agent_stopped": 1.0,
+      "cpu_stress": 0.0,
+      "dns_egress_blocked": 0.0,
+      "healthy": 0.0,
+      "interface_down": 0.0,
+      "nginx_stopped": 0.0,
+      "remote_http_filtered": 0.0
+    }
+  },
+  {
+    "rule_id": "cart-leaf-8",
+    "conditions": [
+      {
+        "feature": "dns_status",
+        "op": "eq",
+        "value": "success"
+      },
+      {
+        "feature": "agent_status",
+        "op": "eq",
+        "value": "success"
+      },
+      {
+        "feature": "tcp80_status",
+        "op": "ne",
+        "value": "success"
+      },
+      {
+        "feature": "local_http_status",
+        "op": "ne",
+        "value": "failed"
+      }
+    ],
+    "label": "remote_http_filtered",
+    "training_runs": 6,
+    "leaf_class_fraction": 1.0,
+    "class_fractions": {
+      "agent_stopped": 0.0,
+      "cpu_stress": 0.0,
+      "dns_egress_blocked": 0.0,
+      "healthy": 0.0,
+      "interface_down": 0.0,
+      "nginx_stopped": 0.0,
+      "remote_http_filtered": 1.0
+    }
+  },
+  {
+    "rule_id": "cart-leaf-9",
+    "conditions": [
+      {
+        "feature": "dns_status",
+        "op": "eq",
+        "value": "success"
+      },
+      {
+        "feature": "agent_status",
+        "op": "eq",
+        "value": "success"
+      },
+      {
+        "feature": "tcp80_status",
+        "op": "ne",
+        "value": "success"
+      },
+      {
+        "feature": "local_http_status",
+        "op": "eq",
+        "value": "failed"
+      }
+    ],
+    "label": "nginx_stopped",
+    "training_runs": 6,
+    "leaf_class_fraction": 1.0,
+    "class_fractions": {
+      "agent_stopped": 0.0,
+      "cpu_stress": 0.0,
+      "dns_egress_blocked": 0.0,
+      "healthy": 0.0,
+      "interface_down": 0.0,
+      "nginx_stopped": 1.0,
+      "remote_http_filtered": 0.0
+    }
+  },
+  {
+    "rule_id": "cart-leaf-11",
+    "conditions": [
+      {
+        "feature": "dns_status",
+        "op": "eq",
+        "value": "success"
+      },
+      {
+        "feature": "agent_status",
+        "op": "eq",
+        "value": "success"
+      },
+      {
+        "feature": "tcp80_status",
+        "op": "eq",
+        "value": "success"
+      },
+      {
+        "feature": "cpu_percent",
+        "op": "ne",
+        "value": "high_ge90"
+      }
+    ],
+    "label": "healthy",
+    "training_runs": 6,
+    "leaf_class_fraction": 1.0,
+    "class_fractions": {
+      "agent_stopped": 0.0,
+      "cpu_stress": 0.0,
+      "dns_egress_blocked": 0.0,
+      "healthy": 1.0,
+      "interface_down": 0.0,
+      "nginx_stopped": 0.0,
+      "remote_http_filtered": 0.0
+    }
+  },
+  {
+    "rule_id": "cart-leaf-12",
+    "conditions": [
+      {
+        "feature": "dns_status",
+        "op": "eq",
+        "value": "success"
+      },
+      {
+        "feature": "agent_status",
+        "op": "eq",
+        "value": "success"
+      },
+      {
+        "feature": "tcp80_status",
+        "op": "eq",
+        "value": "success"
+      },
+      {
+        "feature": "cpu_percent",
+        "op": "eq",
+        "value": "high_ge90"
+      }
+    ],
+    "label": "cpu_stress",
+    "training_runs": 6,
+    "leaf_class_fraction": 1.0,
+    "class_fractions": {
+      "agent_stopped": 0.0,
+      "cpu_stress": 1.0,
+      "dns_egress_blocked": 0.0,
+      "healthy": 0.0,
+      "interface_down": 0.0,
+      "nginx_stopped": 0.0,
+      "remote_http_filtered": 0.0
+    }
+  }
+]

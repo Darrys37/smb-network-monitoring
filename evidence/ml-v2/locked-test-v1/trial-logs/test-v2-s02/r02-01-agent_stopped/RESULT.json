@@ -1,0 +1,33 @@
+{
+  "session_id": "test-v2-s02",
+  "run_id": "r02-01-agent_stopped",
+  "label": "agent_stopped",
+  "valid": true,
+  "error_type": null,
+  "review": {
+    "schema_version": 1,
+    "session_id": "test-v2-s02",
+    "run_id": "r02-01-agent_stopped",
+    "registration_sha256": "7abddf81cf1d68182539276bdeafe343e6199672d95e2e980aa602f80f134318",
+    "reviewed_at": 1793453153,
+    "validity": "valid",
+    "labels": [
+      "agent_stopped"
+    ],
+    "references": [
+      {
+        "sha256": "46eeaa9a8cda253d3ef58045660944a811cc11ac6143ab1532dfacc5969f5d12",
+        "original_name": "preflight.json"
+      },
+      {
+        "sha256": "183b658849ef70b83cee90f5f93402e2119d0a6a09512d471e4528576aaa4507",
+        "original_name": "postflight.json"
+      },
+      {
+        "sha256": "390fb432e6b0f0db856484946a620a98ca8e8c10d8289f9c19c69bf4518f1445",
+        "original_name": "independent-logs.json"
+      }
+    ]
+  },
+  "remote_log_directory": "/home/phat/ml-experiments/e8623e1bf466"
+}

@@ -1,0 +1,26 @@
+{
+  "scope": "Same raw observations preloaded; includes feature construction/inference, excludes SSH/API/disk/model loading; warm offline microbenchmark",
+  "repeats_per_observation": 20,
+  "methods": {
+    "expert": {
+      "median_ms": 0.08845,
+      "p95_ms": 0.14695499999999995,
+      "calls": 840
+    },
+    "cart_numeric": {
+      "median_ms": 4.8985,
+      "p95_ms": 7.568694999999999,
+      "calls": 840
+    },
+    "cart_discrete": {
+      "median_ms": 5.2286,
+      "p95_ms": 8.241919999999999,
+      "calls": 840
+    },
+    "fp_classifier": {
+      "median_ms": 2.21625,
+      "p95_ms": 3.871825,
+      "calls": 840
+    }
+  }
+}

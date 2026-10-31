@@ -1,0 +1,17 @@
+{
+  "phase": "PAUSED_BY_USER",
+  "at": "2026-10-31T09:17:48.984776+00:00",
+  "valid_attempts": 11,
+  "uncertain_attempts": 1,
+  "finished_attempts": 12,
+  "interrupted_audited": [
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r02-05-cpu_stress"
+    }
+  ],
+  "verification": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\verification\\paused-by-user-20261031T091748980745Z",
+  "predictions_opened": false,
+  "automatic_resume": false,
+  "resume_instruction": "Wait for an explicit user resume. Keep frozen predictors unchanged, verify system-package freeze before resuming. Do not restart uncertain IDs; use registered retry IDs."
+}

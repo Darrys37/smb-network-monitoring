@@ -1,0 +1,33 @@
+{
+  "session_id": "test-v2-s01",
+  "run_id": "r01-04-dns_egress_blocked",
+  "label": "dns_egress_blocked",
+  "valid": true,
+  "error_type": null,
+  "review": {
+    "schema_version": 1,
+    "session_id": "test-v2-s01",
+    "run_id": "r01-04-dns_egress_blocked",
+    "registration_sha256": "fce1a047d1ce32f1844f17c6bfde45dd687230e21631083f12555e17ce98e64f",
+    "reviewed_at": 1793436179,
+    "validity": "valid",
+    "labels": [
+      "dns_egress_blocked"
+    ],
+    "references": [
+      {
+        "sha256": "a55c4c55fb2060c429b81da97bc68baa62d60b8ae18156809402805c1652cb8d",
+        "original_name": "preflight.json"
+      },
+      {
+        "sha256": "2acee09251e8b8e80cef3ceda28ef8008559056edf7782c905d86594c58dede3",
+        "original_name": "postflight.json"
+      },
+      {
+        "sha256": "006e53ca850a1327579a958566fff7681d97fc3ce503963e9c54a7ed2f0e515a",
+        "original_name": "independent-logs.json"
+      }
+    ]
+  },
+  "remote_log_directory": "/home/phat/ml-experiments/dbb5314989eb"
+}

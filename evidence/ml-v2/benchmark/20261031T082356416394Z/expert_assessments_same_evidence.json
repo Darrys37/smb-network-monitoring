@@ -1,0 +1,2018 @@
+[
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-01-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-01-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "Target ping=success, TCP80=success."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-01-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-01-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "not_matched",
+    "reasoning": "DNS returned an A answer; this does not validate the expected IP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-01-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "No isolated remote HTTP connection failure with working ICMP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-01-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "not_matched",
+    "reasoning": "Mean CPU=9.87%; below 90%."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-02-cpu_stress",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-02-cpu_stress",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "Target ping=success, TCP80=success."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-02-cpu_stress",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-02-cpu_stress",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "not_matched",
+    "reasoning": "DNS returned an A answer; this does not validate the expected IP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-02-cpu_stress",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "No isolated remote HTTP connection failure with working ICMP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-02-cpu_stress",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "matched",
+    "reasoning": "Mean CPU=100.00% over 240s; threshold=90%; load=1.02, CPUs=1."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-03-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-03-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "Target ping=success, TCP80=success."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-03-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-03-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "matched",
+    "reasoning": "IP control works on srv01; DNS status=timeout, rcode=None."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-03-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "No isolated remote HTTP connection failure with working ICMP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-03-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "not_matched",
+    "reasoning": "Mean CPU=10.15%; below 90%."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-04-remote_http_filtered-retry1",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-04-remote_http_filtered-retry1",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "HTTP200 on the target's own service IP; a simple stopped-service hypothesis is not supported. Check R5."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-04-remote_http_filtered-retry1",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-04-remote_http_filtered-retry1",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "not_matched",
+    "reasoning": "DNS returned an A answer; this does not validate the expected IP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-04-remote_http_filtered-retry1",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "matched",
+    "reasoning": "Remote ping=success, TCP80=timeout; HTTP on target's own service IP=success. Filtering/access-path failure is suspected, not proven firewall causation."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-04-remote_http_filtered-retry1",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "CPU history is sparse, stale or invalid."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-05-agent_stopped-retry1",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-05-agent_stopped-retry1",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "Target ping=success, TCP80=success."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-05-agent_stopped-retry1",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "matched",
+    "reasoning": "Host ping=success, agent.ping has no recent data, TCP10050=refused."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-05-agent_stopped-retry1",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "not_matched",
+    "reasoning": "DNS returned an A answer; this does not validate the expected IP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-05-agent_stopped-retry1",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "No isolated remote HTTP connection failure with working ICMP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-05-agent_stopped-retry1",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "CPU history is sparse, stale or invalid."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-06-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "interface_down",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "Cannot isolate target/local connectivity."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-06-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "Missing usable ping/TCP evidence."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-06-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-06-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "DNS and IP control must be fresh and from the same intended observer."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-06-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "No isolated remote HTTP connection failure with working ICMP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-06-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "CPU history is sparse, stale or invalid."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-07-nginx_stopped-retry1",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-07-nginx_stopped-retry1",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "matched",
+    "reasoning": "Host ping works; TCP80=refused; local HTTP=failed. Service/listener or active rejection suspected."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-07-nginx_stopped-retry1",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-07-nginx_stopped-retry1",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "not_matched",
+    "reasoning": "DNS returned an A answer; this does not validate the expected IP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-07-nginx_stopped-retry1",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "Remote ping=success, TCP80=refused; HTTP on target's own service IP=failed. The evidence does not meet R5 conditions for suspected filtering/access-path failure."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r01-07-nginx_stopped-retry1",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "CPU history is sparse, stale or invalid."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-01-nginx_stopped",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-01-nginx_stopped",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "matched",
+    "reasoning": "Host ping works; TCP80=refused; local HTTP=failed. Service/listener or active rejection suspected."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-01-nginx_stopped",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-01-nginx_stopped",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "not_matched",
+    "reasoning": "DNS returned an A answer; this does not validate the expected IP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-01-nginx_stopped",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "Remote ping=success, TCP80=refused; HTTP on target's own service IP=failed. The evidence does not meet R5 conditions for suspected filtering/access-path failure."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-01-nginx_stopped",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "not_matched",
+    "reasoning": "Mean CPU=9.85%; below 90%."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-02-cpu_stress",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-02-cpu_stress",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "Target ping=success, TCP80=success."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-02-cpu_stress",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-02-cpu_stress",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "not_matched",
+    "reasoning": "DNS returned an A answer; this does not validate the expected IP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-02-cpu_stress",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "No isolated remote HTTP connection failure with working ICMP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-02-cpu_stress",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "matched",
+    "reasoning": "Mean CPU=100.00% over 240s; threshold=90%; load=1.04, CPUs=1."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-03-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-03-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "Target ping=success, TCP80=success."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-03-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-03-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "matched",
+    "reasoning": "IP control works on srv01; DNS status=timeout, rcode=None."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-03-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "No isolated remote HTTP connection failure with working ICMP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-03-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "not_matched",
+    "reasoning": "Mean CPU=11.55%; below 90%."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-04-remote_http_filtered",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-04-remote_http_filtered",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "HTTP200 on the target's own service IP; a simple stopped-service hypothesis is not supported. Check R5."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-04-remote_http_filtered",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-04-remote_http_filtered",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "not_matched",
+    "reasoning": "DNS returned an A answer; this does not validate the expected IP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-04-remote_http_filtered",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "matched",
+    "reasoning": "Remote ping=success, TCP80=timeout; HTTP on target's own service IP=success. Filtering/access-path failure is suspected, not proven firewall causation."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-04-remote_http_filtered",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "not_matched",
+    "reasoning": "Mean CPU=10.05%; below 90%."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-05-agent_stopped-retry1",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-05-agent_stopped-retry1",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "Target ping=success, TCP80=success."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-05-agent_stopped-retry1",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "matched",
+    "reasoning": "Host ping=success, agent.ping has no recent data, TCP10050=refused."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-05-agent_stopped-retry1",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "not_matched",
+    "reasoning": "DNS returned an A answer; this does not validate the expected IP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-05-agent_stopped-retry1",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "No isolated remote HTTP connection failure with working ICMP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-05-agent_stopped-retry1",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "CPU history is sparse, stale or invalid."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-06-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "interface_down",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "Cannot isolate target/local connectivity."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-06-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "Missing usable ping/TCP evidence."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-06-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-06-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "DNS and IP control must be fresh and from the same intended observer."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-06-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "No isolated remote HTTP connection failure with working ICMP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-06-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "CPU history is sparse, stale or invalid."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-07-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-07-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "Target ping=success, TCP80=success."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-07-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-07-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "not_matched",
+    "reasoning": "DNS returned an A answer; this does not validate the expected IP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-07-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "No isolated remote HTTP connection failure with working ICMP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r02-07-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "CPU history is sparse, stale or invalid."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-01-cpu_stress-retry1",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-01-cpu_stress-retry1",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "Target ping=success, TCP80=success."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-01-cpu_stress-retry1",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-01-cpu_stress-retry1",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "not_matched",
+    "reasoning": "DNS returned an A answer; this does not validate the expected IP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-01-cpu_stress-retry1",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "No isolated remote HTTP connection failure with working ICMP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-01-cpu_stress-retry1",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "matched",
+    "reasoning": "Mean CPU=100.00% over 240s; threshold=90%; load=1.00, CPUs=1."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-02-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-02-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "Target ping=success, TCP80=success."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-02-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-02-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "matched",
+    "reasoning": "IP control works on srv01; DNS status=timeout, rcode=None."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-02-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "No isolated remote HTTP connection failure with working ICMP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-02-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "not_matched",
+    "reasoning": "Mean CPU=13.83%; below 90%."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-03-agent_stopped",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-03-agent_stopped",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "Target ping=success, TCP80=success."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-03-agent_stopped",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "matched",
+    "reasoning": "Host ping=success, agent.ping has no recent data, TCP10050=refused."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-03-agent_stopped",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "not_matched",
+    "reasoning": "DNS returned an A answer; this does not validate the expected IP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-03-agent_stopped",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "No isolated remote HTTP connection failure with working ICMP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-03-agent_stopped",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "CPU history is sparse, stale or invalid."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-04-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "interface_down",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "Cannot isolate target/local connectivity."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-04-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "Missing usable ping/TCP evidence."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-04-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-04-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "DNS and IP control must be fresh and from the same intended observer."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-04-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "No isolated remote HTTP connection failure with working ICMP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-04-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "CPU history is sparse, stale or invalid."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-05-remote_http_filtered",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-05-remote_http_filtered",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "HTTP200 on the target's own service IP; a simple stopped-service hypothesis is not supported. Check R5."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-05-remote_http_filtered",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-05-remote_http_filtered",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "not_matched",
+    "reasoning": "DNS returned an A answer; this does not validate the expected IP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-05-remote_http_filtered",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "matched",
+    "reasoning": "Remote ping=success, TCP80=timeout; HTTP on target's own service IP=success. Filtering/access-path failure is suspected, not proven firewall causation."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-05-remote_http_filtered",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "CPU history is sparse, stale or invalid."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-06-nginx_stopped",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-06-nginx_stopped",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "matched",
+    "reasoning": "Host ping works; TCP80=refused; local HTTP=failed. Service/listener or active rejection suspected."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-06-nginx_stopped",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-06-nginx_stopped",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "not_matched",
+    "reasoning": "DNS returned an A answer; this does not validate the expected IP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-06-nginx_stopped",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "Remote ping=success, TCP80=refused; HTTP on target's own service IP=failed. The evidence does not meet R5 conditions for suspected filtering/access-path failure."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-06-nginx_stopped",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "CPU history is sparse, stale or invalid."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-07-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-07-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "Target ping=success, TCP80=success."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-07-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-07-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "not_matched",
+    "reasoning": "DNS returned an A answer; this does not validate the expected IP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-07-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "No isolated remote HTTP connection failure with working ICMP."
+  },
+  {
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-07-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "CPU history is sparse, stale or invalid."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-01-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "interface_down",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "Cannot isolate target/local connectivity."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-01-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "Missing usable ping/TCP evidence."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-01-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-01-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "DNS and IP control must be fresh and from the same intended observer."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-01-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "No isolated remote HTTP connection failure with working ICMP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-01-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "CPU history is sparse, stale or invalid."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-02-nginx_stopped",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-02-nginx_stopped",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "matched",
+    "reasoning": "Host ping works; TCP80=refused; local HTTP=failed. Service/listener or active rejection suspected."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-02-nginx_stopped",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-02-nginx_stopped",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "not_matched",
+    "reasoning": "DNS returned an A answer; this does not validate the expected IP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-02-nginx_stopped",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "Remote ping=success, TCP80=refused; HTTP on target's own service IP=failed. The evidence does not meet R5 conditions for suspected filtering/access-path failure."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-02-nginx_stopped",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "CPU history is sparse, stale or invalid."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-03-cpu_stress",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-03-cpu_stress",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "Target ping=success, TCP80=success."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-03-cpu_stress",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-03-cpu_stress",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "not_matched",
+    "reasoning": "DNS returned an A answer; this does not validate the expected IP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-03-cpu_stress",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "No isolated remote HTTP connection failure with working ICMP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-03-cpu_stress",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "matched",
+    "reasoning": "Mean CPU=100.00% over 240s; threshold=90%; load=1.03, CPUs=1."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-04-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-04-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "Target ping=success, TCP80=success."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-04-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-04-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "matched",
+    "reasoning": "IP control works on srv01; DNS status=timeout, rcode=None."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-04-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "No isolated remote HTTP connection failure with working ICMP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-04-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "not_matched",
+    "reasoning": "Mean CPU=10.68%; below 90%."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-05-remote_http_filtered",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-05-remote_http_filtered",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "HTTP200 on the target's own service IP; a simple stopped-service hypothesis is not supported. Check R5."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-05-remote_http_filtered",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-05-remote_http_filtered",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "not_matched",
+    "reasoning": "DNS returned an A answer; this does not validate the expected IP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-05-remote_http_filtered",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "matched",
+    "reasoning": "Remote ping=success, TCP80=timeout; HTTP on target's own service IP=success. Filtering/access-path failure is suspected, not proven firewall causation."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-05-remote_http_filtered",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "not_matched",
+    "reasoning": "Mean CPU=9.32%; below 90%."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-06-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-06-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "Target ping=success, TCP80=success."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-06-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-06-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "not_matched",
+    "reasoning": "DNS returned an A answer; this does not validate the expected IP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-06-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "No isolated remote HTTP connection failure with working ICMP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-06-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "not_matched",
+    "reasoning": "Mean CPU=9.48%; below 90%."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-07-agent_stopped-retry1",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-07-agent_stopped-retry1",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "Target ping=success, TCP80=success."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-07-agent_stopped-retry1",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "matched",
+    "reasoning": "Host ping=success, agent.ping has no recent data, TCP10050=refused."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-07-agent_stopped-retry1",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "not_matched",
+    "reasoning": "DNS returned an A answer; this does not validate the expected IP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-07-agent_stopped-retry1",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "No isolated remote HTTP connection failure with working ICMP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r01-07-agent_stopped-retry1",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "CPU history is sparse, stale or invalid."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-01-cpu_stress",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-01-cpu_stress",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "Target ping=success, TCP80=success."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-01-cpu_stress",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-01-cpu_stress",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "not_matched",
+    "reasoning": "DNS returned an A answer; this does not validate the expected IP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-01-cpu_stress",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "No isolated remote HTTP connection failure with working ICMP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-01-cpu_stress",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "not_matched",
+    "reasoning": "Mean CPU=89.17%; below 90%."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-02-agent_stopped-retry2",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-02-agent_stopped-retry2",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "Target ping=success, TCP80=success."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-02-agent_stopped-retry2",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "matched",
+    "reasoning": "Host ping=success, agent.ping has no recent data, TCP10050=refused."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-02-agent_stopped-retry2",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "not_matched",
+    "reasoning": "DNS returned an A answer; this does not validate the expected IP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-02-agent_stopped-retry2",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "No isolated remote HTTP connection failure with working ICMP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-02-agent_stopped-retry2",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "CPU history is sparse, stale or invalid."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-03-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-03-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "Target ping=success, TCP80=success."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-03-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-03-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "not_matched",
+    "reasoning": "DNS returned an A answer; this does not validate the expected IP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-03-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "No isolated remote HTTP connection failure with working ICMP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-03-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "CPU history is sparse, stale or invalid."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-04-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-04-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "Target ping=success, TCP80=success."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-04-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-04-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "matched",
+    "reasoning": "IP control works on srv01; DNS status=timeout, rcode=None."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-04-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "No isolated remote HTTP connection failure with working ICMP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-04-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "CPU history is sparse, stale or invalid."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-05-nginx_stopped",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-05-nginx_stopped",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "matched",
+    "reasoning": "Host ping works; TCP80=refused; local HTTP=failed. Service/listener or active rejection suspected."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-05-nginx_stopped",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-05-nginx_stopped",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "not_matched",
+    "reasoning": "DNS returned an A answer; this does not validate the expected IP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-05-nginx_stopped",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "Remote ping=success, TCP80=refused; HTTP on target's own service IP=failed. The evidence does not meet R5 conditions for suspected filtering/access-path failure."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-05-nginx_stopped",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "CPU history is sparse, stale or invalid."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-06-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "interface_down",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "Cannot isolate target/local connectivity."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-06-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "Missing usable ping/TCP evidence."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-06-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-06-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "DNS and IP control must be fresh and from the same intended observer."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-06-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "No isolated remote HTTP connection failure with working ICMP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-06-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "CPU history is sparse, stale or invalid."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-07-remote_http_filtered",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-07-remote_http_filtered",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "HTTP200 on the target's own service IP; a simple stopped-service hypothesis is not supported. Check R5."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-07-remote_http_filtered",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-07-remote_http_filtered",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "not_matched",
+    "reasoning": "DNS returned an A answer; this does not validate the expected IP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-07-remote_http_filtered",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "matched",
+    "reasoning": "Remote ping=success, TCP80=timeout; HTTP on target's own service IP=success. Filtering/access-path failure is suspected, not proven firewall causation."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-07-remote_http_filtered",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "CPU history is sparse, stale or invalid."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-01-agent_stopped",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-01-agent_stopped",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "Target ping=success, TCP80=success."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-01-agent_stopped",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "matched",
+    "reasoning": "Host ping=success, agent.ping has no recent data, TCP10050=refused."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-01-agent_stopped",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "not_matched",
+    "reasoning": "DNS returned an A answer; this does not validate the expected IP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-01-agent_stopped",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "No isolated remote HTTP connection failure with working ICMP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-01-agent_stopped",
+    "injected_label": "agent_stopped",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "CPU history is sparse, stale or invalid."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-02-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-02-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "Target ping=success, TCP80=success."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-02-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-02-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "not_matched",
+    "reasoning": "DNS returned an A answer; this does not validate the expected IP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-02-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "No isolated remote HTTP connection failure with working ICMP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-02-healthy",
+    "injected_label": "healthy",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "CPU history is sparse, stale or invalid."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-03-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-03-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "Target ping=success, TCP80=success."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-03-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-03-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "matched",
+    "reasoning": "IP control works on srv01; DNS status=timeout, rcode=None."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-03-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "No isolated remote HTTP connection failure with working ICMP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-03-dns_egress_blocked",
+    "injected_label": "dns_egress_blocked",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "CPU history is sparse, stale or invalid."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-04-cpu_stress-retry1",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-04-cpu_stress-retry1",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "Target ping=success, TCP80=success."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-04-cpu_stress-retry1",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-04-cpu_stress-retry1",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "not_matched",
+    "reasoning": "DNS returned an A answer; this does not validate the expected IP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-04-cpu_stress-retry1",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "No isolated remote HTTP connection failure with working ICMP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-04-cpu_stress-retry1",
+    "injected_label": "cpu_stress",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "matched",
+    "reasoning": "Mean CPU=96.41% over 240s; threshold=90%; load=1.02, CPUs=1."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-05-nginx_stopped",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-05-nginx_stopped",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "matched",
+    "reasoning": "Host ping works; TCP80=refused; local HTTP=failed. Service/listener or active rejection suspected."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-05-nginx_stopped",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-05-nginx_stopped",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "not_matched",
+    "reasoning": "DNS returned an A answer; this does not validate the expected IP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-05-nginx_stopped",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "Remote ping=success, TCP80=refused; HTTP on target's own service IP=failed. The evidence does not meet R5 conditions for suspected filtering/access-path failure."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-05-nginx_stopped",
+    "injected_label": "nginx_stopped",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "not_matched",
+    "reasoning": "Mean CPU=18.96%; below 90%."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-06-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "interface_down",
+    "expert_status": "matched",
+    "reasoning": "Target ping=no_reply, TCP=timeout; control host ping=success."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-06-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "Target ping=no_reply, TCP80=timeout."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-06-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-06-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "DNS and IP control must be fresh and from the same intended observer."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-06-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "not_matched",
+    "reasoning": "No isolated remote HTTP connection failure with working ICMP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-06-interface_down",
+    "injected_label": "interface_down",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "CPU history is sparse, stale or invalid."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-07-remote_http_filtered",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "interface_down",
+    "expert_status": "not_matched",
+    "reasoning": "Target responded to ICMP or TCP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-07-remote_http_filtered",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "nginx_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "HTTP200 on the target's own service IP; a simple stopped-service hypothesis is not supported. Check R5."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-07-remote_http_filtered",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "agent_stopped",
+    "expert_status": "not_matched",
+    "reasoning": "A recent agent.ping sample exists."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-07-remote_http_filtered",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "dns_egress_blocked",
+    "expert_status": "not_matched",
+    "reasoning": "DNS returned an A answer; this does not validate the expected IP."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-07-remote_http_filtered",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "remote_http_filtered",
+    "expert_status": "matched",
+    "reasoning": "Remote ping=success, TCP80=timeout; HTTP on target's own service IP=success. Filtering/access-path failure is suspected, not proven firewall causation."
+  },
+  {
+    "session_id": "pilot-v2-s02",
+    "run_id": "r03-07-remote_http_filtered",
+    "injected_label": "remote_http_filtered",
+    "diagnostic_family": "cpu_stress",
+    "expert_status": "insufficient_evidence",
+    "reasoning": "CPU history is sparse, stale or invalid."
+  }
+]

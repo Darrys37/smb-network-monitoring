@@ -1,0 +1,520 @@
+{
+  "service": {
+    "time": 1793453530,
+    "nginx": {
+      "code": 0,
+      "stdout": "active"
+    },
+    "agent": {
+      "code": 0,
+      "stdout": "active"
+    },
+    "http": {
+      "code": 0,
+      "stdout": "200"
+    },
+    "clock": {
+      "code": 0,
+      "stdout": "yes"
+    },
+    "stress": {
+      "code": 1,
+      "stdout": ""
+    },
+    "dns": {
+      "code": 0,
+      "stdout": "104.20.23.154\n172.66.147.243"
+    },
+    "control": {
+      "code": 0,
+      "stdout": "PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.\n64 bytes from 1.1.1.1: icmp_seq=1 ttl=64 time=43.8 ms\n\n--- 1.1.1.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 43.766/43.766/43.766/0.000 ms"
+    }
+  },
+  "monitor": {
+    "problems": [],
+    "metrics": [
+      {
+        "check_type": "metric",
+        "target": "10683",
+        "collected_at": 1793453530,
+        "result": {
+          "key": "system.cpu.util",
+          "units": "%",
+          "max_age_seconds": 180,
+          "status": "success",
+          "value": 5.598159999999993,
+          "sample_clock": 1793453497,
+          "age_seconds": 33,
+          "item_id": "50822",
+          "raw_value": "5.598159999999993",
+          "error": ""
+        }
+      },
+      {
+        "check_type": "metric",
+        "target": "10683",
+        "collected_at": 1793453530,
+        "result": {
+          "key": "vm.memory.util",
+          "units": "%",
+          "max_age_seconds": 180,
+          "status": "success",
+          "value": 17.033592,
+          "sample_clock": 1793453519,
+          "age_seconds": 11,
+          "item_id": "50823",
+          "raw_value": "17.033592",
+          "error": ""
+        }
+      },
+      {
+        "check_type": "metric",
+        "target": "10683",
+        "collected_at": 1793453530,
+        "result": {
+          "key": "system.cpu.load[all,avg1]",
+          "units": "",
+          "max_age_seconds": 180,
+          "status": "success",
+          "value": 0.0,
+          "sample_clock": 1793453491,
+          "age_seconds": 39,
+          "item_id": "50791",
+          "raw_value": "0",
+          "error": ""
+        }
+      },
+      {
+        "check_type": "metric",
+        "target": "10683",
+        "collected_at": 1793453530,
+        "result": {
+          "key": "vfs.fs.dependent.size[/,pused]",
+          "units": "%",
+          "max_age_seconds": 180,
+          "status": "success",
+          "value": 54.52008734204623,
+          "sample_clock": 1793453518,
+          "age_seconds": 12,
+          "item_id": "50856",
+          "raw_value": "54.52008734204623",
+          "error": ""
+        }
+      },
+      {
+        "check_type": "agent_metric",
+        "target": "10683",
+        "collected_at": 1793453530,
+        "result": {
+          "key": "agent.ping",
+          "status": "success",
+          "max_age_seconds": 180,
+          "item": {
+            "itemid": "50782",
+            "key_": "agent.ping",
+            "value_type": "3",
+            "status": "0",
+            "units": "",
+            "state": "0",
+            "error": "",
+            "lastclock": "1793453482",
+            "lastvalue": "1"
+          },
+          "sample_clock": 1793453482
+        }
+      },
+      {
+        "check_type": "cpu_history",
+        "target": "10683",
+        "collected_at": 1793453530,
+        "result": {
+          "key": "system.cpu.util",
+          "units": "%",
+          "status": "success",
+          "window_seconds": 300,
+          "samples": [
+            {
+              "clock": 1793453420,
+              "value": 2.8153149999999982
+            },
+            {
+              "clock": 1793453437,
+              "value": 3.1602709999999945
+            },
+            {
+              "clock": 1793453497,
+              "value": 5.598159999999993
+            }
+          ],
+          "support_items": {
+            "system.cpu.num": {
+              "itemid": "50793",
+              "key_": "system.cpu.num",
+              "value_type": "3",
+              "status": "0",
+              "units": "",
+              "state": "0",
+              "error": "",
+              "lastclock": "1793433333",
+              "lastvalue": "1"
+            },
+            "system.cpu.load[all,avg1]": {
+              "itemid": "50791",
+              "key_": "system.cpu.load[all,avg1]",
+              "value_type": "0",
+              "status": "0",
+              "units": "",
+              "state": "0",
+              "error": "",
+              "lastclock": "1793453491",
+              "lastvalue": "0"
+            }
+          },
+          "item_id": "50822"
+        }
+      }
+    ]
+  },
+  "platform": {
+    "status": "ok",
+    "schema_version": 2,
+    "nodes": {
+      "mon01": {
+        "boot_id": "13943cf7-9169-440a-bd39-b1102e56704e",
+        "stall_count": 49,
+        "recent_stall": false,
+        "last_stalls": [
+          {
+            "monotonic_us": 18848957648,
+            "realtime_us": 1793447151245920,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 18848959506,
+            "realtime_us": 1793447151247778,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 18848960506,
+            "realtime_us": 1793447151248779,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 18848963007,
+            "realtime_us": 1793447151251279,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 18848964976,
+            "realtime_us": 1793447151253249,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 18849080246,
+            "realtime_us": 1793447151368519,
+            "message": "rcu: rcu_preempt kthread starved for 10109 jiffies! g446597 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 18849081455,
+            "realtime_us": 1793447151369727,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 18849081927,
+            "realtime_us": 1793447151370200,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 18849082477,
+            "realtime_us": 1793447151370750,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 18849082802,
+            "realtime_us": 1793447151371074,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 18849085791,
+            "realtime_us": 1793447151374063,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 18849086747,
+            "realtime_us": 1793447151375020,
+            "message": "rcu: rcu_preempt kthread starved for 6703 jiffies! g446733 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 18849088325,
+            "realtime_us": 1793447151376598,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 18849088949,
+            "realtime_us": 1793447151377222,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 18849092971,
+            "realtime_us": 1793447151381243,
+            "message": "rcu: rcu_preempt kthread starved for 3698 jiffies! g446769 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 18849095417,
+            "realtime_us": 1793447151383689,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 18849096096,
+            "realtime_us": 1793447151384369,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 18849096415,
+            "realtime_us": 1793447151384687,
+            "message": "rcu: rcu_preempt kthread starved for 6243 jiffies! g446777 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 18849097361,
+            "realtime_us": 1793447151385634,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 20380434741,
+            "realtime_us": 1793448682723014,
+            "message": "watchdog: BUG: soft lockup - CPU#1 stuck for 1034s! [swapper/1:0]"
+          }
+        ],
+        "package_jobs_active": false,
+        "package_jobs": [],
+        "dpkg_lock_held": false,
+        "package_audit_clean": true,
+        "package_status_sha256": "230bb4abe035e335c06caf078bfe9c677799d9f3f033ad542279152d0bf5cac2"
+      },
+      "srv01": {
+        "boot_id": "c58806aa-c30e-4a8a-87c5-4b4595252a75",
+        "stall_count": 89,
+        "recent_stall": false,
+        "last_stalls": [
+          {
+            "monotonic_us": 18852716020,
+            "realtime_us": 1793447154394046,
+            "message": "watchdog: BUG: soft lockup - CPU#0 stuck for 50s! [kworker/0:0:20058]"
+          },
+          {
+            "monotonic_us": 18852720672,
+            "realtime_us": 1793447154398699,
+            "message": "watchdog: BUG: soft lockup - CPU#0 stuck for 23s! [kworker/u4:1:20048]"
+          },
+          {
+            "monotonic_us": 18852731970,
+            "realtime_us": 1793447154409996,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 18852733234,
+            "realtime_us": 1793447154411260,
+            "message": "rcu: rcu_preempt kthread starved for 339269 jiffies! g340697 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 18852735362,
+            "realtime_us": 1793447154413388,
+            "message": "watchdog: BUG: soft lockup - CPU#0 stuck for 30s! [multipathd:558]"
+          },
+          {
+            "monotonic_us": 18852768950,
+            "realtime_us": 1793447154446976,
+            "message": "watchdog: BUG: soft lockup - CPU#0 stuck for 22s! [multipathd:566]"
+          },
+          {
+            "monotonic_us": 18852771063,
+            "realtime_us": 1793447154449090,
+            "message": "watchdog: BUG: soft lockup - CPU#0 stuck for 22s! [kworker/u4:5:20052]"
+          },
+          {
+            "monotonic_us": 18852772926,
+            "realtime_us": 1793447154450952,
+            "message": "watchdog: BUG: soft lockup - CPU#0 stuck for 48s! [kworker/u4:5:20052]"
+          },
+          {
+            "monotonic_us": 18852889585,
+            "realtime_us": 1793447154567611,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 18852891339,
+            "realtime_us": 1793447154569365,
+            "message": "rcu: rcu_preempt kthread starved for 519441 jiffies! g340697 f0x2 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 18852909422,
+            "realtime_us": 1793447154587448,
+            "message": "watchdog: BUG: soft lockup - CPU#0 stuck for 74s! [migration/0:18]"
+          },
+          {
+            "monotonic_us": 18852912429,
+            "realtime_us": 1793447154590455,
+            "message": "watchdog: BUG: soft lockup - CPU#0 stuck for 23s! [kworker/u4:4:18863]"
+          },
+          {
+            "monotonic_us": 18852918834,
+            "realtime_us": 1793447154596860,
+            "message": "watchdog: BUG: soft lockup - CPU#0 stuck for 50s! [kworker/u4:4:18863]"
+          },
+          {
+            "monotonic_us": 18853106370,
+            "realtime_us": 1793447154784396,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 18853108091,
+            "realtime_us": 1793447154786117,
+            "message": "rcu: rcu_preempt kthread starved for 57841 jiffies! g340697 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 18853109800,
+            "realtime_us": 1793447154787826,
+            "message": "watchdog: BUG: soft lockup - CPU#0 stuck for 22s! [kworker/u4:3:19940]"
+          },
+          {
+            "monotonic_us": 20385068186,
+            "realtime_us": 1793448686746212,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 20385068752,
+            "realtime_us": 1793448686746778,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 20385075904,
+            "realtime_us": 1793448686753930,
+            "message": "rcu: rcu_preempt kthread starved for 20987 jiffies! g345969 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 20385076778,
+            "realtime_us": 1793448686754804,
+            "message": "watchdog: BUG: soft lockup - CPU#0 stuck for 1035s! [apport:20477]"
+          }
+        ],
+        "package_jobs_active": false,
+        "package_jobs": [],
+        "dpkg_lock_held": false,
+        "package_audit_clean": true,
+        "package_status_sha256": "5c2a0d4638816dea3a6dcfbec2f4cbcffa3fca9f63e728b7aea39e51c7fc53dd"
+      },
+      "cli01": {
+        "boot_id": "144c40d9-d64c-4045-b7a2-43a7f2b70d01",
+        "stall_count": 98,
+        "recent_stall": false,
+        "last_stalls": [
+          {
+            "monotonic_us": 18848221946,
+            "realtime_us": 1793447152422845,
+            "message": "watchdog: BUG: soft lockup - CPU#0 stuck for 23s! [kworker/0:4:10420]"
+          },
+          {
+            "monotonic_us": 18848228910,
+            "realtime_us": 1793447152429808,
+            "message": "watchdog: BUG: soft lockup - CPU#0 stuck for 48s! [migration/0:18]"
+          },
+          {
+            "monotonic_us": 18848235708,
+            "realtime_us": 1793447152436606,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 18848237503,
+            "realtime_us": 1793447152438402,
+            "message": "rcu: rcu_preempt kthread starved for 72864 jiffies! g198381 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 18848239541,
+            "realtime_us": 1793447152440440,
+            "message": "watchdog: BUG: soft lockup - CPU#0 stuck for 23s! [migration/0:18]"
+          },
+          {
+            "monotonic_us": 18848488176,
+            "realtime_us": 1793447152689075,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 18848490544,
+            "realtime_us": 1793447152691443,
+            "message": "rcu: rcu_preempt kthread starved for 72711 jiffies! g198381 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 18848492299,
+            "realtime_us": 1793447152693198,
+            "message": "watchdog: BUG: soft lockup - CPU#0 stuck for 22s! [kworker/0:3:10423]"
+          },
+          {
+            "monotonic_us": 18848509991,
+            "realtime_us": 1793447152710890,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 18848511810,
+            "realtime_us": 1793447152712709,
+            "message": "rcu: rcu_preempt kthread starved for 54479 jiffies! g198381 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 18848513492,
+            "realtime_us": 1793447152714391,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 18848526761,
+            "realtime_us": 1793447152727659,
+            "message": "watchdog: BUG: soft lockup - CPU#0 stuck for 21s! [kworker/0:3:10423]"
+          },
+          {
+            "monotonic_us": 18848530194,
+            "realtime_us": 1793447152731093,
+            "message": "watchdog: BUG: soft lockup - CPU#0 stuck for 24s! [kworker/0:7:10335]"
+          },
+          {
+            "monotonic_us": 18848740584,
+            "realtime_us": 1793447152941482,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 18848742467,
+            "realtime_us": 1793447152943365,
+            "message": "rcu: rcu_preempt kthread starved for 39662 jiffies! g198381 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 18848749653,
+            "realtime_us": 1793447152950552,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 18848750702,
+            "realtime_us": 1793447152951601,
+            "message": "rcu: rcu_preempt kthread starved for 9588 jiffies! g198381 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 19266753498,
+            "realtime_us": 1793447570954397,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 19266771498,
+            "realtime_us": 1793447570972396,
+            "message": "rcu: rcu_preempt kthread starved for 19175 jiffies! g202229 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 20380350136,
+            "realtime_us": 1793448684551035,
+            "message": "watchdog: BUG: soft lockup - CPU#0 stuck for 1035s! [swapper/0:0]"
+          }
+        ],
+        "package_jobs_active": false,
+        "package_jobs": [],
+        "dpkg_lock_held": false,
+        "package_audit_clean": true,
+        "package_status_sha256": "e3c32a9f71a88ceda4c33df14170343c685cd05e27064b815fe39b680219ac1a"
+      }
+    }
+  }
+}

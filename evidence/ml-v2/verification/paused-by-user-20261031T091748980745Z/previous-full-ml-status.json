@@ -1,0 +1,8 @@
+{
+  "phase": "STOPPED_REQUIRES_REVIEW",
+  "pid": 12676,
+  "at": "2026-10-31T09:14:37.695224+00:00",
+  "stage": "holdout",
+  "error_type": "KeyboardInterrupt",
+  "error_message": ""
+}

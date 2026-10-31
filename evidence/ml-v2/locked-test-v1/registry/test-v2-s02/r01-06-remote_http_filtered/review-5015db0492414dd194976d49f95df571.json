@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "session_id": "test-v2-s02",
+  "run_id": "r01-06-remote_http_filtered",
+  "registration_sha256": "35934167de746ac1e55e260abb8a937af061242fe2503328f2ca3a1fba588554",
+  "reviewed_at": 1793452175,
+  "validity": "valid",
+  "labels": [
+    "remote_http_filtered"
+  ],
+  "references": [
+    {
+      "sha256": "ab55ed25c101e412c5bee45b52390eee3d4758303256dab775a75abc4d2dce52",
+      "original_name": "preflight.json"
+    },
+    {
+      "sha256": "fd15625eafaad846fe88174845659f41c0fc89e3a69c00f5df774bfdb8d66b9a",
+      "original_name": "postflight.json"
+    },
+    {
+      "sha256": "095d1abfdd8474972e3cacbbc865db0a4f261996d949e51a81b469d84f00bed0",
+      "original_name": "independent-logs.json"
+    }
+  ]
+}

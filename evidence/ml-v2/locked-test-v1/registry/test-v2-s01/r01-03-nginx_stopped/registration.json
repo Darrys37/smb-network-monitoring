@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "session_id": "test-v2-s01",
+  "run_id": "r01-03-nginx_stopped",
+  "planned_labels": [
+    "nginx_stopped"
+  ],
+  "registered_at": 1793436051,
+  "validity": "pending"
+}

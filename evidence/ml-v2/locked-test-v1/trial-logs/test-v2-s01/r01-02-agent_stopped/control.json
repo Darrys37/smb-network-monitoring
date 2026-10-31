@@ -1,0 +1,7 @@
+{
+  "remote_directory": "/home/phat/ml-experiments/d02e92362d1c",
+  "unit": "mlv2-d02e92362d1c",
+  "hold_seconds": 210,
+  "fault_script": "#!/bin/bash\nset -euo pipefail\nexec >>/home/phat/ml-experiments/d02e92362d1c/fault.log 2>&1\ntest \"$(hostname -s)\" = srv01\nip -j -4 address show dev enp0s8 | python3 -c 'import json,sys; assert any(a.get(\"local\")==\"192.168.56.20\" for link in json.load(sys.stdin) for a in link.get(\"addr_info\",[]))'\n\necho FAULT_BEFORE $(date -u +%s)\n\nsystemctl stop zabbix-agent2\ntest \"$(systemctl is-active zabbix-agent2)\" = inactive\necho FAULT_VERIFIED $(date -u +%s)\n",
+  "rollback_script": "#!/bin/bash\nset -euo pipefail\nexec >>/home/phat/ml-experiments/d02e92362d1c/rollback.log 2>&1\necho ROLLBACK_BEFORE $(date -u +%s)\nsystemctl start zabbix-agent2\necho ROLLBACK_AFTER $(date -u +%s)\n"
+}

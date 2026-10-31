@@ -1,0 +1,6 @@
+{
+  "reason": "Coordinator process no longer running; missing completion timeline and end observation are not reconstructed",
+  "interrupted_run_retained": true,
+  "baseline_restored": true,
+  "timer_cancelled": true
+}

@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "session_id": "test-v2-s01",
+  "run_id": "r02-01-agent_stopped",
+  "planned_labels": [
+    "agent_stopped"
+  ],
+  "registered_at": 1793437112,
+  "validity": "pending"
+}

@@ -1,0 +1,4 @@
+{
+  "fault.log": "FAULT_BEFORE 1793454556\ntable inet mlv2_01e0e9e84523 {\n\tchain input {\n\t\ttype filter hook input priority filter; policy accept;\n\t\tip saddr 192.168.56.10 tcp dport 80 counter packets 0 bytes 0 drop\n\t}\n}\nFAULT_VERIFIED 1793454556\n",
+  "rollback.log": "ROLLBACK_BEFORE 1793454604\nROLLBACK_AFTER 1793454604\n"
+}

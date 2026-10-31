@@ -1,0 +1,141 @@
+{
+  "analysis_kind": "HYPOTHETICAL_FEATURE_MASKING_NOT_COLLECTED_LAB_DATA",
+  "source_scope": "Development pilot only; no sealed heldout predictions were read",
+  "selection_rule": "First frozen development healthy observation with all four core network probes successful",
+  "source_observation": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s01\\r01-01-healthy\\w-c5fa2fa758594364a2568d45fb2a83bf.json",
+  "source_observation_sha256": "fa08ed0c2b3c5c0d3afa476e9fdb4a54bc8cbdf03f055e9f185886cb7066f578",
+  "candidate_sha256": "0e3440b9240dd1994607de5cd3ff53fbda6147eba0c8e3436d22a26e85f3edf0",
+  "freeze_sha256": "37907d98c81507b50201a5a0cbedb852eebd1adfc3cef5d4f793093244af765c",
+  "original_features": {
+    "ping_status": "success",
+    "tcp80_status": "success",
+    "tcp10050_status": "success",
+    "local_http_status": "http_200",
+    "dns_status": "success",
+    "agent_status": "success",
+    "control_ping_status": "success",
+    "cpu_percent": 10.476190000000003,
+    "ram_percent": 17.694383000000002,
+    "cpu_mean": 9.8652214,
+    "cpu_coverage_seconds": 240,
+    "cpu_max_gap_seconds": 61
+  },
+  "masked_features": {
+    "ping_status": "success",
+    "tcp80_status": "success",
+    "tcp10050_status": "success",
+    "local_http_status": "unknown",
+    "dns_status": "unknown",
+    "agent_status": "success",
+    "control_ping_status": "success",
+    "cpu_percent": 10.476190000000003,
+    "ram_percent": 17.694383000000002,
+    "cpu_mean": 9.8652214,
+    "cpu_coverage_seconds": 240,
+    "cpu_max_gap_seconds": 61
+  },
+  "changed_fields": [
+    "dns_status",
+    "local_http_status"
+  ],
+  "baseline_predictions": {
+    "CART": {
+      "label": "healthy",
+      "matched_rule": {
+        "rule_id": "cart-leaf-11",
+        "conditions": [
+          {
+            "feature": "dns_status",
+            "op": "eq",
+            "value": "success"
+          },
+          {
+            "feature": "agent_status",
+            "op": "eq",
+            "value": "success"
+          },
+          {
+            "feature": "tcp80_status",
+            "op": "eq",
+            "value": "success"
+          },
+          {
+            "feature": "cpu_percent",
+            "op": "ne",
+            "value": "high_ge90"
+          }
+        ],
+        "label": "healthy",
+        "training_runs": 6,
+        "leaf_class_fraction": 1.0,
+        "class_fractions": {
+          "agent_stopped": 0.0,
+          "cpu_stress": 0.0,
+          "dns_egress_blocked": 0.0,
+          "healthy": 1.0,
+          "interface_down": 0.0,
+          "nginx_stopped": 0.0,
+          "remote_http_filtered": 0.0
+        }
+      },
+      "confidence_kind": "training leaf class fraction, not calibrated probability"
+    },
+    "FP-Growth": {
+      "label": "healthy",
+      "matched_rule": {
+        "rule_id": "fp-0017",
+        "conditions": [
+          "cpu_percent=below90",
+          "dns_status=success",
+          "tcp80_status=success"
+        ],
+        "label": "healthy",
+        "training_runs": 6,
+        "support": 0.14285714285714285,
+        "confidence": 1.0,
+        "lift": 7.0
+      },
+      "confidence_kind": "training association confidence, not calibrated probability"
+    }
+  },
+  "counterfactual_predictions": {
+    "CART": {
+      "label": "interface_down",
+      "matched_rule": {
+        "rule_id": "cart-leaf-2",
+        "conditions": [
+          {
+            "feature": "dns_status",
+            "op": "ne",
+            "value": "success"
+          },
+          {
+            "feature": "local_http_status",
+            "op": "ne",
+            "value": "http_200"
+          }
+        ],
+        "label": "interface_down",
+        "training_runs": 6,
+        "leaf_class_fraction": 1.0,
+        "class_fractions": {
+          "agent_stopped": 0.0,
+          "cpu_stress": 0.0,
+          "dns_egress_blocked": 0.0,
+          "healthy": 0.0,
+          "interface_down": 1.0,
+          "nginx_stopped": 0.0,
+          "remote_http_filtered": 0.0
+        }
+      },
+      "confidence_kind": "training leaf class fraction, not calibrated probability"
+    },
+    "FP-Growth": {
+      "label": "ABSTAIN",
+      "reason": "No association rule matched"
+    }
+  },
+  "serving_core_remains_known": true,
+  "warning": "This is a constructed missing-channel vector, not a real healthy-source-failure experiment and not an extra train/test sample",
+  "purpose": "Inspect whether a learned rule can confuse lost measurements with interface-down while reachability is still known successful"
+}

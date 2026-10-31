@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "session_id": "test-v2-s01",
+  "run_id": "r03-05-dns_egress_blocked",
+  "registration_sha256": "1edc2a7399efd6dab1bb684cc4618ecb6f84321017d4fbc6c2dff5cd81bdbf91",
+  "reviewed_at": 1793450713,
+  "validity": "valid",
+  "labels": [
+    "dns_egress_blocked"
+  ],
+  "references": [
+    {
+      "sha256": "120b134a1a62952e514cf7e75ff28ca07fa820181623c53bdbb5b802cdd45b36",
+      "original_name": "preflight.json"
+    },
+    {
+      "sha256": "827ecdf1fedf3b0a35aad5735c97d924f3397f77c4be762073cad125cb212ead",
+      "original_name": "postflight.json"
+    },
+    {
+      "sha256": "df335e7f812750e00f058222a301730987668213e9964e8f9c9440841a09ae28",
+      "original_name": "independent-logs.json"
+    }
+  ]
+}

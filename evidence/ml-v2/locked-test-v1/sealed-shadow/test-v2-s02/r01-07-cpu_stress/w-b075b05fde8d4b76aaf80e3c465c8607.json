@@ -1,0 +1,152 @@
+{
+  "mode": "live_shadow_sealed_holdout",
+  "decision_time": 1793452511,
+  "expert_diagnoses": [
+    {
+      "rule_id": "R1_HOST_OR_LOCAL_CONNECTIVITY",
+      "status": "not_matched",
+      "probable_cause": null,
+      "reasoning": "Target responded to ICMP or TCP.",
+      "missing_info": [],
+      "next_actions": []
+    },
+    {
+      "rule_id": "R2_HTTP_SERVICE_SUSPECTED",
+      "status": "not_matched",
+      "probable_cause": null,
+      "reasoning": "Target ping=success, TCP80=success.",
+      "missing_info": [],
+      "next_actions": []
+    },
+    {
+      "rule_id": "R3_AGENT_UNAVAILABLE",
+      "status": "not_matched",
+      "probable_cause": null,
+      "reasoning": "A recent agent.ping sample exists.",
+      "missing_info": [],
+      "next_actions": []
+    },
+    {
+      "rule_id": "R4_DNS_RESOLVER_SUSPECTED",
+      "status": "not_matched",
+      "probable_cause": null,
+      "reasoning": "DNS returned an A answer; this does not validate the expected IP.",
+      "missing_info": [],
+      "next_actions": []
+    },
+    {
+      "rule_id": "R5_HTTP_ACCESS_FILTER_SUSPECTED",
+      "status": "not_matched",
+      "probable_cause": null,
+      "reasoning": "No isolated remote HTTP connection failure with working ICMP.",
+      "missing_info": [],
+      "next_actions": []
+    },
+    {
+      "rule_id": "R6_SUSTAINED_CPU_HIGH",
+      "status": "matched",
+      "probable_cause": "Mean CPU=100.00% over 240s; threshold=90%; load=1.01, CPUs=1.",
+      "reasoning": "Mean CPU=100.00% over 240s; threshold=90%; load=1.01, CPUs=1.",
+      "missing_info": [
+        "Response-time baseline and top processes; CPU and load suggest but do not prove overload."
+      ],
+      "next_actions": [
+        "Compare load and response time; inspect top processes."
+      ]
+    }
+  ],
+  "features": {
+    "ping_status": "success",
+    "tcp80_status": "success",
+    "tcp10050_status": "success",
+    "local_http_status": "http_200",
+    "dns_status": "success",
+    "agent_status": "success",
+    "control_ping_status": "success",
+    "cpu_percent": 100.0,
+    "ram_percent": 16.673316,
+    "cpu_mean": 100.0,
+    "cpu_coverage_seconds": 240,
+    "cpu_max_gap_seconds": 61
+  },
+  "discrete_features": {
+    "ping_status": "success",
+    "tcp80_status": "success",
+    "tcp10050_status": "success",
+    "local_http_status": "http_200",
+    "dns_status": "success",
+    "agent_status": "success",
+    "control_ping_status": "success",
+    "cpu_percent": "high_ge90",
+    "ram_percent": "below90",
+    "cpu_mean": "high_ge90",
+    "cpu_coverage_seconds": "sufficient",
+    "cpu_max_gap_seconds": "gap_ok"
+  },
+  "ml_suggestions": {
+    "CART": {
+      "label": "cpu_stress",
+      "matched_rule": {
+        "rule_id": "cart-leaf-12",
+        "conditions": [
+          {
+            "feature": "dns_status",
+            "op": "eq",
+            "value": "success"
+          },
+          {
+            "feature": "agent_status",
+            "op": "eq",
+            "value": "success"
+          },
+          {
+            "feature": "tcp80_status",
+            "op": "eq",
+            "value": "success"
+          },
+          {
+            "feature": "cpu_percent",
+            "op": "eq",
+            "value": "high_ge90"
+          }
+        ],
+        "label": "cpu_stress",
+        "training_runs": 6,
+        "leaf_class_fraction": 1.0,
+        "class_fractions": {
+          "agent_stopped": 0.0,
+          "cpu_stress": 1.0,
+          "dns_egress_blocked": 0.0,
+          "healthy": 0.0,
+          "interface_down": 0.0,
+          "nginx_stopped": 0.0,
+          "remote_http_filtered": 0.0
+        }
+      },
+      "confidence_kind": "training leaf class fraction, not calibrated probability"
+    },
+    "FP-Growth": {
+      "label": "cpu_stress",
+      "matched_rule": {
+        "rule_id": "fp-0001",
+        "conditions": [
+          "cpu_percent=high_ge90"
+        ],
+        "label": "cpu_stress",
+        "training_runs": 6,
+        "support": 0.14285714285714285,
+        "confidence": 1.0,
+        "lift": 7.0
+      },
+      "confidence_kind": "training association confidence, not calibrated probability"
+    }
+  },
+  "scope_gate_passed": true,
+  "limitations": [
+    "Single-fault pilot on SRV01; no generalization claim",
+    "Association confidence and leaf fraction describe training data",
+    "No automatic remediation, alert mutation or rule activation"
+  ],
+  "candidate_sha256": "0e3440b9240dd1994607de5cd3ff53fbda6147eba0c8e3436d22a26e85f3edf0",
+  "observation_sha256": "473850b5c70db505b5aa08ee31933122404d263e48f1971dfc208240046bb40d"
+}

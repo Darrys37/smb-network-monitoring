@@ -1,0 +1,15 @@
+{
+  "all_equal": true,
+  "before_packages": {
+    "mon01": "230bb4abe035e335c06caf078bfe9c677799d9f3f033ad542279152d0bf5cac2",
+    "srv01": "5c2a0d4638816dea3a6dcfbec2f4cbcffa3fca9f63e728b7aea39e51c7fc53dd",
+    "cli01": "e3c32a9f71a88ceda4c33df14170343c685cd05e27064b815fe39b680219ac1a"
+  },
+  "after_packages": {
+    "mon01": "230bb4abe035e335c06caf078bfe9c677799d9f3f033ad542279152d0bf5cac2",
+    "srv01": "5c2a0d4638816dea3a6dcfbec2f4cbcffa3fca9f63e728b7aea39e51c7fc53dd",
+    "cli01": "e3c32a9f71a88ceda4c33df14170343c685cd05e27064b815fe39b680219ac1a"
+  },
+  "reference_sha256": "10cf416c66b8cbb634139ccc3783b1ae141d308ea5f72851de61f750ed0a7f05",
+  "scope": "Package update jobs/locks audited before and after each trial; hashes checked against a pre-test reference"
+}

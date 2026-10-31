@@ -1,0 +1,83 @@
+{
+  "mon01": {
+    "clock": {
+      "code": 0,
+      "stdout": "Timezone=Etc/UTC\nLocalRTC=no\nCanNTP=yes\nNTP=yes\nNTPSynchronized=yes\nTimeUSec=Sat 2026-10-31 12:15:24 UTC\nRTCTimeUSec=Sat 2026-10-31 12:15:21 UTC",
+      "stderr": ""
+    },
+    "units": {
+      "code": 0,
+      "stdout": "chrony.service loaded    active   running chrony, an NTP client/server\n● ntp.service    not-found inactive dead    ntp.service\n● ntpsec.service not-found inactive dead    ntpsec.service",
+      "stderr": ""
+    },
+    "tracking": {
+      "code": 0,
+      "stdout": "Reference ID    : 5BBD5B70 (ntp-nts-2.ps6.canonical.com)\nStratum         : 3\nRef time (UTC)  : Sat Oct 31 12:14:45 2026\nSystem time     : 0.000009639 seconds fast of NTP time\nLast offset     : +0.027400991 seconds\nRMS offset      : 0.026245307 seconds\nFrequency       : 9.653 ppm slow\nResidual freq   : +13.287 ppm\nSkew            : 0.211 ppm\nRoot delay      : 0.362149596 seconds\nRoot dispersion : 0.019140502 seconds\nUpdate interval : 8.8 seconds\nLeap status     : Normal",
+      "stderr": ""
+    },
+    "sources": {
+      "code": 0,
+      "stdout": "MS Name/IP address         Stratum Poll Reach LastRx Last sample               \n===============================================================================\n^? ntp-nts-2.ps5.canonical.>     2   6    21    47    +25ms[-6319us] +/-  227ms\n^? ntp-nts-3.ps5.canonical.>     0   6     0     -     +0ns[   +0ns] +/-    0ns\n^* ntp-nts-2.ps6.canonical.>     2   6   277    40  -7994us[  +19ms] +/-  184ms\n^+ ntp-nts-3.ps6.canonical.>     2   6   337    49    +91ms[ +118ms] +/-  282ms\n^- ntp-nts-1.ps6.canonical.>     2   6   377    46    -27ms[ +822us] +/-  158ms",
+      "stderr": ""
+    },
+    "load": {
+      "code": 0,
+      "stdout": "12:15:27 up  5:43,  2 users,  load average: 0.21, 1.57, 17.34",
+      "stderr": ""
+    }
+  },
+  "srv01": {
+    "clock": {
+      "code": 0,
+      "stdout": "Timezone=Etc/UTC\nLocalRTC=no\nCanNTP=yes\nNTP=yes\nNTPSynchronized=yes\nTimeUSec=Sat 2026-10-31 12:15:28 UTC\nRTCTimeUSec=Sat 2026-10-31 12:15:28 UTC",
+      "stderr": ""
+    },
+    "units": {
+      "code": 0,
+      "stdout": "chrony.service loaded    active   running chrony, an NTP client/server\n● ntp.service    not-found inactive dead    ntp.service\n● ntpsec.service not-found inactive dead    ntpsec.service",
+      "stderr": ""
+    },
+    "tracking": {
+      "code": 0,
+      "stdout": "Reference ID    : 5BBD5B70 (ntp-nts-2.ps6.canonical.com)\nStratum         : 3\nRef time (UTC)  : Sat Oct 31 12:14:30 2026\nSystem time     : 0.000000001 seconds fast of NTP time\nLast offset     : +0.008679406 seconds\nRMS offset      : 0.007123510 seconds\nFrequency       : 9.712 ppm slow\nResidual freq   : +91.424 ppm\nSkew            : 0.275 ppm\nRoot delay      : 0.334006608 seconds\nRoot dispersion : 0.018909357 seconds\nUpdate interval : 0.0 seconds\nLeap status     : Normal",
+      "stderr": ""
+    },
+    "sources": {
+      "code": 0,
+      "stdout": "MS Name/IP address         Stratum Poll Reach LastRx Last sample               \n===============================================================================\n^? ntp-nts-2.ps5.canonical.>     0   6     0     -     +0ns[   +0ns] +/-    0ns\n^? ntp-nts-3.ps5.canonical.>     0   6    60     -     +0ns[   +0ns] +/-    0ns\n^* ntp-nts-2.ps6.canonical.>     2   6   377    60  +2508us[  +11ms] +/-  170ms\n^+ ntp-nts-3.ps6.canonical.>     2   6   177    60    +44ms[  +44ms] +/-  211ms\n^- ntp-nts-1.ps6.canonical.>     2   6   377    60    +97ms[  +97ms] +/-  265ms",
+      "stderr": ""
+    },
+    "load": {
+      "code": 0,
+      "stdout": "12:15:31 up  5:43,  2 users,  load average: 0.43, 9.40, 19.83",
+      "stderr": ""
+    }
+  },
+  "cli01": {
+    "clock": {
+      "code": 0,
+      "stdout": "Timezone=Etc/UTC\nLocalRTC=no\nCanNTP=yes\nNTP=yes\nNTPSynchronized=yes\nTimeUSec=Sat 2026-10-31 12:15:32 UTC\nRTCTimeUSec=Sat 2026-10-31 12:15:31 UTC",
+      "stderr": ""
+    },
+    "units": {
+      "code": 0,
+      "stdout": "chrony.service loaded    active   running chrony, an NTP client/server\n● ntp.service    not-found inactive dead    ntp.service\n● ntpsec.service not-found inactive dead    ntpsec.service",
+      "stderr": ""
+    },
+    "tracking": {
+      "code": 0,
+      "stdout": "Reference ID    : 5BBD5B71 (ntp-nts-3.ps6.canonical.com)\nStratum         : 3\nRef time (UTC)  : Sat Oct 31 12:14:29 2026\nSystem time     : 0.000000001 seconds slow of NTP time\nLast offset     : -0.012490517 seconds\nRMS offset      : 0.007116540 seconds\nFrequency       : 9.532 ppm slow\nResidual freq   : -196.024 ppm\nSkew            : 0.338 ppm\nRoot delay      : 0.330900729 seconds\nRoot dispersion : 0.027054871 seconds\nUpdate interval : 0.0 seconds\nLeap status     : Normal",
+      "stderr": ""
+    },
+    "sources": {
+      "code": 0,
+      "stdout": "MS Name/IP address         Stratum Poll Reach LastRx Last sample               \n===============================================================================\n^? ntp-nts-2.ps5.canonical.>     0   6     0     -     +0ns[   +0ns] +/-    0ns\n^? ntp-nts-3.ps5.canonical.>     2   6    41     1    -29ms[  -29ms] +/-  142ms\n^- ntp-nts-2.ps6.canonical.>     2   6   377     1  -5098us[-5098us] +/-  160ms\n^* ntp-nts-3.ps6.canonical.>     2   6   377     2    +91ms[ +107ms] +/-  257ms\n^- ntp-nts-1.ps6.canonical.>     2   6   377     1    +56ms[  +56ms] +/-  221ms",
+      "stderr": ""
+    },
+    "load": {
+      "code": 0,
+      "stdout": "12:15:36 up  5:43,  2 users,  load average: 0.46, 13.66, 24.33",
+      "stderr": ""
+    }
+  }
+}

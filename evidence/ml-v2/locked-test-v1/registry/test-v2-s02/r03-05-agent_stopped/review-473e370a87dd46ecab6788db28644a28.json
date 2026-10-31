@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "session_id": "test-v2-s02",
+  "run_id": "r03-05-agent_stopped",
+  "registration_sha256": "363441ece071992243fdabb830b4fc06beb894255eab8cb8d1c1b5bd9bd03d25",
+  "reviewed_at": 1793454950,
+  "validity": "valid",
+  "labels": [
+    "agent_stopped"
+  ],
+  "references": [
+    {
+      "sha256": "a97a65c88301a4da920f6c302abb0a08e8ad7a84e17cf1b1203d37549347e29b",
+      "original_name": "preflight.json"
+    },
+    {
+      "sha256": "79b1a7ff735fd597555ecc480951641d4b950542b31d72d7a388aa11da19aa54",
+      "original_name": "postflight.json"
+    },
+    {
+      "sha256": "90e26e7752e27b9ab5e742a927deeb11980bae7f9f51346e96efcc7b141095a6",
+      "original_name": "independent-logs.json"
+    }
+  ]
+}

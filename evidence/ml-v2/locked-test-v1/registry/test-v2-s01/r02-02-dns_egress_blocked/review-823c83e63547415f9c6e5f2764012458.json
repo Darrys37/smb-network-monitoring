@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "session_id": "test-v2-s01",
+  "run_id": "r02-02-dns_egress_blocked",
+  "registration_sha256": "da6c7c78a87c03722e7a0d6e351d0c1f4f4b21e085f9f03ce6c15a831dcfca0f",
+  "reviewed_at": 1793437535,
+  "validity": "valid",
+  "labels": [
+    "dns_egress_blocked"
+  ],
+  "references": [
+    {
+      "sha256": "c972ed35187e4aeb4606fd3babc2bdd1f6b63489de3a31d371528e5e16cd55d3",
+      "original_name": "preflight.json"
+    },
+    {
+      "sha256": "551741e384d687e15776d8a888a89a81ae6121a55adca6f93bb84285de079438",
+      "original_name": "postflight.json"
+    },
+    {
+      "sha256": "659963b2ce0dfc80caffd2ae8b3866d28213cfe22f0ea4fc9b72dd84f8181a61",
+      "original_name": "independent-logs.json"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "remote_directory": "/home/phat/ml-experiments/3826dfb4ab79",
+  "unit": "mlv2-3826dfb4ab79",
+  "hold_seconds": 40,
+  "fault_script": "#!/bin/bash\nset -euo pipefail\nexec >>/home/phat/ml-experiments/3826dfb4ab79/fault.log 2>&1\ntest \"$(hostname -s)\" = srv01\nip -j -4 address show dev enp0s8 | python3 -c 'import json,sys; assert any(a.get(\"local\")==\"192.168.56.20\" for link in json.load(sys.stdin) for a in link.get(\"addr_info\",[]))'\n\necho FAULT_BEFORE $(date -u +%s)\n\nsystemctl stop nginx\ntest \"$(systemctl is-active nginx)\" = inactive\necho FAULT_VERIFIED $(date -u +%s)\n",
+  "rollback_script": "#!/bin/bash\nset -euo pipefail\nexec >>/home/phat/ml-experiments/3826dfb4ab79/rollback.log 2>&1\necho ROLLBACK_BEFORE $(date -u +%s)\nsystemctl start nginx\necho ROLLBACK_AFTER $(date -u +%s)\n"
+}

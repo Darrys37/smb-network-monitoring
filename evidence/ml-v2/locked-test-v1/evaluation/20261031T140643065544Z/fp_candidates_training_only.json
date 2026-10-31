@@ -1,0 +1,203 @@
+[
+  {
+    "conditions": [
+      "agent_status=no_data"
+    ],
+    "label": "agent_stopped",
+    "support": 0.14285714285714285,
+    "confidence": 1.0,
+    "lift": 7.0,
+    "training_runs": 6
+  },
+  {
+    "conditions": [
+      "cpu_percent=high_ge90"
+    ],
+    "label": "cpu_stress",
+    "support": 0.14285714285714285,
+    "confidence": 1.0,
+    "lift": 7.0,
+    "training_runs": 6
+  },
+  {
+    "conditions": [
+      "dns_status=timeout"
+    ],
+    "label": "dns_egress_blocked",
+    "support": 0.14285714285714285,
+    "confidence": 1.0,
+    "lift": 7.0,
+    "training_runs": 6
+  },
+  {
+    "conditions": [
+      "local_http_status=failed"
+    ],
+    "label": "nginx_stopped",
+    "support": 0.14285714285714285,
+    "confidence": 1.0,
+    "lift": 7.0,
+    "training_runs": 6
+  },
+  {
+    "conditions": [
+      "ping_status=no_reply"
+    ],
+    "label": "interface_down",
+    "support": 0.14285714285714285,
+    "confidence": 1.0,
+    "lift": 7.0,
+    "training_runs": 6
+  },
+  {
+    "conditions": [
+      "tcp10050_status=refused"
+    ],
+    "label": "agent_stopped",
+    "support": 0.14285714285714285,
+    "confidence": 1.0,
+    "lift": 7.0,
+    "training_runs": 6
+  },
+  {
+    "conditions": [
+      "tcp80_status=refused"
+    ],
+    "label": "nginx_stopped",
+    "support": 0.14285714285714285,
+    "confidence": 1.0,
+    "lift": 7.0,
+    "training_runs": 6
+  },
+  {
+    "conditions": [
+      "cpu_mean=high_ge90"
+    ],
+    "label": "cpu_stress",
+    "support": 0.11904761904761904,
+    "confidence": 1.0,
+    "lift": 7.0,
+    "training_runs": 5
+  },
+  {
+    "conditions": [
+      "tcp10050_status=timeout"
+    ],
+    "label": "interface_down",
+    "support": 0.11904761904761904,
+    "confidence": 1.0,
+    "lift": 7.0,
+    "training_runs": 5
+  },
+  {
+    "conditions": [
+      "tcp80_status=timeout"
+    ],
+    "label": "remote_http_filtered",
+    "support": 0.14285714285714285,
+    "confidence": 0.8571428571428571,
+    "lift": 6.0,
+    "training_runs": 6
+  },
+  {
+    "conditions": [
+      "dns_status=success",
+      "tcp80_status=timeout"
+    ],
+    "label": "remote_http_filtered",
+    "support": 0.14285714285714285,
+    "confidence": 1.0,
+    "lift": 7.0,
+    "training_runs": 6
+  },
+  {
+    "conditions": [
+      "local_http_status=http_200",
+      "tcp80_status=timeout"
+    ],
+    "label": "remote_http_filtered",
+    "support": 0.14285714285714285,
+    "confidence": 1.0,
+    "lift": 7.0,
+    "training_runs": 6
+  },
+  {
+    "conditions": [
+      "ping_status=success",
+      "tcp80_status=timeout"
+    ],
+    "label": "remote_http_filtered",
+    "support": 0.14285714285714285,
+    "confidence": 1.0,
+    "lift": 7.0,
+    "training_runs": 6
+  },
+  {
+    "conditions": [
+      "tcp10050_status=success",
+      "tcp80_status=timeout"
+    ],
+    "label": "remote_http_filtered",
+    "support": 0.14285714285714285,
+    "confidence": 1.0,
+    "lift": 7.0,
+    "training_runs": 6
+  },
+  {
+    "conditions": [
+      "cpu_coverage_seconds=sufficient",
+      "tcp80_status=timeout"
+    ],
+    "label": "remote_http_filtered",
+    "support": 0.09523809523809523,
+    "confidence": 1.0,
+    "lift": 7.0,
+    "training_runs": 4
+  },
+  {
+    "conditions": [
+      "cpu_max_gap_seconds=gap_large",
+      "tcp80_status=timeout"
+    ],
+    "label": "remote_http_filtered",
+    "support": 0.047619047619047616,
+    "confidence": 1.0,
+    "lift": 7.0,
+    "training_runs": 2
+  },
+  {
+    "conditions": [
+      "cpu_mean=below90",
+      "tcp80_status=timeout"
+    ],
+    "label": "remote_http_filtered",
+    "support": 0.047619047619047616,
+    "confidence": 1.0,
+    "lift": 7.0,
+    "training_runs": 2
+  },
+  {
+    "conditions": [
+      "cpu_percent=below90",
+      "dns_status=success",
+      "tcp80_status=success"
+    ],
+    "label": "healthy",
+    "support": 0.14285714285714285,
+    "confidence": 1.0,
+    "lift": 7.0,
+    "training_runs": 6
+  },
+  {
+    "conditions": [
+      "cpu_coverage_seconds=short",
+      "dns_status=success",
+      "tcp80_status=success"
+    ],
+    "label": "healthy",
+    "support": 0.07142857142857142,
+    "confidence": 1.0,
+    "lift": 7.0,
+    "training_runs": 3
+  }
+]

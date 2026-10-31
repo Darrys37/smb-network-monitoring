@@ -1,0 +1,596 @@
+{
+  "missingness_by_label": [
+    {
+      "label": "agent_stopped",
+      "feature": "ping_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "agent_stopped",
+      "feature": "tcp80_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "agent_stopped",
+      "feature": "tcp10050_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "agent_stopped",
+      "feature": "local_http_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "agent_stopped",
+      "feature": "dns_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "agent_stopped",
+      "feature": "agent_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "agent_stopped",
+      "feature": "control_ping_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "agent_stopped",
+      "feature": "cpu_percent",
+      "runs": 6,
+      "unknown": 6,
+      "not_applicable": 0
+    },
+    {
+      "label": "agent_stopped",
+      "feature": "ram_percent",
+      "runs": 6,
+      "unknown": 6,
+      "not_applicable": 0
+    },
+    {
+      "label": "agent_stopped",
+      "feature": "cpu_mean",
+      "runs": 6,
+      "unknown": 6,
+      "not_applicable": 0
+    },
+    {
+      "label": "agent_stopped",
+      "feature": "cpu_coverage_seconds",
+      "runs": 6,
+      "unknown": 6,
+      "not_applicable": 0
+    },
+    {
+      "label": "agent_stopped",
+      "feature": "cpu_max_gap_seconds",
+      "runs": 6,
+      "unknown": 6,
+      "not_applicable": 0
+    },
+    {
+      "label": "cpu_stress",
+      "feature": "ping_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "cpu_stress",
+      "feature": "tcp80_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "cpu_stress",
+      "feature": "tcp10050_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "cpu_stress",
+      "feature": "local_http_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "cpu_stress",
+      "feature": "dns_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "cpu_stress",
+      "feature": "agent_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "cpu_stress",
+      "feature": "control_ping_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "cpu_stress",
+      "feature": "cpu_percent",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "cpu_stress",
+      "feature": "ram_percent",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "cpu_stress",
+      "feature": "cpu_mean",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "cpu_stress",
+      "feature": "cpu_coverage_seconds",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "cpu_stress",
+      "feature": "cpu_max_gap_seconds",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "dns_egress_blocked",
+      "feature": "ping_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "dns_egress_blocked",
+      "feature": "tcp80_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "dns_egress_blocked",
+      "feature": "tcp10050_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "dns_egress_blocked",
+      "feature": "local_http_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "dns_egress_blocked",
+      "feature": "dns_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "dns_egress_blocked",
+      "feature": "agent_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "dns_egress_blocked",
+      "feature": "control_ping_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "dns_egress_blocked",
+      "feature": "cpu_percent",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "dns_egress_blocked",
+      "feature": "ram_percent",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "dns_egress_blocked",
+      "feature": "cpu_mean",
+      "runs": 6,
+      "unknown": 2,
+      "not_applicable": 0
+    },
+    {
+      "label": "dns_egress_blocked",
+      "feature": "cpu_coverage_seconds",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "dns_egress_blocked",
+      "feature": "cpu_max_gap_seconds",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "healthy",
+      "feature": "ping_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "healthy",
+      "feature": "tcp80_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "healthy",
+      "feature": "tcp10050_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "healthy",
+      "feature": "local_http_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "healthy",
+      "feature": "dns_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "healthy",
+      "feature": "agent_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "healthy",
+      "feature": "control_ping_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "healthy",
+      "feature": "cpu_percent",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "healthy",
+      "feature": "ram_percent",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "healthy",
+      "feature": "cpu_mean",
+      "runs": 6,
+      "unknown": 4,
+      "not_applicable": 0
+    },
+    {
+      "label": "healthy",
+      "feature": "cpu_coverage_seconds",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "healthy",
+      "feature": "cpu_max_gap_seconds",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "interface_down",
+      "feature": "ping_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "interface_down",
+      "feature": "tcp80_status",
+      "runs": 6,
+      "unknown": 5,
+      "not_applicable": 0
+    },
+    {
+      "label": "interface_down",
+      "feature": "tcp10050_status",
+      "runs": 6,
+      "unknown": 1,
+      "not_applicable": 0
+    },
+    {
+      "label": "interface_down",
+      "feature": "local_http_status",
+      "runs": 6,
+      "unknown": 6,
+      "not_applicable": 0
+    },
+    {
+      "label": "interface_down",
+      "feature": "dns_status",
+      "runs": 6,
+      "unknown": 6,
+      "not_applicable": 0
+    },
+    {
+      "label": "interface_down",
+      "feature": "agent_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "interface_down",
+      "feature": "control_ping_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "interface_down",
+      "feature": "cpu_percent",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "interface_down",
+      "feature": "ram_percent",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "interface_down",
+      "feature": "cpu_mean",
+      "runs": 6,
+      "unknown": 6,
+      "not_applicable": 0
+    },
+    {
+      "label": "interface_down",
+      "feature": "cpu_coverage_seconds",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "interface_down",
+      "feature": "cpu_max_gap_seconds",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "nginx_stopped",
+      "feature": "ping_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "nginx_stopped",
+      "feature": "tcp80_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "nginx_stopped",
+      "feature": "tcp10050_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "nginx_stopped",
+      "feature": "local_http_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "nginx_stopped",
+      "feature": "dns_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "nginx_stopped",
+      "feature": "agent_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "nginx_stopped",
+      "feature": "control_ping_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "nginx_stopped",
+      "feature": "cpu_percent",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "nginx_stopped",
+      "feature": "ram_percent",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "nginx_stopped",
+      "feature": "cpu_mean",
+      "runs": 6,
+      "unknown": 4,
+      "not_applicable": 0
+    },
+    {
+      "label": "nginx_stopped",
+      "feature": "cpu_coverage_seconds",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "nginx_stopped",
+      "feature": "cpu_max_gap_seconds",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "remote_http_filtered",
+      "feature": "ping_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "remote_http_filtered",
+      "feature": "tcp80_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "remote_http_filtered",
+      "feature": "tcp10050_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "remote_http_filtered",
+      "feature": "local_http_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "remote_http_filtered",
+      "feature": "dns_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "remote_http_filtered",
+      "feature": "agent_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "remote_http_filtered",
+      "feature": "control_ping_status",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "remote_http_filtered",
+      "feature": "cpu_percent",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "remote_http_filtered",
+      "feature": "ram_percent",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "remote_http_filtered",
+      "feature": "cpu_mean",
+      "runs": 6,
+      "unknown": 4,
+      "not_applicable": 0
+    },
+    {
+      "label": "remote_http_filtered",
+      "feature": "cpu_coverage_seconds",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    },
+    {
+      "label": "remote_http_filtered",
+      "feature": "cpu_max_gap_seconds",
+      "runs": 6,
+      "unknown": 0,
+      "not_applicable": 0
+    }
+  ],
+  "distinct_discrete_vectors": 16,
+  "conflicting_vectors": [],
+  "empirical_discrete_deterministic_ceiling": 1.0,
+  "note": "Descriptive in-sample identifiability bound; not expected test accuracy. Missingness-only CART is an explicit shortcut check."
+}

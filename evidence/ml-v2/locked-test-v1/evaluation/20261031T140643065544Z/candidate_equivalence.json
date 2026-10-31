@@ -1,0 +1,6 @@
+{
+  "rows": 42,
+  "CART_discrete": true,
+  "FP_classifier": true,
+  "scope": "all fitted pilot feature rows; independent unseen-category tests are in unit suite"
+}

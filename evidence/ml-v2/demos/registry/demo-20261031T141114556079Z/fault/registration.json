@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "session_id": "demo-20261031T141114556079Z",
+  "run_id": "fault",
+  "planned_labels": [
+    "nginx_stopped"
+  ],
+  "registered_at": 1793455882,
+  "validity": "pending"
+}

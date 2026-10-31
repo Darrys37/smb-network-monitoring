@@ -1,0 +1,216 @@
+{
+  "cases": [
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r01-01-healthy",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r01-02-agent_stopped",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r01-03-nginx_stopped",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r01-04-dns_egress_blocked",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r01-05-remote_http_filtered",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r01-06-cpu_stress",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r01-07-interface_down",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r02-01-agent_stopped",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r02-02-dns_egress_blocked",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r02-03-healthy",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r02-04-remote_http_filtered",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r02-05-cpu_stress-retry1",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r02-06-interface_down",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r02-07-nginx_stopped",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r03-01-interface_down",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r03-02-remote_http_filtered",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r03-03-agent_stopped",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r03-04-healthy",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r03-05-dns_egress_blocked",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r03-06-cpu_stress",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r03-07-nginx_stopped",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r01-01-interface_down",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r01-02-nginx_stopped",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r01-03-dns_egress_blocked",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r01-04-healthy",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r01-05-agent_stopped",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r01-06-remote_http_filtered",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r01-07-cpu_stress",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r02-01-agent_stopped",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r02-02-nginx_stopped",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r02-03-interface_down",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r02-04-remote_http_filtered",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r02-05-dns_egress_blocked",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r02-06-healthy",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r02-07-cpu_stress",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r03-01-interface_down",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r03-02-dns_egress_blocked",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r03-03-nginx_stopped",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r03-04-remote_http_filtered",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r03-05-agent_stopped",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r03-06-cpu_stress",
+      "equivalent": true
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r03-07-healthy",
+      "equivalent": true
+    }
+  ],
+  "all_equal": true,
+  "scope": "Live predictions were saved during fault before rollback and not used to tune or retry; comparison opened after all collection"
+}

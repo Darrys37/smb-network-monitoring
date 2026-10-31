@@ -41,6 +41,14 @@ Serving policy cố định: profile phải trùng; CART discrete và FP từ ch
 
 Tập thử cân bằng có tỷ lệ lỗi khác production. Association confidence/lift và tỷ lệ lớp ở lá là thống kê train, không phải xác suất nguyên nhân đúng đã hiệu chỉnh. CPU cao cũng có thể là công việc hợp lệ ngoài lab; nhãn cpu_stress chỉ mô tả can thiệp đã tạo.
 
+### Cách diễn giải đối chứng
+
+CART discrete và FP-Growth dùng cùng tập feature đã chia bins, để so thuật toán trong cùng cách biểu diễn. CART numeric còn giữ giá trị liên tục; chênh lệch với FP có thể đến từ cả thuật toán lẫn biểu diễn, không quy toàn bộ cho thuật toán.
+
+`cart_no_quality` chỉ bỏ hai cột coverage/max-gap khỏi input. Cách tạo `cpu_mean` vẫn giữ cùng điều kiện chất lượng như các mô hình khác; đây không phải thí nghiệm tắt toàn bộ quality gate. `cart_missingness` chỉ nhìn có/thiếu dữ liệu, giúp kiểm tra tín hiệu đến từ availability thay vì giá trị đo.
+
+Bins 90% là lựa chọn domain cố định trước test, không phải ngưỡng tối ưu do FP tự tìm. Ngưỡng của CART numeric phản ánh các mức tải đã xuất hiện trong train, không tự trở thành ranh giới sự cố vật lý hoặc bằng chứng nhân quả.
+
 ## Đầu ra và cách chạy offline
 
 Trong `ml-research`:

@@ -32,6 +32,14 @@ Lệnh demo live nhập mật khẩu SSH ẩn, thu cùng lịch probe trên MON0
 - Đối chứng: majority; CART bỏ local HTTP/DNS; CART bỏ coverage/max-gap; CART chỉ nhìn availability. Kiểm tra missingness, vector trùng khác nhãn trong `quality_and_identifiability.json`.
 - So engine chuyên gia ở sáu câu hỏi độc lập, giữ `insufficient_evidence`; không ép toàn bộ `not_matched` thành healthy. So mô hình đa lớp riêng, gồm ABSTAIN trong mẫu số accuracy.
 
+### Cách diễn giải đối chứng
+
+CART discrete và FP-Growth dùng cùng tập feature đã chia bins, để so thuật toán trong cùng cách biểu diễn. CART numeric còn giữ giá trị liên tục; chênh lệch với FP có thể đến từ cả thuật toán lẫn biểu diễn, không quy toàn bộ cho thuật toán.
+
+`cart_no_quality` chỉ bỏ hai cột coverage/max-gap khỏi input. Cách tạo `cpu_mean` vẫn giữ cùng điều kiện chất lượng như các mô hình khác; đây không phải thí nghiệm tắt toàn bộ quality gate. `cart_missingness` chỉ nhìn có/thiếu dữ liệu, giúp kiểm tra tín hiệu đến từ availability thay vì giá trị đo.
+
+Bins 90% là lựa chọn domain cố định trước test, không phải ngưỡng tối ưu do FP tự tìm. Ngưỡng của CART numeric phản ánh các mức tải đã xuất hiện trong train, không tự trở thành ranh giới sự cố vật lý hoặc bằng chứng nhân quả.
+
 ## Luật trong SQLite và giải thích
 
 `candidate_rules.sqlite` có schema version, metadata và luật CART/FP-Growth trạng thái `candidate`. Điều kiện là JSON với toán tử cho phép; không dùng eval/exec để chạy điều kiện. Rule ID, số lượt train hỗ trợ và loại thống kê đều có trong output.

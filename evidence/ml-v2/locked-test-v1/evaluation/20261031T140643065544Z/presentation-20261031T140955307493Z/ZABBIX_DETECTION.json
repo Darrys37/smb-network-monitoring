@@ -1,0 +1,819 @@
+{
+  "summary": {
+    "healthy": {
+      "runs": 6,
+      "configured_related_triggers": 0,
+      "related_detected_strict": 0,
+      "related_detected_by_selected_observation": 0,
+      "mean_first_related_event_clock_delta_seconds": null,
+      "runs_with_any_significant_problem_event": 0
+    },
+    "agent_stopped": {
+      "runs": 6,
+      "configured_related_triggers": 1,
+      "related_detected_strict": 1,
+      "related_detected_by_selected_observation": 1,
+      "mean_first_related_event_clock_delta_seconds": 210,
+      "runs_with_any_significant_problem_event": 1
+    },
+    "nginx_stopped": {
+      "runs": 6,
+      "configured_related_triggers": 1,
+      "related_detected_strict": 6,
+      "related_detected_by_selected_observation": 6,
+      "mean_first_related_event_clock_delta_seconds": 14,
+      "runs_with_any_significant_problem_event": 6
+    },
+    "dns_egress_blocked": {
+      "runs": 6,
+      "configured_related_triggers": 0,
+      "related_detected_strict": 0,
+      "related_detected_by_selected_observation": 0,
+      "mean_first_related_event_clock_delta_seconds": null,
+      "runs_with_any_significant_problem_event": 0
+    },
+    "remote_http_filtered": {
+      "runs": 6,
+      "configured_related_triggers": 1,
+      "related_detected_strict": 6,
+      "related_detected_by_selected_observation": 6,
+      "mean_first_related_event_clock_delta_seconds": 17.333333333333332,
+      "runs_with_any_significant_problem_event": 6
+    },
+    "cpu_stress": {
+      "runs": 6,
+      "configured_related_triggers": 2,
+      "related_detected_strict": 1,
+      "related_detected_by_selected_observation": 1,
+      "mean_first_related_event_clock_delta_seconds": 322,
+      "runs_with_any_significant_problem_event": 1
+    },
+    "interface_down": {
+      "runs": 6,
+      "configured_related_triggers": 3,
+      "related_detected_strict": 6,
+      "related_detected_by_selected_observation": 6,
+      "mean_first_related_event_clock_delta_seconds": 20.166666666666668,
+      "runs_with_any_significant_problem_event": 6
+    }
+  },
+  "rows": [
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r01-01-healthy",
+      "label": "healthy",
+      "start": 1793435608,
+      "end": 1793435645,
+      "decision_time": 1793435645,
+      "configured_related_triggers": 0,
+      "related_detected_strict": false,
+      "related_detected_by_selected_observation": false,
+      "related_detected_with_1s_boundary_tolerance": false,
+      "first_related_event_clock_delta_seconds": null,
+      "related_event_ids": [],
+      "significant_event_ids": [],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r01-02-agent_stopped",
+      "label": "agent_stopped",
+      "start": 1793435647,
+      "end": 1793435860,
+      "decision_time": 1793435861,
+      "configured_related_triggers": 1,
+      "related_detected_strict": false,
+      "related_detected_by_selected_observation": false,
+      "related_detected_with_1s_boundary_tolerance": false,
+      "first_related_event_clock_delta_seconds": null,
+      "related_event_ids": [],
+      "significant_event_ids": [],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r01-03-nginx_stopped",
+      "label": "nginx_stopped",
+      "start": 1793436051,
+      "end": 1793436094,
+      "decision_time": 1793436095,
+      "configured_related_triggers": 1,
+      "related_detected_strict": true,
+      "related_detected_by_selected_observation": true,
+      "related_detected_with_1s_boundary_tolerance": true,
+      "first_related_event_clock_delta_seconds": 10,
+      "related_event_ids": [
+        "1854"
+      ],
+      "significant_event_ids": [
+        "1854"
+      ],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r01-04-dns_egress_blocked",
+      "label": "dns_egress_blocked",
+      "start": 1793436129,
+      "end": 1793436176,
+      "decision_time": 1793436177,
+      "configured_related_triggers": 0,
+      "related_detected_strict": false,
+      "related_detected_by_selected_observation": false,
+      "related_detected_with_1s_boundary_tolerance": false,
+      "first_related_event_clock_delta_seconds": null,
+      "related_event_ids": [],
+      "significant_event_ids": [],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r01-05-remote_http_filtered",
+      "label": "remote_http_filtered",
+      "start": 1793436180,
+      "end": 1793436227,
+      "decision_time": 1793436228,
+      "configured_related_triggers": 1,
+      "related_detected_strict": true,
+      "related_detected_by_selected_observation": true,
+      "related_detected_with_1s_boundary_tolerance": true,
+      "first_related_event_clock_delta_seconds": 6,
+      "related_event_ids": [
+        "1856"
+      ],
+      "significant_event_ids": [
+        "1856"
+      ],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r01-06-cpu_stress",
+      "label": "cpu_stress",
+      "start": 1793436246,
+      "end": 1793436580,
+      "decision_time": 1793436581,
+      "configured_related_triggers": 2,
+      "related_detected_strict": false,
+      "related_detected_by_selected_observation": false,
+      "related_detected_with_1s_boundary_tolerance": false,
+      "first_related_event_clock_delta_seconds": null,
+      "related_event_ids": [],
+      "significant_event_ids": [],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r01-07-interface_down",
+      "label": "interface_down",
+      "start": 1793436895,
+      "end": 1793437040,
+      "decision_time": 1793437005,
+      "configured_related_triggers": 3,
+      "related_detected_strict": true,
+      "related_detected_by_selected_observation": true,
+      "related_detected_with_1s_boundary_tolerance": true,
+      "first_related_event_clock_delta_seconds": 13,
+      "related_event_ids": [
+        "1858"
+      ],
+      "significant_event_ids": [
+        "1858"
+      ],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r02-01-agent_stopped",
+      "label": "agent_stopped",
+      "start": 1793437111,
+      "end": 1793437325,
+      "decision_time": 1793437326,
+      "configured_related_triggers": 1,
+      "related_detected_strict": true,
+      "related_detected_by_selected_observation": true,
+      "related_detected_with_1s_boundary_tolerance": true,
+      "first_related_event_clock_delta_seconds": 210,
+      "related_event_ids": [
+        "1864"
+      ],
+      "significant_event_ids": [
+        "1864"
+      ],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r02-02-dns_egress_blocked",
+      "label": "dns_egress_blocked",
+      "start": 1793437485,
+      "end": 1793437532,
+      "decision_time": 1793437533,
+      "configured_related_triggers": 0,
+      "related_detected_strict": false,
+      "related_detected_by_selected_observation": false,
+      "related_detected_with_1s_boundary_tolerance": false,
+      "first_related_event_clock_delta_seconds": null,
+      "related_event_ids": [],
+      "significant_event_ids": [],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r02-03-healthy",
+      "label": "healthy",
+      "start": 1793437536,
+      "end": 1793437570,
+      "decision_time": 1793437570,
+      "configured_related_triggers": 0,
+      "related_detected_strict": false,
+      "related_detected_by_selected_observation": false,
+      "related_detected_with_1s_boundary_tolerance": false,
+      "first_related_event_clock_delta_seconds": null,
+      "related_event_ids": [],
+      "significant_event_ids": [],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r02-04-remote_http_filtered",
+      "label": "remote_http_filtered",
+      "start": 1793437572,
+      "end": 1793437620,
+      "decision_time": 1793437621,
+      "configured_related_triggers": 1,
+      "related_detected_strict": true,
+      "related_detected_by_selected_observation": true,
+      "related_detected_with_1s_boundary_tolerance": true,
+      "first_related_event_clock_delta_seconds": 24,
+      "related_event_ids": [
+        "1866"
+      ],
+      "significant_event_ids": [
+        "1866"
+      ],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r02-05-cpu_stress-retry1",
+      "label": "cpu_stress",
+      "start": 1793448975,
+      "end": 1793449310,
+      "decision_time": 1793449311,
+      "configured_related_triggers": 2,
+      "related_detected_strict": false,
+      "related_detected_by_selected_observation": false,
+      "related_detected_with_1s_boundary_tolerance": false,
+      "first_related_event_clock_delta_seconds": null,
+      "related_event_ids": [],
+      "significant_event_ids": [],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r02-06-interface_down",
+      "label": "interface_down",
+      "start": 1793449610,
+      "end": 1793449756,
+      "decision_time": 1793449719,
+      "configured_related_triggers": 3,
+      "related_detected_strict": true,
+      "related_detected_by_selected_observation": true,
+      "related_detected_with_1s_boundary_tolerance": true,
+      "first_related_event_clock_delta_seconds": 16,
+      "related_event_ids": [
+        "2058"
+      ],
+      "significant_event_ids": [
+        "2058"
+      ],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r02-07-nginx_stopped",
+      "label": "nginx_stopped",
+      "start": 1793449872,
+      "end": 1793449916,
+      "decision_time": 1793449917,
+      "configured_related_triggers": 1,
+      "related_detected_strict": true,
+      "related_detected_by_selected_observation": true,
+      "related_detected_with_1s_boundary_tolerance": true,
+      "first_related_event_clock_delta_seconds": 19,
+      "related_event_ids": [
+        "2062"
+      ],
+      "significant_event_ids": [
+        "2062"
+      ],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r03-01-interface_down",
+      "label": "interface_down",
+      "start": 1793449936,
+      "end": 1793450082,
+      "decision_time": 1793450045,
+      "configured_related_triggers": 3,
+      "related_detected_strict": true,
+      "related_detected_by_selected_observation": true,
+      "related_detected_with_1s_boundary_tolerance": true,
+      "first_related_event_clock_delta_seconds": 20,
+      "related_event_ids": [
+        "2064"
+      ],
+      "significant_event_ids": [
+        "2064"
+      ],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r03-02-remote_http_filtered",
+      "label": "remote_http_filtered",
+      "start": 1793450152,
+      "end": 1793450199,
+      "decision_time": 1793450200,
+      "configured_related_triggers": 1,
+      "related_detected_strict": true,
+      "related_detected_by_selected_observation": true,
+      "related_detected_with_1s_boundary_tolerance": true,
+      "first_related_event_clock_delta_seconds": 14,
+      "related_event_ids": [
+        "2066"
+      ],
+      "significant_event_ids": [
+        "2066"
+      ],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r03-03-agent_stopped",
+      "label": "agent_stopped",
+      "start": 1793450235,
+      "end": 1793450448,
+      "decision_time": 1793450449,
+      "configured_related_triggers": 1,
+      "related_detected_strict": false,
+      "related_detected_by_selected_observation": false,
+      "related_detected_with_1s_boundary_tolerance": false,
+      "first_related_event_clock_delta_seconds": null,
+      "related_event_ids": [],
+      "significant_event_ids": [],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r03-04-healthy",
+      "label": "healthy",
+      "start": 1793450625,
+      "end": 1793450659,
+      "decision_time": 1793450659,
+      "configured_related_triggers": 0,
+      "related_detected_strict": false,
+      "related_detected_by_selected_observation": false,
+      "related_detected_with_1s_boundary_tolerance": false,
+      "first_related_event_clock_delta_seconds": null,
+      "related_event_ids": [],
+      "significant_event_ids": [],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r03-05-dns_egress_blocked",
+      "label": "dns_egress_blocked",
+      "start": 1793450663,
+      "end": 1793450710,
+      "decision_time": 1793450711,
+      "configured_related_triggers": 0,
+      "related_detected_strict": false,
+      "related_detected_by_selected_observation": false,
+      "related_detected_with_1s_boundary_tolerance": false,
+      "first_related_event_clock_delta_seconds": null,
+      "related_event_ids": [],
+      "significant_event_ids": [],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r03-06-cpu_stress",
+      "label": "cpu_stress",
+      "start": 1793450715,
+      "end": 1793451049,
+      "decision_time": 1793451049,
+      "configured_related_triggers": 2,
+      "related_detected_strict": true,
+      "related_detected_by_selected_observation": true,
+      "related_detected_with_1s_boundary_tolerance": true,
+      "first_related_event_clock_delta_seconds": 322,
+      "related_event_ids": [
+        "2072"
+      ],
+      "significant_event_ids": [
+        "2072"
+      ],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s01",
+      "run_id": "r03-07-nginx_stopped",
+      "label": "nginx_stopped",
+      "start": 1793451349,
+      "end": 1793451393,
+      "decision_time": 1793451393,
+      "configured_related_triggers": 1,
+      "related_detected_strict": true,
+      "related_detected_by_selected_observation": true,
+      "related_detected_with_1s_boundary_tolerance": true,
+      "first_related_event_clock_delta_seconds": 12,
+      "related_event_ids": [
+        "2074"
+      ],
+      "significant_event_ids": [
+        "2074"
+      ],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r01-01-interface_down",
+      "label": "interface_down",
+      "start": 1793451428,
+      "end": 1793451573,
+      "decision_time": 1793451537,
+      "configured_related_triggers": 3,
+      "related_detected_strict": true,
+      "related_detected_by_selected_observation": true,
+      "related_detected_with_1s_boundary_tolerance": true,
+      "first_related_event_clock_delta_seconds": 28,
+      "related_event_ids": [
+        "2076"
+      ],
+      "significant_event_ids": [
+        "2076"
+      ],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r01-02-nginx_stopped",
+      "label": "nginx_stopped",
+      "start": 1793451644,
+      "end": 1793451688,
+      "decision_time": 1793451688,
+      "configured_related_triggers": 1,
+      "related_detected_strict": true,
+      "related_detected_by_selected_observation": true,
+      "related_detected_with_1s_boundary_tolerance": true,
+      "first_related_event_clock_delta_seconds": 17,
+      "related_event_ids": [
+        "2078"
+      ],
+      "significant_event_ids": [
+        "2078"
+      ],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r01-03-dns_egress_blocked",
+      "label": "dns_egress_blocked",
+      "start": 1793451708,
+      "end": 1793451755,
+      "decision_time": 1793451756,
+      "configured_related_triggers": 0,
+      "related_detected_strict": false,
+      "related_detected_by_selected_observation": false,
+      "related_detected_with_1s_boundary_tolerance": false,
+      "first_related_event_clock_delta_seconds": null,
+      "related_event_ids": [],
+      "significant_event_ids": [],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r01-04-healthy",
+      "label": "healthy",
+      "start": 1793451759,
+      "end": 1793451793,
+      "decision_time": 1793451793,
+      "configured_related_triggers": 0,
+      "related_detected_strict": false,
+      "related_detected_by_selected_observation": false,
+      "related_detected_with_1s_boundary_tolerance": false,
+      "first_related_event_clock_delta_seconds": null,
+      "related_event_ids": [],
+      "significant_event_ids": [],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r01-05-agent_stopped",
+      "label": "agent_stopped",
+      "start": 1793451797,
+      "end": 1793452010,
+      "decision_time": 1793452011,
+      "configured_related_triggers": 1,
+      "related_detected_strict": false,
+      "related_detected_by_selected_observation": false,
+      "related_detected_with_1s_boundary_tolerance": false,
+      "first_related_event_clock_delta_seconds": null,
+      "related_event_ids": [],
+      "significant_event_ids": [],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r01-06-remote_http_filtered",
+      "label": "remote_http_filtered",
+      "start": 1793452124,
+      "end": 1793452172,
+      "decision_time": 1793452172,
+      "configured_related_triggers": 1,
+      "related_detected_strict": true,
+      "related_detected_by_selected_observation": true,
+      "related_detected_with_1s_boundary_tolerance": true,
+      "first_related_event_clock_delta_seconds": 22,
+      "related_event_ids": [
+        "2086"
+      ],
+      "significant_event_ids": [
+        "2086"
+      ],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r01-07-cpu_stress",
+      "label": "cpu_stress",
+      "start": 1793452176,
+      "end": 1793452510,
+      "decision_time": 1793452511,
+      "configured_related_triggers": 2,
+      "related_detected_strict": false,
+      "related_detected_by_selected_observation": false,
+      "related_detected_with_1s_boundary_tolerance": false,
+      "first_related_event_clock_delta_seconds": null,
+      "related_event_ids": [],
+      "significant_event_ids": [],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r02-01-agent_stopped",
+      "label": "agent_stopped",
+      "start": 1793452795,
+      "end": 1793453008,
+      "decision_time": 1793453009,
+      "configured_related_triggers": 1,
+      "related_detected_strict": false,
+      "related_detected_by_selected_observation": false,
+      "related_detected_with_1s_boundary_tolerance": false,
+      "first_related_event_clock_delta_seconds": null,
+      "related_event_ids": [],
+      "significant_event_ids": [],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r02-02-nginx_stopped",
+      "label": "nginx_stopped",
+      "start": 1793453154,
+      "end": 1793453197,
+      "decision_time": 1793453198,
+      "configured_related_triggers": 1,
+      "related_detected_strict": true,
+      "related_detected_by_selected_observation": true,
+      "related_detected_with_1s_boundary_tolerance": true,
+      "first_related_event_clock_delta_seconds": 7,
+      "related_event_ids": [
+        "2088"
+      ],
+      "significant_event_ids": [
+        "2088"
+      ],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r02-03-interface_down",
+      "label": "interface_down",
+      "start": 1793453233,
+      "end": 1793453378,
+      "decision_time": 1793453341,
+      "configured_related_triggers": 3,
+      "related_detected_strict": true,
+      "related_detected_by_selected_observation": true,
+      "related_detected_with_1s_boundary_tolerance": true,
+      "first_related_event_clock_delta_seconds": 23,
+      "related_event_ids": [
+        "2090"
+      ],
+      "significant_event_ids": [
+        "2090"
+      ],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r02-04-remote_http_filtered",
+      "label": "remote_http_filtered",
+      "start": 1793453448,
+      "end": 1793453496,
+      "decision_time": 1793453497,
+      "configured_related_triggers": 1,
+      "related_detected_strict": true,
+      "related_detected_by_selected_observation": true,
+      "related_detected_with_1s_boundary_tolerance": true,
+      "first_related_event_clock_delta_seconds": 18,
+      "related_event_ids": [
+        "2092"
+      ],
+      "significant_event_ids": [
+        "2092"
+      ],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r02-05-dns_egress_blocked",
+      "label": "dns_egress_blocked",
+      "start": 1793453532,
+      "end": 1793453579,
+      "decision_time": 1793453580,
+      "configured_related_triggers": 0,
+      "related_detected_strict": false,
+      "related_detected_by_selected_observation": false,
+      "related_detected_with_1s_boundary_tolerance": false,
+      "first_related_event_clock_delta_seconds": null,
+      "related_event_ids": [],
+      "significant_event_ids": [],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r02-06-healthy",
+      "label": "healthy",
+      "start": 1793453583,
+      "end": 1793453617,
+      "decision_time": 1793453617,
+      "configured_related_triggers": 0,
+      "related_detected_strict": false,
+      "related_detected_by_selected_observation": false,
+      "related_detected_with_1s_boundary_tolerance": false,
+      "first_related_event_clock_delta_seconds": null,
+      "related_event_ids": [],
+      "significant_event_ids": [],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r02-07-cpu_stress",
+      "label": "cpu_stress",
+      "start": 1793453621,
+      "end": 1793453955,
+      "decision_time": 1793453956,
+      "configured_related_triggers": 2,
+      "related_detected_strict": false,
+      "related_detected_by_selected_observation": false,
+      "related_detected_with_1s_boundary_tolerance": false,
+      "first_related_event_clock_delta_seconds": null,
+      "related_event_ids": [],
+      "significant_event_ids": [],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r03-01-interface_down",
+      "label": "interface_down",
+      "start": 1793454225,
+      "end": 1793454370,
+      "decision_time": 1793454333,
+      "configured_related_triggers": 3,
+      "related_detected_strict": true,
+      "related_detected_by_selected_observation": true,
+      "related_detected_with_1s_boundary_tolerance": true,
+      "first_related_event_clock_delta_seconds": 21,
+      "related_event_ids": [
+        "2094"
+      ],
+      "significant_event_ids": [
+        "2094"
+      ],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r03-02-dns_egress_blocked",
+      "label": "dns_egress_blocked",
+      "start": 1793454440,
+      "end": 1793454488,
+      "decision_time": 1793454489,
+      "configured_related_triggers": 0,
+      "related_detected_strict": false,
+      "related_detected_by_selected_observation": false,
+      "related_detected_with_1s_boundary_tolerance": false,
+      "first_related_event_clock_delta_seconds": null,
+      "related_event_ids": [],
+      "significant_event_ids": [],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r03-03-nginx_stopped",
+      "label": "nginx_stopped",
+      "start": 1793454492,
+      "end": 1793454536,
+      "decision_time": 1793454536,
+      "configured_related_triggers": 1,
+      "related_detected_strict": true,
+      "related_detected_by_selected_observation": true,
+      "related_detected_with_1s_boundary_tolerance": true,
+      "first_related_event_clock_delta_seconds": 19,
+      "related_event_ids": [
+        "2100"
+      ],
+      "significant_event_ids": [
+        "2100"
+      ],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r03-04-remote_http_filtered",
+      "label": "remote_http_filtered",
+      "start": 1793454556,
+      "end": 1793454604,
+      "decision_time": 1793454604,
+      "configured_related_triggers": 1,
+      "related_detected_strict": true,
+      "related_detected_by_selected_observation": true,
+      "related_detected_with_1s_boundary_tolerance": true,
+      "first_related_event_clock_delta_seconds": 20,
+      "related_event_ids": [
+        "2102"
+      ],
+      "significant_event_ids": [
+        "2102"
+      ],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r03-05-agent_stopped",
+      "label": "agent_stopped",
+      "start": 1793454608,
+      "end": 1793454822,
+      "decision_time": 1793454822,
+      "configured_related_triggers": 1,
+      "related_detected_strict": false,
+      "related_detected_by_selected_observation": false,
+      "related_detected_with_1s_boundary_tolerance": false,
+      "first_related_event_clock_delta_seconds": null,
+      "related_event_ids": [],
+      "significant_event_ids": [],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r03-06-cpu_stress",
+      "label": "cpu_stress",
+      "start": 1793454951,
+      "end": 1793455286,
+      "decision_time": 1793455286,
+      "configured_related_triggers": 2,
+      "related_detected_strict": false,
+      "related_detected_by_selected_observation": false,
+      "related_detected_with_1s_boundary_tolerance": false,
+      "first_related_event_clock_delta_seconds": null,
+      "related_event_ids": [],
+      "significant_event_ids": [],
+      "boundary_ambiguous_event_ids": []
+    },
+    {
+      "session_id": "test-v2-s02",
+      "run_id": "r03-07-healthy",
+      "label": "healthy",
+      "start": 1793455555,
+      "end": 1793455589,
+      "decision_time": 1793455589,
+      "configured_related_triggers": 0,
+      "related_detected_strict": false,
+      "related_detected_by_selected_observation": false,
+      "related_detected_with_1s_boundary_tolerance": false,
+      "first_related_event_clock_delta_seconds": null,
+      "related_event_ids": [],
+      "significant_event_ids": [],
+      "boundary_ambiguous_event_ids": []
+    }
+  ],
+  "source_sha256": {
+    "events": "6c6892d6c92c4767dec95b605390cd3b97c949f68673c8960cd7b919337ea142",
+    "inventory": "67b9be30d41d23b90072d780e8016f8de690af6d4d46b615b5ed13773862e368",
+    "mapping": "279b148a4fb15fd39480ec8dfa4cfb276a90c184fb1bc981c5385556e91c724f"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "locked_test_output": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\locked-test-v1\\evaluation\\20261031T140643065544Z",
+  "live_shadow_verified": true,
+  "baseline_runtime_preserved": true,
+  "no_rules_active": true,
+  "scope": "Initial same-host ML acceptance; physical/multi-fault/topology excluded"
+}

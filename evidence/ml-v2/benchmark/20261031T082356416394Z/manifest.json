@@ -1,0 +1,338 @@
+{
+  "config": {
+    "tree_max_depth": 6,
+    "tree_min_samples_leaf": 2,
+    "random_state": 37,
+    "fp_min_run_count": 2,
+    "fp_min_confidence": 0.8,
+    "fp_min_lift": 1.1,
+    "fp_max_conditions": 4,
+    "numeric_high_percent": 90
+  },
+  "features": [
+    "ping_status",
+    "tcp80_status",
+    "tcp10050_status",
+    "local_http_status",
+    "dns_status",
+    "agent_status",
+    "control_ping_status",
+    "cpu_percent",
+    "ram_percent",
+    "cpu_mean",
+    "cpu_coverage_seconds",
+    "cpu_max_gap_seconds"
+  ],
+  "sources": [
+    {
+      "session_id": "pilot-v2-s01",
+      "run_id": "r01-01-healthy",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s01\\r01-01-healthy\\w-c5fa2fa758594364a2568d45fb2a83bf.json",
+      "sha256": "fa08ed0c2b3c5c0d3afa476e9fdb4a54bc8cbdf03f055e9f185886cb7066f578",
+      "review_sha256": "47a804619cd2739300f882192ae24e4bd1df7a4f4314b63a61a212a7007855f0"
+    },
+    {
+      "session_id": "pilot-v2-s01",
+      "run_id": "r01-02-cpu_stress",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s01\\r01-02-cpu_stress\\w-ecc3009a7a9d4039be96c5dbfabce959.json",
+      "sha256": "4ae09c5ff43052078be2fabf1278ace86a620079ad5a27f770507efef853c335",
+      "review_sha256": "bd4e2acfc00fcb5e81bfe4f0354214cc18f9ce69c85bc9c1f2c97f251db0091a"
+    },
+    {
+      "session_id": "pilot-v2-s01",
+      "run_id": "r01-03-dns_egress_blocked",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s01\\r01-03-dns_egress_blocked\\w-29782632afeb4a508b18bc3f6c1c1708.json",
+      "sha256": "2dcd8657e98621e1207e92d5f49e7baed3de38028ae0713e509997c1a8d04cac",
+      "review_sha256": "c1ab8337d2a9886109eb2fd9462b8521f237bcc2c53b8c9d4e7d00ac8c6f49e8"
+    },
+    {
+      "session_id": "pilot-v2-s01",
+      "run_id": "r01-04-remote_http_filtered-retry1",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s01\\r01-04-remote_http_filtered-retry1\\w-6944002b014142a1a902f69c2edaa362.json",
+      "sha256": "bea77e9fdc77a16165641669e9f3b488bf75fb5372152aa04157a8414ba64498",
+      "review_sha256": "fb4ab16c354491b8a42f7130bf1370a170525846fa79e2655feb759ab355f7f8"
+    },
+    {
+      "session_id": "pilot-v2-s01",
+      "run_id": "r01-05-agent_stopped-retry1",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s01\\r01-05-agent_stopped-retry1\\w-d1486087b98f4f58bfdab5b645ab4663.json",
+      "sha256": "a41577682da8adf0036b3ad9ca4a0c99e304f3891bfd5395c4bc5910835d884b",
+      "review_sha256": "085b92f02d69af1ac85186a0e68d9c70b5c692cfeba9a2e0f860d48422499e6f"
+    },
+    {
+      "session_id": "pilot-v2-s01",
+      "run_id": "r01-06-interface_down",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s01\\r01-06-interface_down\\w-c3ae3c7beed1468d998703a99aa9d9ee.json",
+      "sha256": "70c5bde17323c5a3a7f239f81821507a67453e52f3e8736c9b33f452c75d698a",
+      "review_sha256": "1edcffee5bdf98329da3d2d55267b016ea3f593e693febc422b6423d9238ad17"
+    },
+    {
+      "session_id": "pilot-v2-s01",
+      "run_id": "r01-07-nginx_stopped-retry1",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s01\\r01-07-nginx_stopped-retry1\\w-af7e045134074750b01a3fb0eeeb89b3.json",
+      "sha256": "3a6b164f1eefc2cacf76ceea7bc6bd0c1174235aa6c95ccb1265ba62f7b713bb",
+      "review_sha256": "295b3dc558cb19fb1d488b6ff8d208e1f67c6b5c47fc91b797d35e2c3c8aad44"
+    },
+    {
+      "session_id": "pilot-v2-s01",
+      "run_id": "r02-01-nginx_stopped",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s01\\r02-01-nginx_stopped\\w-35e8e837950442e381694f9e99d12ff2.json",
+      "sha256": "95436e6c38ee887c759f811ab13a4b6e4e9cc9a162b9c465987d4bb9fcae94a2",
+      "review_sha256": "40382f48116450ac21f11eb421970721ea99d42b5b76447452bb1f44af0ca273"
+    },
+    {
+      "session_id": "pilot-v2-s01",
+      "run_id": "r02-02-cpu_stress",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s01\\r02-02-cpu_stress\\w-77115d5eacea4c59bd1519b10b347b20.json",
+      "sha256": "0b7d7f1d7ac521859de9b65b572d2c2eae997f06454679920695d1560b198a5c",
+      "review_sha256": "af91878cd15c37be45f68d0aa71fc1a37391a65e79b7ce910594d271adf36803"
+    },
+    {
+      "session_id": "pilot-v2-s01",
+      "run_id": "r02-03-dns_egress_blocked",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s01\\r02-03-dns_egress_blocked\\w-775e634f9c9e42e9b933f86bc6d4f9b9.json",
+      "sha256": "4a29c77d9013bccbf5416c9a2d3b4a0376a5249e65f26d3426830e20991e6246",
+      "review_sha256": "eb5530aa337a037ca8e7a0e1cfcbc0632155eb10e92bdf4aba56ce887ad0080b"
+    },
+    {
+      "session_id": "pilot-v2-s01",
+      "run_id": "r02-04-remote_http_filtered",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s01\\r02-04-remote_http_filtered\\w-7d246893eb194596b43c1c61d0e4d6b8.json",
+      "sha256": "82492e594ff33eb82914adba13fc9b2a438cc8322303bcae38313c2add3609af",
+      "review_sha256": "2886eee2ebfb5e186f91e7a7dcde4d7bd3add0e0398019911266f48228b2b397"
+    },
+    {
+      "session_id": "pilot-v2-s01",
+      "run_id": "r02-05-agent_stopped-retry1",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s01\\r02-05-agent_stopped-retry1\\w-23def0b56be84ee0b96f0d66c708c432.json",
+      "sha256": "b336856dc636ac3a8578d1dffa209fd234514e43605f8a51631ecceb8b2c9278",
+      "review_sha256": "72a98d20f9d5e381faad536164fb8b4b45b57c889c752fdf347727dbf821e794"
+    },
+    {
+      "session_id": "pilot-v2-s01",
+      "run_id": "r02-06-interface_down",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s01\\r02-06-interface_down\\w-b7d8ec821160444eb145be0cb2f0ee05.json",
+      "sha256": "37237bd587337fff1b0b5e883d36f4c89c8a6b6b0b614b90ffe6f0b3fca7dc80",
+      "review_sha256": "401e5aad17f5dae7058bcb1dcb8fe06f3e55af8b5652593995b5b198db7cadbf"
+    },
+    {
+      "session_id": "pilot-v2-s01",
+      "run_id": "r02-07-healthy",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s01\\r02-07-healthy\\w-16f902b6c2074d229431c7a91abc2249.json",
+      "sha256": "6de13409d1d42c25b76b92239b3700b48147d17ad50a82fa1406fb2cbe233874",
+      "review_sha256": "2f76230ad34c8bcd505a00bfeb7a8c36036f58a40102eafab2d343e707aa3ecf"
+    },
+    {
+      "session_id": "pilot-v2-s01",
+      "run_id": "r03-01-cpu_stress-retry1",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s01\\r03-01-cpu_stress-retry1\\w-402050d825c5475686ae66b0aa588202.json",
+      "sha256": "4ab90906345724877cc36b370ffabc724135c9353a545b1a70fcd5745551356c",
+      "review_sha256": "9c32185d4288af8b07a90f91c7e7b716c7247a022e16fd2309c3fd42cc5ede3c"
+    },
+    {
+      "session_id": "pilot-v2-s01",
+      "run_id": "r03-02-dns_egress_blocked",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s01\\r03-02-dns_egress_blocked\\w-fc82eacfb34f4656b314f5477ab8f5aa.json",
+      "sha256": "6c95715ad40cd858faf9ea634962ac9c9ec2f744217f64f9dcc6ee2fb44daf92",
+      "review_sha256": "3b3d449c0de9c5ed40497d6ea978cbc35a9b09c852d809718ea7b01bae41406b"
+    },
+    {
+      "session_id": "pilot-v2-s01",
+      "run_id": "r03-03-agent_stopped",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s01\\r03-03-agent_stopped\\w-243e0c21884b4c0e962a6ad298481bc5.json",
+      "sha256": "92dd1efaea93c344b012361194afba4027289b93725502fd13b4c1854e0b45da",
+      "review_sha256": "e8c45ab591ffde6d5b0a287af9ac23c1039f80faccadcfcb125ed66d9fe0f751"
+    },
+    {
+      "session_id": "pilot-v2-s01",
+      "run_id": "r03-04-interface_down",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s01\\r03-04-interface_down\\w-c8e77eb11e804879a96745878d6e0aa1.json",
+      "sha256": "cbd57e50af90d1f5d2f07fecaca4b0d9d623cb6b978e19126ea34dc74fe81444",
+      "review_sha256": "48415a4b99c85a4ae548a33898778763726c45531fbdc7489e3877fd9ae95101"
+    },
+    {
+      "session_id": "pilot-v2-s01",
+      "run_id": "r03-05-remote_http_filtered",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s01\\r03-05-remote_http_filtered\\w-f86cc49101b44b87aba40a97bb53e583.json",
+      "sha256": "b499044784b95a69b00ffb5251a548797c68fdc6690d559511eaa4b44145e022",
+      "review_sha256": "6bcd18eefd2a156985001eea7b2bea28e002b50c4323c3c144c3e9a4c284ba04"
+    },
+    {
+      "session_id": "pilot-v2-s01",
+      "run_id": "r03-06-nginx_stopped",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s01\\r03-06-nginx_stopped\\w-946220916e4c4f1e8885e8490b6b82fe.json",
+      "sha256": "8afd179e5768cd23bb3501bb9d6a34e1fef5271ade604e4f66efc710be19bae0",
+      "review_sha256": "6c6e1c6f5d90fad15158ad709d109dc0fb484f261315832f33c5795bac8e057b"
+    },
+    {
+      "session_id": "pilot-v2-s01",
+      "run_id": "r03-07-healthy",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s01\\r03-07-healthy\\w-44f275ac3c25457ca55eb6b70b3ddc1a.json",
+      "sha256": "38617205edee08c2043fc2771619a4544be78d77061656aaad565a5e034f958a",
+      "review_sha256": "2b202b1fd2f93c64041a9fe9713efc8c4c33b5428d045f7b06bab3b8045fe0ca"
+    },
+    {
+      "session_id": "pilot-v2-s02",
+      "run_id": "r01-01-interface_down",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s02\\r01-01-interface_down\\w-0ba9edb4978b480bbbbf44501df40e24.json",
+      "sha256": "7008ce31cc432fb0ad8d06d77d28d9441864a54e4faae0adb8aee3252e2d1fdd",
+      "review_sha256": "870bb71e376cb00f61be2a3cd3e43e2740fcd0fd131d2d92123da12a2be74254"
+    },
+    {
+      "session_id": "pilot-v2-s02",
+      "run_id": "r01-02-nginx_stopped",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s02\\r01-02-nginx_stopped\\w-985d86b2e3504d79be9d746dbe684ba2.json",
+      "sha256": "1a9611d0b0da307663168c5657a0b54084a2a407fbd2e7d4fc0f12f5f72bda74",
+      "review_sha256": "0605f89ee59ee2e862da63645111e71917fd9a5fca8075fd6e2ea928a8c3f059"
+    },
+    {
+      "session_id": "pilot-v2-s02",
+      "run_id": "r01-03-cpu_stress",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s02\\r01-03-cpu_stress\\w-92ef6a159ab44f2a956e7710d696037a.json",
+      "sha256": "9941644543c58cc76bfab08ea832e0c3024f90100f2ecf5e6f9bc945b817afc0",
+      "review_sha256": "fe247d99096d9916b5d4379507622b8ff0a89b03fcbaef452d586b9c9e255a4a"
+    },
+    {
+      "session_id": "pilot-v2-s02",
+      "run_id": "r01-04-dns_egress_blocked",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s02\\r01-04-dns_egress_blocked\\w-8e1eaf05d29545ba9605840809e3d982.json",
+      "sha256": "cc69639c217236946a3b1dc6cb00d54b327c675c7453737d5e137fa2444f5a4c",
+      "review_sha256": "2a5b4e2a841b1fb97cb8d124f426e90e27b79f76f1612f6efcd35fd3aef9d94a"
+    },
+    {
+      "session_id": "pilot-v2-s02",
+      "run_id": "r01-05-remote_http_filtered",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s02\\r01-05-remote_http_filtered\\w-74e250efcc984089be23e481c3ff13b8.json",
+      "sha256": "5c8e13d1e9ebd55051e39fe2ba27c476656875b1f5a981ca8113af6c787f2117",
+      "review_sha256": "52e44f3ac241a19ad905e65019fea87688f61af1031953709e9daa1d225c11b9"
+    },
+    {
+      "session_id": "pilot-v2-s02",
+      "run_id": "r01-06-healthy",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s02\\r01-06-healthy\\w-05dd1d3b8d2144ae8b0fc5c412ff58bc.json",
+      "sha256": "88f3f8e74463a6fe0b3c895d674bec9900000c51620067c8c13dd1c517c651b0",
+      "review_sha256": "6bb150c7ead43be14fb715107e7580f8b0a28b00ff089ef7d37b061917d0eb57"
+    },
+    {
+      "session_id": "pilot-v2-s02",
+      "run_id": "r01-07-agent_stopped-retry1",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s02\\r01-07-agent_stopped-retry1\\w-0d30f67b85f94ad0a32dabbcd767eee5.json",
+      "sha256": "dc6090be228cdf8f94293baf201535051b17f423eb071a360c34b817b5015f6e",
+      "review_sha256": "eafb591f6bfd848651bb601f9edf756dc4022d2988322c61ce01d8850c0ac5e3"
+    },
+    {
+      "session_id": "pilot-v2-s02",
+      "run_id": "r02-01-cpu_stress",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s02\\r02-01-cpu_stress\\w-12d7504fff4b48d38679888fec71d715.json",
+      "sha256": "d29a1ecc143ccc5bf1fc10db03519cfabf9f13a87fcfd5df3256f23e4499b0c7",
+      "review_sha256": "c8e942af7de9ac37b0ffbdff5800d5556c1f6beb29ea7d3147b376cf765954ab"
+    },
+    {
+      "session_id": "pilot-v2-s02",
+      "run_id": "r02-02-agent_stopped-retry2",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s02\\r02-02-agent_stopped-retry2\\w-99640cc939c445d8acb5350d3368795e.json",
+      "sha256": "67d9bbca8f140ee3338037ee40772e44e833e77979b4edd3e5f12f0e37873aeb",
+      "review_sha256": "9ef7347deedc6e0277dc98d0fc51050126a226afc99c0f4d249966fee5c4c083"
+    },
+    {
+      "session_id": "pilot-v2-s02",
+      "run_id": "r02-03-healthy",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s02\\r02-03-healthy\\w-69448afc917648368d8f6a498b60244b.json",
+      "sha256": "a5d34d99626bcab4babeeaeea84c9f19f78769e727c99a0c27cd5ee6fd3d43ae",
+      "review_sha256": "e7baea71da1b94f3146b4680ee2398997209878eb5f0b5b2c6a5d2a755dd7c42"
+    },
+    {
+      "session_id": "pilot-v2-s02",
+      "run_id": "r02-04-dns_egress_blocked",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s02\\r02-04-dns_egress_blocked\\w-00f182e1435b4e229a4e728b3e0da1d3.json",
+      "sha256": "d1df7f05471d3688da56b94531136cd7a925d150887b3f21e067d526d1ed2493",
+      "review_sha256": "698fd1600d29c3179aaf982f25125a350f700ae8d73595e1dbfb0bd10ff5a5fa"
+    },
+    {
+      "session_id": "pilot-v2-s02",
+      "run_id": "r02-05-nginx_stopped",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s02\\r02-05-nginx_stopped\\w-ee61f8c0d40d4a3d988d86d04368a540.json",
+      "sha256": "b27346df97168d0f3b2b706d5d6f8728cda3e09e7efcb11635c5e4390d15bd57",
+      "review_sha256": "ca54d06ccfaa460ee118fc4e81eb1b6f75d272ede01963bb1cea1b3633be5148"
+    },
+    {
+      "session_id": "pilot-v2-s02",
+      "run_id": "r02-06-interface_down",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s02\\r02-06-interface_down\\w-3af9f11c930f4b1cadad3de78926e385.json",
+      "sha256": "abdf89eef577cd94060e34ac0741460cb4c0f6833f042760a88f185e7f6a6b62",
+      "review_sha256": "1d6c9b19caa9c1e790e6b40a18a0f83466803be8cffe779a53719d4ffe46b458"
+    },
+    {
+      "session_id": "pilot-v2-s02",
+      "run_id": "r02-07-remote_http_filtered",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s02\\r02-07-remote_http_filtered\\w-982d5534613246dc9149edb82874f7b1.json",
+      "sha256": "b7fe7efbe6c5e6421142d6447c77dda8478c01c5b43aa7893b90296013908e0d",
+      "review_sha256": "1c358d00b01dc6a32ba656cb335ed81560e9d126ef20f52442b15151c169509c"
+    },
+    {
+      "session_id": "pilot-v2-s02",
+      "run_id": "r03-01-agent_stopped",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s02\\r03-01-agent_stopped\\w-2feda5ec6b194bc2933b372a803d0074.json",
+      "sha256": "3516d1a4e25b4625040a1629c7e14d65a400d985fd8fe6ef4c75c3c15a2ab6f3",
+      "review_sha256": "fcbe8db5be66f4ed5f798ba2e77a56890b205c7cac3c3385d4d204b65196ab7f"
+    },
+    {
+      "session_id": "pilot-v2-s02",
+      "run_id": "r03-02-healthy",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s02\\r03-02-healthy\\w-2b60a4e69baf4e2a8330851845f65064.json",
+      "sha256": "75fe5772a61c0426a477c158d99cbeccbf31630f66ffff90b22cccca1d17b44d",
+      "review_sha256": "6cb4f4801ed410f9bd56ae13cea52141b9f412f4dae878754cc9841906e7f329"
+    },
+    {
+      "session_id": "pilot-v2-s02",
+      "run_id": "r03-03-dns_egress_blocked",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s02\\r03-03-dns_egress_blocked\\w-a901d4e37217431e8b5834ffb5da327a.json",
+      "sha256": "70d3564e60136bcb6f993211d0a9df09f81490eebba3c9a4e1c703b2610f20c2",
+      "review_sha256": "d02469d0777de517b7ce2fcab68d481ccf053d8cc4feed0c820db8583fcc4c26"
+    },
+    {
+      "session_id": "pilot-v2-s02",
+      "run_id": "r03-04-cpu_stress-retry1",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s02\\r03-04-cpu_stress-retry1\\w-4b17d5889bbb4b78ae17b0f57b9b02ed.json",
+      "sha256": "e965de60be2014be6e54ad7e1eaebbf29cccc39d9385e1cf684d9948421e50cf",
+      "review_sha256": "6bc7a2f79fcd99fe2b5e9180a73c0c532726de606486fcc83c0496eaf594e6e9"
+    },
+    {
+      "session_id": "pilot-v2-s02",
+      "run_id": "r03-05-nginx_stopped",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s02\\r03-05-nginx_stopped\\w-2380e25d38c744f8b75de82ba524587b.json",
+      "sha256": "11faa5e52c767a3eb679373cb3c8a12c13531cfaa4ebf192b4b1eb1d4aea0ab3",
+      "review_sha256": "23038e9cfbe6b7782eaa70b1d418f60390222867568758d29a85dc29b2832b79"
+    },
+    {
+      "session_id": "pilot-v2-s02",
+      "run_id": "r03-06-interface_down",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s02\\r03-06-interface_down\\w-ef3740b71d0d4c8b9a70cd7c5027da8b.json",
+      "sha256": "3ce0d410bf3604083c7f6c8778fb07c56400c723bdaf70b391185d0108e3f94a",
+      "review_sha256": "f2af0fede63820534df6a44317c93044438b1a718c41cf63de7a582ed219a823"
+    },
+    {
+      "session_id": "pilot-v2-s02",
+      "run_id": "r03-07-remote_http_filtered",
+      "path": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\observations\\pilot-v2-s02\\r03-07-remote_http_filtered\\w-7272fd62f0254268820c3579c1c7feb2.json",
+      "sha256": "8898148956ce2c7e76f79f0ead40a8f564df5a0e7498ae73c415582c322f7888",
+      "review_sha256": "dc4eebeadbf68cc348e6d337ef0d3233261da3119f12e4059c6bae590fcaff8c"
+    }
+  ],
+  "code_sha256": "deb72be9528bff3ec2963058951d6a2244b3ed7f2abbe9207daaeb5674c98cfb",
+  "code_files_sha256": {
+    "C:\\Users\\Darrys\\do-an\\ml-research\\train_v2.py": "deb72be9528bff3ec2963058951d6a2244b3ed7f2abbe9207daaeb5674c98cfb",
+    "C:\\Users\\Darrys\\do-an\\ml-research\\candidate_v2.py": "1f8f49d11c6655ea83d65db11dec7d86996b733255fa7c831571eeac34c5360b",
+    "C:\\Users\\Darrys\\do-an\\ml-research\\mlv2\\features.py": "73fc4eb89b8a9c90ba0165a63723aff583992e00d2f490b2dcbf5eb31390fd1e",
+    "C:\\Users\\Darrys\\do-an\\diagnosis-engine\\models.py": "81df8883a98170985f356891d541a8a3aec2357b00b8aec98b69c56c56485203",
+    "C:\\Users\\Darrys\\do-an\\diagnosis-engine\\policy.py": "8aec13e03c9f49bdddadc7931ac28d6715cefa7b9db5ee8674223a24a33d478f",
+    "C:\\Users\\Darrys\\do-an\\diagnosis-engine\\roadmap_rules.py": "7b64fdb453014f3b2ee211f226f63954efd9f475ebb8a640bf58feed3a539887"
+  },
+  "packages": {
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "scikit-learn": "1.9.1",
+    "mlxtend": "0.25.0"
+  },
+  "scope": "pilot-only internal validation; no runtime activation"
+}

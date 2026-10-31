@@ -1,0 +1,33 @@
+{
+  "session_id": "test-v2-s02",
+  "run_id": "r01-04-healthy",
+  "label": "healthy",
+  "valid": true,
+  "error_type": null,
+  "review": {
+    "schema_version": 1,
+    "session_id": "test-v2-s02",
+    "run_id": "r01-04-healthy",
+    "registration_sha256": "60ee5c2a765ccd5fcd01bf5857cc69463b66fe07ad24150488c2ec18e79c25df",
+    "reviewed_at": 1793451795,
+    "validity": "valid",
+    "labels": [
+      "healthy"
+    ],
+    "references": [
+      {
+        "sha256": "a28853b252d06af5e27fadd2da21d52fcd0247fa85a4efea7b82aee7abad561e",
+        "original_name": "preflight.json"
+      },
+      {
+        "sha256": "9e139894d4af280132a658acec3543152db44abaa65ccbb759ec2564113662d2",
+        "original_name": "postflight.json"
+      },
+      {
+        "sha256": "870a57a1e133d7cdc3c2bfbfabbe11a9f4de09c17f5c126b5c0a3a5402db890b",
+        "original_name": "independent-logs.json"
+      }
+    ]
+  },
+  "remote_log_directory": "/home/phat/ml-experiments/f1f54d80b314"
+}

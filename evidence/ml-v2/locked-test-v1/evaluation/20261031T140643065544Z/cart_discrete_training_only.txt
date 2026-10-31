@@ -1,0 +1,19 @@
+|--- cat__dns_status_success <= 0.50
+|   |--- cat__local_http_status_http_200 <= 0.50
+|   |   |--- class: interface_down
+|   |--- cat__local_http_status_http_200 >  0.50
+|   |   |--- class: dns_egress_blocked
+|--- cat__dns_status_success >  0.50
+|   |--- cat__agent_status_success <= 0.50
+|   |   |--- class: agent_stopped
+|   |--- cat__agent_status_success >  0.50
+|   |   |--- cat__tcp80_status_success <= 0.50
+|   |   |   |--- cat__local_http_status_failed <= 0.50
+|   |   |   |   |--- class: remote_http_filtered
+|   |   |   |--- cat__local_http_status_failed >  0.50
+|   |   |   |   |--- class: nginx_stopped
+|   |   |--- cat__tcp80_status_success >  0.50
+|   |   |   |--- cat__cpu_percent_high_ge90 <= 0.50
+|   |   |   |   |--- class: healthy
+|   |   |   |--- cat__cpu_percent_high_ge90 >  0.50
+|   |   |   |   |--- class: cpu_stress

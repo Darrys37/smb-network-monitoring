@@ -1,0 +1,103 @@
+[
+  {
+    "hostname": "mon01",
+    "backup_dir": "/home/phat/ml-checkpoints/pre-integration-20261031T114657Z",
+    "created_at_utc": "20261031T114657Z",
+    "clock_sync": {
+      "code": 0,
+      "stdout": "no"
+    },
+    "services": {
+      "zabbix-agent2": {
+        "code": 0,
+        "stdout": "active"
+      },
+      "zabbix-server": {
+        "code": 0,
+        "stdout": "active"
+      },
+      "mysql": {
+        "code": 0,
+        "stdout": "active"
+      }
+    },
+    "sqlite_integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "sqlite_foreign_keys": [],
+    "sqlite_counts": {
+      "incidents": 39,
+      "evidence": 301,
+      "diagnoses": 172,
+      "recoveries": 29
+    },
+    "open_problems": {
+      "10084": 7,
+      "10683": 1,
+      "10684": 1
+    },
+    "engine_source_sha256": {
+      "roadmap_evidence.py": "cc816cd21d9192b3737bf36e564619790501c419b51a84d3107a31340179bdfb",
+      "report.py": "2f754b6de5271663a1d5a953f5b6c766aba55e36f202b75e1a7ae122c80e78fc",
+      "rules.py": "7b804352ad053e6aec5399d20d94789ef4a7e9e46a5552adee6c3df80c288caf",
+      "models.py": "81df8883a98170985f356891d541a8a3aec2357b00b8aec98b69c56c56485203",
+      "http_probe.py": "9781d7759af0d69da073d0ee61f7bd85e7cd09318c0f9abed2aeccf7e90b9225",
+      "dns_probe.py": "8de63789e3add58645dd3ddb5083314ee5bf4d44f85ec401ac4370176c8fc202",
+      "evidence.py": "47931854bf7f15daab7928febdd07d2ec956162b2df27be91b2b7b03ac0a9a5a",
+      "check_events.py": "b186cc6ed9b77b18d786de434c256aa524ab80600a5fed86bdc0c1a00b437906",
+      "check_evidence.py": "4aa419b48d01175b43c098ff4bba66715044d8066fdcf738f4c2d02b1adfd8b8",
+      "repository.py": "6fc7373ecd7bea2a479fd0d7a05b0ec7cc283a2069322775e68105747ab37f08",
+      "app.py": "d501b3ada4fa86882bc97ed00a496edfc0b4b59ede17b693530177a97baa05d0",
+      "probe_evidence.py": "8df589e73f5aeff42f220b57d3f14e397de76785fcbd5b840c7ccc38351aabce",
+      "save_events.py": "cddd1e1da4b41d1aaa8b97c565b1b53a0dfc2c513987c5487878bf4a6f9470c8",
+      "zabbix-client.py": "4974a15febad783aab0d62b45a479869896bd007f7b932d5a1256cba6a54a6ae",
+      "recovery.py": "cfa174bf5bb866d70164ba3fe820b5e5be3d2a93bdfafedef686ab4f2e7204e0",
+      "zabbix_client.py": "cec48b5cd48a3bcab3c19ddc273c8a83882a96931af02f632af1a35b849aa8ff",
+      "dns_evidence.py": "021cc5a9db64cb4e3592d87ede74be22173e39558af2e08ab9a86e3aea754ae6",
+      "roadmap_rules.py": "7b64fdb453014f3b2ee211f226f63954efd9f475ebb8a640bf58feed3a539887",
+      "scan_git_token.py": "e698fd020bb1761bd32dba37e2492c6b22a0f0ed1fd4c6ded7d0e04689b8bde8",
+      "policy.py": "8aec13e03c9f49bdddadc7931ac28d6715cefa7b9db5ee8674223a24a33d478f",
+      "http_evidence.py": "049d38ce7ac84f023908ff96755b374e8d5decc7929e9689c686bbb3bd743cec",
+      "event_parser.py": "fae59786c096eb0bedc238c44c43c5bc1b54b666741727ed06d5e5948a9676e3"
+    },
+    "backup_files": 51
+  },
+  {
+    "hostname": "srv01",
+    "backup_dir": "/home/phat/ml-checkpoints/pre-integration-20261031T114658Z",
+    "created_at_utc": "20261031T114658Z",
+    "clock_sync": {
+      "code": 0,
+      "stdout": "no"
+    },
+    "services": {
+      "zabbix-agent2": {
+        "code": 0,
+        "stdout": "active"
+      },
+      "nginx": {
+        "code": 0,
+        "stdout": "active"
+      }
+    },
+    "backup_files": 1
+  },
+  {
+    "hostname": "cli01",
+    "backup_dir": "/home/phat/ml-checkpoints/pre-integration-20261031T114659Z",
+    "created_at_utc": "20261031T114659Z",
+    "clock_sync": {
+      "code": 0,
+      "stdout": "no"
+    },
+    "services": {
+      "zabbix-agent2": {
+        "code": 0,
+        "stdout": "active"
+      }
+    },
+    "backup_files": 5
+  }
+]

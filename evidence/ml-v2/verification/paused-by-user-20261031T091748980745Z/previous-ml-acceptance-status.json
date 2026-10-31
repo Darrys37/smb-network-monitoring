@@ -1,0 +1,9 @@
+{
+  "phase": "STOPPED_REQUIRES_REVIEW",
+  "pid": 12676,
+  "at": "2026-10-31T09:14:37.693541+00:00",
+  "finished_attempts": 11,
+  "valid_attempts": 11,
+  "error_type": "KeyboardInterrupt",
+  "error_message": ""
+}

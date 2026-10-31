@@ -1,0 +1,33 @@
+{
+  "session_id": "test-v2-s01",
+  "run_id": "r01-06-cpu_stress",
+  "label": "cpu_stress",
+  "valid": true,
+  "error_type": null,
+  "review": {
+    "schema_version": 1,
+    "session_id": "test-v2-s01",
+    "run_id": "r01-06-cpu_stress",
+    "registration_sha256": "bca23d26bfa0bcbdc5a026f7f41a2e68d7f13e8fa1958bc8591f7253b8d280dc",
+    "reviewed_at": 1793436894,
+    "validity": "valid",
+    "labels": [
+      "cpu_stress"
+    ],
+    "references": [
+      {
+        "sha256": "6999b1295236f560ef89ad5da92219bfffdb80562aa675d40c9d6feef3e506c2",
+        "original_name": "preflight.json"
+      },
+      {
+        "sha256": "bb7c1254a2ee3e522c970201fce8d7ec722a7750595280275e15a6d35c9e0b96",
+        "original_name": "postflight.json"
+      },
+      {
+        "sha256": "277c184db965242a2b88338707c72bf174b6f6b131b192446823cbfa3763bf4d",
+        "original_name": "independent-logs.json"
+      }
+    ]
+  },
+  "remote_log_directory": "/home/phat/ml-experiments/442ad8403116"
+}

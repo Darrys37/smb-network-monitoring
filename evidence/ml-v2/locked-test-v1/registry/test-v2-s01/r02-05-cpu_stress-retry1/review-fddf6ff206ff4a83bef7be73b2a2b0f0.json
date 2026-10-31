@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "session_id": "test-v2-s01",
+  "run_id": "r02-05-cpu_stress-retry1",
+  "registration_sha256": "818c97964d294ea083e7c127b1b23aff9238b042965a9b1dd93641b103a65228",
+  "reviewed_at": 1793449609,
+  "validity": "valid",
+  "labels": [
+    "cpu_stress"
+  ],
+  "references": [
+    {
+      "sha256": "dc31397503393f22fbc3f980000e9335f644e9370e69882e3793a96d82317449",
+      "original_name": "preflight.json"
+    },
+    {
+      "sha256": "c68c96382a859c345c333a9099d73e30039f649a870570b5ab2f2107c6d7d591",
+      "original_name": "postflight.json"
+    },
+    {
+      "sha256": "106ecadd0f34d88488714025a521d7ba3d5659e915a42384795826becd030c12",
+      "original_name": "independent-logs.json"
+    }
+  ]
+}

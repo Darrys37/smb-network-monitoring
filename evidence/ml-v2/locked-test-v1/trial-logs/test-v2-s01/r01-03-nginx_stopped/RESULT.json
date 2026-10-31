@@ -1,0 +1,33 @@
+{
+  "session_id": "test-v2-s01",
+  "run_id": "r01-03-nginx_stopped",
+  "label": "nginx_stopped",
+  "valid": true,
+  "error_type": null,
+  "review": {
+    "schema_version": 1,
+    "session_id": "test-v2-s01",
+    "run_id": "r01-03-nginx_stopped",
+    "registration_sha256": "ed33a9642d2306c8c2dee83129d26a8968507e52b5089354f71ba88f16db83ee",
+    "reviewed_at": 1793436128,
+    "validity": "valid",
+    "labels": [
+      "nginx_stopped"
+    ],
+    "references": [
+      {
+        "sha256": "69f5b5a54d0c6cb6f0570fafb0d7b20aaacc17251a56207b0dca25a48773b586",
+        "original_name": "preflight.json"
+      },
+      {
+        "sha256": "29f9c4f47fa50e51e4dc5deef84ed32ddaa5c7cd96d9855948d6a84561888cbf",
+        "original_name": "postflight.json"
+      },
+      {
+        "sha256": "8b507e6f1bc497a3b125eff7a0a67eb07fcb76abb021b78007723be118cb1eba",
+        "original_name": "independent-logs.json"
+      }
+    ]
+  },
+  "remote_log_directory": "/home/phat/ml-experiments/90fa159e98a7"
+}

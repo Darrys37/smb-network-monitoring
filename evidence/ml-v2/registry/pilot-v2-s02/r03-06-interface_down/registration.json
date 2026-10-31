@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "session_id": "pilot-v2-s02",
+  "run_id": "r03-06-interface_down",
+  "planned_labels": [
+    "interface_down"
+  ],
+  "registered_at": 1793434747,
+  "validity": "pending"
+}

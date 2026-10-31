@@ -1,0 +1,37 @@
+{
+  "session_id": "test-v2-s01",
+  "run_id": "r02-05-cpu_stress",
+  "label": "cpu_stress",
+  "valid": false,
+  "error_type": "CoordinatorInterrupted",
+  "review": {
+    "schema_version": 1,
+    "session_id": "test-v2-s01",
+    "run_id": "r02-05-cpu_stress",
+    "registration_sha256": "a7007bbf4b33bb516dcb3d66001568a534d872d89ece4a9fb20752ada3532b35",
+    "reviewed_at": 1793438264,
+    "validity": "uncertain",
+    "labels": [
+      "cpu_stress"
+    ],
+    "references": [
+      {
+        "sha256": "6bd0d531983aa564d1889d64ee4e0545a262a5ab3061a536f35f32d5c7904f77",
+        "original_name": "preflight.json"
+      },
+      {
+        "sha256": "b0f5dda542ad2f08c91b898315441579f6db6b03015d085171f4bac8a4101b8b",
+        "original_name": "postflight.json"
+      },
+      {
+        "sha256": "fa475c79a946271b819002689d23db189c8b9c7bdbee0227d062b0993b8f1023",
+        "original_name": "independent-logs.json"
+      },
+      {
+        "sha256": "4ffb77e50bf8f72d5c5f3fb4a58ab8007cb2c51c018f335fdf80b1a9385246f8",
+        "original_name": "audit.json"
+      }
+    ]
+  },
+  "remote_log_directory": "/home/phat/ml-experiments/343486e6e5e7"
+}

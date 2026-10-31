@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "session_id": "test-v2-s01",
+  "run_id": "r02-02-dns_egress_blocked",
+  "planned_labels": [
+    "dns_egress_blocked"
+  ],
+  "registered_at": 1793437485,
+  "validity": "pending"
+}

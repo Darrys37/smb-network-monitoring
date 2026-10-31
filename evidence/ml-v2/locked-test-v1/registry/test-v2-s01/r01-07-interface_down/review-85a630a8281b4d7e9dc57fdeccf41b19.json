@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "session_id": "test-v2-s01",
+  "run_id": "r01-07-interface_down",
+  "registration_sha256": "4c351976f320cf58604706755fa7674cdd01fec62c9543ce42f0ac47a7024b30",
+  "reviewed_at": 1793437110,
+  "validity": "valid",
+  "labels": [
+    "interface_down"
+  ],
+  "references": [
+    {
+      "sha256": "e7b8154aaf7d16d4594dc684f1b9dac30ede521fe969a79c52b2832ecee9d722",
+      "original_name": "preflight.json"
+    },
+    {
+      "sha256": "7d7f063b85bcb975522ba4bfadf63abcd156931dc56ede54de3aed13f8d0198c",
+      "original_name": "postflight.json"
+    },
+    {
+      "sha256": "ed70e326bcc924de5badbab6502af5a1c05e6c8d0a63eed4a41b094e7cb0f439",
+      "original_name": "independent-logs.json"
+    }
+  ]
+}

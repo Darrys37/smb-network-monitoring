@@ -1,0 +1,7 @@
+{
+  "remote_directory": "/home/phat/ml-experiments/ed8ba9b4d96c",
+  "unit": "mlv2-ed8ba9b4d96c",
+  "hold_seconds": 330,
+  "fault_script": "#!/bin/bash\nset -euo pipefail\nexec >>/home/phat/ml-experiments/ed8ba9b4d96c/fault.log 2>&1\ntest \"$(hostname -s)\" = srv01\nip -j -4 address show dev enp0s8 | python3 -c 'import json,sys; assert any(a.get(\"local\")==\"192.168.56.20\" for link in json.load(sys.stdin) for a in link.get(\"addr_info\",[]))'\n\necho FAULT_BEFORE $(date -u +%s)\n\nsystemd-run --unit=mlv2-stress-ed8ba9b4d96c --property=RuntimeMaxSec=450s /usr/bin/stress-ng --cpu \"$(nproc)\" --cpu-load 100 --timeout 420s --metrics-brief\nsleep 1; systemctl is-active mlv2-stress-ed8ba9b4d96c.service\necho FAULT_VERIFIED $(date -u +%s)\n",
+  "rollback_script": "#!/bin/bash\nset -euo pipefail\nexec >>/home/phat/ml-experiments/ed8ba9b4d96c/rollback.log 2>&1\necho ROLLBACK_BEFORE $(date -u +%s)\nif [ \"$(systemctl show --property=LoadState --value mlv2-stress-ed8ba9b4d96c.service)\" != not-found ]; then\n  systemctl stop mlv2-stress-ed8ba9b4d96c.service\nfi\necho ROLLBACK_AFTER $(date -u +%s)\n"
+}

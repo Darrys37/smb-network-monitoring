@@ -1,0 +1,323 @@
+{
+  "service": {
+    "time": 1793434060,
+    "nginx": {
+      "code": 0,
+      "stdout": "active"
+    },
+    "agent": {
+      "code": 0,
+      "stdout": "active"
+    },
+    "http": {
+      "code": 0,
+      "stdout": "200"
+    },
+    "clock": {
+      "code": 0,
+      "stdout": "yes"
+    },
+    "stress": {
+      "code": 1,
+      "stdout": ""
+    },
+    "dns": {
+      "code": 0,
+      "stdout": "104.20.23.154\n172.66.147.243"
+    },
+    "control": {
+      "code": 0,
+      "stdout": "PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.\n64 bytes from 1.1.1.1: icmp_seq=1 ttl=64 time=43.5 ms\n\n--- 1.1.1.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 43.460/43.460/43.460/0.000 ms"
+    }
+  },
+  "monitor": {
+    "problems": [],
+    "metrics": [
+      {
+        "check_type": "metric",
+        "target": "10683",
+        "collected_at": 1793434061,
+        "result": {
+          "key": "system.cpu.util",
+          "units": "%",
+          "max_age_seconds": 180,
+          "status": "success",
+          "value": 9.481316000000007,
+          "sample_clock": 1793434057,
+          "age_seconds": 4,
+          "item_id": "50822",
+          "raw_value": "9.481316000000007",
+          "error": ""
+        }
+      },
+      {
+        "check_type": "metric",
+        "target": "10683",
+        "collected_at": 1793434061,
+        "result": {
+          "key": "vm.memory.util",
+          "units": "%",
+          "max_age_seconds": 180,
+          "status": "success",
+          "value": 16.054893000000007,
+          "sample_clock": 1793434019,
+          "age_seconds": 42,
+          "item_id": "50823",
+          "raw_value": "16.054893000000007",
+          "error": ""
+        }
+      },
+      {
+        "check_type": "metric",
+        "target": "10683",
+        "collected_at": 1793434061,
+        "result": {
+          "key": "system.cpu.load[all,avg1]",
+          "units": "",
+          "max_age_seconds": 180,
+          "status": "success",
+          "value": 0.0,
+          "sample_clock": 1793434051,
+          "age_seconds": 10,
+          "item_id": "50791",
+          "raw_value": "0",
+          "error": ""
+        }
+      },
+      {
+        "check_type": "metric",
+        "target": "10683",
+        "collected_at": 1793434061,
+        "result": {
+          "key": "vfs.fs.dependent.size[/,pused]",
+          "units": "%",
+          "max_age_seconds": 180,
+          "status": "success",
+          "value": 54.276453160296214,
+          "sample_clock": 1793434017,
+          "age_seconds": 44,
+          "item_id": "50856",
+          "raw_value": "54.276453160296214",
+          "error": ""
+        }
+      },
+      {
+        "check_type": "agent_metric",
+        "target": "10683",
+        "collected_at": 1793434061,
+        "result": {
+          "key": "agent.ping",
+          "status": "success",
+          "max_age_seconds": 180,
+          "item": {
+            "itemid": "50782",
+            "key_": "agent.ping",
+            "value_type": "3",
+            "status": "0",
+            "units": "",
+            "state": "0",
+            "error": "",
+            "lastclock": "1793434042",
+            "lastvalue": "1"
+          },
+          "sample_clock": 1793434042
+        }
+      },
+      {
+        "check_type": "cpu_history",
+        "target": "10683",
+        "collected_at": 1793434061,
+        "result": {
+          "key": "system.cpu.util",
+          "units": "%",
+          "status": "success",
+          "window_seconds": 300,
+          "samples": [
+            {
+              "clock": 1793433817,
+              "value": 9.102755000000002
+            },
+            {
+              "clock": 1793433877,
+              "value": 10.750468999999995
+            },
+            {
+              "clock": 1793433937,
+              "value": 9.928944999999999
+            },
+            {
+              "clock": 1793433997,
+              "value": 9.719100999999995
+            },
+            {
+              "clock": 1793434057,
+              "value": 9.481316000000007
+            }
+          ],
+          "support_items": {
+            "system.cpu.num": {
+              "itemid": "50793",
+              "key_": "system.cpu.num",
+              "value_type": "3",
+              "status": "0",
+              "units": "",
+              "state": "0",
+              "error": "",
+              "lastclock": "1793433333",
+              "lastvalue": "1"
+            },
+            "system.cpu.load[all,avg1]": {
+              "itemid": "50791",
+              "key_": "system.cpu.load[all,avg1]",
+              "value_type": "0",
+              "status": "0",
+              "units": "",
+              "state": "0",
+              "error": "",
+              "lastclock": "1793434051",
+              "lastvalue": "0"
+            }
+          },
+          "item_id": "50822"
+        }
+      }
+    ]
+  },
+  "platform": {
+    "status": "ok",
+    "schema_version": 2,
+    "nodes": {
+      "mon01": {
+        "boot_id": "13943cf7-9169-440a-bd39-b1102e56704e",
+        "stall_count": 3,
+        "recent_stall": false,
+        "last_stalls": [
+          {
+            "monotonic_us": 1305552199,
+            "realtime_us": 1793429607840471,
+            "message": "watchdog: BUG: soft lockup - CPU#1 stuck for 21s! [kworker/1:2H:2226]"
+          },
+          {
+            "monotonic_us": 1488339549,
+            "realtime_us": 1793429790627821,
+            "message": "watchdog: BUG: soft lockup - CPU#1 stuck for 21s! [multipathd:575]"
+          },
+          {
+            "monotonic_us": 4985959848,
+            "realtime_us": 1793433288248120,
+            "message": "watchdog: BUG: soft lockup - CPU#1 stuck for 64s! [boot:26158]"
+          }
+        ],
+        "package_jobs_active": false,
+        "package_jobs": [],
+        "dpkg_lock_held": false,
+        "package_audit_clean": true,
+        "package_status_sha256": "230bb4abe035e335c06caf078bfe9c677799d9f3f033ad542279152d0bf5cac2"
+      },
+      "srv01": {
+        "boot_id": "c58806aa-c30e-4a8a-87c5-4b4595252a75",
+        "stall_count": 8,
+        "recent_stall": false,
+        "last_stalls": [
+          {
+            "monotonic_us": 1810448525,
+            "realtime_us": 1793430112126551,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 1810455403,
+            "realtime_us": 1793430112133430,
+            "message": "rcu: rcu_preempt kthread starved for 26800 jiffies! g40853 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 1810457585,
+            "realtime_us": 1793430112135611,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 1810458746,
+            "realtime_us": 1793430112136772,
+            "message": "rcu: rcu_preempt kthread starved for 13918 jiffies! g40853 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 1810478952,
+            "realtime_us": 1793430112156978,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 1810480297,
+            "realtime_us": 1793430112158323,
+            "message": "rcu: rcu_preempt kthread starved for 5640 jiffies! g40857 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 1810488223,
+            "realtime_us": 1793430112166250,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 1810489014,
+            "realtime_us": 1793430112167040,
+            "message": "rcu: rcu_preempt kthread starved for 12638 jiffies! g40877 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          }
+        ],
+        "package_jobs_active": false,
+        "package_jobs": [],
+        "dpkg_lock_held": false,
+        "package_audit_clean": true,
+        "package_status_sha256": "5c2a0d4638816dea3a6dcfbec2f4cbcffa3fca9f63e728b7aea39e51c7fc53dd"
+      },
+      "cli01": {
+        "boot_id": "144c40d9-d64c-4045-b7a2-43a7f2b70d01",
+        "stall_count": 8,
+        "recent_stall": false,
+        "last_stalls": [
+          {
+            "monotonic_us": 1808554151,
+            "realtime_us": 1793430112755049,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 1808556474,
+            "realtime_us": 1793430112757373,
+            "message": "rcu: rcu_preempt kthread starved for 4197 jiffies! g31529 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 1808573317,
+            "realtime_us": 1793430112774215,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 1808575888,
+            "realtime_us": 1793430112776787,
+            "message": "rcu: rcu_preempt kthread starved for 7097 jiffies! g31533 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 1808577325,
+            "realtime_us": 1793430112778224,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 1808694470,
+            "realtime_us": 1793430112895369,
+            "message": "rcu: rcu_preempt kthread starved for 5109 jiffies! g31533 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 1808697008,
+            "realtime_us": 1793430112897907,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 1808700037,
+            "realtime_us": 1793430112900936,
+            "message": "rcu: rcu_preempt kthread starved for 2477 jiffies! g31533 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          }
+        ],
+        "package_jobs_active": false,
+        "package_jobs": [],
+        "dpkg_lock_held": false,
+        "package_audit_clean": true,
+        "package_status_sha256": "e3c32a9f71a88ceda4c33df14170343c685cd05e27064b815fe39b680219ac1a"
+      }
+    }
+  }
+}

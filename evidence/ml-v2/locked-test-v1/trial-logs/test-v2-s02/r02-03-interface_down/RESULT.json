@@ -1,0 +1,33 @@
+{
+  "session_id": "test-v2-s02",
+  "run_id": "r02-03-interface_down",
+  "label": "interface_down",
+  "valid": true,
+  "error_type": null,
+  "review": {
+    "schema_version": 1,
+    "session_id": "test-v2-s02",
+    "run_id": "r02-03-interface_down",
+    "registration_sha256": "98048227dcb7f1e7ace372a89bd24591a22678abf27cc5dffe3ded8fdf3312ef",
+    "reviewed_at": 1793453447,
+    "validity": "valid",
+    "labels": [
+      "interface_down"
+    ],
+    "references": [
+      {
+        "sha256": "28a8e96869b84caa89750531c42706f30d9760fcd9e9baaa14562dd8ea03bb65",
+        "original_name": "preflight.json"
+      },
+      {
+        "sha256": "9f173acd900a97d8a317877069fe851104429ac587e7ef999b71026819480383",
+        "original_name": "postflight.json"
+      },
+      {
+        "sha256": "9134d79f97396c79f6952343089017e75087f8694d49e65007079be734b7a777",
+        "original_name": "independent-logs.json"
+      }
+    ]
+  },
+  "remote_log_directory": "/home/phat/ml-experiments/25e75a0c8a08"
+}

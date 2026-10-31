@@ -1,0 +1,30 @@
+{
+  "session": "demo-20261031T141114556079Z",
+  "predictions": [
+    {
+      "file": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\demos\\comparisons\\demo-20261031T141114556079Z\\after\\w-64c6337f48124a19a40d376ef3fb40db.json",
+      "run": "after",
+      "CART": "healthy",
+      "FP-Growth": "healthy"
+    },
+    {
+      "file": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\demos\\comparisons\\demo-20261031T141114556079Z\\before\\w-4173665ef9ef4507b077d8a3fdffe991.json",
+      "run": "before",
+      "CART": "healthy",
+      "FP-Growth": "healthy"
+    },
+    {
+      "file": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\demos\\comparisons\\demo-20261031T141114556079Z\\fault\\w-66e65eeb33ee4c3d88d47bc1e442ccd8.json",
+      "run": "fault",
+      "CART": "nginx_stopped",
+      "FP-Growth": "nginx_stopped"
+    },
+    {
+      "file": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\demos\\comparisons\\demo-20261031T141114556079Z\\fault\\w-a2e0fe93df924506abf4c03b743893ff.json",
+      "run": "fault",
+      "CART": "nginx_stopped",
+      "FP-Growth": "nginx_stopped"
+    }
+  ],
+  "scope": "Demo windows are not additional training/test cases; intervention validity does not imply every model prediction is correct"
+}

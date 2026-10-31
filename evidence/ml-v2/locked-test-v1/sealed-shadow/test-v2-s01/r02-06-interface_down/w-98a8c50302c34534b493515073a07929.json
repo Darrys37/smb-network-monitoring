@@ -1,0 +1,108 @@
+{
+  "mode": "live_shadow_sealed_holdout",
+  "decision_time": 1793449719,
+  "expert_diagnoses": [
+    {
+      "rule_id": "R1_HOST_OR_LOCAL_CONNECTIVITY",
+      "status": "insufficient_evidence",
+      "probable_cause": null,
+      "reasoning": "Cannot isolate target/local connectivity.",
+      "missing_info": [
+        "Fresh target ping/TCP and a distinct same-subnet control host ping."
+      ],
+      "next_actions": []
+    },
+    {
+      "rule_id": "R2_HTTP_SERVICE_SUSPECTED",
+      "status": "insufficient_evidence",
+      "probable_cause": null,
+      "reasoning": "Missing usable ping/TCP evidence.",
+      "missing_info": [
+        "Fresh ping and TCP port 80."
+      ],
+      "next_actions": []
+    },
+    {
+      "rule_id": "R3_AGENT_UNAVAILABLE",
+      "status": "not_matched",
+      "probable_cause": null,
+      "reasoning": "A recent agent.ping sample exists.",
+      "missing_info": [],
+      "next_actions": []
+    },
+    {
+      "rule_id": "R4_DNS_RESOLVER_SUSPECTED",
+      "status": "insufficient_evidence",
+      "probable_cause": null,
+      "reasoning": "DNS and IP control must be fresh and from the same intended observer.",
+      "missing_info": [
+        "Run dns_probe.py on CLI01 for the configured name and control IP."
+      ],
+      "next_actions": []
+    },
+    {
+      "rule_id": "R5_HTTP_ACCESS_FILTER_SUSPECTED",
+      "status": "not_matched",
+      "probable_cause": null,
+      "reasoning": "No isolated remote HTTP connection failure with working ICMP.",
+      "missing_info": [],
+      "next_actions": []
+    },
+    {
+      "rule_id": "R6_SUSTAINED_CPU_HIGH",
+      "status": "insufficient_evidence",
+      "probable_cause": null,
+      "reasoning": "CPU history is sparse, stale or invalid.",
+      "missing_info": [
+        "At least 240s coverage, max 120s gap, latest sample <=180s old."
+      ],
+      "next_actions": []
+    }
+  ],
+  "features": {
+    "ping_status": "no_reply",
+    "tcp80_status": "unknown",
+    "tcp10050_status": "timeout",
+    "local_http_status": "unknown",
+    "dns_status": "unknown",
+    "agent_status": "success",
+    "control_ping_status": "success",
+    "cpu_percent": 2.645306000000005,
+    "ram_percent": 15.710993000000002,
+    "cpu_mean": null,
+    "cpu_coverage_seconds": 180,
+    "cpu_max_gap_seconds": 60
+  },
+  "discrete_features": {
+    "ping_status": "no_reply",
+    "tcp80_status": "unknown",
+    "tcp10050_status": "timeout",
+    "local_http_status": "unknown",
+    "dns_status": "unknown",
+    "agent_status": "success",
+    "control_ping_status": "success",
+    "cpu_percent": "below90",
+    "ram_percent": "below90",
+    "cpu_mean": "unknown",
+    "cpu_coverage_seconds": "short",
+    "cpu_max_gap_seconds": "gap_ok"
+  },
+  "ml_suggestions": {
+    "CART": {
+      "label": "ABSTAIN",
+      "reason": "Outside pilot profile or incomplete core probes"
+    },
+    "FP-Growth": {
+      "label": "ABSTAIN",
+      "reason": "Outside pilot profile or incomplete core probes"
+    }
+  },
+  "scope_gate_passed": false,
+  "limitations": [
+    "Single-fault pilot on SRV01; no generalization claim",
+    "Association confidence and leaf fraction describe training data",
+    "No automatic remediation, alert mutation or rule activation"
+  ],
+  "candidate_sha256": "0e3440b9240dd1994607de5cd3ff53fbda6147eba0c8e3436d22a26e85f3edf0",
+  "observation_sha256": "6c0e4bb18296ed041d040b9b30e054ec33336266c6d86d8bc07d0d21984fe7fa"
+}

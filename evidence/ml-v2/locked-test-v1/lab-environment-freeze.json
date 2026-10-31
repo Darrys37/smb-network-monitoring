@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "frozen_at": 1793435055,
+  "packages": {
+    "mon01": "230bb4abe035e335c06caf078bfe9c677799d9f3f033ad542279152d0bf5cac2",
+    "srv01": "5c2a0d4638816dea3a6dcfbec2f4cbcffa3fca9f63e728b7aea39e51c7fc53dd",
+    "cli01": "e3c32a9f71a88ceda4c33df14170343c685cd05e27064b815fe39b680219ac1a"
+  },
+  "platform": {
+    "status": "ok",
+    "schema_version": 2,
+    "nodes": {
+      "mon01": {
+        "boot_id": "13943cf7-9169-440a-bd39-b1102e56704e",
+        "stall_count": 3,
+        "recent_stall": false,
+        "last_stalls": [
+          {
+            "monotonic_us": 1305552199,
+            "realtime_us": 1793429607840471,
+            "message": "watchdog: BUG: soft lockup - CPU#1 stuck for 21s! [kworker/1:2H:2226]"
+          },
+          {
+            "monotonic_us": 1488339549,
+            "realtime_us": 1793429790627821,
+            "message": "watchdog: BUG: soft lockup - CPU#1 stuck for 21s! [multipathd:575]"
+          },
+          {
+            "monotonic_us": 4985959848,
+            "realtime_us": 1793433288248120,
+            "message": "watchdog: BUG: soft lockup - CPU#1 stuck for 64s! [boot:26158]"
+          }
+        ],
+        "package_jobs_active": false,
+        "package_jobs": [],
+        "dpkg_lock_held": false,
+        "package_audit_clean": true,
+        "package_status_sha256": "230bb4abe035e335c06caf078bfe9c677799d9f3f033ad542279152d0bf5cac2"
+      },
+      "srv01": {
+        "boot_id": "c58806aa-c30e-4a8a-87c5-4b4595252a75",
+        "stall_count": 8,
+        "recent_stall": false,
+        "last_stalls": [
+          {
+            "monotonic_us": 1810448525,
+            "realtime_us": 1793430112126551,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 1810455403,
+            "realtime_us": 1793430112133430,
+            "message": "rcu: rcu_preempt kthread starved for 26800 jiffies! g40853 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 1810457585,
+            "realtime_us": 1793430112135611,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 1810458746,
+            "realtime_us": 1793430112136772,
+            "message": "rcu: rcu_preempt kthread starved for 13918 jiffies! g40853 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 1810478952,
+            "realtime_us": 1793430112156978,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 1810480297,
+            "realtime_us": 1793430112158323,
+            "message": "rcu: rcu_preempt kthread starved for 5640 jiffies! g40857 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 1810488223,
+            "realtime_us": 1793430112166250,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 1810489014,
+            "realtime_us": 1793430112167040,
+            "message": "rcu: rcu_preempt kthread starved for 12638 jiffies! g40877 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          }
+        ],
+        "package_jobs_active": false,
+        "package_jobs": [],
+        "dpkg_lock_held": false,
+        "package_audit_clean": true,
+        "package_status_sha256": "5c2a0d4638816dea3a6dcfbec2f4cbcffa3fca9f63e728b7aea39e51c7fc53dd"
+      },
+      "cli01": {
+        "boot_id": "144c40d9-d64c-4045-b7a2-43a7f2b70d01",
+        "stall_count": 8,
+        "recent_stall": false,
+        "last_stalls": [
+          {
+            "monotonic_us": 1808554151,
+            "realtime_us": 1793430112755049,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 1808556474,
+            "realtime_us": 1793430112757373,
+            "message": "rcu: rcu_preempt kthread starved for 4197 jiffies! g31529 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 1808573317,
+            "realtime_us": 1793430112774215,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 1808575888,
+            "realtime_us": 1793430112776787,
+            "message": "rcu: rcu_preempt kthread starved for 7097 jiffies! g31533 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 1808577325,
+            "realtime_us": 1793430112778224,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 1808694470,
+            "realtime_us": 1793430112895369,
+            "message": "rcu: rcu_preempt kthread starved for 5109 jiffies! g31533 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 1808697008,
+            "realtime_us": 1793430112897907,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 1808700037,
+            "realtime_us": 1793430112900936,
+            "message": "rcu: rcu_preempt kthread starved for 2477 jiffies! g31533 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          }
+        ],
+        "package_jobs_active": false,
+        "package_jobs": [],
+        "dpkg_lock_held": false,
+        "package_audit_clean": true,
+        "package_status_sha256": "e3c32a9f71a88ceda4c33df14170343c685cd05e27064b815fe39b680219ac1a"
+      }
+    }
+  },
+  "scope": "Fixed package state on the three lab nodes during the fresh heldout collection"
+}

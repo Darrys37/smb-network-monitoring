@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "session_id": "test-v2-s01",
+  "run_id": "r01-06-cpu_stress",
+  "planned_labels": [
+    "cpu_stress"
+  ],
+  "registered_at": 1793436246,
+  "validity": "pending"
+}

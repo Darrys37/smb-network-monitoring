@@ -1,0 +1,11 @@
+{
+  "scope": "Editorial date-scope correction only",
+  "dates_utc_plus_7": [
+    "2026-10-30",
+    "2026-10-31"
+  ],
+  "report": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\benchmark\\20261031T082356416394Z\\REPORT.md",
+  "before_sha256": "020f9378487d543c5918fe16d25cdc83daa23469728b63a0cea5564e8e644ba2",
+  "after_sha256": "64ec8a6c2c7011f01aab009dc8fbd34765109e05a23b5cf1d69f2e252e4c82e1",
+  "frozen_code_data_candidate_and_manifest_unchanged": true
+}

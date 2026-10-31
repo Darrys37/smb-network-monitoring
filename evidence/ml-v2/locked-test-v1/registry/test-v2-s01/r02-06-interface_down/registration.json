@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "session_id": "test-v2-s01",
+  "run_id": "r02-06-interface_down",
+  "planned_labels": [
+    "interface_down"
+  ],
+  "registered_at": 1793449611,
+  "validity": "pending"
+}

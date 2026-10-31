@@ -1,0 +1,133 @@
+{
+  "registered_runs": 43,
+  "valid_runs": 42,
+  "validity_counts": {
+    "valid": 42,
+    "uncertain": 1
+  },
+  "valid_runs_per_label": {
+    "healthy": 6,
+    "agent_stopped": 6,
+    "nginx_stopped": 6,
+    "dns_egress_blocked": 6,
+    "remote_http_filtered": 6,
+    "cpu_stress": 6,
+    "interface_down": 6
+  },
+  "sessions": [
+    "test-v2-s01",
+    "test-v2-s02"
+  ],
+  "observation_windows": 86,
+  "issues": [
+    {
+      "run_id": "r01-07-interface_down",
+      "window_id": "w-386214f929b24d408ce813c9c31e3a71",
+      "issue": "source_unavailable",
+      "sources": [
+        "local_http",
+        "dns"
+      ]
+    },
+    {
+      "run_id": "r01-07-interface_down",
+      "window_id": "w-b23981ae66cb4b2aae168837699111c1",
+      "issue": "source_unavailable",
+      "sources": [
+        "local_http",
+        "dns"
+      ]
+    },
+    {
+      "run_id": "r02-06-interface_down",
+      "window_id": "w-1037737679554417a0130684f7075ec2",
+      "issue": "source_unavailable",
+      "sources": [
+        "local_http",
+        "dns"
+      ]
+    },
+    {
+      "run_id": "r02-06-interface_down",
+      "window_id": "w-98a8c50302c34534b493515073a07929",
+      "issue": "source_unavailable",
+      "sources": [
+        "local_http",
+        "dns"
+      ]
+    },
+    {
+      "run_id": "r03-01-interface_down",
+      "window_id": "w-700d477065e6468a94a49bd6a898d87a",
+      "issue": "source_unavailable",
+      "sources": [
+        "local_http",
+        "dns"
+      ]
+    },
+    {
+      "run_id": "r03-01-interface_down",
+      "window_id": "w-85f513ad4b084667be0d7d954ec69b1c",
+      "issue": "source_unavailable",
+      "sources": [
+        "local_http",
+        "dns"
+      ]
+    },
+    {
+      "run_id": "r01-01-interface_down",
+      "window_id": "w-a41643e907524ef3a0889f4877dba3d2",
+      "issue": "source_unavailable",
+      "sources": [
+        "local_http",
+        "dns"
+      ]
+    },
+    {
+      "run_id": "r01-01-interface_down",
+      "window_id": "w-f00af4dbe85c4b52b6c96ae2ee69acd9",
+      "issue": "source_unavailable",
+      "sources": [
+        "local_http",
+        "dns"
+      ]
+    },
+    {
+      "run_id": "r02-03-interface_down",
+      "window_id": "w-240a751c7dd8485bb36011137e34f61d",
+      "issue": "source_unavailable",
+      "sources": [
+        "local_http",
+        "dns"
+      ]
+    },
+    {
+      "run_id": "r02-03-interface_down",
+      "window_id": "w-eabc7147011640b9bb2ff6b09311b705",
+      "issue": "source_unavailable",
+      "sources": [
+        "local_http",
+        "dns"
+      ]
+    },
+    {
+      "run_id": "r03-01-interface_down",
+      "window_id": "w-2002dc3e7d4b4867a59824468795288b",
+      "issue": "source_unavailable",
+      "sources": [
+        "local_http",
+        "dns"
+      ]
+    },
+    {
+      "run_id": "r03-01-interface_down",
+      "window_id": "w-2373ed3fcd294b0d97661af57b53d8d2",
+      "issue": "source_unavailable",
+      "sources": [
+        "local_http",
+        "dns"
+      ]
+    }
+  ],
+  "note": "Windows from the same run are dependent; this is not model accuracy."
+}
