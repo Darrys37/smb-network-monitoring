@@ -42,7 +42,7 @@ Confidence của luật kết hợp và tỷ lệ lớp tại lá cây mô tả 
 
 ## Giới hạn phải trình bày khi bảo vệ
 
-Hai block trên cùng SRV01/cùng lab/cùng ngày vẫn là pilot, chưa phải test mù hay chứng minh chuyển sang PC thật. Thiết kế đã xem dữ liệu pilot ban đầu. Không có CI tổng quát hoặc tuyên bố độ chính xác production từ 42 lượt này.
+Hai block trên cùng SRV01/cùng lab vẫn là pilot (một block có thể tiếp tục qua nhiều ngày), chưa phải test mù hay chứng minh chuyển sang PC thật. Thiết kế đã xem dữ liệu pilot ban đầu. Không có CI tổng quát hoặc tuyên bố độ chính xác production từ 42 lượt này.
 
 Mục tiêu hiện tại là nhận diện thao tác lỗi đơn đã biết. Tải CPU cao có thể là công việc hợp lệ ngoài lab; model không được coi mọi CPU cao là hạ tầng hỏng. Các ca giống triệu chứng, tải hợp lệ, host mới, thiếu probe và nhiều lỗi đồng thời cần tập đánh giá riêng.
 

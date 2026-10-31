@@ -1,5 +1,15 @@
 # Tiến độ triển khai ML v2 — 30/10/2026
 
+## Tiếp tục theo yêu cầu người dùng — 31/10/2026 13:42 UTC+7
+
+Người dùng đã yêu cầu tiếp tục; trạng thái PAUSED_BY_USER trong ghi chú bên dưới là lịch sử. Ba VM đang chạy; không có coordinator cũ chạy song song. Backup C/D tại mốc tạm dừng đã đối chiếu SHA-256 trùng nhau.
+
+- Preflight mới đạt: `evidence/ml-v2/verification/recovered-platform-20261031T063429354666Z`. Có backup source/runtime mới trên ba VM, SQLite integrity/foreign keys tốt và số hàng engine vẫn 39/301/172/29. Cảnh báo uptime <10m sau boot đã tự phục hồi; không đóng cưỡng bức event.
+- Pilot đang có 29/42 valid trong 35 attempt đã chốt. Lượt `pilot-v2-s02/r02-02-agent_stopped` cần audit uncertain rồi retry; chưa fit v2, chưa thu held-out.
+- Source Python ML khớp SHA với lần 54 tests đạt; không đổi feature/nhãn/tham số để chạy nhanh. Các lượt pilot cũ chưa có đầy đủ gate kernel, vẫn phải giữ caveat phương pháp. Test mới sẽ khóa trước khi thu và giữ nguyên chính sách validity.
+- Tiếp theo chạy `full_ml_session.py` foreground trong workspace: backup, audit lượt dở, thu hết pilot, train, 42 test mới, shadow/SQLite/evaluation/report. Trạng thái live ở `verification/full-ml-status.json`, `ml-supervisor-status.json`, `ml-acceptance-status.json`; các PID trong ghi chú cũ đã hết hiệu lực.
+- Phạm vi chỉ ba VM theo xác nhận người dùng; chưa có PC Ubuntu thật. Không tuyên bố nghiệm thu máy thật, multi-fault hoặc topology/suppression từ kết quả này.
+
 - M0: backup local đã phục hồi kiểm tra; sau đó backup runtime/source trên ba VM trước thử nghiệm. MON01 có SQLite backup nhất quán và bản .env lưu tại VM với quyền hạn chế; không đưa secret vào Git.
 - M1: đã có data dictionary, label map, protocol và split policy trong docs/ và config/.
 - M2: đã có registry append-only, observation validator và collector độc lập nhãn. 8 tests mới đạt; baseline engine 369 tests đạt.

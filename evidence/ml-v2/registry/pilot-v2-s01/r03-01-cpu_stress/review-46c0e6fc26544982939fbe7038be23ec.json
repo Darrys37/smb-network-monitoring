@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "session_id": "pilot-v2-s01",
+  "run_id": "r03-01-cpu_stress",
+  "registration_sha256": "ebefc8f522fcd50eff47584404ce048e29f7ff3984a40a11a5321ba3fe93058c",
+  "reviewed_at": 1793355988,
+  "validity": "uncertain",
+  "labels": [
+    "cpu_stress"
+  ],
+  "references": [
+    {
+      "sha256": "54e5f04dde794297e1a0634cbb0a49da9335d1e16c9bccb850cfefbfd2ac088d",
+      "original_name": "preflight.json"
+    },
+    {
+      "sha256": "30141dccd3ec6066b2e5755ef41cfe5d1a5279f7360c312832a5c7b08c8ae09c",
+      "original_name": "interruption-postflight.json"
+    },
+    {
+      "sha256": "b679efac760a95d8a7458aa092ccf692a72f4c1efbfa0abb6e58a8560e75a022",
+      "original_name": "interruption-independent-logs.json"
+    },
+    {
+      "sha256": "4ffb77e50bf8f72d5c5f3fb4a58ab8007cb2c51c018f335fdf80b1a9385246f8",
+      "original_name": "interruption-audit.json"
+    }
+  ]
+}

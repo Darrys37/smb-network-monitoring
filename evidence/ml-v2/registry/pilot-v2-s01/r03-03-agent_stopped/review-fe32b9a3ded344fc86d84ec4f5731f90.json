@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "session_id": "pilot-v2-s01",
+  "run_id": "r03-03-agent_stopped",
+  "registration_sha256": "510878bd62d5674ce1fce35431e15114628925088719d00423ecbb1fcc71dcd5",
+  "reviewed_at": 1793357027,
+  "validity": "valid",
+  "labels": [
+    "agent_stopped"
+  ],
+  "references": [
+    {
+      "sha256": "1316d83cf18a8041500b8d7dd190171548f4fc6ca7bbd9862c47a3ef70d934a0",
+      "original_name": "preflight.json"
+    },
+    {
+      "sha256": "b5fdfc331dedc9686c06dbb68f16a9df06cfc483f3dd5f3c93defc5725332afc",
+      "original_name": "postflight.json"
+    },
+    {
+      "sha256": "faeaf9ed0e130058dbd10ee15316f461cfedd2ef094a2a05f3229561dd24612f",
+      "original_name": "independent-logs.json"
+    }
+  ]
+}

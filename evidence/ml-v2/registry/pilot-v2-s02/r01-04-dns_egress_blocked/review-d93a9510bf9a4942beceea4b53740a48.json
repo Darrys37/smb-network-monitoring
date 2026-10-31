@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "session_id": "pilot-v2-s02",
+  "run_id": "r01-04-dns_egress_blocked",
+  "registration_sha256": "5a54e183bc0ab8d5e1dc68f1f3757d2e9234a5e4d4179b8a16d65948728909e0",
+  "reviewed_at": 1793358335,
+  "validity": "valid",
+  "labels": [
+    "dns_egress_blocked"
+  ],
+  "references": [
+    {
+      "sha256": "92fad6b3766fa19d9fa8bdfc299177e425fe0df6501d4a197c49fcf4866d02c5",
+      "original_name": "preflight.json"
+    },
+    {
+      "sha256": "c1a4870b9216daee560fd4790efbde0ae910e032909ab7f663877044f5e87c56",
+      "original_name": "postflight.json"
+    },
+    {
+      "sha256": "fbcb186043ca4fa805f296f89f94ba779e4210c2cf04f4d418b674547a2918c8",
+      "original_name": "independent-logs.json"
+    }
+  ]
+}

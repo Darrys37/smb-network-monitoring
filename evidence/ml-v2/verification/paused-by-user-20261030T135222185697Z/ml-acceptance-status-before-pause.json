@@ -1,0 +1,9 @@
+{
+  "phase": "STOPPED_REQUIRES_REVIEW",
+  "pid": 24132,
+  "at": "2026-10-30T11:18:21.041725+00:00",
+  "finished_attempts": 0,
+  "valid_attempts": 0,
+  "error_type": "RuntimeError",
+  "error_message": "Pilot worker did not finish successfully; review before holdout"
+}

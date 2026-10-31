@@ -1,0 +1,120 @@
+{
+  "cpu_sets": [
+    {
+      "id": 256,
+      "group": 0,
+      "logical_index": 0,
+      "core_index": 0,
+      "efficiency_class": 1,
+      "flags": 1
+    },
+    {
+      "id": 257,
+      "group": 0,
+      "logical_index": 1,
+      "core_index": 0,
+      "efficiency_class": 1,
+      "flags": 0
+    },
+    {
+      "id": 258,
+      "group": 0,
+      "logical_index": 2,
+      "core_index": 2,
+      "efficiency_class": 0,
+      "flags": 0
+    },
+    {
+      "id": 259,
+      "group": 0,
+      "logical_index": 3,
+      "core_index": 3,
+      "efficiency_class": 0,
+      "flags": 0
+    },
+    {
+      "id": 260,
+      "group": 0,
+      "logical_index": 4,
+      "core_index": 4,
+      "efficiency_class": 0,
+      "flags": 0
+    },
+    {
+      "id": 261,
+      "group": 0,
+      "logical_index": 5,
+      "core_index": 5,
+      "efficiency_class": 0,
+      "flags": 0
+    },
+    {
+      "id": 262,
+      "group": 0,
+      "logical_index": 6,
+      "core_index": 6,
+      "efficiency_class": 0,
+      "flags": 0
+    },
+    {
+      "id": 263,
+      "group": 0,
+      "logical_index": 7,
+      "core_index": 7,
+      "efficiency_class": 0,
+      "flags": 0
+    },
+    {
+      "id": 264,
+      "group": 0,
+      "logical_index": 8,
+      "core_index": 8,
+      "efficiency_class": 0,
+      "flags": 0
+    },
+    {
+      "id": 265,
+      "group": 0,
+      "logical_index": 9,
+      "core_index": 9,
+      "efficiency_class": 0,
+      "flags": 0
+    },
+    {
+      "id": 266,
+      "group": 0,
+      "logical_index": 10,
+      "core_index": 10,
+      "efficiency_class": 1,
+      "flags": 1
+    },
+    {
+      "id": 267,
+      "group": 0,
+      "logical_index": 11,
+      "core_index": 10,
+      "efficiency_class": 1,
+      "flags": 0
+    },
+    {
+      "id": 268,
+      "group": 0,
+      "logical_index": 12,
+      "core_index": 12,
+      "efficiency_class": 0,
+      "flags": 1
+    },
+    {
+      "id": 269,
+      "group": 0,
+      "logical_index": 13,
+      "core_index": 13,
+      "efficiency_class": 0,
+      "flags": 1
+    }
+  ],
+  "vm_affinity": [],
+  "power_request": "ES_CONTINUOUS|ES_SYSTEM_REQUIRED",
+  "mode": "awake_only",
+  "scope": "Per-thread awake request; optional affinity is off by default. Not a kernel/hypervisor fix."
+}

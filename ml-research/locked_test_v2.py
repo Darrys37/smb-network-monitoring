@@ -116,6 +116,8 @@ def freeze_development(project,pilot_output,target):
            'budget':'42 new test runs (2 blocks x 3 repeats x 7 labels); smaller initial acceptance study than the provisional 210-run proposal',
            'test_policy':'No model scores viewed until both test blocks complete; retry only independent intervention validity; no tuning after opening test'}
     value['shadow_policy']='CART discrete and FP abstain if any core ping/TCP80/TCP10050/control probe is unknown; profile must match exactly'
+    value['pilot_candidate_sha256']=sha(pilot_output/'candidate_rules.sqlite')
+    value['pilot_manifest_sha256']=sha(pilot_output/'manifest.json')
     save_new(target,value)
     return value
 

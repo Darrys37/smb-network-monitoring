@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "session_id": "pilot-v2-s02",
+  "run_id": "r01-01-interface_down",
+  "registration_sha256": "de4060bf3822ec3a6882e310850f9dabb330d28e5502f96e4724d86860ded164",
+  "reviewed_at": 1793357591,
+  "validity": "valid",
+  "labels": [
+    "interface_down"
+  ],
+  "references": [
+    {
+      "sha256": "9942f4896e2f9f1ead6bb9ca8875ad9290b348e431cb85f7d9876cda21496ded",
+      "original_name": "preflight.json"
+    },
+    {
+      "sha256": "07f408ab9f6c859b768cda961a1e868c903db63399af71c7393d3ea137125147",
+      "original_name": "postflight.json"
+    },
+    {
+      "sha256": "4454c4518e8894dc3ae90a337d513a3c822b931c643131e8bd914f75ade6f95d",
+      "original_name": "independent-logs.json"
+    }
+  ]
+}

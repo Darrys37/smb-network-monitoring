@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "session_id": "pilot-v2-s01",
+  "run_id": "r02-07-healthy",
+  "registration_sha256": "52abdf10b36e6e5059bc108b80f5ba70be7cdf4c6fd0724b48479eab42536fde",
+  "reviewed_at": 1793354961,
+  "validity": "valid",
+  "labels": [
+    "healthy"
+  ],
+  "references": [
+    {
+      "sha256": "09edd0bed6bd247b028870b6cd65f4e1a14a8f0e10d99e99d50c45bf4bbecf18",
+      "original_name": "preflight.json"
+    },
+    {
+      "sha256": "7cee0aacceb4a54afc830651dbe2209adca0bac2238b48d6333d7466f7ab7b93",
+      "original_name": "postflight.json"
+    },
+    {
+      "sha256": "036a54e6069b0af6d1eddbed4c948bc60a0d38fffb0fc8dfde38e56803a9503c",
+      "original_name": "independent-logs.json"
+    }
+  ]
+}

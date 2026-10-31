@@ -1,0 +1,7 @@
+{
+  "remote_directory": "/home/phat/ml-experiments/57c90d982e38",
+  "unit": "mlv2-57c90d982e38",
+  "hold_seconds": 40,
+  "fault_script": "#!/bin/bash\nset -euo pipefail\nexec >>/home/phat/ml-experiments/57c90d982e38/fault.log 2>&1\ntest \"$(hostname -s)\" = srv01\nip -j -4 address show dev enp0s8 | python3 -c 'import json,sys; assert any(a.get(\"local\")==\"192.168.56.20\" for link in json.load(sys.stdin) for a in link.get(\"addr_info\",[]))'\n\necho FAULT_BEFORE $(date -u +%s)\n\nnft add table inet mlv2_57c90d982e38\nnft 'add chain inet mlv2_57c90d982e38 output { type filter hook output priority 0; policy accept; }'\nnft add rule inet mlv2_57c90d982e38 output udp dport 53 counter drop\nnft add rule inet mlv2_57c90d982e38 output tcp dport 53 counter drop\nnft list table inet mlv2_57c90d982e38\necho FAULT_VERIFIED $(date -u +%s)\n",
+  "rollback_script": "#!/bin/bash\nset -euo pipefail\nexec >>/home/phat/ml-experiments/57c90d982e38/rollback.log 2>&1\necho ROLLBACK_BEFORE $(date -u +%s)\ntables=\"$(nft list tables)\"\nif printf '%s\\n' \"$tables\" | grep -Fxq 'table inet mlv2_57c90d982e38'; then\n  nft delete table inet mlv2_57c90d982e38\nfi\necho ROLLBACK_AFTER $(date -u +%s)\n"
+}

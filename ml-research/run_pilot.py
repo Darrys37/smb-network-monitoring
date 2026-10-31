@@ -8,7 +8,7 @@ from pathlib import Path
 
 from mlv2.core import read,save_new
 from mlv2.pilot import Pilot,schedule
-from mlv2.transport import SSHTransport
+from mlv2.transport import LabTransport as SSHTransport
 
 
 def main():

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "session_id": "pilot-v2-s02",
+  "run_id": "r01-05-remote_http_filtered",
+  "registration_sha256": "b4001a2bf94c5e7a6acc5d8d2aa44f895a7b68ff3fe16a545c8a5e487693be7d",
+  "reviewed_at": 1793358400,
+  "validity": "valid",
+  "labels": [
+    "remote_http_filtered"
+  ],
+  "references": [
+    {
+      "sha256": "fc18d599e7e562be72ab6d148480acf2b0d53376bd1079b2bc5bdadc684d16db",
+      "original_name": "preflight.json"
+    },
+    {
+      "sha256": "333d062cf7a9094495c13e98527439b6dc2bedee89e391234b7c19f855c06c45",
+      "original_name": "postflight.json"
+    },
+    {
+      "sha256": "df9fc5af6eeea402f595b771f6c70dc28837527a1aaf23f49174a19e26e4b981",
+      "original_name": "independent-logs.json"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "fault.log": "FAULT_BEFORE 1793364467\nRunning as unit: mlv2-stress-36bcb0414db8.service; invocation ID: b170de13b2ad431db284bc8378071a50\nactive\nFAULT_VERIFIED 1793364468\n",
+  "rollback.log": "ROLLBACK_BEFORE 1793364801\nROLLBACK_AFTER 1793364801\n"
+}

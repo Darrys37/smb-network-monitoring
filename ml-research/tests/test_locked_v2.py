@@ -107,6 +107,7 @@ class LockedTests(unittest.TestCase):
                 csv_rows.append({key:dev[key] for key in ['session_id','run_id','label']})
             pd.DataFrame(csv_rows).to_csv(fake_benchmark/'dataset_used.csv',index=False)
             save_new(fake_benchmark/'manifest.json',{'sources':source_rows})
+            write_database(fake_benchmark/'candidate_rules.sqlite',[],[],{})
             frozen=base/'freeze.json';freeze=freeze_development(project,fake_benchmark,frozen)
             for item in freeze['test_schedule']:record(testroot,item,freeze['earliest_test_time']+1)
             with patch('locked_test_v2.latency',return_value={'scope':'Synthetic fixture; timing not measured'}):

@@ -1,0 +1,17 @@
+{
+  "status": "RESUME_PREFLIGHT_VERIFIED",
+  "at": "2026-10-31T06:42:37.715122+00:00",
+  "valid_attempts": 29,
+  "finished_attempts": 35,
+  "pilot_target": 42,
+  "preflight": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\verification\\recovered-platform-20261031T063429354666Z",
+  "ml_source_matches_54_test_pass": true,
+  "runtime_counts": {
+    "incidents": 39,
+    "evidence": 301,
+    "diagnoses": 172,
+    "recoveries": 29
+  },
+  "physical_host_available": false,
+  "next": "Run full_ml_session.py in foreground; do not launch detached coordinators"
+}

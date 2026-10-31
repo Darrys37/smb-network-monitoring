@@ -1,5 +1,27 @@
 # Hiện trạng và cách tiếp tục đồ án
 
+## Tiếp tục theo yêu cầu người dùng — 31/10/2026 13:42 UTC+7
+
+Người dùng đã yêu cầu tiếp tục; trạng thái PAUSED_BY_USER trong ghi chú bên dưới là lịch sử. Ba VM đang chạy; không có coordinator cũ chạy song song. Backup C/D tại mốc tạm dừng đã đối chiếu SHA-256 trùng nhau.
+
+- Preflight mới đạt: `evidence/ml-v2/verification/recovered-platform-20261031T063429354666Z`. Có backup source/runtime mới trên ba VM, SQLite integrity/foreign keys tốt và số hàng engine vẫn 39/301/172/29. Cảnh báo uptime <10m sau boot đã tự phục hồi; không đóng cưỡng bức event.
+- Pilot đang có 29/42 valid trong 35 attempt đã chốt. Lượt `pilot-v2-s02/r02-02-agent_stopped` cần audit uncertain rồi retry; chưa fit v2, chưa thu held-out.
+- Source Python ML khớp SHA với lần 54 tests đạt; không đổi feature/nhãn/tham số để chạy nhanh. Các lượt pilot cũ chưa có đầy đủ gate kernel, vẫn phải giữ caveat phương pháp. Test mới sẽ khóa trước khi thu và giữ nguyên chính sách validity.
+- Tiếp theo chạy `full_ml_session.py` foreground trong workspace: backup, audit lượt dở, thu hết pilot, train, 42 test mới, shadow/SQLite/evaluation/report. Trạng thái live ở `verification/full-ml-status.json`, `ml-supervisor-status.json`, `ml-acceptance-status.json`; các PID trong ghi chú cũ đã hết hiệu lực.
+- Phạm vi chỉ ba VM theo xác nhận người dùng; chưa có PC Ubuntu thật. Không tuyên bố nghiệm thu máy thật, multi-fault hoặc topology/suppression từ kết quả này.
+
+## Tạm dừng theo yêu cầu người dùng — 30/10/2026 20:52 UTC+7
+
+**PAUSED_BY_USER. Không tự tiếp tục và không tự chạy fault.** Người dùng yêu cầu tạm dừng vì hết token và backup trước khi kết thúc. Các PID/worker trong ghi chú cũ bên dưới đã hết hiệu lực.
+
+- Dữ liệu hiện có: 29/42 lượt pilot hợp lệ; 6 uncertain đã chốt; một lượt Agent đăng ký nhưng chưa chốt, phải audit uncertain rồi retry bằng ID mới. Chưa huấn luyện chính thức v2; chưa thu 42 lượt held-out. Không có accuracy thật để công bố.
+- 54/54 tests ML đạt, thêm 3/3 tests helper phục hồi đạt. Bộ baseline 369 tests đã đạt ở mốc trước, source engine không sửa. Bằng chứng mới: `evidence/ml-v2/verification/paused-by-user-20261030T135222185697Z`.
+- Người dùng xác nhận chỉ có ba VM, chưa có máy Ubuntu thật; đã cắm sạc và giữ host mở. Phạm vi nghiệm thu tiếp theo là cùng host VM, không gọi là nghiệm thu máy thật.
+- Đã tạo snapshot cả ba VM: `ml-pre-graceful-recovery-20261030T133856583807Z`. Cả ba đã tắt qua ACPI; lúc dừng coordinator phục hồi MON01 đã nhận lệnh khởi động lại. Trạng thái xác minh: {"MON01": {"state": "running", "snapshot": "ml-pre-graceful-recovery-20261030T133856583807Z"}, "SRV01": {"state": "poweroff", "snapshot": "ml-pre-graceful-recovery-20261030T133856583807Z"}, "CLI01": {"state": "poweroff", "snapshot": "ml-pre-graceful-recovery-20261030T133856583807Z"}}. Không reset/poweroff cưỡng bức; không đổi CPU/RAM, affinity, priority hay bảo mật host.
+- Lab có RCU stall/soft lockup và SSH timeout; chưa kết luận nguyên nhân. Các lượt bị tác động không được sửa thành valid. Đã tách timeout điều khiển và probe, thêm gate kernel/boot ID, retry điều khiển có giới hạn, chặn valid nếu thiếu một trong hai observation. Các mẫu pilot cũ chưa có đầy đủ gate kernel, phải giữ caveat trong báo cáo.
+- Khi được yêu cầu tiếp tục: kiểm tra tiến trình/locks thật; khởi động SRV01 và CLI01 nếu còn poweroff; chờ MON01 boot xong; chạy `preflight_recovered_lab.py` trong workspace để backup/source/SQLite/services/kernel. Đọc `resume_ml_pilot.py` mới (audit append-only, retry bảo toàn credential), rồi chạy `full_ml_session.py` foreground. Không chạy launcher detached cũ, không chạy fault song song. Mật khẩu qua getpass, không ghi file/chat.
+- Nguồn đúng: `C:/Users/Darrys/do-an/ml-research` và `evidence/ml-v2`. Stage `WORK/ml-v2` đã cũ, không đồng bộ chép đè. M5 chỉ được thu sau M4 đủ 42 valid; đóng băng trước test, không đổi model theo điểm test. Demo công khai cần ML_RELEASE.json đã QA, hiện chưa có.
+
 ## Bổ sung nghiệm thu ML 30/10/2026 18:02 UTC+7
 
 Người dùng yêu cầu tiếp tục tới khi hoàn chỉnh phần ML. Đã thêm `locked_test_v2.py`, `registry_v2.py`, protocol `docs/NGHIEM_THU_VM_V1.md`: train từ pilot, thêm 42 test run mới (hai block x ba lượt x bảy trạng thái), khóa source/config/nhãn trước test, embargo history 600 giây, chỉ mở điểm sau khi thu xong. Đây là ngân sách nghiệm thu ban đầu thay cho đề xuất 210 lượt chưa chốt; không suy ra chất lượng production hoặc chuyển PC.

@@ -8,6 +8,7 @@ import time
 import uuid
 
 from paramiko import SSHException, AuthenticationException, BadHostKeyException
+from .transport import RemoteProbeError
 
 from .collector import collect
 from .core import LABELS, read, register, review, save_new
@@ -46,6 +47,18 @@ def schedule(seed=37, sessions=2, repeats=3):
     return result
 
 
+def platform_ready(value):
+    return (value.get('status')=='ok' and set(value.get('nodes',{}))=={'mon01','srv01','cli01'}
+            and all(not row['recent_stall'] for row in value['nodes'].values()))
+
+
+def platform_stable(before,after):
+    return (platform_ready(before) and platform_ready(after)
+            and all(before['nodes'][host]['boot_id']==after['nodes'][host]['boot_id']
+                    and before['nodes'][host]['stall_count']==after['nodes'][host]['stall_count']
+                    for host in before['nodes']))
+
+
 def baseline_ok(service, monitor):
     import ipaddress
     addresses=[]
@@ -78,18 +91,23 @@ class Pilot:
                 monitor=self.transport.runner('mon01', MON_STATUS)
             except (AuthenticationException, BadHostKeyException):
                 raise
-            except (SSHException, OSError, TimeoutError) as exc:
+            except (SSHException, OSError, TimeoutError, RemoteProbeError) as exc:
                 # A control-channel timeout does not certify a healthy baseline.
                 self.transport.drop('srv01');self.transport.drop('mon01')
                 self.log(json.dumps({'state':'baseline_probe_error','error_type':type(exc).__name__}),flush=True)
             else:
-                if baseline_ok(service,monitor): return {'service':service,'monitor':monitor}
+                if baseline_ok(service,monitor):
+                    if getattr(self.transport,'audit_platform',False) is True:
+                        platform=self.transport.platform_health()
+                        if platform_ready(platform):return {'service':service,'monitor':monitor,'platform':platform}
+                        self.log(json.dumps({'state':'platform_not_ready','status':platform['status']}),flush=True)
+                    else:return {'service':service,'monitor':monitor}
             if time.monotonic()>=deadline: raise RuntimeError('Baseline did not stabilize')
             self.log(json.dumps({'state':'waiting_baseline','at':int(time.time())}),flush=True)
             time.sleep(15)
 
     def snapshot(self, item):
-        value=collect(self.profile,self.engine,item['session_id'],item['run_id'],self.transport.runner)
+        value=collect(self.profile,self.engine,item['session_id'],item['run_id'],getattr(self.transport,'probe_runner',self.transport.runner))
         path=self.root/'observations'/item['session_id']/item['run_id']/(value['window_id']+'.json')
         save_new(path,value)
         return value
@@ -149,7 +167,8 @@ class Pilot:
                     self.cancel_timer(unit)
                 except Exception:
                     self.transport.drop('srv01')
-                    for _ in range(24):
+                    recovery_deadline=time.monotonic()+1200
+                    while time.monotonic()<recovery_deadline:
                         time.sleep(5)
                         try:
                             self.transport.runner('srv01',"print('null')\n")
@@ -164,10 +183,16 @@ class Pilot:
             # Timer cannot fire later during another run. Remove only this run's timer.
             if armed:self.cancel_timer(unit)
             valid=error is None and 'FAULT_VERIFIED ' in raw['fault.log']
+            if getattr(self.transport,'audit_platform',False) is True and not platform_stable(before.get('platform',{}),after.get('platform',{})):
+                valid=False
+                error=error or 'UnexpectedPlatformFault'
             if armed: valid=valid and 'ROLLBACK_AFTER ' in raw['rollback.log']
             verified=[int(line.split()[1]) for line in raw['fault.log'].splitlines() if line.startswith('FAULT_VERIFIED ')]
             restored=[int(line.split()[1]) for line in raw['rollback.log'].splitlines() if line.startswith('ROLLBACK_BEFORE ')]
             windows=list((self.root/'observations'/item['session_id']/item['run_id']).glob('*.json'))
+            if len(windows)!=2 or len(timeline['windows'])!=2:
+                valid=False
+                error=error or 'IncompleteObservationSchedule'
             if verified:
                 valid=valid and bool(windows) and all(read(p)['started_at']>=verified[0] for p in windows)
             if restored:

@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "session_id": "pilot-v2-s02",
+  "run_id": "r01-05-remote_http_filtered",
+  "planned_labels": [
+    "remote_http_filtered"
+  ],
+  "registered_at": 1793358335,
+  "validity": "pending"
+}

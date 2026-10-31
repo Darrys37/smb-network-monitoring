@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "session_id": "pilot-v2-s01",
+  "run_id": "r02-07-healthy",
+  "planned_labels": [
+    "healthy"
+  ],
+  "registered_at": 1793354927,
+  "validity": "pending"
+}

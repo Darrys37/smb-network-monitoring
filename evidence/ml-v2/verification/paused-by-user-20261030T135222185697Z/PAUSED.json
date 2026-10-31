@@ -1,0 +1,40 @@
+{
+  "phase": "PAUSED_BY_USER",
+  "at": "2026-10-30T13:52:32.393758+00:00",
+  "reason": "User requested pause and backup because token budget was exhausted",
+  "attempts_finished": 35,
+  "valid_attempts": 29,
+  "uncertain_attempts": 6,
+  "unfinished_registrations": [
+    [
+      "pilot-v2-s02",
+      "r02-02-agent_stopped"
+    ]
+  ],
+  "target_pilot_runs": 42,
+  "heldout_attempts": 0,
+  "formal_v2_training_complete": false,
+  "ml_tests_passed": 54,
+  "recovery_helper_tests_passed": 3,
+  "vms": {
+    "MON01": {
+      "state": "running",
+      "snapshot": "ml-pre-graceful-recovery-20261030T133856583807Z"
+    },
+    "SRV01": {
+      "state": "poweroff",
+      "snapshot": "ml-pre-graceful-recovery-20261030T133856583807Z"
+    },
+    "CLI01": {
+      "state": "poweroff",
+      "snapshot": "ml-pre-graceful-recovery-20261030T133856583807Z"
+    }
+  },
+  "head": "d09b3097c5881a524ad420279d22b552ad373efd",
+  "no_automatic_resume": true,
+  "collection_locks_acquired": true,
+  "physical_machine_available": false,
+  "user_connected_ac_power": true,
+  "next": "Start the two powered-off VMs; authenticated preflight/source+SQLite backup; audit unfinished Agent as uncertain; then full_ml_session.py in foreground",
+  "warning": "Do not overwrite authoritative repository evidence with stale WORK/ml-v2. No model scores or completion claims exist yet."
+}

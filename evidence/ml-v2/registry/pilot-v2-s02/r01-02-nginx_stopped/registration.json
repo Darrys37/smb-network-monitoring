@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "session_id": "pilot-v2-s02",
+  "run_id": "r01-02-nginx_stopped",
+  "planned_labels": [
+    "nginx_stopped"
+  ],
+  "registered_at": 1793357592,
+  "validity": "pending"
+}

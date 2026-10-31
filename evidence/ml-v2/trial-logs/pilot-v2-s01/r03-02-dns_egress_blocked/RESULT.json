@@ -1,0 +1,33 @@
+{
+  "session_id": "pilot-v2-s01",
+  "run_id": "r03-02-dns_egress_blocked",
+  "label": "dns_egress_blocked",
+  "valid": true,
+  "error_type": null,
+  "review": {
+    "schema_version": 1,
+    "session_id": "pilot-v2-s01",
+    "run_id": "r03-02-dns_egress_blocked",
+    "registration_sha256": "92de56e945a4b359df3a711c022a52386cafd921c50f98f251cdccf804bdf615",
+    "reviewed_at": 1793356655,
+    "validity": "valid",
+    "labels": [
+      "dns_egress_blocked"
+    ],
+    "references": [
+      {
+        "sha256": "334378ee144d188010ad0c221a1efc45b1d9cfd1a2a23c8ea54734d6c4883584",
+        "original_name": "preflight.json"
+      },
+      {
+        "sha256": "39172721dbf42db2561914574cd1e48df895e73e7e844af795de4ca4d2d0affa",
+        "original_name": "postflight.json"
+      },
+      {
+        "sha256": "d52630e0c1c573c54d9207473eb2bd54e7e4075f09b30bec9afc07f8557875a0",
+        "original_name": "independent-logs.json"
+      }
+    ]
+  },
+  "remote_log_directory": "/home/phat/ml-experiments/57c90d982e38"
+}

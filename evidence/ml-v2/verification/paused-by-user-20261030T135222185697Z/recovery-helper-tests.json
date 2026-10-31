@@ -1,0 +1,5 @@
+{
+  "returncode": 0,
+  "stdout": "{\"state\": \"recovery_control_retry\", \"attempt\": 1, \"error_type\": \"SSHException\", \"remaining_seconds\": 0}\n{\"state\": \"recovery_control_retry\", \"attempt\": 1, \"error_type\": \"SSHException\", \"remaining_seconds\": 1198}",
+  "tests": 3
+}

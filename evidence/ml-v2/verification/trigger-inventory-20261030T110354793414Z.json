@@ -1,0 +1,757 @@
+{
+  "queried_at": 1793358234,
+  "api_version": "7.0.30",
+  "host_id": "10683",
+  "triggers": [
+    {
+      "triggerid": "25246",
+      "description": "Linux: Configured max number of open filedescriptors is too low",
+      "expression": "{36140}<{$KERNEL.MAXFILES.MIN}",
+      "priority": "1",
+      "status": "0",
+      "dependencies": [],
+      "items": [
+        {
+          "itemid": "50784",
+          "name": "Maximum number of open file descriptors",
+          "key_": "kernel.maxfiles",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25247",
+      "description": "Linux: Configured max number of processes is too low",
+      "expression": "{36141}<{$KERNEL.MAXPROC.MIN}",
+      "priority": "1",
+      "status": "0",
+      "dependencies": [
+        {
+          "triggerid": "25248",
+          "description": "Linux: Getting closer to process limit"
+        }
+      ],
+      "items": [
+        {
+          "itemid": "50785",
+          "name": "Maximum number of processes",
+          "key_": "kernel.maxproc",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25248",
+      "description": "Linux: Getting closer to process limit",
+      "expression": "{36142}/{36143}*100>80",
+      "priority": "2",
+      "status": "0",
+      "dependencies": [],
+      "items": [
+        {
+          "itemid": "50785",
+          "name": "Maximum number of processes",
+          "key_": "kernel.maxproc",
+          "status": "0"
+        },
+        {
+          "itemid": "50786",
+          "name": "Number of processes",
+          "key_": "proc.num",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25281",
+      "description": "Linux: Interface enp0s3: High error rate",
+      "expression": "{36200}>{$IF.ERRORS.WARN:\"enp0s3\"}\r\nor {36201}>{$IF.ERRORS.WARN:\"enp0s3\"}",
+      "priority": "2",
+      "status": "0",
+      "dependencies": [
+        {
+          "triggerid": "25285",
+          "description": "Linux: Interface enp0s3: Link down"
+        }
+      ],
+      "items": [
+        {
+          "itemid": "50868",
+          "name": "Interface enp0s3: Inbound packets with errors",
+          "key_": "net.if.in[\"enp0s3\",errors]",
+          "status": "0"
+        },
+        {
+          "itemid": "50874",
+          "name": "Interface enp0s3: Outbound packets with errors",
+          "key_": "net.if.out[\"enp0s3\",errors]",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25283",
+      "description": "Linux: Interface enp0s3: High bandwidth usage",
+      "expression": "({36208}>({$IF.UTIL.MAX:\"enp0s3\"}/100)*{36209} or\r\n{36210}>({$IF.UTIL.MAX:\"enp0s3\"}/100)*{36209}) and\r\n{36209}>0",
+      "priority": "2",
+      "status": "0",
+      "dependencies": [
+        {
+          "triggerid": "25285",
+          "description": "Linux: Interface enp0s3: Link down"
+        }
+      ],
+      "items": [
+        {
+          "itemid": "50870",
+          "name": "Interface enp0s3: Bits received",
+          "key_": "net.if.in[\"enp0s3\"]",
+          "status": "0"
+        },
+        {
+          "itemid": "50876",
+          "name": "Interface enp0s3: Bits sent",
+          "key_": "net.if.out[\"enp0s3\"]",
+          "status": "0"
+        },
+        {
+          "itemid": "50880",
+          "name": "Interface enp0s3: Speed",
+          "key_": "vfs.file.contents[\"/sys/class/net/enp0s3/speed\"]",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25282",
+      "description": "Linux: Interface enp0s8: High error rate",
+      "expression": "{36204}>{$IF.ERRORS.WARN:\"enp0s8\"}\r\nor {36205}>{$IF.ERRORS.WARN:\"enp0s8\"}",
+      "priority": "2",
+      "status": "0",
+      "dependencies": [
+        {
+          "triggerid": "25286",
+          "description": "Linux: Interface enp0s8: Link down"
+        }
+      ],
+      "items": [
+        {
+          "itemid": "50869",
+          "name": "Interface enp0s8: Inbound packets with errors",
+          "key_": "net.if.in[\"enp0s8\",errors]",
+          "status": "0"
+        },
+        {
+          "itemid": "50875",
+          "name": "Interface enp0s8: Outbound packets with errors",
+          "key_": "net.if.out[\"enp0s8\",errors]",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25284",
+      "description": "Linux: Interface enp0s8: High bandwidth usage",
+      "expression": "({36211}>({$IF.UTIL.MAX:\"enp0s8\"}/100)*{36212} or\r\n{36213}>({$IF.UTIL.MAX:\"enp0s8\"}/100)*{36212}) and\r\n{36212}>0",
+      "priority": "2",
+      "status": "0",
+      "dependencies": [
+        {
+          "triggerid": "25286",
+          "description": "Linux: Interface enp0s8: Link down"
+        }
+      ],
+      "items": [
+        {
+          "itemid": "50871",
+          "name": "Interface enp0s8: Bits received",
+          "key_": "net.if.in[\"enp0s8\"]",
+          "status": "0"
+        },
+        {
+          "itemid": "50877",
+          "name": "Interface enp0s8: Bits sent",
+          "key_": "net.if.out[\"enp0s8\"]",
+          "status": "0"
+        },
+        {
+          "itemid": "50881",
+          "name": "Interface enp0s8: Speed",
+          "key_": "vfs.file.contents[\"/sys/class/net/enp0s8/speed\"]",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25249",
+      "description": "Linux: Load average is too high",
+      "expression": "{36144}/{36145}>{$LOAD_AVG_PER_CPU.MAX.WARN}\r\nand {36146}>0\r\nand {36147}>0",
+      "priority": "3",
+      "status": "0",
+      "dependencies": [],
+      "items": [
+        {
+          "itemid": "50790",
+          "name": "Load average (15m avg)",
+          "key_": "system.cpu.load[all,avg15]",
+          "status": "0"
+        },
+        {
+          "itemid": "50791",
+          "name": "Load average (1m avg)",
+          "key_": "system.cpu.load[all,avg1]",
+          "status": "0"
+        },
+        {
+          "itemid": "50792",
+          "name": "Load average (5m avg)",
+          "key_": "system.cpu.load[all,avg5]",
+          "status": "0"
+        },
+        {
+          "itemid": "50793",
+          "name": "Number of CPUs",
+          "key_": "system.cpu.num",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25250",
+      "description": "Linux: High CPU utilization",
+      "expression": "{36148}>{$CPU.UTIL.CRIT}",
+      "priority": "2",
+      "status": "0",
+      "dependencies": [
+        {
+          "triggerid": "25249",
+          "description": "Linux: Load average is too high"
+        }
+      ],
+      "items": [
+        {
+          "itemid": "50822",
+          "name": "CPU utilization",
+          "key_": "system.cpu.util",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25251",
+      "description": "Linux: System name has changed",
+      "expression": "{36149} and length({36150})>0",
+      "priority": "1",
+      "status": "0",
+      "dependencies": [],
+      "items": [
+        {
+          "itemid": "50805",
+          "name": "System name",
+          "key_": "system.hostname",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25252",
+      "description": "Linux: System time is out of sync",
+      "expression": "{36151}=0",
+      "priority": "2",
+      "status": "0",
+      "dependencies": [],
+      "items": [
+        {
+          "itemid": "50806",
+          "name": "System local time",
+          "key_": "system.localtime",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25253",
+      "description": "Linux: Operating system description has changed",
+      "expression": "{36153} and length({36154})>0",
+      "priority": "1",
+      "status": "0",
+      "dependencies": [
+        {
+          "triggerid": "25251",
+          "description": "Linux: System name has changed"
+        }
+      ],
+      "items": [
+        {
+          "itemid": "50808",
+          "name": "Operating system",
+          "key_": "system.sw.os",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25254",
+      "description": "Linux: Number of installed packages has been changed",
+      "expression": "{36155}<>0",
+      "priority": "2",
+      "status": "0",
+      "dependencies": [],
+      "items": [
+        {
+          "itemid": "50809",
+          "name": "Number of installed packages",
+          "key_": "system.sw.packages.get",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25255",
+      "description": "Linux: High swap space usage",
+      "expression": "{36156}<{$SWAP.PFREE.MIN.WARN} and {36157}>0",
+      "priority": "2",
+      "status": "0",
+      "dependencies": [
+        {
+          "triggerid": "25258",
+          "description": "Linux: Lack of available memory"
+        },
+        {
+          "triggerid": "25259",
+          "description": "Linux: High memory utilization"
+        }
+      ],
+      "items": [
+        {
+          "itemid": "50811",
+          "name": "Free swap space in %",
+          "key_": "system.swap.size[,pfree]",
+          "status": "0"
+        },
+        {
+          "itemid": "50812",
+          "name": "Total swap space",
+          "key_": "system.swap.size[,total]",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25256",
+      "description": "Linux: {HOST.NAME} has been restarted",
+      "expression": "{36158}<10m",
+      "priority": "2",
+      "status": "0",
+      "dependencies": [],
+      "items": [
+        {
+          "itemid": "50814",
+          "name": "System uptime",
+          "key_": "system.uptime",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25289",
+      "description": "Linux: sda: Disk read/write request responses are too high",
+      "expression": "{36230} > {$VFS.DEV.READ.AWAIT.WARN:\"sda\"} or {36231} > {$VFS.DEV.WRITE.AWAIT.WARN:\"sda\"}",
+      "priority": "2",
+      "status": "0",
+      "dependencies": [],
+      "items": [
+        {
+          "itemid": "50884",
+          "name": "sda: Disk read request avg waiting time (r_await)",
+          "key_": "vfs.dev.read.await[sda]",
+          "status": "0"
+        },
+        {
+          "itemid": "50885",
+          "name": "sda: Disk write request avg waiting time (w_await)",
+          "key_": "vfs.dev.write.await[sda]",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25257",
+      "description": "Linux: /etc/passwd has been changed",
+      "expression": "{36159}<>{36160}",
+      "priority": "1",
+      "status": "0",
+      "dependencies": [
+        {
+          "triggerid": "25251",
+          "description": "Linux: System name has changed"
+        },
+        {
+          "triggerid": "25253",
+          "description": "Linux: Operating system description has changed"
+        }
+      ],
+      "items": [
+        {
+          "itemid": "50816",
+          "name": "Checksum of /etc/passwd",
+          "key_": "vfs.file.cksum[/etc/passwd,sha256]",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25285",
+      "description": "Linux: Interface enp0s3: Link down",
+      "expression": "{$IFCONTROL:\"enp0s3\"}=1 and {36214}=2 and ({36215}<>{36216})",
+      "priority": "3",
+      "status": "0",
+      "dependencies": [],
+      "items": [
+        {
+          "itemid": "50878",
+          "name": "Interface enp0s3: Operational status",
+          "key_": "vfs.file.contents[\"/sys/class/net/enp0s3/operstate\"]",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25287",
+      "description": "Linux: Interface enp0s3: Ethernet has changed to lower speed than it was before",
+      "expression": "{36220}<0 and {36221}>0\r\nand\r\n({36222}=6 or {36222}=1)\r\nand\r\n({36223}<>2)",
+      "priority": "1",
+      "status": "0",
+      "dependencies": [
+        {
+          "triggerid": "25285",
+          "description": "Linux: Interface enp0s3: Link down"
+        }
+      ],
+      "items": [
+        {
+          "itemid": "50878",
+          "name": "Interface enp0s3: Operational status",
+          "key_": "vfs.file.contents[\"/sys/class/net/enp0s3/operstate\"]",
+          "status": "0"
+        },
+        {
+          "itemid": "50880",
+          "name": "Interface enp0s3: Speed",
+          "key_": "vfs.file.contents[\"/sys/class/net/enp0s3/speed\"]",
+          "status": "0"
+        },
+        {
+          "itemid": "50882",
+          "name": "Interface enp0s3: Interface type",
+          "key_": "vfs.file.contents[\"/sys/class/net/enp0s3/type\"]",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25286",
+      "description": "Linux: Interface enp0s8: Link down",
+      "expression": "{$IFCONTROL:\"enp0s8\"}=1 and {36217}=2 and ({36218}<>{36219})",
+      "priority": "3",
+      "status": "0",
+      "dependencies": [],
+      "items": [
+        {
+          "itemid": "50879",
+          "name": "Interface enp0s8: Operational status",
+          "key_": "vfs.file.contents[\"/sys/class/net/enp0s8/operstate\"]",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25288",
+      "description": "Linux: Interface enp0s8: Ethernet has changed to lower speed than it was before",
+      "expression": "{36225}<0 and {36226}>0\r\nand\r\n({36227}=6 or {36227}=1)\r\nand\r\n({36228}<>2)",
+      "priority": "1",
+      "status": "0",
+      "dependencies": [
+        {
+          "triggerid": "25286",
+          "description": "Linux: Interface enp0s8: Link down"
+        }
+      ],
+      "items": [
+        {
+          "itemid": "50879",
+          "name": "Interface enp0s8: Operational status",
+          "key_": "vfs.file.contents[\"/sys/class/net/enp0s8/operstate\"]",
+          "status": "0"
+        },
+        {
+          "itemid": "50881",
+          "name": "Interface enp0s8: Speed",
+          "key_": "vfs.file.contents[\"/sys/class/net/enp0s8/speed\"]",
+          "status": "0"
+        },
+        {
+          "itemid": "50883",
+          "name": "Interface enp0s8: Interface type",
+          "key_": "vfs.file.contents[\"/sys/class/net/enp0s8/type\"]",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25271",
+      "description": "Linux: FS [/]: Running out of free inodes",
+      "expression": "{36188}<{$VFS.FS.INODE.PFREE.MIN.CRIT:\"/\"}",
+      "priority": "3",
+      "status": "0",
+      "dependencies": [],
+      "items": [
+        {
+          "itemid": "50858",
+          "name": "FS [/]: Inodes: Free, in %",
+          "key_": "vfs.fs.dependent.inode[/,pfree]",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25273",
+      "description": "Linux: FS [/]: Running out of free inodes",
+      "expression": "{36190}<{$VFS.FS.INODE.PFREE.MIN.WARN:\"/\"}",
+      "priority": "2",
+      "status": "0",
+      "dependencies": [
+        {
+          "triggerid": "25271",
+          "description": "Linux: FS [/]: Running out of free inodes"
+        }
+      ],
+      "items": [
+        {
+          "itemid": "50858",
+          "name": "FS [/]: Inodes: Free, in %",
+          "key_": "vfs.fs.dependent.inode[/,pfree]",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25272",
+      "description": "Linux: FS [/boot]: Running out of free inodes",
+      "expression": "{36189}<{$VFS.FS.INODE.PFREE.MIN.CRIT:\"/boot\"}",
+      "priority": "3",
+      "status": "0",
+      "dependencies": [],
+      "items": [
+        {
+          "itemid": "50865",
+          "name": "FS [/boot]: Inodes: Free, in %",
+          "key_": "vfs.fs.dependent.inode[/boot,pfree]",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25274",
+      "description": "Linux: FS [/boot]: Running out of free inodes",
+      "expression": "{36191}<{$VFS.FS.INODE.PFREE.MIN.WARN:\"/boot\"}",
+      "priority": "2",
+      "status": "0",
+      "dependencies": [
+        {
+          "triggerid": "25272",
+          "description": "Linux: FS [/boot]: Running out of free inodes"
+        }
+      ],
+      "items": [
+        {
+          "itemid": "50865",
+          "name": "FS [/boot]: Inodes: Free, in %",
+          "key_": "vfs.fs.dependent.inode[/boot,pfree]",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25275",
+      "description": "Linux: FS [/]: Space is critically low",
+      "expression": "{36192}>{$VFS.FS.PUSED.MAX.CRIT:\"/\"}",
+      "priority": "3",
+      "status": "0",
+      "dependencies": [],
+      "items": [
+        {
+          "itemid": "50856",
+          "name": "FS [/]: Space: Used, in %",
+          "key_": "vfs.fs.dependent.size[/,pused]",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25277",
+      "description": "Linux: FS [/]: Space is low",
+      "expression": "{36194}>{$VFS.FS.PUSED.MAX.WARN:\"/\"}",
+      "priority": "2",
+      "status": "0",
+      "dependencies": [
+        {
+          "triggerid": "25275",
+          "description": "Linux: FS [/]: Space is critically low"
+        }
+      ],
+      "items": [
+        {
+          "itemid": "50856",
+          "name": "FS [/]: Space: Used, in %",
+          "key_": "vfs.fs.dependent.size[/,pused]",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25276",
+      "description": "Linux: FS [/boot]: Space is critically low",
+      "expression": "{36193}>{$VFS.FS.PUSED.MAX.CRIT:\"/boot\"}",
+      "priority": "3",
+      "status": "0",
+      "dependencies": [],
+      "items": [
+        {
+          "itemid": "50863",
+          "name": "FS [/boot]: Space: Used, in %",
+          "key_": "vfs.fs.dependent.size[/boot,pused]",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25278",
+      "description": "Linux: FS [/boot]: Space is low",
+      "expression": "{36195}>{$VFS.FS.PUSED.MAX.WARN:\"/boot\"}",
+      "priority": "2",
+      "status": "0",
+      "dependencies": [
+        {
+          "triggerid": "25276",
+          "description": "Linux: FS [/boot]: Space is critically low"
+        }
+      ],
+      "items": [
+        {
+          "itemid": "50863",
+          "name": "FS [/boot]: Space: Used, in %",
+          "key_": "vfs.fs.dependent.size[/boot,pused]",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25279",
+      "description": "Linux: FS [/]: Filesystem has become read-only",
+      "expression": "{36196}=0 and {36197}=1",
+      "priority": "3",
+      "status": "0",
+      "dependencies": [],
+      "items": [
+        {
+          "itemid": "50853",
+          "name": "FS [/]: Option: Read-only",
+          "key_": "vfs.fs.dependent[/,readonly]",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25280",
+      "description": "Linux: FS [/boot]: Filesystem has become read-only",
+      "expression": "{36198}=0 and {36199}=1",
+      "priority": "3",
+      "status": "0",
+      "dependencies": [],
+      "items": [
+        {
+          "itemid": "50860",
+          "name": "FS [/boot]: Option: Read-only",
+          "key_": "vfs.fs.dependent[/boot,readonly]",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25258",
+      "description": "Linux: Lack of available memory",
+      "expression": "{36161}<{$MEMORY.AVAILABLE.MIN} and {36162}>0",
+      "priority": "3",
+      "status": "0",
+      "dependencies": [],
+      "items": [
+        {
+          "itemid": "50818",
+          "name": "Available memory",
+          "key_": "vm.memory.size[available]",
+          "status": "0"
+        },
+        {
+          "itemid": "50820",
+          "name": "Total memory",
+          "key_": "vm.memory.size[total]",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25259",
+      "description": "Linux: High memory utilization",
+      "expression": "{36163}>{$MEMORY.UTIL.MAX}",
+      "priority": "3",
+      "status": "0",
+      "dependencies": [
+        {
+          "triggerid": "25258",
+          "description": "Linux: Lack of available memory"
+        }
+      ],
+      "items": [
+        {
+          "itemid": "50823",
+          "name": "Memory utilization",
+          "key_": "vm.memory.util",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25334",
+      "description": "SRV01: HTTP check failed",
+      "expression": "{36324}>0",
+      "priority": "3",
+      "status": "0",
+      "dependencies": [],
+      "items": [
+        {
+          "itemid": "51006",
+          "name": "Failed step of scenario \"SRV01 HTTP\".",
+          "key_": "web.test.fail[SRV01 HTTP]",
+          "status": "0"
+        }
+      ]
+    },
+    {
+      "triggerid": "25260",
+      "description": "Linux: Zabbix agent is not available",
+      "expression": "{36164}=0",
+      "priority": "3",
+      "status": "0",
+      "dependencies": [],
+      "items": [
+        {
+          "itemid": "50821",
+          "name": "Zabbix agent availability",
+          "key_": "zabbix[host,agent,available]",
+          "status": "0"
+        }
+      ]
+    }
+  ]
+}

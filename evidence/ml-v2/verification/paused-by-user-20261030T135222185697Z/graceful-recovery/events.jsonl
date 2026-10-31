@@ -1,0 +1,13 @@
+{"at": "2026-10-30T13:39:09.032486+00:00", "stage": "snapshot_started", "vm": "MON01"}
+{"at": "2026-10-30T13:45:45.447868+00:00", "stage": "snapshot_complete", "vm": "MON01"}
+{"at": "2026-10-30T13:45:45.449217+00:00", "stage": "snapshot_started", "vm": "SRV01"}
+{"at": "2026-10-30T13:46:00.288416+00:00", "stage": "snapshot_complete", "vm": "SRV01"}
+{"at": "2026-10-30T13:46:00.288842+00:00", "stage": "snapshot_started", "vm": "CLI01"}
+{"at": "2026-10-30T13:46:08.640719+00:00", "stage": "snapshot_complete", "vm": "CLI01"}
+{"at": "2026-10-30T13:46:08.641050+00:00", "stage": "all_three_snapshots_complete", "scope": "Local VM rollback points; independent ML/evidence backups already verified on C and D"}
+{"at": "2026-10-30T13:46:08.642173+00:00", "stage": "requesting_acpi_shutdown", "vm": "CLI01"}
+{"at": "2026-10-30T13:46:53.885527+00:00", "stage": "guest_shutdown_complete", "vm": "CLI01"}
+{"at": "2026-10-30T13:46:53.885736+00:00", "stage": "requesting_acpi_shutdown", "vm": "SRV01"}
+{"at": "2026-10-30T13:47:39.092003+00:00", "stage": "guest_shutdown_complete", "vm": "SRV01"}
+{"at": "2026-10-30T13:47:39.092212+00:00", "stage": "requesting_acpi_shutdown", "vm": "MON01"}
+{"at": "2026-10-30T13:48:24.299459+00:00", "stage": "guest_shutdown_complete", "vm": "MON01"}

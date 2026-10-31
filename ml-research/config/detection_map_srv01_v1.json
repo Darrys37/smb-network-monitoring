@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "created_at": 1793358553,
+  "host_id": "10683",
+  "inventory_sha256": "67b9be30d41d23b90072d780e8016f8de690af6d4d46b615b5ed13773862e368",
+  "related_trigger_ids": {
+    "healthy": [],
+    "interface_down": [
+      "25334",
+      "25260",
+      "25286"
+    ],
+    "nginx_stopped": [
+      "25334"
+    ],
+    "agent_stopped": [
+      "25260"
+    ],
+    "dns_egress_blocked": [],
+    "remote_http_filtered": [
+      "25334"
+    ],
+    "cpu_stress": [
+      "25249",
+      "25250"
+    ]
+  },
+  "scope": "Related observable alarms, not unique root-cause labels; mapping fixed before fresh test collection"
+}

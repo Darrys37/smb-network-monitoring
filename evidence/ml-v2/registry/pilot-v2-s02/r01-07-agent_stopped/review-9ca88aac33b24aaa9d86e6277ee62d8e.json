@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "session_id": "pilot-v2-s02",
+  "run_id": "r01-07-agent_stopped",
+  "registration_sha256": "54a5797d5c2c39a76d1c8567d0f66e04156ad81e2737d668ac0011bfdbd3905f",
+  "reviewed_at": 1793364137,
+  "validity": "uncertain",
+  "labels": [
+    "agent_stopped"
+  ],
+  "references": [
+    {
+      "sha256": "41c7197b25fa3ea612683a7e5c3b4d73e180ab7f31753035ed816a9e974c1670",
+      "original_name": "preflight.json"
+    },
+    {
+      "sha256": "3da1262f787e47e8f09d7bc6b19660bff4c675cf82acf5829c2dc6495cc0a10e",
+      "original_name": "interruption-postflight.json"
+    },
+    {
+      "sha256": "c58e65cb3be9b53c07402312927c3486b2a2335306084a6eed3469bf990901a7",
+      "original_name": "interruption-independent-logs.json"
+    },
+    {
+      "sha256": "4ffb77e50bf8f72d5c5f3fb4a58ab8007cb2c51c018f335fdf80b1a9385246f8",
+      "original_name": "interruption-audit.json"
+    }
+  ]
+}

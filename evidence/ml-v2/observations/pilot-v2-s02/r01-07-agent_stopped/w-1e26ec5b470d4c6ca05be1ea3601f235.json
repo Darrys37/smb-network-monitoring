@@ -1,0 +1,36 @@
+{
+  "schema_version": 2,
+  "session_id": "pilot-v2-s02",
+  "run_id": "r01-07-agent_stopped",
+  "window_id": "w-1e26ec5b470d4c6ca05be1ea3601f235",
+  "collector_version": "ml-observation-v2.0",
+  "profile": {
+    "schema_version": 1,
+    "profile_id": "srv01-web-v1",
+    "host_id": "10683",
+    "target_ip": "192.168.56.20",
+    "observer": "srv01",
+    "control_ip": "192.168.56.30",
+    "http_service": "expected",
+    "dns_name": "example.com",
+    "dns_control_ip": "1.1.1.1",
+    "topology_version": "host-only-flat-v1"
+  },
+  "started_at": 1793358648,
+  "decision_time": 1793358691,
+  "sources": {
+    "monitor": {
+      "status": "error",
+      "error_type": "TimeoutError"
+    },
+    "local_http": {
+      "status": "error",
+      "error_type": "SSHException"
+    },
+    "dns": {
+      "status": "error",
+      "error_type": "SSHException"
+    }
+  },
+  "evidence": []
+}

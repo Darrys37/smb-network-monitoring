@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "session_id": "pilot-v2-s01",
+  "run_id": "r02-01-nginx_stopped",
+  "registration_sha256": "f21dfddcea07c81e5d09df21a34c2c6765feaa6ed5931c7d0e9f24b398a99d37",
+  "reviewed_at": 1793344753,
+  "validity": "valid",
+  "labels": [
+    "nginx_stopped"
+  ],
+  "references": [
+    {
+      "sha256": "d752b1706ffede47b20af363301d60a9484f7bcfbacfb10866348113e542ede6",
+      "original_name": "preflight.json"
+    },
+    {
+      "sha256": "406ed732e9b64c313391b317e1a3ae5f64d8bff9496ce679f080132e593f91fa",
+      "original_name": "postflight.json"
+    },
+    {
+      "sha256": "b4a84a71890384ffbe43794fb0ff0bf65b4a5fd47c8bd2516cf33a7340a4431b",
+      "original_name": "independent-logs.json"
+    }
+  ]
+}

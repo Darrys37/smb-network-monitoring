@@ -1,0 +1,9 @@
+{
+  "phase": "STOPPED_REQUIRES_REVIEW",
+  "pid": 2364,
+  "updated_at": "2026-10-30T13:29:24.017033+00:00",
+  "attempts_finished": 35,
+  "valid_attempts": 29,
+  "error_type": "SSHException",
+  "error_message": "No existing session"
+}

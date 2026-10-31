@@ -1,0 +1,12 @@
+{
+  "timer_earliest_deadline_monotonic": 22918.8068849,
+  "windows": [
+    {
+      "completed_monotonic": 22805.4645337
+    },
+    {
+      "completed_monotonic": 22881.9124795
+    }
+  ],
+  "manual_rollback_requested_monotonic": 22881.9124803
+}
