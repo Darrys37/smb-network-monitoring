@@ -1,0 +1,9 @@
+{
+  "status": "MYSQL_COLD_BACKUP_VERIFIED",
+  "directory": "/home/phat/ml-checkpoints/mysql-ordering-rescue-20261031T075327Z",
+  "archive": "/home/phat/ml-checkpoints/mysql-ordering-rescue-20261031T075327Z/mysql-cold-and-config.tar.gz",
+  "sha256": "6c1c3936457d48d10f529e8de6887aabb0f90d4f6edb872cb4511ad803f0cf86",
+  "mysql_data_bytes": 639817729,
+  "mysql_state_before_and_after": "ActiveState=inactive\nStateChangeTimestamp=Sat 2026-10-31 07:35:07 UTC\nMainPID=0",
+  "scope": "Private VM-only cold MySQL/config backup; not exported or printed contents"
+}

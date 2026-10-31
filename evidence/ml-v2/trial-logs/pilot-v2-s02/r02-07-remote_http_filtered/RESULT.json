@@ -1,0 +1,33 @@
+{
+  "session_id": "pilot-v2-s02",
+  "run_id": "r02-07-remote_http_filtered",
+  "label": "remote_http_filtered",
+  "valid": true,
+  "error_type": null,
+  "review": {
+    "schema_version": 1,
+    "session_id": "pilot-v2-s02",
+    "run_id": "r02-07-remote_http_filtered",
+    "registration_sha256": "05c33d3af2cda8bc6acc926218b5e96840eb413ee62908fafc523ebdd7205098",
+    "reviewed_at": 1793431237,
+    "validity": "valid",
+    "labels": [
+      "remote_http_filtered"
+    ],
+    "references": [
+      {
+        "sha256": "6727ae147d26b04f68bef139764919d42a016966c3cdf225d762d178e77c8797",
+        "original_name": "preflight.json"
+      },
+      {
+        "sha256": "698946c7e5570aebdb9c9df4894e469b07f4a7d926507bbe70628e4ac56b15cd",
+        "original_name": "postflight.json"
+      },
+      {
+        "sha256": "4179c36d45e41dda4c5afa05da06c45ed18df2cab797f0b82562cd4f1a07202d",
+        "original_name": "independent-logs.json"
+      }
+    ]
+  },
+  "remote_log_directory": "/home/phat/ml-experiments/71c5377f1fc1"
+}

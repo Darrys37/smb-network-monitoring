@@ -1,0 +1,209 @@
+{
+  "service": {
+    "time": 1793429027,
+    "nginx": {
+      "code": 0,
+      "stdout": "active"
+    },
+    "agent": {
+      "code": 0,
+      "stdout": "active"
+    },
+    "http": {
+      "code": 0,
+      "stdout": "200"
+    },
+    "clock": {
+      "code": 0,
+      "stdout": "yes"
+    },
+    "stress": {
+      "code": 1,
+      "stdout": ""
+    },
+    "dns": {
+      "code": 0,
+      "stdout": "172.66.147.243\n104.20.23.154"
+    },
+    "control": {
+      "code": 0,
+      "stdout": "PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.\n64 bytes from 1.1.1.1: icmp_seq=1 ttl=64 time=43.8 ms\n\n--- 1.1.1.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 43.835/43.835/43.835/0.000 ms"
+    }
+  },
+  "monitor": {
+    "problems": [],
+    "metrics": [
+      {
+        "check_type": "metric",
+        "target": "10683",
+        "collected_at": 1793429028,
+        "result": {
+          "key": "system.cpu.util",
+          "units": "%",
+          "max_age_seconds": 180,
+          "status": "success",
+          "value": 9.084236000000004,
+          "sample_clock": 1793429017,
+          "age_seconds": 11,
+          "item_id": "50822",
+          "raw_value": "9.084236000000004",
+          "error": ""
+        }
+      },
+      {
+        "check_type": "metric",
+        "target": "10683",
+        "collected_at": 1793429028,
+        "result": {
+          "key": "vm.memory.util",
+          "units": "%",
+          "max_age_seconds": 180,
+          "status": "success",
+          "value": 15.449123999999998,
+          "sample_clock": 1793428979,
+          "age_seconds": 49,
+          "item_id": "50823",
+          "raw_value": "15.449123999999998",
+          "error": ""
+        }
+      },
+      {
+        "check_type": "metric",
+        "target": "10683",
+        "collected_at": 1793429028,
+        "result": {
+          "key": "system.cpu.load[all,avg1]",
+          "units": "",
+          "max_age_seconds": 180,
+          "status": "success",
+          "value": 0.022461,
+          "sample_clock": 1793429011,
+          "age_seconds": 17,
+          "item_id": "50791",
+          "raw_value": "0.022461",
+          "error": ""
+        }
+      },
+      {
+        "check_type": "metric",
+        "target": "10683",
+        "collected_at": 1793429028,
+        "result": {
+          "key": "vfs.fs.dependent.size[/,pused]",
+          "units": "%",
+          "max_age_seconds": 180,
+          "status": "success",
+          "value": 54.342595262401375,
+          "sample_clock": 1793428977,
+          "age_seconds": 51,
+          "item_id": "50856",
+          "raw_value": "54.342595262401375",
+          "error": ""
+        }
+      },
+      {
+        "check_type": "agent_metric",
+        "target": "10683",
+        "collected_at": 1793429028,
+        "result": {
+          "key": "agent.ping",
+          "status": "success",
+          "max_age_seconds": 180,
+          "item": {
+            "itemid": "50782",
+            "key_": "agent.ping",
+            "value_type": "3",
+            "status": "0",
+            "units": "",
+            "state": "0",
+            "error": "",
+            "lastclock": "1793429002",
+            "lastvalue": "1"
+          },
+          "sample_clock": 1793429002
+        }
+      },
+      {
+        "check_type": "cpu_history",
+        "target": "10683",
+        "collected_at": 1793429028,
+        "result": {
+          "key": "system.cpu.util",
+          "units": "%",
+          "status": "success",
+          "window_seconds": 300,
+          "samples": [
+            {
+              "clock": 1793428777,
+              "value": 9.134794
+            },
+            {
+              "clock": 1793428837,
+              "value": 9.221045000000004
+            },
+            {
+              "clock": 1793428897,
+              "value": 9.035364000000001
+            },
+            {
+              "clock": 1793428957,
+              "value": 9.363990000000001
+            },
+            {
+              "clock": 1793429017,
+              "value": 9.084236000000004
+            }
+          ],
+          "support_items": {
+            "system.cpu.num": {
+              "itemid": "50793",
+              "key_": "system.cpu.num",
+              "value_type": "3",
+              "status": "0",
+              "units": "",
+              "state": "0",
+              "error": "",
+              "lastclock": "1793428413",
+              "lastvalue": "1"
+            },
+            "system.cpu.load[all,avg1]": {
+              "itemid": "50791",
+              "key_": "system.cpu.load[all,avg1]",
+              "value_type": "0",
+              "status": "0",
+              "units": "",
+              "state": "0",
+              "error": "",
+              "lastclock": "1793429011",
+              "lastvalue": "0.022461"
+            }
+          },
+          "item_id": "50822"
+        }
+      }
+    ]
+  },
+  "platform": {
+    "status": "ok",
+    "nodes": {
+      "mon01": {
+        "boot_id": "13943cf7-9169-440a-bd39-b1102e56704e",
+        "stall_count": 0,
+        "recent_stall": false,
+        "last_stalls": []
+      },
+      "srv01": {
+        "boot_id": "c58806aa-c30e-4a8a-87c5-4b4595252a75",
+        "stall_count": 0,
+        "recent_stall": false,
+        "last_stalls": []
+      },
+      "cli01": {
+        "boot_id": "144c40d9-d64c-4045-b7a2-43a7f2b70d01",
+        "stall_count": 0,
+        "recent_stall": false,
+        "last_stalls": []
+      }
+    }
+  }
+}

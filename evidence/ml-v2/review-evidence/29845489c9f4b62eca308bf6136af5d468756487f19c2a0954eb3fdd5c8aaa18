@@ -1,0 +1,298 @@
+{
+  "service": {
+    "time": 1793430333,
+    "nginx": {
+      "code": 0,
+      "stdout": "active"
+    },
+    "agent": {
+      "code": 0,
+      "stdout": "active"
+    },
+    "http": {
+      "code": 0,
+      "stdout": "200"
+    },
+    "clock": {
+      "code": 0,
+      "stdout": "yes"
+    },
+    "stress": {
+      "code": 1,
+      "stdout": ""
+    },
+    "dns": {
+      "code": 0,
+      "stdout": "104.20.23.154\n172.66.147.243"
+    },
+    "control": {
+      "code": 0,
+      "stdout": "PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.\n64 bytes from 1.1.1.1: icmp_seq=1 ttl=64 time=43.8 ms\n\n--- 1.1.1.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 43.825/43.825/43.825/0.000 ms"
+    }
+  },
+  "monitor": {
+    "problems": [],
+    "metrics": [
+      {
+        "check_type": "metric",
+        "target": "10683",
+        "collected_at": 1793430333,
+        "result": {
+          "key": "system.cpu.util",
+          "units": "%",
+          "max_age_seconds": 180,
+          "status": "success",
+          "value": 9.837596000000005,
+          "sample_clock": 1793430277,
+          "age_seconds": 56,
+          "item_id": "50822",
+          "raw_value": "9.837596000000005",
+          "error": ""
+        }
+      },
+      {
+        "check_type": "metric",
+        "target": "10683",
+        "collected_at": 1793430333,
+        "result": {
+          "key": "vm.memory.util",
+          "units": "%",
+          "max_age_seconds": 180,
+          "status": "success",
+          "value": 15.714566000000005,
+          "sample_clock": 1793430299,
+          "age_seconds": 34,
+          "item_id": "50823",
+          "raw_value": "15.714566000000005",
+          "error": ""
+        }
+      },
+      {
+        "check_type": "metric",
+        "target": "10683",
+        "collected_at": 1793430333,
+        "result": {
+          "key": "system.cpu.load[all,avg1]",
+          "units": "",
+          "max_age_seconds": 180,
+          "status": "success",
+          "value": 1.269043,
+          "sample_clock": 1793430331,
+          "age_seconds": 2,
+          "item_id": "50791",
+          "raw_value": "1.269043",
+          "error": ""
+        }
+      },
+      {
+        "check_type": "metric",
+        "target": "10683",
+        "collected_at": 1793430333,
+        "result": {
+          "key": "vfs.fs.dependent.size[/,pused]",
+          "units": "%",
+          "max_age_seconds": 180,
+          "status": "success",
+          "value": 54.347083732956825,
+          "sample_clock": 1793430297,
+          "age_seconds": 36,
+          "item_id": "50856",
+          "raw_value": "54.347083732956825",
+          "error": ""
+        }
+      },
+      {
+        "check_type": "agent_metric",
+        "target": "10683",
+        "collected_at": 1793430333,
+        "result": {
+          "key": "agent.ping",
+          "status": "success",
+          "max_age_seconds": 180,
+          "item": {
+            "itemid": "50782",
+            "key_": "agent.ping",
+            "value_type": "3",
+            "status": "0",
+            "units": "",
+            "state": "0",
+            "error": "",
+            "lastclock": "1793430322",
+            "lastvalue": "1"
+          },
+          "sample_clock": 1793430322
+        }
+      },
+      {
+        "check_type": "cpu_history",
+        "target": "10683",
+        "collected_at": 1793430333,
+        "result": {
+          "key": "system.cpu.util",
+          "units": "%",
+          "status": "success",
+          "window_seconds": 300,
+          "samples": [
+            {
+              "clock": 1793430130,
+              "value": 48.922655
+            },
+            {
+              "clock": 1793430157,
+              "value": 48.06623
+            },
+            {
+              "clock": 1793430217,
+              "value": 8.992739
+            },
+            {
+              "clock": 1793430277,
+              "value": 9.837596000000005
+            }
+          ],
+          "support_items": {
+            "system.cpu.num": {
+              "itemid": "50793",
+              "key_": "system.cpu.num",
+              "value_type": "3",
+              "status": "0",
+              "units": "",
+              "state": "0",
+              "error": "",
+              "lastclock": "1793428413",
+              "lastvalue": "1"
+            },
+            "system.cpu.load[all,avg1]": {
+              "itemid": "50791",
+              "key_": "system.cpu.load[all,avg1]",
+              "value_type": "0",
+              "status": "0",
+              "units": "",
+              "state": "0",
+              "error": "",
+              "lastclock": "1793430331",
+              "lastvalue": "1.269043"
+            }
+          },
+          "item_id": "50822"
+        }
+      }
+    ]
+  },
+  "platform": {
+    "status": "ok",
+    "nodes": {
+      "mon01": {
+        "boot_id": "13943cf7-9169-440a-bd39-b1102e56704e",
+        "stall_count": 2,
+        "recent_stall": false,
+        "last_stalls": [
+          {
+            "monotonic_us": 1305552199,
+            "realtime_us": 1793429607840471,
+            "message": "watchdog: BUG: soft lockup - CPU#1 stuck for 21s! [kworker/1:2H:2226]"
+          },
+          {
+            "monotonic_us": 1488339549,
+            "realtime_us": 1793429790627821,
+            "message": "watchdog: BUG: soft lockup - CPU#1 stuck for 21s! [multipathd:575]"
+          }
+        ]
+      },
+      "srv01": {
+        "boot_id": "c58806aa-c30e-4a8a-87c5-4b4595252a75",
+        "stall_count": 8,
+        "recent_stall": false,
+        "last_stalls": [
+          {
+            "monotonic_us": 1810448525,
+            "realtime_us": 1793430112126551,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 1810455403,
+            "realtime_us": 1793430112133430,
+            "message": "rcu: rcu_preempt kthread starved for 26800 jiffies! g40853 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 1810457585,
+            "realtime_us": 1793430112135611,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 1810458746,
+            "realtime_us": 1793430112136772,
+            "message": "rcu: rcu_preempt kthread starved for 13918 jiffies! g40853 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 1810478952,
+            "realtime_us": 1793430112156978,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 1810480297,
+            "realtime_us": 1793430112158323,
+            "message": "rcu: rcu_preempt kthread starved for 5640 jiffies! g40857 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 1810488223,
+            "realtime_us": 1793430112166250,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 1810489014,
+            "realtime_us": 1793430112167040,
+            "message": "rcu: rcu_preempt kthread starved for 12638 jiffies! g40877 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          }
+        ]
+      },
+      "cli01": {
+        "boot_id": "144c40d9-d64c-4045-b7a2-43a7f2b70d01",
+        "stall_count": 8,
+        "recent_stall": false,
+        "last_stalls": [
+          {
+            "monotonic_us": 1808554151,
+            "realtime_us": 1793430112755049,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 1808556474,
+            "realtime_us": 1793430112757373,
+            "message": "rcu: rcu_preempt kthread starved for 4197 jiffies! g31529 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 1808573317,
+            "realtime_us": 1793430112774215,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 1808575888,
+            "realtime_us": 1793430112776787,
+            "message": "rcu: rcu_preempt kthread starved for 7097 jiffies! g31533 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 1808577325,
+            "realtime_us": 1793430112778224,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 1808694470,
+            "realtime_us": 1793430112895369,
+            "message": "rcu: rcu_preempt kthread starved for 5109 jiffies! g31533 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          },
+          {
+            "monotonic_us": 1808697008,
+            "realtime_us": 1793430112897907,
+            "message": "rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:"
+          },
+          {
+            "monotonic_us": 1808700037,
+            "realtime_us": 1793430112900936,
+            "message": "rcu: rcu_preempt kthread starved for 2477 jiffies! g31533 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=0"
+          }
+        ]
+      }
+    }
+  }
+}

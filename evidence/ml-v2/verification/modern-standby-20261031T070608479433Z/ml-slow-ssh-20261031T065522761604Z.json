@@ -1,0 +1,17 @@
+[
+  {
+    "host": "srv01",
+    "error_type": "SSHException",
+    "elapsed_seconds": 32.28359249999994
+  },
+  {
+    "host": "mon01",
+    "error_type": "SSHException",
+    "elapsed_seconds": 30.243588499999987
+  },
+  {
+    "host": "cli01",
+    "error_type": "SSHException",
+    "elapsed_seconds": 31.081111799999917
+  }
+]

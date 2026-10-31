@@ -1,0 +1,8 @@
+{
+  "started_at": "2026-10-31T07:03:36.057552+00:00",
+  "mode": "temporary_display_and_system_required",
+  "purpose": "Investigate idle/display-associated VM stalls; not an established cause",
+  "settings_changed": false,
+  "maximum_seconds": 21600,
+  "previous_thread_state": 2147483648
+}

@@ -48,14 +48,19 @@ def schedule(seed=37, sessions=2, repeats=3):
 
 
 def platform_ready(value):
-    return (value.get('status')=='ok' and set(value.get('nodes',{}))=={'mon01','srv01','cli01'}
-            and all(not row['recent_stall'] for row in value['nodes'].values()))
+    return (value.get('status')=='ok' and value.get('schema_version')==2
+            and set(value.get('nodes',{}))=={'mon01','srv01','cli01'}
+            and all(not row['recent_stall'] and row.get('package_jobs_active') is False
+                    and row.get('dpkg_lock_held') is False and row.get('package_audit_clean') is True
+                    and isinstance(row.get('package_status_sha256'),str) and len(row['package_status_sha256'])==64
+                    for row in value['nodes'].values()))
 
 
 def platform_stable(before,after):
     return (platform_ready(before) and platform_ready(after)
             and all(before['nodes'][host]['boot_id']==after['nodes'][host]['boot_id']
                     and before['nodes'][host]['stall_count']==after['nodes'][host]['stall_count']
+                    and before['nodes'][host]['package_status_sha256']==after['nodes'][host]['package_status_sha256']
                     for host in before['nodes']))
 
 

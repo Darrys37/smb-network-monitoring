@@ -1,5 +1,9 @@
 # Protocol nghiệm thu ML trên VM, phiên bản 1
 
+## Bổ sung 1.1 trước khi thu test — 31/10/2026
+
+Một đợt auto-upgrade đã làm MySQL/Zabbix dừng trong pilot; bản thử bị gián đoạn được giữ riêng. Gate platform schema 2 yêu cầu không có apt job/dpkg lock, dpkg audit sạch, và SHA trạng thái package không đổi trong trial. Test mới còn pin package fingerprint ba VM trước khi thu và kiểm tra trước/sau mọi trial cùng lúc hoàn tất bộ test. Không tắt auto-upgrade; môi trường thay đổi thì dừng trước khi mở điểm. Feature, nhãn, lịch và tham số CART/FP giữ nguyên. Các pilot cũ có điều kiện kiểm soát yếu hơn phải được nêu là dữ liệu phát triển có hạn chế.
+
 Chốt trước khi thu test mới, ngày 30/10/2026. Đây là nghiệm thu ban đầu cho phần ML; máy thật, nhiều lỗi đồng thời và topology/suppression cần các bộ thử riêng.
 
 ## Dữ liệu và ngân sách

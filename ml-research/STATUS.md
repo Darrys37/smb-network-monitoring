@@ -1,5 +1,29 @@
 # Tiến độ triển khai ML v2 — 30/10/2026
 
+## Sau phục hồi package/DB — 31/10/2026 15:07 UTC+7
+
+Coordinator PID 15692 đã dừng vì hết deadline baseline; hiện có **38/42 valid**, 8 uncertain đã chốt và một CPU run chưa chốt. Lượt CPU này sẽ audit uncertain, rồi retry bằng ID mới; không đưa dữ liệu chưa chốt vào train.
+
+Đã xác minh auto-upgrade trên MON01 làm restart MySQL/Zabbix kẹt thứ tự: MySQL start chờ Zabbix stop, Zabbix stop chờ database (TimeoutStopUSec=infinity). Backup nguội MySQL/config 639817729 bytes đã kiểm CRC/hash, lưu riêng trên VM với quyền hạn chế; không xuất nội dung credential. Một lần rescue `systemctl start mysql --job-mode=ignore-dependencies --no-block` khôi phục MySQL/Zabbix và giải phóng chuỗi restart. Không kill apt/dpkg, không tắt cập nhật bảo mật hoặc sửa unit/power policy. Xem `evidence/ml-v2/verification/mysql-ordering-recovery-*` và `evidence/ml-v2/verification/package-recovery-acceptance-20261031T080700853123Z`.
+
+Preflight mới đạt `evidence/ml-v2/verification/recovered-platform-20261031T080427843278Z`; engine source/SQLite runtime không đổi (39/301/172/29). Gate platform schema 2 bổ sung apt jobs, dpkg locks/audit và SHA trạng thái package trước/sau trial. Source/model feature/nhãn/siêu tham số phân loại giữ nguyên. **57 tests ML và 3 tests pin môi trường heldout đạt**; thêm tests guard wake/cleanup đã đạt ở mốc trước.
+
+Trước test mới, worker sẽ lưu `lab-environment-freeze.json`; mọi trial test phải khớp package fingerprint này và kiểm tra lại khi thu xong. Có thay đổi package thì dừng trước khi mở điểm test. Đây là bổ sung protocol trước M5 vì lỗi hạ tầng thực tế, không phải điều chỉnh theo điểm mô hình. Chưa train v2/chưa thu test mới.
+
+Tiếp theo chạy lại `full_ml_session.py` foreground, nhập SSH bằng getpass. Guard mới giữ display/system thức và renew mỗi 15 giây. Giữ các snapshot/protocol cũ là lịch sử; không chép workspace stage cũ đè lên repository.
+
+## Điều phối đang chạy — 31/10/2026 14:15 UTC+7
+
+PID coordinator hiện hành: 15692; phase: `running_pilot_foreground`. Đếm trực tiếp RESULT: **33/42 valid**, 8 uncertain; đây không phải accuracy. Không mở coordinator/fault thứ hai.
+
+Windows có Event 506 vào Modern Standby lúc 13:48:37 ngày 31/10, trùng giai đoạn mất SSH trên cả ba VM; người dùng xác nhận màn hình đã tắt/khóa và đánh thức máy. Event 507 ghi thoát lúc 14:01:48 (SC_MONITORPOWER) và 14:01:51 (Input Keyboard). Sau đó SSH phản hồi lại. Giữ kết luận giới hạn cho đợt này, không quy mọi RCU stall lịch sử về cùng nguyên nhân.
+
+Lượt Agent retry1 đã chốt uncertain do UnexpectedPlatformFault; retry2 đã valid. Model/feature/nhãn/gate giữ nguyên. Đã bổ sung yêu cầu giữ display+system thức tạm thời, tái áp dụng mỗi 10/15 giây; tự clear khi worker kết thúc. Không đổi power plan, lock policy, affinity/priority hay CPU/RAM VM. Ba tests helper wake/renew/cleanup đạt; source và power-event evidence ở `evidence/ml-v2/verification/modern-standby-20261031T070608479433Z`.
+
+WORK `lab_host_guard.py` mới sẽ được dùng trong interpreter test mới; coordinator M4 đang chạy đã nạp bản cũ nên được bổ sung bằng tiến trình `display_guard_diagnostic.py` định kỳ. Các snapshot startup cũ được giữ đúng bản đã chạy; không sửa retrospective. Không dừng helper wake khi lab còn đang thu. Các thư mục workspace stage `ml-v2` đã cũ, không dùng ghi đè repository.
+
+Tiếp theo: đủ 42 valid → postflight/tests → train/SQLite pilot → khóa trước 42 test mới/shadow → evaluate/report/QA/release/demo. `review_ml_release.py` chỉ mở kết quả sau phase COMPLETE_INITIAL_VM_ML; `Run-ML-Demo.ps1` giữ khóa lab và chỉ dùng release đã QA. Các phần này chưa được coi là hoàn tất chỉ vì đã có code.
+
 ## Tiếp tục theo yêu cầu người dùng — 31/10/2026 13:42 UTC+7
 
 Người dùng đã yêu cầu tiếp tục; trạng thái PAUSED_BY_USER trong ghi chú bên dưới là lịch sử. Ba VM đang chạy; không có coordinator cũ chạy song song. Backup C/D tại mốc tạm dừng đã đối chiếu SHA-256 trùng nhau.

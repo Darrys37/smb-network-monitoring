@@ -1,0 +1,395 @@
+{
+  "services": {
+    "mysql": {
+      "code": 3,
+      "stdout": "inactive\n"
+    },
+    "zabbix-server": {
+      "code": 3,
+      "stdout": "deactivating\n"
+    },
+    "nginx": {
+      "code": 0,
+      "stdout": "active\n"
+    },
+    "php8.3-fpm": {
+      "code": 4,
+      "stdout": "inactive\n"
+    }
+  },
+  "disk": {
+    "code": 0,
+    "stdout": "Filesystem                        1024-blocks    Used Available Capacity Mounted on\n/dev/mapper/ubuntu--vg-ubuntu--lv    19430032 9151100   9266608      50% /\n/dev/mapper/ubuntu--vg-ubuntu--lv    19430032 9151100   9266608      50% /\n"
+  },
+  "mysql": {
+    "code": 1,
+    "stdout": ""
+  },
+  "log_categories": {
+    "/var/log/nginx/error.log": [],
+    "/var/log/zabbix/zabbix_server.log": [
+      {
+        "categories": [
+          "database is down"
+        ],
+        "timestamp_prefix": " 21030:20261031:074544.897 "
+      },
+      {
+        "categories": [
+          "Z3001"
+        ],
+        "timestamp_prefix": " 21002:20261031:074544.898 "
+      },
+      {
+        "categories": [
+          "database is down"
+        ],
+        "timestamp_prefix": " 21002:20261031:074544.898 "
+      },
+      {
+        "categories": [
+          "Z3001"
+        ],
+        "timestamp_prefix": " 21051:20261031:074544.903 "
+      },
+      {
+        "categories": [
+          "database is down"
+        ],
+        "timestamp_prefix": " 21051:20261031:074544.903 "
+      },
+      {
+        "categories": [
+          "Z3001"
+        ],
+        "timestamp_prefix": " 21096:20261031:074544.933 "
+      },
+      {
+        "categories": [
+          "database is down"
+        ],
+        "timestamp_prefix": " 21096:20261031:074544.933 "
+      },
+      {
+        "categories": [
+          "Z3001"
+        ],
+        "timestamp_prefix": " 21087:20261031:074544.976 "
+      },
+      {
+        "categories": [
+          "database is down"
+        ],
+        "timestamp_prefix": " 21087:20261031:074544.976 "
+      },
+      {
+        "categories": [
+          "Z3001"
+        ],
+        "timestamp_prefix": " 20999:20261031:074545.602 "
+      },
+      {
+        "categories": [
+          "Z3001"
+        ],
+        "timestamp_prefix": " 21001:20261031:074547.994 "
+      },
+      {
+        "categories": [
+          "database is down"
+        ],
+        "timestamp_prefix": " 21001:20261031:074547.994 "
+      },
+      {
+        "categories": [
+          "Z3001"
+        ],
+        "timestamp_prefix": " 20999:20261031:074550.613 "
+      },
+      {
+        "categories": [
+          "Z3001"
+        ],
+        "timestamp_prefix": " 21052:20261031:074554.189 "
+      },
+      {
+        "categories": [
+          "database is down"
+        ],
+        "timestamp_prefix": " 21052:20261031:074554.189 "
+      },
+      {
+        "categories": [
+          "Z3001"
+        ],
+        "timestamp_prefix": " 21098:20261031:074554.806 "
+      },
+      {
+        "categories": [
+          "database is down"
+        ],
+        "timestamp_prefix": " 21098:20261031:074554.806 "
+      },
+      {
+        "categories": [
+          "Z3001"
+        ],
+        "timestamp_prefix": " 21030:20261031:074554.897 "
+      },
+      {
+        "categories": [
+          "database is down"
+        ],
+        "timestamp_prefix": " 21030:20261031:074554.897 "
+      },
+      {
+        "categories": [
+          "Z3001"
+        ],
+        "timestamp_prefix": " 21002:20261031:074554.898 "
+      },
+      {
+        "categories": [
+          "database is down"
+        ],
+        "timestamp_prefix": " 21002:20261031:074554.898 "
+      },
+      {
+        "categories": [
+          "Z3001"
+        ],
+        "timestamp_prefix": " 21051:20261031:074554.903 "
+      },
+      {
+        "categories": [
+          "database is down"
+        ],
+        "timestamp_prefix": " 21051:20261031:074554.903 "
+      },
+      {
+        "categories": [
+          "Z3001"
+        ],
+        "timestamp_prefix": " 21096:20261031:074554.934 "
+      },
+      {
+        "categories": [
+          "database is down"
+        ],
+        "timestamp_prefix": " 21096:20261031:074554.934 "
+      },
+      {
+        "categories": [
+          "Z3001"
+        ],
+        "timestamp_prefix": " 21087:20261031:074554.977 "
+      },
+      {
+        "categories": [
+          "database is down"
+        ],
+        "timestamp_prefix": " 21087:20261031:074554.977 "
+      },
+      {
+        "categories": [
+          "Z3001"
+        ],
+        "timestamp_prefix": " 20999:20261031:074555.617 "
+      },
+      {
+        "categories": [
+          "Z3001"
+        ],
+        "timestamp_prefix": " 21001:20261031:074557.998 "
+      },
+      {
+        "categories": [
+          "database is down"
+        ],
+        "timestamp_prefix": " 21001:20261031:074557.998 "
+      }
+    ],
+    "/var/log/mysql/error.log": [
+      {
+        "categories": [
+          "MY-010909"
+        ],
+        "timestamp_prefix": "2026-10-31T07:34:36.172805Z 0 "
+      },
+      {
+        "categories": [
+          "MY-010909"
+        ],
+        "timestamp_prefix": "2026-10-31T07:34:36.172852Z 0 "
+      },
+      {
+        "categories": [
+          "MY-010909"
+        ],
+        "timestamp_prefix": "2026-10-31T07:34:36.175807Z 0 "
+      },
+      {
+        "categories": [
+          "MY-010909"
+        ],
+        "timestamp_prefix": "2026-10-31T07:34:36.177545Z 0 "
+      },
+      {
+        "categories": [
+          "MY-010909"
+        ],
+        "timestamp_prefix": "2026-10-31T07:34:36.177966Z 0 "
+      },
+      {
+        "categories": [
+          "MY-010909"
+        ],
+        "timestamp_prefix": "2026-10-31T07:34:36.179499Z 0 "
+      },
+      {
+        "categories": [
+          "MY-010909"
+        ],
+        "timestamp_prefix": "2026-10-31T07:34:36.181864Z 0 "
+      },
+      {
+        "categories": [
+          "MY-010909"
+        ],
+        "timestamp_prefix": "2026-10-31T07:34:36.182272Z 0 "
+      },
+      {
+        "categories": [
+          "MY-010909"
+        ],
+        "timestamp_prefix": "2026-10-31T07:34:36.183666Z 0 "
+      },
+      {
+        "categories": [
+          "MY-010909"
+        ],
+        "timestamp_prefix": "2026-10-31T07:34:36.184855Z 0 "
+      },
+      {
+        "categories": [
+          "MY-010909"
+        ],
+        "timestamp_prefix": "2026-10-31T07:34:36.185959Z 0 "
+      },
+      {
+        "categories": [
+          "MY-010909"
+        ],
+        "timestamp_prefix": "2026-10-31T07:34:36.186459Z 0 "
+      },
+      {
+        "categories": [
+          "MY-010909"
+        ],
+        "timestamp_prefix": "2026-10-31T07:34:36.188450Z 0 "
+      },
+      {
+        "categories": [
+          "MY-010910"
+        ],
+        "timestamp_prefix": "2026-10-31T07:34:37.768753Z 0 "
+      },
+      {
+        "categories": [
+          "MY-015016"
+        ],
+        "timestamp_prefix": "2026-10-31T07:34:37.768780Z 0 "
+      },
+      {
+        "categories": [
+          "MY-015015"
+        ],
+        "timestamp_prefix": "2026-10-31T07:34:37.974944Z 0 "
+      },
+      {
+        "categories": [
+          "MY-010116"
+        ],
+        "timestamp_prefix": "2026-10-31T07:34:38.318091Z 0 "
+      },
+      {
+        "categories": [
+          "MY-013576"
+        ],
+        "timestamp_prefix": "2026-10-31T07:34:38.340215Z 1 "
+      },
+      {
+        "categories": [
+          "MY-013577"
+        ],
+        "timestamp_prefix": "2026-10-31T07:34:46.095033Z 1 "
+      },
+      {
+        "categories": [
+          "MY-010068"
+        ],
+        "timestamp_prefix": "2026-10-31T07:34:46.720917Z 0 "
+      },
+      {
+        "categories": [
+          "MY-013602"
+        ],
+        "timestamp_prefix": "2026-10-31T07:34:46.720969Z 0 "
+      },
+      {
+        "categories": [
+          "MY-011323"
+        ],
+        "timestamp_prefix": "2026-10-31T07:34:46.773228Z 0 "
+      },
+      {
+        "categories": [
+          "MY-010931"
+        ],
+        "timestamp_prefix": "2026-10-31T07:34:46.773771Z 0 "
+      },
+      {
+        "categories": [
+          "MY-013172"
+        ],
+        "timestamp_prefix": "2026-10-31T07:35:03.989624Z 0 "
+      },
+      {
+        "categories": [
+          "MY-010909"
+        ],
+        "timestamp_prefix": "2026-10-31T07:35:06.018610Z 0 "
+      },
+      {
+        "categories": [
+          "MY-010909"
+        ],
+        "timestamp_prefix": "2026-10-31T07:35:06.040704Z 0 "
+      },
+      {
+        "categories": [
+          "MY-010909"
+        ],
+        "timestamp_prefix": "2026-10-31T07:35:06.062166Z 0 "
+      },
+      {
+        "categories": [
+          "MY-010909"
+        ],
+        "timestamp_prefix": "2026-10-31T07:35:06.063192Z 0 "
+      },
+      {
+        "categories": [
+          "MY-010910"
+        ],
+        "timestamp_prefix": "2026-10-31T07:35:07.306662Z 0 "
+      },
+      {
+        "categories": [
+          "MY-015016"
+        ],
+        "timestamp_prefix": "2026-10-31T07:35:07.306697Z 0 "
+      }
+    ]
+  }
+}

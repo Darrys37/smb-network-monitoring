@@ -1,0 +1,19 @@
+{
+  "recorded_at": "2026-10-31T07:06:08.488810+00:00",
+  "finding": "Windows logged Modern Standby/Idle Timeout at 2026-10-31 13:48:37 UTC+7 during trial recovery; SSH failed on all three VMs. User confirmed screen had been off/locked and woke it.",
+  "wake": "Windows logged exit at 14:01:48 UTC+7 (SC_MONITORPOWER), a brief re-entry, then exit at 14:01:51 (Input Keyboard).",
+  "mitigation": "Temporary display+system wake request renewed every 10/15 seconds; normal-exit cleanup, no power-plan/lock/security/VM hardware change.",
+  "limits": "Temporal association and user confirmation support the idle explanation for this episode, not proof that every historical RCU stall has the same cause. Model features/parameters/validity gates are unchanged.",
+  "source_sha256": {
+    "sources/lab_host_guard.py": "3ed330737ed99da00baae45ece274b39bbf96a5dda7efb8e255f48239e309191",
+    "sources/display_guard_diagnostic.py": "85c8b75776faf4698cc8e53bb41bf968640709bb1f488533dee38cf4a0956bf6",
+    "sources/wake_lab_display_once.py": "06fee7dc005381237519b57588ac148f9a5e6698a7d29593f57350cbb26a0c6a",
+    "sources/verify_lab_guard.py": "af9f163b7d0d592e386e81828feb2d604b0b091df6b8a0adb2a5d33653d8ccdb",
+    "sources/record_modern_standby.py": "de7d30efb621b7b923c75836e070e53be7a173e98263c68abc4deffe539f211d",
+    "display-guard-20261031T065740866421Z.json": "09d0019c0211ad0345de0dbc53b832c760d3583b607d623cb0789c0e3f63298b",
+    "display-guard-20261031T070336057528Z.json": "5f776cf77d399d9cbe20f6cb695224405d3d4b078c73bf9927e86e194ccb025c",
+    "display-wake-20261031T070148316152Z.json": "fb8fd9ab21d03d22719703f1d65c223d5e3c18dfe58c852977d18ce6c8ec6a0e",
+    "lab-wake-tests-20261031T070454924599Z.json": "bdad4ad27018b86bd509be1c21b62e306ccf928daa87e5e7e4c3dced9877c3d6",
+    "ml-slow-ssh-20261031T065522761604Z.json": "d896d894740b6de613d6f567f48863a633db4cb024d2ea3ca0aa940055829ec3"
+  }
+}

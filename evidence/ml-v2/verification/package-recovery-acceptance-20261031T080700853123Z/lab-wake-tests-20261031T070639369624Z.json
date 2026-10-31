@@ -1,0 +1,6 @@
+{
+  "at": "2026-10-31T07:06:39.368846+00:00",
+  "success": true,
+  "tests_run": 3,
+  "output": "test_display_and_system_request_is_cleared_on_normal_exit (__main__.WakeGuardTests.test_display_and_system_request_is_cleared_on_normal_exit) ... ok\ntest_request_is_cleared_on_exception (__main__.WakeGuardTests.test_request_is_cleared_on_exception) ... ok\ntest_worker_renews_request_after_idle_resume (__main__.WakeGuardTests.test_worker_renews_request_after_idle_resume) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.006s\n\nOK\n"
+}

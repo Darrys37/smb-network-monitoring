@@ -1,0 +1,8 @@
+{
+  "at": "2026-10-31T07:01:48.269500+00:00",
+  "action": "WM_SYSCOMMAND/SC_MONITORPOWER/power-on",
+  "request_sent": true,
+  "win32_last_error": 5,
+  "scope": "Display power only; no simulated input, no unlock, no permanent policy change",
+  "reference": "https://learn.microsoft.com/en-us/windows/win32/menurc/wm-syscommand"
+}

@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "session_id": "pilot-v2-s02",
+  "run_id": "r02-02-agent_stopped-retry2",
+  "planned_labels": [
+    "agent_stopped"
+  ],
+  "registered_at": 1793430335,
+  "validity": "pending"
+}

@@ -1,0 +1,28 @@
+{
+  "status": "MYSQL_AND_ZABBIX_SERVICES_RECOVERED",
+  "before_jobs": {
+    "code": 0,
+    "stdout": "4374 apt-daily-upgrade.service start   running\n6885 mysql.service             start   waiting\n8389 zabbix-server.service     restart running"
+  },
+  "ordering": {
+    "code": 0,
+    "stdout": "Before=shutdown.target zabbix-server.service multi-user.target"
+  },
+  "action": "One-off systemctl start mysql with ignore-dependencies; no unit/policy/package configuration changed",
+  "after_jobs": {
+    "code": 0,
+    "stdout": "4374 apt-daily-upgrade.service start running"
+  },
+  "mysql": {
+    "code": 0,
+    "stdout": "active"
+  },
+  "zabbix": {
+    "code": 0,
+    "stdout": "active"
+  },
+  "mysql_query": {
+    "code": 0,
+    "stdout": "1"
+  }
+}

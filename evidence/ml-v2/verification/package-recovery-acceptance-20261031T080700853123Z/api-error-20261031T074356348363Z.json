@@ -1,0 +1,34 @@
+[
+  {
+    "method": "apiinfo.version",
+    "variant": "minimal",
+    "http_status": 200,
+    "error_code": -32603,
+    "categories": [],
+    "mentioned_known_parameter": []
+  },
+  {
+    "method": "host.get",
+    "variant": "minimal",
+    "http_status": 200,
+    "error_code": -32603,
+    "categories": [],
+    "mentioned_known_parameter": []
+  },
+  {
+    "method": "problem.get",
+    "variant": "minimal",
+    "http_status": 200,
+    "error_code": -32603,
+    "categories": [],
+    "mentioned_known_parameter": []
+  },
+  {
+    "method": "problem.get",
+    "variant": "full",
+    "http_status": 200,
+    "error_code": -32603,
+    "categories": [],
+    "mentioned_known_parameter": []
+  }
+]

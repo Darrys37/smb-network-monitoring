@@ -1,0 +1,4 @@
+{
+  "fault.log": "FAULT_BEFORE 1793431612\nactive\nactive\nFAULT_VERIFIED 1793431612\n",
+  "rollback.log": ""
+}

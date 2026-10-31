@@ -1,0 +1,6 @@
+{
+  "success": true,
+  "tests_run": 3,
+  "output": "test_incomplete_or_updating_platform_is_not_frozen (__main__.FrozenEnvironmentTests.test_incomplete_or_updating_platform_is_not_frozen) ... ok\ntest_matching_pretest_package_state_is_accepted (__main__.FrozenEnvironmentTests.test_matching_pretest_package_state_is_accepted) ... ok\ntest_package_change_between_valid_trials_stops_before_next_trial (__main__.FrozenEnvironmentTests.test_package_change_between_valid_trials_stops_before_next_trial) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.002s\n\nOK\n",
+  "at": "2026-10-31T08:03:19.236079+00:00"
+}

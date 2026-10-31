@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "session_id": "pilot-v2-s02",
+  "run_id": "r02-02-agent_stopped-retry1",
+  "registration_sha256": "dc97914a6749b12b46c5db2049806aab2b889dc9c2f8cb253c29fd84f3a7c0b5",
+  "reviewed_at": 1793430334,
+  "validity": "uncertain",
+  "labels": [
+    "agent_stopped"
+  ],
+  "references": [
+    {
+      "sha256": "5c4e599eec0377b1130757f61f2e5802b3b979d8f021bd46c5a00b8cd4f4d7d2",
+      "original_name": "preflight.json"
+    },
+    {
+      "sha256": "9dfe291c8547d95b6bbe443e59c861ee141a3dfd62b73cf1d270341ca161ada0",
+      "original_name": "postflight.json"
+    },
+    {
+      "sha256": "24814613814691be8f2ccf8de31ed60caedf8057bebb755a0755bcd22e18a02c",
+      "original_name": "independent-logs.json"
+    }
+  ]
+}

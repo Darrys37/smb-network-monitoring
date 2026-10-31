@@ -1,0 +1,22 @@
+[
+  {
+    "at_utc": "2026-10-31T07:01:51.6298327Z",
+    "id": 507,
+    "message": "The system is exiting Modern Standby \r\n\r\nReason: Input Keyboard."
+  },
+  {
+    "at_utc": "2026-10-31T07:01:50.3398580Z",
+    "id": 506,
+    "message": "The system is entering Modern Standby \r\n\r\nReason: Unknown."
+  },
+  {
+    "at_utc": "2026-10-31T07:01:48.7731018Z",
+    "id": 507,
+    "message": "The system is exiting Modern Standby \r\n\r\nReason: SC_MONITORPOWER."
+  },
+  {
+    "at_utc": "2026-10-31T06:48:37.3571878Z",
+    "id": 506,
+    "message": "The system is entering Modern Standby \r\n\r\nReason: Idle Timeout."
+  }
+]

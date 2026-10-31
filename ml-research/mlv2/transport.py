@@ -63,7 +63,7 @@ class SSHTransport:
         self.password = None
 
 
-PLATFORM_SOURCE = r"""import json,subprocess,time
+PLATFORM_SOURCE = r"""import hashlib,json,os,re,subprocess,time
 from pathlib import Path
 result=subprocess.run(['journalctl','-k','-b','--no-pager','-o','json'],capture_output=True,text=True,timeout=15)
 if result.returncode:raise RuntimeError('Kernel journal unavailable')
@@ -74,9 +74,25 @@ for line in result.stdout.splitlines():
   matches.append({'monotonic_us':int(row['__MONOTONIC_TIMESTAMP']),'realtime_us':int(row['__REALTIME_TIMESTAMP']),'message':message[:512]})
 now=int(time.monotonic()*1000000)
 latest=max((row['monotonic_us'] for row in matches),default=0)
+jobs=subprocess.run(['systemctl','list-jobs','--no-legend','--no-pager'],capture_output=True,text=True,timeout=5)
+if jobs.returncode:raise RuntimeError('Package job inventory unavailable')
+package_jobs=[line.split()[1] for line in jobs.stdout.splitlines() if any(name in line for name in ['apt-daily.service','apt-daily-upgrade.service','unattended-upgrades.service'])]
+lock_files=[]
+for name in ['/var/lib/dpkg/lock','/var/lib/dpkg/lock-frontend']:
+ p=Path(name)
+ if p.exists():
+  value=p.stat();lock_files.append((os.major(value.st_dev),os.minor(value.st_dev),value.st_ino))
+held=[]
+for line in Path('/proc/locks').read_text().splitlines():
+ match=re.search(r'\b([0-9a-f]+):([0-9a-f]+):(\d+)\b',line,re.I)
+ if match and (int(match[1],16),int(match[2],16),int(match[3])) in lock_files:held.append(True)
+audit=subprocess.run(['dpkg','--audit'],capture_output=True,text=True,timeout=10)
+package_sha=hashlib.sha256(Path('/var/lib/dpkg/status').read_bytes()).hexdigest()
 print(json.dumps({'boot_id':Path('/proc/sys/kernel/random/boot_id').read_text().strip(),
  'stall_count':len(matches),'recent_stall':bool(matches and now-latest<=120000000),
- 'last_stalls':matches[-20:]}))
+ 'last_stalls':matches[-20:],'package_jobs_active':bool(package_jobs),'package_jobs':package_jobs,
+ 'dpkg_lock_held':bool(held),'package_audit_clean':audit.returncode==0 and not audit.stdout.strip(),
+ 'package_status_sha256':package_sha}))
 """
 
 
@@ -100,6 +116,8 @@ class LabTransport:
         try:
             nodes={host:json.loads(self.control.sudo(host,'python3 -c '+shlex.quote(PLATFORM_SOURCE)))
                    for host in ['mon01','srv01','cli01']}
-            return {'status':'ok','nodes':nodes}
+            return {'status':'ok','schema_version':2,'nodes':nodes}
+        except (paramiko.AuthenticationException,paramiko.BadHostKeyException):
+            raise
         except Exception as exc:
             return {'status':'error','error_type':type(exc).__name__}
