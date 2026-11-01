@@ -1,7 +1,78 @@
 # Hệ thống giám sát và hỗ trợ chẩn đoán sự cố mạng
 
-Đồ án sử dụng Zabbix để giám sát và phát sinh cảnh báo, kết hợp module Python CLI thu bằng chứng, áp dụng luật và lưu hồ sơ sự cố có giải thích. Người vận hành kiểm tra và xử lý sự cố; module không tự khắc phục.
+Đồ án dùng Zabbix thu thập chỉ số/cảnh báo, Python thu bằng chứng và hai phương pháp hỗ trợ chẩn đoán: **luật chuyên gia R1–R6** và **học máy CART / FP-Growth**. Hai phương pháp đưa ra kết quả riêng để người vận hành đối chiếu; ML chưa thay thế engine chuyên gia hoặc tự sửa lỗi.
 
+> **Code học máy nằm trên nhánh [`feature/ml-research-v2`](https://github.com/Darrys37/smb-network-monitoring/tree/feature/ml-research-v2).**
+> **[Mở thư mục `ml-research`](ml-research)** · [Hướng dẫn sử dụng](docs/TONG_HOP_VA_HUONG_DAN_20261031/02_HUONG_DAN_SU_DUNG.md) · [Báo cáo tổng hợp](docs/TONG_HOP_VA_HUONG_DAN_20261031/01_BAO_CAO_TONG_HOP.md).
+>
+> Nhánh `main` giữ baseline; muốn xem hoặc chạy phần ML, dùng nhánh nêu trên.
+
+## Code ML ở đâu?
+
+| Thành phần | Vai trò |
+|---|---|
+| [ml-research/mlv2](ml-research/mlv2) | Thu observation, kiểm chất lượng, trích xuất features và điều phối fault có rollback |
+| [train_v2.py](ml-research/train_v2.py) | Huấn luyện CART, khai phá FP-Growth, xuất luật và đối chứng nội bộ |
+| [locked_test_v2.py](ml-research/locked_test_v2.py) | Đóng băng cấu hình/dữ liệu phát triển và đánh giá tập test mới |
+| [candidate_v2.py](ml-research/candidate_v2.py) | Lưu/đọc luật SQLite và áp dụng luật CART/FP đã học |
+| [shadow_runtime.py](ml-research/shadow_runtime.py) | Nạp candidate một lần/phiên, so sánh expert và ML trên cùng observation |
+| [registry_v2.py](ml-research/registry_v2.py) | Quản lý phiên bản/lifecycle luật nghiên cứu; hiện không có rule active |
+| [tools/lab.py](tools/lab.py) | CLI chung: status, verify, replay và demo |
+| [evidence/ml-v2](evidence/ml-v2) | Dữ liệu, manifest, luật, kết quả đánh giá và bằng chứng demo đã lưu |
+
+## ML hoạt động như thế nào?
+
+1. Tạo lỗi có kiểm soát, lưu log can thiệp/phục hồi và review nhãn độc lập. Bảy trạng thái gồm healthy và sáu nhóm lỗi đơn.
+2. Trích xuất **12 features**: bảy trạng thái Ping/TCP/HTTP/DNS/Agent/control và năm giá trị CPU/RAM/chất lượng lịch sử CPU. Nhãn lỗi, Run ID và kết luận expert không phải features.
+3. CART học điều kiện phân nhánh; FP-Growth khai phá tổ hợp dấu hiệu và lọc luật theo Support, Confidence, Lift. Kết quả được lưu thành **7 luật lá CART và 19 luật FP** trong candidate SQLite.
+4. Khi demo/replay, dùng model đã học để suy luận, không train lại. Kiểm profile và core probes trước khi trả đề xuất; dữ liệu không đủ dẫn tới **ABSTAIN**.
+
+```text
+Cùng bộ bằng chứng ──→ Luật chuyên gia R1–R6 ──────────→ Nhận định expert
+                  └─→ 12 features → gate → CART / FP ─→ Đề xuất ML hoặc ABSTAIN
+```
+
+ML không dùng kết luận expert để dự đoán. Hai nhánh đang được gọi chung trong một hàm so sánh; chưa phải hai dịch vụ vận hành độc lập. Confidence của luật/lá là thống kê train, không phải xác suất đúng đã hiệu chỉnh.
+
+## Chạy nhanh trên laptop lab đã cấu hình
+
+Mở terminal tại thư mục gốc repository, trên nhánh ML. Các lệnh sau chỉ đọc hoặc replay dữ liệu lịch sử, không cần bật VM và không cần train lại:
+
+```powershell
+python .\tools\lab.py status
+python .\tools\lab.py verify
+python .\tools\lab.py replay --observation "evidence/ml-v2/demos/observations/demo-20261031T141114556079Z/before/w-4173665ef9ef4507b077d8a3fdffe991.json"
+```
+
+**Lệnh dưới đây chủ động dừng Nginx trong lab**, thu bằng chứng rồi chạy rollback và kiểm tra phục hồi:
+
+```powershell
+python .\tools\lab.py demo --fault nginx_stopped
+```
+
+Demo yêu cầu ba VM running, SSH/sudo hoạt động, host keys đã xác minh, Paramiko và cấu hình khóa dùng chung. Machine-local `tools/lab.local.json` không nằm trên Git; dùng [mẫu cấu hình](tools/lab-settings.example.json) và đọc [quy trình chạy](docs/TOI_UU_QUY_TRINH_20261101.md). Preflight còn kiểm DNS `example.com` và Ping `1.1.1.1`; đổi mạng có thể làm baseline chưa sẵn sàng. Giữ máy cắm sạc/màn hình thức và chờ kết thúc phục hồi.
+
+Các đường dẫn lịch sử trong manifest gắn với laptop lab; clone sang nơi khác cần xử lý cấu hình theo hướng dẫn, không sửa freeze để né kiểm hash. Requirements thu live ở [requirements.txt](ml-research/requirements.txt), thư viện train ở [requirements-ml.txt](ml-research/requirements-ml.txt). Các lệnh verify/replay dùng thư viện chuẩn và source hiện hữu.
+
+## Kết quả và giới hạn đã kiểm chứng
+
+Train/development có **42 lượt valid**; tập test mới giữ riêng có **42 lượt valid**. Các lượt uncertain được lưu riêng. Mỗi run dùng một cửa sổ cuối; không nhân số mẫu bằng hai snapshot trong cùng lượt fault.
+
+| Phương pháp | Đúng / tổng test | Vai trò |
+|---|---:|---|
+| CART numeric | 42/42 | Benchmark nghiên cứu |
+| CART discrete + gate | 36/42 | Candidate dùng trong demo; 6 ca ABSTAIN vẫn nằm trong mẫu số |
+| FP-Growth + gate | 36/42 | Candidate dùng trong demo; 6 ca ABSTAIN vẫn nằm trong mẫu số |
+
+Runtime tối ưu đã qua **74 tests** và replay **88 observation** cho đầu ra đầy đủ khớp bản cũ; 88 observation này là dữ liệu lịch sử, không phải tập test khoa học mới. Có bằng chứng demo Nginx trước đợt tối ưu; wrapper/runtime mới chưa chạy lại fault live. Chưa kiểm chứng máy thật, cross-host, multi-fault hoặc topology suppression; không suy chất lượng production từ kết quả lab cùng SRV01.
+
+**Đọc tiếp:** [module ML](ml-research/README.md), [báo cáo/hướng dẫn đầy đủ](docs/TONG_HOP_VA_HUONG_DAN_20261031/README.md), [bằng chứng tối ưu](evidence/workflow-optimization/workflow-final-20261101T084339911460Z/VERIFICATION.json).
+
+---
+
+## Baseline và tài liệu gốc
+
+Các mục phía dưới mô tả engine chuyên gia và lịch sử baseline. Phần ML thu DNS trên SRV01 theo profile riêng; không nhập ngược dữ liệu ML vào thực nghiệm baseline DNS trên CLI01.
 
 ## Tài liệu tiếp nhận và source hiện tại
 
@@ -16,12 +87,6 @@ tách rõ orchestration/collection/rules và chuẩn hóa nhập HTTP/DNS. Bản
 Kết quả thực nghiệm ở tag tuần 4–5 vẫn thuộc phiên bản lịch sử. Xem mục 16 của
 tài liệu logic để biết thay đổi tương thích, cách kiểm thử và cách giải thích code.
 
-## ML và quy trình hiện tại — 01/11/2026
-
-Nghiệm thu ML ban đầu có 42 pilot/42 test giữ riêng và demo lỗi đơn trên VM; chưa có kiểm chứng máy thật hoặc multi-fault. [Báo cáo và hướng dẫn tổng hợp](docs/TONG_HOP_VA_HUONG_DAN_20261031/README.md) nêu số liệu, gate ABSTAIN và giới hạn. Engine chuyên gia vẫn là CLI; ML là shadow/candidate, không có rule active trong engine.
-
-Từ thư mục project, dùng `python tools/lab.py status`, `python tools/lab.py verify`, hoặc `python tools/lab.py replay --observation <file.json>`. [Quy trình tối ưu](docs/TOI_UU_QUY_TRINH_20261101.md) hướng dẫn CLI demo có khóa dùng chung, runtime nạp model một lần và kiểm chứng 74 tests/88 observation replay. Bản wrapper mới chưa chạy lại fault live; các mốc thực nghiệm trước vẫn giữ nguyên.
-
 ## Mô hình lab
 
 | Máy | IP Host-only | Vai trò |
@@ -34,7 +99,7 @@ Ba VM Ubuntu Server chạy trong VirtualBox. `enp0s3` dùng NAT riêng để ra 
 
 Giao diện Zabbix trong lab: `http://192.168.56.10:8080/`. Host MON01 có tên kỹ thuật `Zabbix server` trong Zabbix. Giám sát Agent dùng template passive; HTTP scenario do MON01 thực hiện tới SRV01; phép đo DNS nằm trên CLI01.
 
-## Luồng xử lý
+## Luồng xử lý engine chuyên gia
 
 ```text
 Zabbix problem → API / chuẩn hóa → evidence hiện tại → R1–R6 → SQLite
