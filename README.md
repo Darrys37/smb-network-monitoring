@@ -1,5 +1,11 @@
 # Hệ thống giám sát và hỗ trợ chẩn đoán sự cố mạng
 
+> **Bản mở rộng Machine Learning nằm ở nhánh [feature/ml-research-v2](https://github.com/Darrys37/smb-network-monitoring/tree/feature/ml-research-v2).**
+>
+> **[Mở toàn bộ code ML](https://github.com/Darrys37/smb-network-monitoring/tree/feature/ml-research-v2/ml-research)** · [README bản ML và cách chạy](https://github.com/Darrys37/smb-network-monitoring/blob/feature/ml-research-v2/README.md) · [Báo cáo/hướng dẫn](https://github.com/Darrys37/smb-network-monitoring/tree/feature/ml-research-v2/docs/TONG_HOP_VA_HUONG_DAN_20261031).
+>
+> Nhánh `main` hiện giữ baseline chuyên gia R1–R6. CART, FP-Growth, candidate SQLite và CLI demo mới thuộc nhánh ML ở trên; xem/chạy các lệnh ML trên nhánh đó.
+
 Đồ án sử dụng Zabbix để giám sát và phát sinh cảnh báo, kết hợp module Python CLI thu bằng chứng, áp dụng luật và lưu hồ sơ sự cố có giải thích. Người vận hành kiểm tra và xử lý sự cố; module không tự khắc phục.
 
 
