@@ -1,5 +1,13 @@
 # ML research v2 — thu dữ liệu có kiểm soát
 
+## Hiện trạng và cách chạy — 01/11/2026
+
+Đã hoàn tất nghiệm thu ban đầu trên ba VM: 42 pilot và 42 test giữ riêng, cùng demo lỗi đơn thực. Đọc [báo cáo/hướng dẫn tổng hợp](../docs/TONG_HOP_VA_HUONG_DAN_20261031/README.md) và [quy trình tối ưu](../docs/TOI_UU_QUY_TRINH_20261101.md). Registry ML chỉ validated cho nghiên cứu, không có rule active trong engine vận hành. Các mục collector/pilot phía dưới mô tả cách tạo dữ liệu, không phải công việc đang thu dở.
+
+Từ thư mục project: `python tools/lab.py status`, `python tools/lab.py verify`, `python tools/lab.py replay --observation <file.json>`. Chỉ khi muốn fault thật mới dùng `python tools/lab.py demo --fault nginx_stopped`; cần ba VM running và cấu hình khóa dùng chung. Xem hướng dẫn tối ưu để cấu hình môi trường và chọn output mới. Không chạy lại full_ml_session.py để đọc kết quả.
+
+## Collector và protocol thu dữ liệu
+
 Đây là bộ công cụ M1/M2 theo kế hoạch đã duyệt. Collector không gây fault, không cần problem event, không ghi DB incident và không biết nhãn. Nó chạy được ở healthy cũng như trong fault. CLI điều phối từ laptop qua SSH, dùng source probe chuẩn của engine trong RAM trên observer; không cài đè source VM.
 
 Đọc docs/DATA_DICTIONARY.md và docs/EXPERIMENT_PROTOCOL.md. Profile cho SRV01 và CLI01 nằm trong config/. Nhãn/thao tác và diagnostic family được tách ở config/labels.json.
@@ -17,7 +25,7 @@ Mật khẩu SSH được nhập ẩn mỗi lần, không lưu vào config/outpu
 
 Đầu ra registry và observations tách thư mục; tệp không ghi đè. Review evidence được lưu theo hash để không mất khi file gốc đổi. Chỉ review có bằng chứng tham chiếu mới được valid; con người vẫn chịu trách nhiệm nội dung log, validator không chứng minh ground truth chỉ từ việc file tồn tại.
 
-Phần feature/training v2 chưa được hoàn thành chỉ bởi collector này. POC v1 và các kết quả cũ được lưu trong backup riêng. Không gọi smoke test là pilot hay coi một observation là mẫu healthy hợp lệ trước khi review.
+Collector tự nó không huấn luyện hoặc chứng minh chất lượng model; pipeline nghiệm thu đã được chạy riêng như ghi ở mục hiện trạng phía trên. POC v1 và các kết quả cũ được lưu trong backup riêng. Không gọi smoke test là pilot hay coi một observation là mẫu healthy hợp lệ trước khi review.
 
 ## Tiếp tục pilot
 
@@ -38,7 +46,7 @@ Execution-snapshots lưu source và hash khi mở mỗi batch mới. Batch đầ
 
 Dataset export hiện chỉ là dữ liệu pilot, mỗi valid run một dòng. Feature whitelist gồm 7 cột trạng thái và 5 cột số, thuộc các nhóm quan sát đã công bố; chưa phải đúng bảy scalar. CPU mean chỉ có khi history đủ độ phủ; chưa thay thế toàn bộ semantics R6 vì chưa có load/core trong feature v2. Không gọi CSV này là bằng chứng mô hình đã đạt chất lượng.
 
-## Pipeline M4 và demo candidate
+## Pipeline M4 và demo candidate — cách chạy lại trên output mới
 
 Code offline M4 và wrapper shadow đã được thêm; việc train vẫn bị chặn khi lịch pilot chưa hoàn tất. Đọc [hướng dẫn M4](docs/HUONG_DAN_M4.md), STATUS.md và AUTORUN_RESULT.md nếu đã được sinh. Không dùng trạng thái code đã có để suy ra benchmark đã chạy xong.
 

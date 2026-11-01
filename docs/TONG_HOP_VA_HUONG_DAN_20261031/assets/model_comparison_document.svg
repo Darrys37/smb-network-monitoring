@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="505" height="360" preserveAspectRatio="xMinYMin meet" viewBox="0 0 505 360" version="1.0" fill-rule="evenodd">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="505" height="360" />
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-360)" style="clip-path: url(#clip)">
+		<g transform="">
+			<g transform="">
+				<g transform="">
+					<rect x="145.0" y="37.932330827067666" width="48.571428571428555" height="9.774436090225564" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(20%,39%,64%); fill-rule: evenodd;" />
+					<rect x="145.0" y="75.07518796992481" width="283.33333333333337" height="9.774436090225564" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(20%,39%,64%); fill-rule: evenodd;" />
+					<rect x="145.0" y="112.21804511278197" width="178.09523809523807" height="9.774436090225564" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(20%,39%,64%); fill-rule: evenodd;" />
+					<rect x="145.0" y="149.3609022556391" width="340.0" height="9.774436090225578" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(20%,39%,64%); fill-rule: evenodd;" />
+					<rect x="145.0" y="186.50375939849624" width="291.4285714285714" height="9.77443609022555" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(20%,39%,64%); fill-rule: evenodd;" />
+					<rect x="145.0" y="223.64661654135338" width="291.4285714285714" height="9.774436090225578" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(20%,39%,64%); fill-rule: evenodd;" />
+					<rect x="145.0" y="260.7894736842106" width="340.0" height="9.77443609022555" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(20%,39%,64%); fill-rule: evenodd;" />
+					<rect x="145.0" y="48.68421052631579" width="12.142857142857139" height="9.774436090225564" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(85%,52%,12%); fill-rule: evenodd;" />
+					<rect x="145.0" y="85.82706766917293" width="282.93706293706293" height="9.774436090225564" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(85%,52%,12%); fill-rule: evenodd;" />
+					<rect x="145.0" y="122.96992481203009" width="146.9714285714286" height="9.774436090225578" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(85%,52%,12%); fill-rule: evenodd;" />
+					<rect x="145.0" y="160.11278195488723" width="340.0" height="9.77443609022555" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(85%,52%,12%); fill-rule: evenodd;" />
+					<rect x="145.0" y="197.25563909774436" width="291.4285714285714" height="9.774436090225578" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(85%,52%,12%); fill-rule: evenodd;" />
+					<rect x="145.0" y="234.3984962406015" width="291.4285714285714" height="9.77443609022555" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(85%,52%,12%); fill-rule: evenodd;" />
+					<rect x="145.0" y="271.54135338345867" width="340.0" height="9.77443609022555" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(85%,52%,12%); fill-rule: evenodd;" />
+					<rect x="145.0" y="59.43609022556391" width="340.0" height="9.77443609022557" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(19%,58%,47%); fill-rule: evenodd;" />
+					<rect x="145.0" y="96.57894736842104" width="340.0" height="9.774436090225564" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(19%,58%,47%); fill-rule: evenodd;" />
+					<rect x="145.0" y="133.7218045112782" width="340.0" height="9.77443609022555" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(19%,58%,47%); fill-rule: evenodd;" />
+					<rect x="145.0" y="170.86466165413535" width="340.0" height="9.774436090225578" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(19%,58%,47%); fill-rule: evenodd;" />
+					<rect x="145.0" y="208.00751879699249" width="291.4285714285714" height="9.77443609022555" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(19%,58%,47%); fill-rule: evenodd;" />
+					<rect x="145.0" y="245.15037593984962" width="291.4285714285714" height="9.774436090225578" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(19%,58%,47%); fill-rule: evenodd;" />
+					<rect x="145.0" y="282.2932330827068" width="340.0" height="9.77443609022555" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(19%,58%,47%); fill-rule: evenodd;" />
+					<g transform="" />
+				</g>
+				<g transform="">
+					<g transform="">
+						<path d="M 145,35 L 145,295 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;" />
+					</g>
+					<g transform="">
+						<path d="M 145,35 L 140,35 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;" />
+						<path d="M 145,72.142857 L 140,72.142857 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;" />
+						<path d="M 145,109.285714 L 140,109.285714 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;" />
+						<path d="M 145,146.428571 L 140,146.428571 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;" />
+						<path d="M 145,183.571429 L 140,183.571429 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;" />
+						<path d="M 145,220.714286 L 140,220.714286 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;" />
+						<path d="M 145,257.857143 L 140,257.857143 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;" />
+						<path d="M 145,295 L 140,295 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;" />
+					</g>
+					<g transform="" />
+				</g>
+				<g transform="">
+					<g transform="">
+						<path d="M 145,35 L 485,35 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;" />
+					</g>
+					<g transform="">
+						<path d="M 145,35 L 145,30 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;" />
+						<path d="M 213,35 L 213,30 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;" />
+						<path d="M 281,35 L 281,30 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;" />
+						<path d="M 349,35 L 349,30 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;" />
+						<path d="M 417,35 L 417,30 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;" />
+						<path d="M 485,35 L 485,30 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;" />
+					</g>
+					<g transform="">
+						<g transform=" matrix(1,0,0,1,145,30)">
+							<text x="-6.665" y="-10.0" style="font-family: Arial; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-20) scale(1,-1)">0%</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,213,30)">
+							<text x="-9.165" y="-10.0" style="font-family: Arial; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-20) scale(1,-1)">20%</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,281,30)">
+							<text x="-9.165" y="-10.0" style="font-family: Arial; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-20) scale(1,-1)">40%</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,349,30)">
+							<text x="-9.165" y="-10.0" style="font-family: Arial; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-20) scale(1,-1)">60%</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,417,30)">
+							<text x="-9.165" y="-10.0" style="font-family: Arial; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-20) scale(1,-1)">80%</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,485,30)">
+							<text x="-11.665000000000001" y="-10.0" style="font-family: Arial; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-20) scale(1,-1)">100%</text>
+						</g>
+					</g>
+				</g>
+			</g>
+			<text x="133" y="50.57142857142857" style="font-family: Arial; font-size: 10.5px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,101) scale(1,-1)" text-anchor="end">Majority</text>
+			<text x="133" y="87.71428571428572" style="font-family: Arial; font-size: 10.5px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,175) scale(1,-1)" text-anchor="end">No local HTTP/DNS</text>
+			<text x="133" y="124.85714285714286" style="font-family: Arial; font-size: 10.5px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,249) scale(1,-1)" text-anchor="end">Availability only</text>
+			<text x="133" y="162.0" style="font-family: Arial; font-size: 10.5px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,324) scale(1,-1)" text-anchor="end">CART no coverage/gap</text>
+			<text x="133" y="199.14285714285714" style="font-family: Arial; font-size: 10.5px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,398) scale(1,-1)" text-anchor="end">FP + gate</text>
+			<text x="133" y="236.28571428571428" style="font-family: Arial; font-size: 10.5px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,472) scale(1,-1)" text-anchor="end">CART discrete + gate</text>
+			<text x="133" y="273.42857142857144" style="font-family: Arial; font-size: 10.5px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,546) scale(1,-1)" text-anchor="end">CART numeric raw</text>
+			<rect x="100" y="333" width="9" height="9" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(20%,39%,64%); fill-rule: evenodd;" />
+			<text x="114" y="335" style="font-family: Arial; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,670) scale(1,-1)">Accuracy</text>
+			<rect x="315" y="333" width="9" height="9" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(85%,52%,12%); fill-rule: evenodd;" />
+			<text x="329" y="335" style="font-family: Arial; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,670) scale(1,-1)">Macro F1</text>
+			<rect x="100" y="316" width="9" height="9" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(19%,58%,47%); fill-rule: evenodd;" />
+			<text x="114" y="318" style="font-family: Arial; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,636) scale(1,-1)">Coverage</text>
+		</g>
+	</g>
+</svg>

@@ -19,3 +19,38 @@ evidence/week5/** -whitespace
 # Portable AI handoff checksums must survive Windows checkouts.
 docs/AI_HANDOFF/*.md text eol=lf
 docs/AI_HANDOFF/MANIFEST.json text eol=lf
+
+# Preserve new workflow checksums across Windows checkouts.
+evidence/workflow-optimization/** -text -whitespace
+docs/TONG_HOP_VA_HUONG_DAN_20261031/** -text -whitespace
+docs/TOI_UU_QUY_TRINH_20261101.md text eol=lf
+ml-research/shadow_runtime.py text eol=lf
+ml-research/run_demo_v2.py text eol=lf
+ml-research/tests/test_shadow_runtime.py text eol=lf
+ml-research/tests/test_workflow.py text eol=lf
+tools/lab.py text eol=lf
+tools/lab_session.py text eol=lf
+tools/verify_workflow.py text eol=lf
+tools/lab-settings.example.json text eol=lf
+
+# Preserve original ML evidence bytes and frozen-source checkout newlines.
+evidence/ml-v2/** -text -whitespace
+evidence/maintenance/** -text
+ml-research/locked_test_v2.py text eol=lf
+ml-research/registry_v2.py text eol=lf
+ml-research/train_v2.py text eol=lf
+ml-research/candidate_v2.py text eol=lf
+ml-research/demo_v2.py text eol=lf
+ml-research/mlv2/features.py text eol=lf
+diagnosis-engine/models.py text eol=crlf
+diagnosis-engine/policy.py text eol=lf
+diagnosis-engine/roadmap_rules.py text eol=crlf
+ml-research/mlv2/__init__.py text eol=lf
+ml-research/mlv2/__main__.py text eol=lf
+ml-research/mlv2/collector.py text eol=lf
+ml-research/mlv2/core.py text eol=lf
+ml-research/mlv2/faults.py text eol=lf
+ml-research/mlv2/pilot.py text eol=crlf
+ml-research/mlv2/quality.py text eol=lf
+ml-research/mlv2/transport.py text eol=crlf
+ml-research/config/srv01.json text eol=lf

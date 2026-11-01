@@ -1,0 +1,24 @@
+{
+  "status": "AUTHORED_REQUIRES_RENDER_QA",
+  "at": "2026-10-31T15:00:05.279046+00:00",
+  "experiment_commit": "8ba97a7bab5debb24f6eeb852fd59f49c66462d7",
+  "source_sha256": {
+    "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\ML_RELEASE.json": "7b4dd85ccf6750d688f82a1b056618f622beb74765cc8bf46e9267bfd81b17cf",
+    "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\locked-test-v1\\evaluation\\20261031T140643065544Z\\manifest.json": "35b91372b36ea529063404331f5a5eb7b06dfc8bc7213d05d5f4f5759fa4da7e",
+    "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\locked-test-v1\\evaluation\\20261031T140643065544Z\\metrics.json": "2cf4976af061bfb871fe22b898ce287031fae3905c6cbeb74b23ebd161270d2a",
+    "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\locked-test-v1\\evaluation\\20261031T140643065544Z\\family_comparison.csv": "422b9f4365c1b697a3493f10dd79c0de152b7ac9d8d551838f03b7575489c646",
+    "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\locked-test-v1\\evaluation\\20261031T140643065544Z\\same_input_latency.json": "fd352a6d96671cccc92abf500e8a7989dec135cb6eeb0cd2734b0b9fb92a12d9",
+    "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\locked-test-v1\\evaluation\\20261031T140643065544Z\\detection-audit\\detection.json": "36c9a029c23c16d39f25f2d82f8baddaa0d511ebdfd5a1f6d7508ca8bbaa1ef8",
+    "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\benchmark\\20261031T082356416394Z\\metrics.json": "a08844b2f233fee7aac2872fb8c6a873e7a5199cd8dd9dbe87115ebe4d9a8a85",
+    "C:\\Users\\Darrys\\Documents\\ChatGPT\\\u0110\u1ed3 \u00e1n network\\ml-final-checkpoint-latest.json": "b446afdc15abf55e5f4fdaf9d542e2ca0632aeec44b344f8d4d482a723fa4f66",
+    "C:\\Users\\Darrys\\Documents\\ChatGPT\\\u0110\u1ed3 \u00e1n network\\cold-vm-backup-latest.json": "84f9d08de172f566e4227077f1649bbec3101ee2e86ce7706bf068fe1fd63d89"
+  },
+  "frozen_predictors_unchanged": true,
+  "outputs": {
+    "01_BAO_CAO_TONG_HOP.md": "b1ae5b0e70972eb2d7e84851f533b1e31bfcb4655b82e5d71e8bff388bb0c0d3",
+    "01_BAO_CAO_TONG_HOP.docx": "16d64f6c7d31a7609882ef1d20093a6db30a79dc9c856079eb42aa8d3ffb81e7",
+    "02_HUONG_DAN_SU_DUNG.md": "a6c66dba1e725b3d432312d08e4406acb5551def7efa055eeeddb6ea4ba6e4a9",
+    "02_HUONG_DAN_SU_DUNG.docx": "6baff8bfe161259680a626d00ff28bcb2f385778be153df14fee55b12b557f1d"
+  },
+  "cold_vm_backup": "D:\\Study\\network-monitoring-project\\backups\\cold-vms-after-ml-20261031T142959433223Z"
+}

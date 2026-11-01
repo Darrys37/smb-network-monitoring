@@ -1,0 +1,84 @@
+{
+  "status": "WORKFLOW_OPTIMIZATION_OFFLINE_VERIFIED",
+  "at": "2026-11-01T08:43:50.904950+00:00",
+  "output_dir": "C:\\Users\\Darrys\\Documents\\ChatGPT\\\u0110\u1ed3 \u00e1n network\\verification\\workflow-final-20261101T084339911460Z",
+  "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+  "tests_run": 74,
+  "tests_success": true,
+  "test_skips": 0,
+  "same_full_outputs": 88,
+  "latency": {
+    "original_reloads_sqlite": {
+      "calls": 880,
+      "median_ms": 1.0528499999999998,
+      "p95_ms": 1.597
+    },
+    "cached_session_runtime": {
+      "calls": 880,
+      "median_ms": 0.1891,
+      "p95_ms": 0.2874
+    }
+  },
+  "median_comparison_speedup": 5.567689053410893,
+  "cli_checks": {
+    "status": true,
+    "verify": true,
+    "replay_known_fault_and_abstention": true,
+    "replay_refuses_overwrite": true,
+    "malformed_observation_refused": true,
+    "help": true
+  },
+  "release_integrity": {
+    "status": "RELEASE_HASHES_VERIFIED",
+    "files_verified": 23,
+    "observations_verified": 84,
+    "candidate_sha256": "0e3440b9240dd1994607de5cd3ff53fbda6147eba0c8e3436d22a26e85f3edf0",
+    "scope": "Initial same-host, known single-fault VM research demo; no production/cross-host/multi-fault claim",
+    "active_rules": 0
+  },
+  "candidate_and_frozen_sources_unchanged": true,
+  "vm_status_before_benchmark": {
+    "status": "INITIAL_VM_ML_RELEASE_VERIFIED",
+    "hashes_checked": false,
+    "project": "C:\\Users\\Darrys\\do-an",
+    "python": "C:\\Python314\\python.exe",
+    "vms": {
+      "MON01": "running",
+      "SRV01": "running",
+      "CLI01": "running"
+    },
+    "vm_diagnostics": {},
+    "candidate_db": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\locked-test-v1\\evaluation\\20261031T140643065544Z\\candidate_rules.sqlite",
+    "presentation": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\locked-test-v1\\evaluation\\20261031T140643065544Z\\presentation-20261031T141036524152Z",
+    "scope": "Initial same-host, known single-fault VM research demo; no production/cross-host/multi-fault claim",
+    "note": "Use verify to check integrity; no VM state was changed"
+  },
+  "vm_status_after_benchmark": {
+    "status": "INITIAL_VM_ML_RELEASE_VERIFIED",
+    "hashes_checked": false,
+    "project": "C:\\Users\\Darrys\\do-an",
+    "python": "C:\\Python314\\python.exe",
+    "vms": {
+      "MON01": "running",
+      "SRV01": "running",
+      "CLI01": "running"
+    },
+    "vm_diagnostics": {},
+    "candidate_db": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\locked-test-v1\\evaluation\\20261031T140643065544Z\\candidate_rules.sqlite",
+    "presentation": "C:\\Users\\Darrys\\do-an\\evidence\\ml-v2\\locked-test-v1\\evaluation\\20261031T140643065544Z\\presentation-20261031T141036524152Z",
+    "scope": "Initial same-host, known single-fault VM research demo; no production/cross-host/multi-fault claim",
+    "note": "Use verify to check integrity; no VM state was changed"
+  },
+  "live_fault_demo_performed": false,
+  "vm_start_stop_performed": false,
+  "changed_python_sha256": {
+    "ml-research\\shadow_runtime.py": "3c69a482a8ce2fa31940ad4ec5412c527d3c4424f1142cbde295c46e92af7c2c",
+    "tools\\lab.py": "08863e767e8b5b23b5636b7530968e22218b470589dda1e84d7b182e4f0a9829",
+    "tools\\lab_session.py": "a56532a3766326cf9b49b8ed66ecfcb51c64579ec33cc8d0ac712bce5ce9e566",
+    "tools\\verify_workflow.py": "4ac3accd0f930de357b410b9f27f448156ccedb13e95e55a98cc1eb4b61f6274",
+    "ml-research\\tests\\test_shadow_runtime.py": "4f81ec7387efdf55c59d346b38344604e4c3a4556db3d97f56aad7a5010b2b6b",
+    "ml-research\\tests\\test_workflow.py": "30f69175fb0c5704ae4d822c99b08ad096848f3fbca8c0baa9cc7f437b933b3c",
+    "ml-research\\run_demo_v2.py": "d735551d78f663024fd07103c077b6389333039ea39d20bd773c49e94978907e"
+  },
+  "limits": "Replayed historical data; no new accuracy test. Warm comparison latency excludes SSH/API/fault duration and CLI startup. Live demo after this wrapper change remains untested."
+}

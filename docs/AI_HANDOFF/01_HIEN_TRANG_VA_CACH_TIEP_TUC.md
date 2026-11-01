@@ -1,5 +1,26 @@
 # Hiện trạng và cách tiếp tục đồ án
 
+## Shutdown, backup và xuất bản — 01/11/2026 16:08 UTC+7
+
+- **Trạng thái mới nhất: MON01/SRV01/CLI01 đều poweroff**, shutdown qua ACPI theo yêu cầu người dùng. Ghi nhận running ở mục tối ưu phía dưới là trước lần shutdown này.
+- Backup lạnh mới đầy đủ 45.83 GB / 56 tệp / 28 đĩa, SHA256 khớp: `D:\Study\network-monitoring-project\backups\cold-vms-after-ml-20261101T090139460860Z`. Chưa boot thử phục hồi; không khởi động lại VM chỉ để đọc báo cáo.
+- [Chi tiết backup/xuất bản](../SAO_LUU_VA_GITHUB_20261101.md). Nhánh đích GitHub `feature/ml-research-v2`; đọc receipt workspace `github-push-latest.json` để xác minh commit/remote sau push. Source backup cuối xem `workflow-after-backup-latest.json`.
+- Git giữ raw byte evidence ML và pin LF/CRLF của frozen source đúng bản gốc; source/model/nhãn và điểm thực nghiệm không đổi. Khi clone sang thư mục khác vẫn phải lưu ý absolute paths của historical manifests; không sửa freeze để né kiểm tra.
+
+## Tối ưu workflow/runtime — 01/11/2026
+
+- [Quy trình và kết quả tối ưu](../TOI_UU_QUY_TRINH_20261101.md): `tools/lab.py status|verify|replay|demo`, CandidateRuntime nạp SQLite một lần/phiên; DemoPilot đã dùng runtime mới. Giữ nguyên code/model đã đóng băng, feature/gate/nhãn và 0 rule active.
+- 74 tests đạt; 88 observation lịch sử có đầu ra đầy đủ khớp bản cũ. Warm median so sánh expert+ML 1.05285 → 0.18910 ms (5.57 lần); không phải độ trễ SSH/API/phát hiện lỗi hoặc accuracy mới. Bằng chứng `evidence/workflow-optimization/workflow-final-20261101T084339911460Z`.
+- **Trạng thái đọc trực tiếp ngày 01/11: MON01/SRV01/CLI01 đều running**. Phiên tối ưu chỉ kiểm offline, không start/stop VM, không SSH/fault; trạng thái poweroff ngày 31/10 bên dưới là lịch sử. Wrapper mới chưa được chạy lại fault live.
+- Machine-local `tools/lab.local.json` trỏ đúng workspace giữ khóa coordinator và dependency paths; chỉ chứa đường dẫn, Git ignore. Xem backup before/after trong workspace; working-project.zip mới chứa thay đổi chưa commit, bundle chỉ chứa lịch sử commit. Backup lạnh VM 31/10 giữ riêng.
+
+## Tài liệu tổng hợp và shutdown/backup — 31/10/2026
+
+- Đã hoàn thành [bộ báo cáo và hướng dẫn](../TONG_HOP_VA_HUONG_DAN_20261031/README.md): báo cáo 15 trang, hướng dẫn 11 trang, cả Word và Markdown. Số liệu lấy từ release chốt phía dưới; chỉ bổ sung tài liệu, không đổi predictor hoặc evidence đã khóa. `DOCUMENTS_QA.json` ghi kiểm tra nguồn, render và xem đủ 26 trang.
+- **Trạng thái tại mốc backup 31/10: MON01, SRV01, CLI01 đều poweroff**, shutdown qua ACPI theo yêu cầu người dùng. Không còn chiến dịch thu dữ liệu đang chạy. Các ghi nhận dịch vụ tốt bên dưới là postflight trước khi shutdown, không phải dịch vụ đang chạy hiện tại.
+- Backup lạnh đầy đủ đã đối chiếu SHA256: `D:\Study\network-monitoring-project\backups\cold-vms-after-ml-20261031T142959433223Z` (56 tệp, 28 hard disk, 45,704,094,798 byte). Đọc `VERIFICATION.json`, `FILES_SHA256.json`, `DISK_CHAINS.json`, `RESTORE.md`; chưa boot thử bản phục hồi. Receipt workspace: `cold-vm-backup-latest.json`.
+- Chỉ xem báo cáo không cần bật VM hoặc chạy lại `full_ml_session.py`. Nếu demo live, dùng hướng dẫn mới; kiểm tra máy thức, thứ tự bật VM và điều kiện nền trước khi can thiệp.
+
 ## Hoàn tất nghiệm thu ban đầu phần ML trên ba VM — 31/10/2026 21:13 UTC+7
 
 **COMPLETE_INITIAL_VM_ML_RELEASE_VERIFIED.** Chuỗi thu dữ liệu, huấn luyện, test mới, SQLite/shadow, báo cáo/hình và một demo lỗi thật đã hoàn tất. Đây là phạm vi ba VM hiện có; chưa có máy Ubuntu thật, multi-fault hoặc topology/suppression.

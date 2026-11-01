@@ -1,0 +1,73 @@
+{
+  "status": "DOCUMENTS_RENDERED_VISUALLY_REVIEWED_AND_SOURCE_HASH_VERIFIED",
+  "at": "2026-10-31T15:05:47.046136+00:00",
+  "renderer": "Microsoft Word 16 native COM, read-only source; PDF rasterized with bundled pypdfium2",
+  "renderer_fallback_reason": "Bundled document render script could not find LibreOffice on this Windows host",
+  "experiment_commit": "8ba97a7bab5debb24f6eeb852fd59f49c66462d7",
+  "outputs_sha256": {
+    "01_BAO_CAO_TONG_HOP.md": "b1ae5b0e70972eb2d7e84851f533b1e31bfcb4655b82e5d71e8bff388bb0c0d3",
+    "01_BAO_CAO_TONG_HOP.docx": "16d64f6c7d31a7609882ef1d20093a6db30a79dc9c856079eb42aa8d3ffb81e7",
+    "02_HUONG_DAN_SU_DUNG.md": "a6c66dba1e725b3d432312d08e4406acb5551def7efa055eeeddb6ea4ba6e4a9",
+    "02_HUONG_DAN_SU_DUNG.docx": "6baff8bfe161259680a626d00ff28bcb2f385778be153df14fee55b12b557f1d"
+  },
+  "pages": [
+    {
+      "document": "01_BAO_CAO_TONG_HOP.docx",
+      "pages": 15,
+      "all_pages_visually_reviewed": true,
+      "page_images_sha256": {
+        "1": "04d3aa000d7b48fbe138a525fe5d3825ffe3a8837e69bd71e6dbd353bcc34398",
+        "2": "642ab10b6ffb364e3ee406897084176690d6615f2cb45222b1a0317412044e36",
+        "3": "a32a0d1ad3083437f92983eecfb6ea98b874ca39c481425096dff6b35aad1944",
+        "4": "491b60fd1547f0a4e55405357bc9571164dac1c01c4f993fef70c5646bb250f4",
+        "5": "746ab1a903f9613a2075b5fbd4082f1bdd2308109faa11e1bcd67ad10e3be68c",
+        "6": "52985d5d9748c66a5f76edfa5be47ea8d94683ecae91a9693cd576849e136110",
+        "7": "22f9a65f543f506c1bf63401671b46ca59a3f44e72d7c25890a5c5ae8b1c67c0",
+        "8": "e44c569732a14704ae88c5e25a4569f5923bc2f742b6d4fa04039f6dac1307a3",
+        "9": "efa01f99c0fec5ee1a0ffac5e2a20c1ecb4200398b389b4c42faabbd5146d93b",
+        "10": "49816ac39b889ea57c952bb4dc3c2a5d1e006df0ba0de9ad8b545ec6ebd63942",
+        "11": "8460465abcc185e836d4ae7798112f3ce13ab1217ae2ce852b0af53f86958a96",
+        "12": "ee3850758e227115212178b76dbb2b70c84e09592e3a892562959521810a2af7",
+        "13": "732f633308d624e032931844d7e3a16053670c41cc8077e7e109b68b36db1205",
+        "14": "a84c2b33fb46b25227ca811b5ff5745902a977edcb7543fbb9b15182fd3df8b2",
+        "15": "06032a90dd7758642c869589d9abb91aacfc42caf6d9b415a9259a08c6ca5e0a"
+      }
+    },
+    {
+      "document": "02_HUONG_DAN_SU_DUNG.docx",
+      "pages": 11,
+      "all_pages_visually_reviewed": true,
+      "page_images_sha256": {
+        "1": "026fc91efc5dbe4bf627d6021995709fd52a270a1d2041d40a7f825181ddaeb0",
+        "2": "645a64cc513046386c7fd71d158873c3908a998c111678dc1a1d11b45009603e",
+        "3": "7f425dad44cd624136fe1b642765ee3941ed490febca384094336aaa211b5d92",
+        "4": "294bbaf9f080d27c9e2fcaed480ea2e162ddb953a02153d16052bb9e1f95fe3f",
+        "5": "dd8db26cb67b62e919b717e24d19f660e46a48d4a5322d47423a0a7cd4730816",
+        "6": "43960ed8e5b5ce856b54cc64520bde8f6e881fa5f1e7e2bad072a061dc449f3a",
+        "7": "965505bb29bb66c3d18758e5e9b0b0317978c58f5027a8a2cd797199c42f66e4",
+        "8": "3fd74ffd3f28a7c238d119dcafc8604b4e21f21b29a398fe3c7d602d29ba8db0",
+        "9": "3eb7a423c904d0feeb693c39ce8825c37e28dfdce6aa24bd26e8655c19808f8c",
+        "10": "d4f816bdc6110046b29c1af30687db08024fdd2ddef1abca3753d46093808809",
+        "11": "8a313653fed77016ccf7c89365890dc6ff6f77fbbcf3d3cb8142b04473190ce8"
+      }
+    }
+  ],
+  "powershell_syntax": {
+    "Blocks": 20,
+    "Valid": true,
+    "Errors": []
+  },
+  "guide_commands_executed": false,
+  "frozen_predictor_files_verified": 18,
+  "development_freeze_sha256": "37907d98c81507b50201a5a0cbedb852eebd1adfc3cef5d4f793093244af765c",
+  "ml_release_sha256": "7b4dd85ccf6750d688f82a1b056618f622beb74765cc8bf46e9267bfd81b17cf",
+  "candidate_sha256": "0e3440b9240dd1994607de5cd3ff53fbda6147eba0c8e3436d22a26e85f3edf0",
+  "vm_states": {
+    "MON01": "poweroff",
+    "SRV01": "poweroff",
+    "CLI01": "poweroff"
+  },
+  "cold_backup_reference": "D:\\Study\\network-monitoring-project\\backups\\cold-vms-after-ml-20261031T142959433223Z",
+  "cold_backup_boot_restore_test_performed": false,
+  "scope": "Documentation only; no model/evidence/production rule changes and no VM boot"
+}

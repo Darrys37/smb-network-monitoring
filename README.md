@@ -16,6 +16,12 @@ tách rõ orchestration/collection/rules và chuẩn hóa nhập HTTP/DNS. Bản
 Kết quả thực nghiệm ở tag tuần 4–5 vẫn thuộc phiên bản lịch sử. Xem mục 16 của
 tài liệu logic để biết thay đổi tương thích, cách kiểm thử và cách giải thích code.
 
+## ML và quy trình hiện tại — 01/11/2026
+
+Nghiệm thu ML ban đầu có 42 pilot/42 test giữ riêng và demo lỗi đơn trên VM; chưa có kiểm chứng máy thật hoặc multi-fault. [Báo cáo và hướng dẫn tổng hợp](docs/TONG_HOP_VA_HUONG_DAN_20261031/README.md) nêu số liệu, gate ABSTAIN và giới hạn. Engine chuyên gia vẫn là CLI; ML là shadow/candidate, không có rule active trong engine.
+
+Từ thư mục project, dùng `python tools/lab.py status`, `python tools/lab.py verify`, hoặc `python tools/lab.py replay --observation <file.json>`. [Quy trình tối ưu](docs/TOI_UU_QUY_TRINH_20261101.md) hướng dẫn CLI demo có khóa dùng chung, runtime nạp model một lần và kiểm chứng 74 tests/88 observation replay. Bản wrapper mới chưa chạy lại fault live; các mốc thực nghiệm trước vẫn giữ nguyên.
+
 ## Mô hình lab
 
 | Máy | IP Host-only | Vai trò |

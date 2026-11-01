@@ -1,0 +1,20 @@
+{
+  "status": "THREE_VMS_POWEROFF_AND_COLD_BACKUP_VERIFIED",
+  "at": "2026-11-01T16:03:52.853038+07:00",
+  "primary": "D:\\Study\\network-monitoring-project\\backups\\cold-vms-after-ml-20261101T090139460860Z",
+  "states": {
+    "MON01": "poweroff",
+    "SRV01": "poweroff",
+    "CLI01": "poweroff"
+  },
+  "files": 56,
+  "bytes": 45829268563,
+  "configured_disks": 28,
+  "source_stable_during_copy": true,
+  "every_source_and_target_sha256_equal": true,
+  "all_disk_chain_files_included": true,
+  "boot_restore_test_performed": false,
+  "source_and_ml_backup_reference": "C:\\Users\\Darrys\\Documents\\ChatGPT\\Đồ án network\\ml-final-checkpoint-latest.json",
+  "manifest_sha256": "a6ab7bbb26e7b58872c23ed482b2d7c23b4f41a9b348e350db8ffd58c8fabb5c",
+  "disk_chain_manifest_sha256": "0ba247b371f7fffe9d2f2262131cf13742ec7ba34ba478d529b62815b28a4614"
+}

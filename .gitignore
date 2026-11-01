@@ -5,3 +5,7 @@
 /evidence/week4/pre-freeze-20261016/*.db
 
 /evidence/week5/final-20261017/*.db
+
+# Machine-local paths only; no credentials belong in this file.
+/tools/lab.local.json
+/tools/__pycache__/

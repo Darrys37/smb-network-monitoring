@@ -5,7 +5,7 @@ import getpass,hashlib,json,os
 from pathlib import Path
 
 from candidate_v2 import load_database
-from demo_v2 import assess
+from shadow_runtime import CandidateRuntime
 from mlv2.core import LABELS,read,save_new,sha
 from mlv2.features import FEATURES,CATEGORICAL,NUMERIC
 from mlv2.pilot import Pilot
@@ -29,12 +29,14 @@ def validate_release(release_file,profile):
 class DemoPilot(Pilot):
     def __init__(self,*args,candidate_db,**kwargs):
         super().__init__(*args,**kwargs);self.candidate_db=candidate_db
+        # One verified read-only candidate snapshot for the whole demo session.
+        self.runtime=CandidateRuntime(candidate_db,self.engine,expected_sha256=sha(candidate_db))
 
     def snapshot(self,item):
         observation=super().snapshot(item)
-        output=assess(observation,self.candidate_db,self.engine)
+        output=self.runtime.assess(observation)
         output['mode']='explicit_lab_demo_shadow'
-        output['candidate_sha256']=sha(self.candidate_db)
+        output['candidate_sha256']=self.runtime.candidate_sha256
         output['observation_sha256']=sha(self.root/'observations'/item['session_id']/item['run_id']/(observation['window_id']+'.json'))
         save_new(self.root/'comparisons'/item['session_id']/item['run_id']/(observation['window_id']+'.json'),output)
         print(json.dumps({'run_id':item['run_id'],'expert':[{key:row[key] for key in ['rule_id','status','reasoning']} for row in output['expert_diagnoses']],

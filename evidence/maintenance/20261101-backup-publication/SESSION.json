@@ -1,0 +1,20 @@
+{
+  "at": "2026-11-01T16:08:29.252283+07:00",
+  "action": "User requested backup, GitHub publication and shutdown of all three VMs",
+  "head_before_publication_commit": "8ba97a7bab5debb24f6eeb852fd59f49c66462d7",
+  "publication_branch": "feature/ml-research-v2",
+  "repository": "https://github.com/Darrys37/smb-network-monitoring",
+  "vm_states": {
+    "MON01": "poweroff",
+    "SRV01": "poweroff",
+    "CLI01": "poweroff"
+  },
+  "shutdown_method": "ACPI guest shutdown, no forced poweroff",
+  "cold_backup_sha256_verified": true,
+  "cold_backup_boot_restore_test_performed": false,
+  "frozen_source_files_unchanged": true,
+  "checkout_policy": "Raw ML evidence is -text; frozen sources have per-file LF/CRLF matching original bytes. No source/data hash or learned model changed.",
+  "live_fault_demo_after_runtime_change": false,
+  "publication_receipt": "C:\\Users\\Darrys\\Documents\\ChatGPT\\Đồ án network\\github-push-latest.json",
+  "final_source_backup_receipt": "C:\\Users\\Darrys\\Documents\\ChatGPT\\Đồ án network\\workflow-after-backup-latest.json"
+}
