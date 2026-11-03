@@ -1,0 +1,79 @@
+{
+  "status": "OK",
+  "id": "provision-zabbix-v3-complete",
+  "result": {
+    "hosts": {
+      "CLI01-Gateway": {
+        "hostid": "10685",
+        "interfaceid": "33",
+        "ip": "192.168.56.30"
+      },
+      "SRV01-Routed": {
+        "hostid": "10686",
+        "interfaceid": "34",
+        "ip": "172.30.20.20"
+      }
+    },
+    "items": {
+      "CLI01-Gateway:icmpping": "51012",
+      "SRV01-Routed:icmpping": "51013",
+      "CLI01-Gateway:diag.router.ready": "51014",
+      "CLI01-Gateway:diag.dns.json": "51015",
+      "CLI01-Gateway:diag.dns.status": "51016",
+      "CLI01-Gateway:diag.dns.ms": "51017",
+      "SRV01-Routed:agent.ping": "51018",
+      "SRV01-Routed:net.tcp.service[tcp,,80]": "51019",
+      "SRV01-Routed:diag.service.nginx": "51020",
+      "SRV01-Routed:diag.storm[1]": "51021",
+      "SRV01-Routed:diag.storm[2]": "51022",
+      "SRV01-Routed:diag.storm[3]": "51023",
+      "SRV01-Routed:diag.storm[4]": "51024",
+      "SRV01-Routed:diag.storm[5]": "51025",
+      "SRV01-Routed:diag.storm[6]": "51026",
+      "SRV01-Routed:diag.storm[7]": "51027",
+      "SRV01-Routed:diag.storm[8]": "51028",
+      "SRV01-Routed:diag.storm[9]": "51029",
+      "SRV01-Routed:diag.storm[10]": "51030",
+      "SRV01-Routed:diag.storm[11]": "51031",
+      "SRV01-Routed:diag.storm[12]": "51032",
+      "SRV01-Routed:diag.storm[13]": "51033",
+      "SRV01-Routed:diag.storm[14]": "51034",
+      "SRV01-Routed:diag.storm[15]": "51035",
+      "SRV01-Routed:diag.storm[16]": "51036",
+      "SRV01-Routed:diag.storm[17]": "51037",
+      "SRV01-Routed:diag.storm[18]": "51038",
+      "SRV01-Routed:diag.storm[19]": "51039",
+      "SRV01-Routed:diag.storm[20]": "51040"
+    },
+    "triggers": {
+      "CLI01-Gateway:icmp": "25336",
+      "SRV01-Routed:icmp": "25337",
+      "CLI01-Gateway:router": "25338",
+      "CLI01-Gateway:dns": "25339",
+      "SRV01-Routed:tcp80": "25340",
+      "SRV01-Routed:nginx": "25341",
+      "SRV01-Routed:agent": "25342",
+      "SRV01-Routed:diag.storm[1]": "25343",
+      "SRV01-Routed:diag.storm[2]": "25344",
+      "SRV01-Routed:diag.storm[3]": "25345",
+      "SRV01-Routed:diag.storm[4]": "25346",
+      "SRV01-Routed:diag.storm[5]": "25347",
+      "SRV01-Routed:diag.storm[6]": "25348",
+      "SRV01-Routed:diag.storm[7]": "25349",
+      "SRV01-Routed:diag.storm[8]": "25350",
+      "SRV01-Routed:diag.storm[9]": "25351",
+      "SRV01-Routed:diag.storm[10]": "25352",
+      "SRV01-Routed:diag.storm[11]": "25353",
+      "SRV01-Routed:diag.storm[12]": "25354",
+      "SRV01-Routed:diag.storm[13]": "25355",
+      "SRV01-Routed:diag.storm[14]": "25356",
+      "SRV01-Routed:diag.storm[15]": "25357",
+      "SRV01-Routed:diag.storm[16]": "25358",
+      "SRV01-Routed:diag.storm[17]": "25359",
+      "SRV01-Routed:diag.storm[18]": "25360",
+      "SRV01-Routed:diag.storm[19]": "25361",
+      "SRV01-Routed:diag.storm[20]": "25362"
+    },
+    "scope": "Additive two logical hosts on exactly three VMs; no native trigger dependencies hide raw events"
+  }
+}

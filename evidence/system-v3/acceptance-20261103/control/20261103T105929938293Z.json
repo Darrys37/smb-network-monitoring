@@ -1,0 +1,7 @@
+{
+  "status": "OK",
+  "id": "reload-bootstrap-worker",
+  "result": {
+    "worker_service": "active"
+  }
+}

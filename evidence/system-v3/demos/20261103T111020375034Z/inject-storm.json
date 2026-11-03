@@ -1,0 +1,8 @@
+{
+  "synthetic_channels": 20,
+  "value": 1,
+  "accepted": 20,
+  "started_clock": 1793704221,
+  "completed_clock": 1793704221,
+  "label": "Injected alerts only; not 20 independent physical faults"
+}

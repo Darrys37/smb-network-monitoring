@@ -1,0 +1,15 @@
+{
+  "status": "OK",
+  "id": "routing-proof-srv01",
+  "result": {
+    "host": "srv01",
+    "return_route": {
+      "code": 0,
+      "stdout": "[{\"dst\":\"192.168.56.10\",\"from\":\"172.30.20.20\",\"gateway\":\"172.30.20.1\",\"dev\":\"enp0s9\",\"table\":\"203\",\"flags\":[],\"uid\":1000,\"cache\":[]}]"
+    },
+    "management_addresses": {
+      "code": 0,
+      "stdout": "[{\"ifindex\":3,\"ifname\":\"enp0s8\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":1500,\"qdisc\":\"pfifo_fast\",\"operstate\":\"UP\",\"group\":\"default\",\"txqlen\":1000,\"altnames\":[\"enx0800273a1b80\"],\"addr_info\":[{\"family\":\"inet\",\"local\":\"192.168.56.20\",\"prefixlen\":24,\"broadcast\":\"192.168.56.255\",\"scope\":\"global\",\"label\":\"enp0s8\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295}]}]"
+    }
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "status": "THREE_VM_SYSTEM_ACCEPTED",
+  "date": "2026-11-03",
+  "scope": "Three VMs only; expert SQLite and correlation verified; ML remains single-fault shadow research",
+  "rules": 8,
+  "groups": 7,
+  "decision_rows": 40,
+  "manual_cases": {
+    "gateway": {
+      "receipt_id": "live-test-gateway-detected",
+      "active_events": 6,
+      "groups": 1,
+      "suppressed": 4,
+      "pending_jobs": 1
+    },
+    "gateway_with_20_synthetic_alerts": {
+      "receipt_id": "live-test-storm-detected",
+      "active_events": 26,
+      "groups": 1,
+      "suppressed": 24,
+      "pending_jobs": 0
+    },
+    "gateway_and_nginx": {
+      "receipt_id": "live-test-multifault-detected",
+      "active_events": 6,
+      "groups": 2,
+      "suppressed": 3,
+      "pending_jobs": 0
+    }
+  },
+  "operator_wrapper_demos": [
+    {
+      "path": "evidence/system-v3/demos/20261103T110341211214Z",
+      "faults": [
+        "arm-nginx"
+      ],
+      "synthetic": false,
+      "detected_groups": 1,
+      "active_events": 3,
+      "suppressed": 0,
+      "fully_recovered": true
+    },
+    {
+      "path": "evidence/system-v3/demos/20261103T110829751598Z",
+      "faults": [
+        "arm-gateway",
+        "arm-nginx"
+      ],
+      "synthetic": false,
+      "detected_groups": 2,
+      "active_events": 7,
+      "suppressed": 4,
+      "fully_recovered": true
+    },
+    {
+      "path": "evidence/system-v3/demos/20261103T111020375034Z",
+      "faults": [
+        "arm-gateway"
+      ],
+      "synthetic": true,
+      "detected_groups": 1,
+      "active_events": 25,
+      "suppressed": 23,
+      "fully_recovered": true
+    }
+  ],
+  "auto_rollback_verified": true,
+  "deployed_source_matches_repository": true,
+  "deployed_source_sha256": {
+    "monitor.py": "10f839be25154fe5d181dfcc51b35907628294199938656832c6eaa1786f8e71",
+    "report.py": "12f9d80d78c69ff18880410a92f1680d7b906875d9a5aa18f243f4a50ed842e1",
+    "config/expert_seed.json": "e3621f0a30229bcbee7627821cfaabbd6e5353a26f9867831a896156f845b07c",
+    "storm_control.py": "d01262c1a76415336aa485922986aeae7f3198eff43498b96267c66a50d4b45d",
+    "monitoring/expressions.py": "6675471862ac9ae51e66e1822ebe560db1dc084d724f340a2e4b8b22dc4734bc",
+    "monitoring/worker.py": "9487bb889ae24b16cf2ca1aa1c72951c66e828c5f37566e711085423065c891c",
+    "monitoring/facts.py": "bd1810ca315f5d43be93dcae1ab4af8c5f4c469d718519ac79247b794e4fe24a",
+    "monitoring/correlation.py": "2b3d7ea8cc0d4dde9a15b18baeb955edd8279aa649d3891233c1d8c3a9ac3253",
+    "monitoring/vector.py": "e33c1e3470c62b5339ca02f180919b0f3d25ddabbabc8bdf0a5197dae09cf7a0",
+    "monitoring/probes.py": "049f8d9ffbe50c779402803b451e894bee1f4c044483f933f96645ac09dda6c1",
+    "monitoring/collector.py": "4bd68b690d15013d84a689d3d24ba544dcbd7dc9f75d6639e6852bc25204f5c5",
+    "monitoring/catalog.py": "be552123b21a73aad5cbd6c95ed0e8af8c2643d31dfe5e1761fdd355bb3e46c3",
+    "monitoring/__init__.py": "ad61624b2901ae7c8f92aba4600a4a3297a0d3becac0fd704e014a19d8e1388f",
+    "monitoring/store.py": "c89953345cee4efbd813d8d3598c72e604adfb1b220403bc57cc002a8a493913",
+    "monitoring/topology.py": "4c2cc8ce997030d01158329f03854c272ae71925ca040a0c054ca0361c017f1c"
+  },
+  "legacy_database_unchanged": true,
+  "final_active_events": 0,
+  "final_pending_jobs": 0,
+  "ml_live_demo": {
+    "session": "demo-20261103T110440323644Z",
+    "valid": true,
+    "suggestions": {
+      "before": [
+        {
+          "CART": "healthy",
+          "FP-Growth": "healthy"
+        }
+      ],
+      "fault": [
+        {
+          "CART": "nginx_stopped",
+          "FP-Growth": "nginx_stopped"
+        },
+        {
+          "CART": "nginx_stopped",
+          "FP-Growth": "nginx_stopped"
+        }
+      ],
+      "after": [
+        {
+          "CART": "healthy",
+          "FP-Growth": "healthy"
+        }
+      ]
+    }
+  },
+  "remote_small_checkpoints": [
+    {
+      "host": "mon01",
+      "checkpoint": "/home/phat/system-monitor-checkpoints/after-v3-20261103T111207394176Z",
+      "public_files": {
+        "monitoring.sqlite": {
+          "bytes": 1441792,
+          "sha256": "f6f7e2aa006ee1767a0448ffe253d69fa8e9398c1602a6763473d4f64687ab4b"
+        },
+        "expert_rules.sqlite": {
+          "bytes": 61440,
+          "sha256": "ed92150a2e22381771e63e09bf32461aab4b09b7fbd514939181b20dedf9a184"
+        },
+        "diagnosis.db": {
+          "bytes": 196608,
+          "sha256": "af5b374beeed981fa1860595883322c7a76d841a1e4c603927f07a592b1c76c2"
+        },
+        "provisioned.json": {
+          "bytes": 2771,
+          "sha256": "7146c7a5adf915fc56e60e8c65b6a01062f7d4d7d2e2bd7e7e8978dc29306b9e"
+        },
+        "lab.json": {
+          "bytes": 1945,
+          "sha256": "e87f9ba2e778ccfdf0b600264e69108d3873b6d9cd1cc881fd84d7a30b0fb061"
+        },
+        "expert_seed.json": {
+          "bytes": 30308,
+          "sha256": "e3621f0a30229bcbee7627821cfaabbd6e5353a26f9867831a896156f845b07c"
+        }
+      },
+      "total_bytes": 1735088,
+      "private_files_exported": false,
+      "virtual_disks_copied": false
+    },
+    {
+      "host": "srv01",
+      "checkpoint": "/home/phat/system-monitor-checkpoints/after-v3-20261103T111210866418Z",
+      "public_files": {},
+      "total_bytes": 200,
+      "private_files_exported": false,
+      "virtual_disks_copied": false
+    },
+    {
+      "host": "cli01",
+      "checkpoint": "/home/phat/system-monitor-checkpoints/after-v3-20261103T111213981535Z",
+      "public_files": {},
+      "total_bytes": 200,
+      "private_files_exported": false,
+      "virtual_disks_copied": false
+    }
+  ],
+  "root_config_checkpoints": [
+    {
+      "host": "mon01",
+      "root_config_checkpoint": "/var/backups/do-an-system-v3/1793704337",
+      "files": 4,
+      "total_bytes": 9231
+    },
+    {
+      "host": "srv01",
+      "root_config_checkpoint": "/var/backups/do-an-system-v3/1793704340",
+      "files": 6,
+      "total_bytes": 16785
+    },
+    {
+      "host": "cli01",
+      "root_config_checkpoint": "/var/backups/do-an-system-v3/1793704343",
+      "files": 6,
+      "total_bytes": 16880
+    }
+  ],
+  "limits": [
+    "No physical Ubuntu PC",
+    "ML not retrained on v3 schema/topology and not validated for multi-fault",
+    "Scalability is synthetic in-process replay, not live fleet load",
+    "No email/chat notification sender or automatic remediation",
+    "No cold-VM restore/boot test in this session"
+  ]
+}

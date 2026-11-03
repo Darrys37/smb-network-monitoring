@@ -1,0 +1,37 @@
+{
+  "status": "OK",
+  "id": "post-v3-small-backup-mon01",
+  "result": {
+    "host": "mon01",
+    "checkpoint": "/home/phat/system-monitor-checkpoints/after-v3-20261103T111207394176Z",
+    "public_files": {
+      "monitoring.sqlite": {
+        "bytes": 1441792,
+        "sha256": "f6f7e2aa006ee1767a0448ffe253d69fa8e9398c1602a6763473d4f64687ab4b"
+      },
+      "expert_rules.sqlite": {
+        "bytes": 61440,
+        "sha256": "ed92150a2e22381771e63e09bf32461aab4b09b7fbd514939181b20dedf9a184"
+      },
+      "diagnosis.db": {
+        "bytes": 196608,
+        "sha256": "af5b374beeed981fa1860595883322c7a76d841a1e4c603927f07a592b1c76c2"
+      },
+      "provisioned.json": {
+        "bytes": 2771,
+        "sha256": "7146c7a5adf915fc56e60e8c65b6a01062f7d4d7d2e2bd7e7e8978dc29306b9e"
+      },
+      "lab.json": {
+        "bytes": 1945,
+        "sha256": "e87f9ba2e778ccfdf0b600264e69108d3873b6d9cd1cc881fd84d7a30b0fb061"
+      },
+      "expert_seed.json": {
+        "bytes": 30308,
+        "sha256": "e3621f0a30229bcbee7627821cfaabbd6e5353a26f9867831a896156f845b07c"
+      }
+    },
+    "total_bytes": 1735088,
+    "private_files_exported": false,
+    "virtual_disks_copied": false
+  }
+}

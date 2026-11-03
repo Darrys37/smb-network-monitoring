@@ -1,0 +1,10 @@
+{
+  "status": "OK",
+  "id": "initialize-synthetic-healthy",
+  "result": {
+    "synthetic_channels": 20,
+    "value": 0,
+    "accepted": 20,
+    "label": "Injected alerts only; not 20 independent physical faults"
+  }
+}

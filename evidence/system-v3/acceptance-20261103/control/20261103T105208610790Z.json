@@ -1,0 +1,9 @@
+{
+  "status": "OK",
+  "id": "enable-automatic-monitor",
+  "result": {
+    "worker_service": "active",
+    "runtime_user": "phat",
+    "runtime_uses_admin_token": false
+  }
+}

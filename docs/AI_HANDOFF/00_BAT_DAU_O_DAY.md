@@ -1,3 +1,5 @@
+> **Cập nhật hệ thống 03/11:** Bắt đầu bằng trạng thái ngày03/11 ở [file01](01_HIEN_TRANG_VA_CACH_TIEP_TUC.md). V3 đã kiểm trên ba VM; ML vẫn là nhánh shadow lỗi đơn. [Báo cáo mới](../HOAN_THIEN_HE_THONG_20261103.md), [cách demo và recover](../../system-monitor/README.md).
+
 # Bắt đầu tiếp nhận đồ án từ đây
 
 Đây là bộ bối cảnh dành cho AI ở chat hoặc tài khoản khác. Chỉ cần gửi **bốn file Markdown trong thư mục này** để tiếp nhận; các báo cáo và nhật ký còn lại chỉ mở khi nhiệm vụ cần đến.

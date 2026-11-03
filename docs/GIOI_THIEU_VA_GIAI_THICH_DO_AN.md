@@ -1,3 +1,5 @@
+> **Cập nhật 03/11/2026 — hệ thống v3:** Đã bổ sung SQLite expert, bảy nhóm features, automatic worker, gateway thật trên ba VM, correlation/suppression và thử nhiều lỗi. Demo ML Nginx đã chạy lại thành công nhưng model vẫn là nghiên cứu lỗi đơn theo hợp đồng cũ. Xem [báo cáo hiện tại](HOAN_THIEN_HE_THONG_20261103.md) và [hướng dẫn v3](../system-monitor/README.md). Phần bên dưới giữ mô tả baseline/lịch sử; không dùng nó để phủ định chức năng v3 mới.
+
 # Giới thiệu và giải thích đồ án giám sát mạng
 
 Bản giới thiệu cập nhật theo cleanup và tối ưu đọc Zabbix ngày 17/10/2026. Kết quả thực nghiệm tuần 4–5 được giữ là kết quả lịch sử; các thay đổi sau đó có kiểm thử hồi quy riêng.

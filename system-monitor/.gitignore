@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+runtime/
+catalog/
+tmp*/
+.env*
+!*.example

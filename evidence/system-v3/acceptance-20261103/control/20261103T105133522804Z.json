@@ -1,0 +1,86 @@
+{
+  "status": "OK",
+  "id": "run_monitor_once_v3",
+  "result": {
+    "status": "CYCLE_COMPLETE",
+    "store_counts": {
+      "events": 0,
+      "diagnostics": 2,
+      "batches": 1,
+      "pending_jobs": 0
+    },
+    "groups": 0,
+    "diagnostics": [
+      {
+        "node": "cli01",
+        "error_type": null,
+        "vector": {
+          "schema": "system-vector-v3.0",
+          "features": {
+            "icmp_status": "success",
+            "tcp80_status": "refused",
+            "http_status_code": null,
+            "dns_response_time_ms": 0,
+            "resource_status": "normal",
+            "agent_availability": "available",
+            "parent_status": "not_applicable"
+          },
+          "raw_resources": {
+            "cpu_percent": 15.41946,
+            "ram_percent": 22.417327,
+            "cpu_mean": 13.509058799999996,
+            "cpu_samples_valid": true
+          },
+          "note": "Resource status summarizes current CPU/RAM percentages; sustained overload is separately checked by the expert table. No old ML model is retrained or silently fed this new schema."
+        },
+        "sources": {
+          "monitor_metrics": {
+            "status": "ok",
+            "error_type": null
+          },
+          "dns": {
+            "status": "ok",
+            "error_type": null
+          }
+        }
+      },
+      {
+        "node": "srv01",
+        "error_type": null,
+        "vector": {
+          "schema": "system-vector-v3.0",
+          "features": {
+            "icmp_status": "success",
+            "tcp80_status": "success",
+            "http_status_code": 200,
+            "dns_response_time_ms": 2,
+            "resource_status": "normal",
+            "agent_availability": "available",
+            "parent_status": "up"
+          },
+          "raw_resources": {
+            "cpu_percent": 13.209898999999993,
+            "ram_percent": 14.936401000000004,
+            "cpu_mean": 11.300811000000001,
+            "cpu_samples_valid": true
+          },
+          "note": "Resource status summarizes current CPU/RAM percentages; sustained overload is separately checked by the expert table. No old ML model is retrained or silently fed this new schema."
+        },
+        "sources": {
+          "monitor_metrics": {
+            "status": "ok",
+            "error_type": null
+          },
+          "dns": {
+            "status": "ok",
+            "error_type": null
+          },
+          "local_http": {
+            "status": "ok",
+            "error_type": null
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "scope": "Synthetic in-process correlation replay only; no Zabbix, SSH, SQLite ingestion, live network throughput or production accuracy claim",
+  "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "repetitions": 5,
+  "rows": [
+    {
+      "child_nodes": 100,
+      "events": 101,
+      "mode": "without_topology_suppression",
+      "groups": 101,
+      "suppressed": 0,
+      "median_ms": 0.6296999999904074,
+      "min_ms": 0.5939000002399553,
+      "max_ms": 0.7354999997915002
+    },
+    {
+      "child_nodes": 100,
+      "events": 101,
+      "mode": "with_topology_suppression",
+      "groups": 1,
+      "suppressed": 100,
+      "median_ms": 0.8472000008623581,
+      "min_ms": 0.8131000013236189,
+      "max_ms": 0.9339999996882398
+    },
+    {
+      "child_nodes": 1000,
+      "events": 1001,
+      "mode": "without_topology_suppression",
+      "groups": 1001,
+      "suppressed": 0,
+      "median_ms": 11.136499999338412,
+      "min_ms": 9.037600000738166,
+      "max_ms": 11.549800001375843
+    },
+    {
+      "child_nodes": 1000,
+      "events": 1001,
+      "mode": "with_topology_suppression",
+      "groups": 1,
+      "suppressed": 1000,
+      "median_ms": 9.242199999789591,
+      "min_ms": 7.2893999986263225,
+      "max_ms": 9.665100000347593
+    },
+    {
+      "child_nodes": 10000,
+      "events": 10001,
+      "mode": "without_topology_suppression",
+      "groups": 10001,
+      "suppressed": 0,
+      "median_ms": 137.56110000031185,
+      "min_ms": 128.2878999991226,
+      "max_ms": 210.64939999996568
+    },
+    {
+      "child_nodes": 10000,
+      "events": 10001,
+      "mode": "with_topology_suppression",
+      "groups": 1,
+      "suppressed": 10000,
+      "median_ms": 105.77780000130588,
+      "min_ms": 90.72269999887794,
+      "max_ms": 109.93710000002466
+    }
+  ]
+}

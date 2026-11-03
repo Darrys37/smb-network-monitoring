@@ -1,11 +1,28 @@
 # Hệ thống giám sát và hỗ trợ chẩn đoán sự cố mạng
 
-Đồ án dùng Zabbix thu thập chỉ số/cảnh báo, Python thu bằng chứng và hai phương pháp hỗ trợ chẩn đoán: **luật chuyên gia R1–R6** và **học máy CART / FP-Growth**. Hai phương pháp đưa ra kết quả riêng để người vận hành đối chiếu; ML chưa thay thế engine chuyên gia hoặc tự sửa lỗi.
+Đồ án dùng Zabbix và Python để giám sát, thu bằng chứng và hỗ trợ chẩn đoán. **Workflow hệ thống v3 dùng bảng quyết định SQLite (8 luật / 7 nhóm), tự đọc sự kiện, tương quan và ức chế cảnh báo theo topology.** CART / FP-Growth là nhánh ML nghiên cứu riêng để đối chiếu; chưa tự kích hoạt luật hoặc tự sửa lỗi.
 
 > **Code học máy nằm trên nhánh [`feature/ml-research-v2`](https://github.com/Darrys37/smb-network-monitoring/tree/feature/ml-research-v2).**
 > **[Mở thư mục `ml-research`](ml-research)** · [Hướng dẫn sử dụng](docs/TONG_HOP_VA_HUONG_DAN_20261031/02_HUONG_DAN_SU_DUNG.md) · [Báo cáo tổng hợp](docs/TONG_HOP_VA_HUONG_DAN_20261031/01_BAO_CAO_TONG_HOP.md).
 >
 > Nhánh `main` giữ baseline; muốn xem hoặc chạy phần ML, dùng nhánh nêu trên.
+
+## Hệ thống v3 đã kiểm chứng trên ba VM
+
+**[Hướng dẫn chạy/demo](system-monitor/README.md)** · **[Báo cáo hoàn thiện 03/11](docs/HOAN_THIEN_HE_THONG_20261103.md)** · [Bằng chứng](evidence/system-v3/acceptance-20261103/VERIFICATION.json)
+
+- 8 luật chuyên gia trong SQLite, bảy nhóm đặc trưng và worker systemd tự xử lý event/recovery với cursor/queue bền vững.
+- CLI01 làm gateway thật tới địa chỉ dịch vụ SRV01; thử gateway, Nginx, hai lỗi đồng thời và 20 kênh cảnh báo synthetic; giữ raw và kiểm phục hồi.
+- 33 tests hệ thống và 74 tests ML đều qua. Demo Nginx/multi/storm bằng CLI mới đã chạy trọn vẹn. Timer rollback độc lập đã được chứng minh tự chạy.
+- Chỉ có ba VM; máy Ubuntu thật vẫn hoãn. Vector v3 bảy nhóm không tương thích ngầm với model ML cũ12 features.
+
+```powershell
+python .\system-monitor\system_lab.py status
+python .\system-monitor\system_lab.py demo --fault multi
+python .\system-monitor\system_lab.py recover
+```
+
+Lệnh `demo` cố ý tạo lỗi trong lab, có kiểm baseline/timer rollback; chạy một demo mỗi lần. Xem hướng dẫn trước khi chạy. Source v3 và ML cùng nằm trên nhánh feature được liên kết phía trên; `main` giữ baseline.
 
 ## Code ML ở đâu?
 
@@ -64,7 +81,7 @@ Train/development có **42 lượt valid**; tập test mới giữ riêng có **
 | CART discrete + gate | 36/42 | Candidate dùng trong demo; 6 ca ABSTAIN vẫn nằm trong mẫu số |
 | FP-Growth + gate | 36/42 | Candidate dùng trong demo; 6 ca ABSTAIN vẫn nằm trong mẫu số |
 
-Runtime tối ưu đã qua **74 tests** và replay **88 observation** cho đầu ra đầy đủ khớp bản cũ; 88 observation này là dữ liệu lịch sử, không phải tập test khoa học mới. Có bằng chứng demo Nginx trước đợt tối ưu; wrapper/runtime mới chưa chạy lại fault live. Chưa kiểm chứng máy thật, cross-host, multi-fault hoặc topology suppression; không suy chất lượng production từ kết quả lab cùng SRV01.
+Runtime ML đã qua **74 tests** và replay **88 observation** lịch sử cho đầu ra đầy đủ khớp bản cũ. Ngày 03/11 đã chạy lại demo Nginx thật thành công trên runtime tối ưu, giữ nguyên model/freeze. Hệ thống chuyên gia v3 có kiểm thử gateway, multi-fault và bão cảnh báo riêng; mô hình ML vẫn chỉ được kiểm chứng lỗi đơn trên SRV01, chưa có kết quả ML cho topology/multi-fault/máy thật.
 
 **Đọc tiếp:** [module ML](ml-research/README.md), [báo cáo/hướng dẫn đầy đủ](docs/TONG_HOP_VA_HUONG_DAN_20261031/README.md), [bằng chứng tối ưu](evidence/workflow-optimization/workflow-final-20261101T084339911460Z/VERIFICATION.json).
 

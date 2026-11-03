@@ -1,0 +1,152 @@
+{
+  "mode": "explicit_lab_demo_shadow",
+  "decision_time": 1793703890,
+  "expert_diagnoses": [
+    {
+      "rule_id": "R1_HOST_OR_LOCAL_CONNECTIVITY",
+      "status": "not_matched",
+      "probable_cause": null,
+      "reasoning": "Target responded to ICMP or TCP.",
+      "missing_info": [],
+      "next_actions": []
+    },
+    {
+      "rule_id": "R2_HTTP_SERVICE_SUSPECTED",
+      "status": "matched",
+      "probable_cause": "Host ping works; TCP80=refused; local HTTP=failed. Service/listener or active rejection suspected.",
+      "reasoning": "Host ping works; TCP80=refused; local HTTP=failed. Service/listener or active rejection suspected.",
+      "missing_info": [
+        "Service state, listening sockets and firewall policy; refusal alone does not prove nginx stopped."
+      ],
+      "next_actions": [
+        "On target inspect systemctl status nginx, ss -lntp and firewall rules."
+      ]
+    },
+    {
+      "rule_id": "R3_AGENT_UNAVAILABLE",
+      "status": "not_matched",
+      "probable_cause": null,
+      "reasoning": "A recent agent.ping sample exists.",
+      "missing_info": [],
+      "next_actions": []
+    },
+    {
+      "rule_id": "R4_DNS_RESOLVER_SUSPECTED",
+      "status": "not_matched",
+      "probable_cause": null,
+      "reasoning": "DNS returned an A answer; this does not validate the expected IP.",
+      "missing_info": [],
+      "next_actions": []
+    },
+    {
+      "rule_id": "R5_HTTP_ACCESS_FILTER_SUSPECTED",
+      "status": "not_matched",
+      "probable_cause": null,
+      "reasoning": "Remote ping=success, TCP80=refused; HTTP on target's own service IP=failed. The evidence does not meet R5 conditions for suspected filtering/access-path failure.",
+      "missing_info": [],
+      "next_actions": []
+    },
+    {
+      "rule_id": "R6_SUSTAINED_CPU_HIGH",
+      "status": "not_matched",
+      "probable_cause": null,
+      "reasoning": "Mean CPU=16.93%; below 90%.",
+      "missing_info": [],
+      "next_actions": []
+    }
+  ],
+  "features": {
+    "ping_status": "success",
+    "tcp80_status": "refused",
+    "tcp10050_status": "success",
+    "local_http_status": "failed",
+    "dns_status": "success",
+    "agent_status": "success",
+    "control_ping_status": "success",
+    "cpu_percent": 16.233521999999994,
+    "ram_percent": 15.142888999999997,
+    "cpu_mean": 16.9266774,
+    "cpu_coverage_seconds": 240,
+    "cpu_max_gap_seconds": 60
+  },
+  "discrete_features": {
+    "ping_status": "success",
+    "tcp80_status": "refused",
+    "tcp10050_status": "success",
+    "local_http_status": "failed",
+    "dns_status": "success",
+    "agent_status": "success",
+    "control_ping_status": "success",
+    "cpu_percent": "below90",
+    "ram_percent": "below90",
+    "cpu_mean": "below90",
+    "cpu_coverage_seconds": "sufficient",
+    "cpu_max_gap_seconds": "gap_ok"
+  },
+  "ml_suggestions": {
+    "CART": {
+      "label": "nginx_stopped",
+      "matched_rule": {
+        "rule_id": "cart-leaf-9",
+        "conditions": [
+          {
+            "feature": "dns_status",
+            "op": "eq",
+            "value": "success"
+          },
+          {
+            "feature": "agent_status",
+            "op": "eq",
+            "value": "success"
+          },
+          {
+            "feature": "tcp80_status",
+            "op": "ne",
+            "value": "success"
+          },
+          {
+            "feature": "local_http_status",
+            "op": "eq",
+            "value": "failed"
+          }
+        ],
+        "label": "nginx_stopped",
+        "training_runs": 6,
+        "leaf_class_fraction": 1.0,
+        "class_fractions": {
+          "agent_stopped": 0.0,
+          "cpu_stress": 0.0,
+          "dns_egress_blocked": 0.0,
+          "healthy": 0.0,
+          "interface_down": 0.0,
+          "nginx_stopped": 1.0,
+          "remote_http_filtered": 0.0
+        }
+      },
+      "confidence_kind": "training leaf class fraction, not calibrated probability"
+    },
+    "FP-Growth": {
+      "label": "nginx_stopped",
+      "matched_rule": {
+        "rule_id": "fp-0003",
+        "conditions": [
+          "local_http_status=failed"
+        ],
+        "label": "nginx_stopped",
+        "training_runs": 6,
+        "support": 0.14285714285714285,
+        "confidence": 1.0,
+        "lift": 7.0
+      },
+      "confidence_kind": "training association confidence, not calibrated probability"
+    }
+  },
+  "scope_gate_passed": true,
+  "limitations": [
+    "Single-fault pilot on SRV01; no generalization claim",
+    "Association confidence and leaf fraction describe training data",
+    "No automatic remediation, alert mutation or rule activation"
+  ],
+  "candidate_sha256": "0e3440b9240dd1994607de5cd3ff53fbda6147eba0c8e3436d22a26e85f3edf0",
+  "observation_sha256": "ec2b0278abe84d9f5124efb53c9eedecd48e83f2ecea8d180ea7b88a79471b03"
+}

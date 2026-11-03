@@ -1,0 +1,80 @@
+{
+  "status": "OK",
+  "id": "map-original-http-trigger",
+  "result": {
+    "version": "three-vm-routed-v3",
+    "initial_lookback_seconds": 60,
+    "probe_refresh_seconds": 30,
+    "topology": {
+      "version": "routed-lab-v3",
+      "nodes": {
+        "cli01": {
+          "type": "gateway",
+          "address": "192.168.56.30",
+          "parents": [],
+          "backend_interface": "enp0s9",
+          "backend_target": "172.30.20.20"
+        },
+        "srv01": {
+          "type": "host",
+          "address": "172.30.20.20",
+          "parents": [
+            "cli01"
+          ],
+          "dependency_basis": "MON01 route 172.30.20.0/24 via CLI01 192.168.56.30; dedicated internal NIC and SRV01 source-policy return path, confirmed by TTL=1 and HTTP"
+        }
+      }
+    },
+    "profiles": [
+      {
+        "profile_id": "cli01-gateway-v3",
+        "node": "cli01",
+        "host_id": "10685",
+        "event_host_ids": [
+          "10685",
+          "10684"
+        ],
+        "metrics_host_id": "10684",
+        "agent_host_id": "10684",
+        "target_ip": "192.168.56.30",
+        "control_ip": "192.168.56.20",
+        "http_service": "absent",
+        "http_observer": "cli01",
+        "dns_observer": "cli01",
+        "dns_name": "example.com",
+        "dns_control_ip": "1.1.1.1"
+      },
+      {
+        "profile_id": "srv01-routed-v3",
+        "node": "srv01",
+        "host_id": "10686",
+        "event_host_ids": [
+          "10686",
+          "10683"
+        ],
+        "metrics_host_id": "10683",
+        "agent_host_id": "10686",
+        "trigger_kinds": {
+          "25334": "http_connectivity"
+        },
+        "target_ip": "172.30.20.20",
+        "control_ip": "192.168.56.30",
+        "http_service": "expected",
+        "http_observer": "srv01",
+        "dns_observer": "cli01",
+        "dns_name": "example.com",
+        "dns_control_ip": "1.1.1.1"
+      }
+    ],
+    "remote_probes": {
+      "srv01": {
+        "address": "192.168.56.20",
+        "key_file": "/home/phat/.ssh/do-an-v3-probe"
+      },
+      "cli01": {
+        "address": "192.168.56.30",
+        "key_file": "/home/phat/.ssh/do-an-v3-probe"
+      }
+    }
+  }
+}

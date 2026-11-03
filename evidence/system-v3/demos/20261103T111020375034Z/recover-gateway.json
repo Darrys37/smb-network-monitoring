@@ -1,0 +1,7 @@
+{
+  "host": "cli01",
+  "fault": "gateway",
+  "action": "recover",
+  "recovered_clock": 1793704250,
+  "baseline_restored": true
+}

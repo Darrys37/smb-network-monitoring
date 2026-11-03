@@ -1,0 +1,57 @@
+{
+  "system": {
+    "exit_code": 0,
+    "tests": 33
+  },
+  "ml": {
+    "exit_code": 0,
+    "tests": 74
+  },
+  "release_integrity": {
+    "status": "RELEASE_HASHES_VERIFIED",
+    "files_verified": 23,
+    "observations_verified": 84,
+    "candidate_sha256": "0e3440b9240dd1994607de5cd3ff53fbda6147eba0c8e3436d22a26e85f3edf0",
+    "scope": "Initial same-host, known single-fault VM research demo; no production/cross-host/multi-fault claim",
+    "active_rules": 0
+  },
+  "at": "2026-11-03T11:14:51.736979+00:00",
+  "initial_direct_ml_test_attempt": "Missing Paramiko because dependency_paths were omitted; final run uses the same configured paths as the working CLI and passes all 74 tests.",
+  "source_sha256": {
+    "system-monitor/.gitignore": "62badfaf51f36ef907714e400d4e787844497dc2a3757d27cf1a89aaaacf9a91",
+    "system-monitor/benchmark.py": "b831e3c2e779f6cb0055bd65932c02e8287fb605d6877da353daf29c0e9617f8",
+    "system-monitor/build_catalog.py": "98ccf4488c428138fb6200dbdbad4da94e1d7b2298363881a9d48a06cccb05c4",
+    "system-monitor/fault_control.py": "2d582232119adb03bbfe3b548b94820d7f1a11bec3952c6f7da63df6d3f0c2cf",
+    "system-monitor/lab_network.py": "baf2b2a37b7f1a54b110a2a9909929e13a107e14e3932819b32a905212737bec",
+    "system-monitor/monitor.py": "10f839be25154fe5d181dfcc51b35907628294199938656832c6eaa1786f8e71",
+    "system-monitor/probe_dispatcher.py": "56d866eee02441009ae0ecc9164fa915adf0351ef8e17d545ae9e0474019dca7",
+    "system-monitor/provision_zabbix.py": "f0272bfde8e5b277fd46457cc991b1fd905394078acec4e5f10052004f8f27f8",
+    "system-monitor/README.md": "49cedb4362d3a3131231f18c3c8d4ee3dfd9ad4c9f3542d453f70a134d21b304",
+    "system-monitor/report.py": "12f9d80d78c69ff18880410a92f1680d7b906875d9a5aa18f243f4a50ed842e1",
+    "system-monitor/requirements.txt": "810ccc6d48a348eca72e78d1d913de02b0d977164f00a3c6a3a8588775727005",
+    "system-monitor/storm_control.py": "d01262c1a76415336aa485922986aeae7f3198eff43498b96267c66a50d4b45d",
+    "system-monitor/system_lab.py": "e4877ee63cb9b043658bad9d9b74f0a4a1886b4d64fec6fd3c16a1b35078711f",
+    "system-monitor/config/expert_seed.json": "e3621f0a30229bcbee7627821cfaabbd6e5353a26f9867831a896156f845b07c",
+    "system-monitor/config/lab.json": "cd29e6c5f4198a7f06b893fd9fd5ce5f0b36a152d0fbe08d72762d26301cf3c6",
+    "system-monitor/config/provisioned.json": "c7331288e17ed3c16b53bf13695b08f6074992b0b820a042510e9b55b13d3507",
+    "system-monitor/deployment/install_agent.py": "b5782115f9ed57c67463bdcef12e91c8164b29bfe9e5248bab3d61b7f3003f41",
+    "system-monitor/deployment/install_network.py": "f26f308f836a565b524ec1d85748d008f4aed66e9a7ef8d9bfc7d11b32c0b1f4",
+    "system-monitor/deployment/install_worker.py": "256e34291d9050ad5b00243eac962d56626568ccbbf0af6581d27de889d45598",
+    "system-monitor/deployment/README.md": "1ddb4f05eca35e77e7ee8fbf6189335d0465f14aea1f3d81a0fc16f21d9ef67d",
+    "system-monitor/monitoring/catalog.py": "be552123b21a73aad5cbd6c95ed0e8af8c2643d31dfe5e1761fdd355bb3e46c3",
+    "system-monitor/monitoring/collector.py": "4bd68b690d15013d84a689d3d24ba544dcbd7dc9f75d6639e6852bc25204f5c5",
+    "system-monitor/monitoring/correlation.py": "2b3d7ea8cc0d4dde9a15b18baeb955edd8279aa649d3891233c1d8c3a9ac3253",
+    "system-monitor/monitoring/expressions.py": "6675471862ac9ae51e66e1822ebe560db1dc084d724f340a2e4b8b22dc4734bc",
+    "system-monitor/monitoring/facts.py": "bd1810ca315f5d43be93dcae1ab4af8c5f4c469d718519ac79247b794e4fe24a",
+    "system-monitor/monitoring/probes.py": "049f8d9ffbe50c779402803b451e894bee1f4c044483f933f96645ac09dda6c1",
+    "system-monitor/monitoring/store.py": "c89953345cee4efbd813d8d3598c72e604adfb1b220403bc57cc002a8a493913",
+    "system-monitor/monitoring/topology.py": "4c2cc8ce997030d01158329f03854c272ae71925ca040a0c054ca0361c017f1c",
+    "system-monitor/monitoring/vector.py": "e33c1e3470c62b5339ca02f180919b0f3d25ddabbabc8bdf0a5197dae09cf7a0",
+    "system-monitor/monitoring/worker.py": "9487bb889ae24b16cf2ca1aa1c72951c66e828c5f37566e711085423065c891c",
+    "system-monitor/monitoring/__init__.py": "ad61624b2901ae7c8f92aba4600a4a3297a0d3becac0fd704e014a19d8e1388f",
+    "system-monitor/tests/test_catalog.py": "952173fa99085b9baf2f5d90912741a0e5c9d916f1510d19410f98063b712e19",
+    "system-monitor/tests/test_correlation.py": "84e615ffba25873b60c30729b949efc5b396392416e91121870d356e00b35db8",
+    "system-monitor/tests/test_probes.py": "ed7d83ffde19eb9428f892ace30f75c633af83719d1e1e04453c2a7bb2eddf63",
+    "system-monitor/tests/test_worker.py": "ded607e03331469c60d5bc27ebb85a0aa5e1a2c7664a115bbc03391f6605d1e9"
+  }
+}

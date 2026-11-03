@@ -1,0 +1,19 @@
+{
+  "status": "OK",
+  "id": "routing-proof-cli01",
+  "result": {
+    "host": "cli01",
+    "forwarding": {
+      "code": 0,
+      "stdout": "1"
+    },
+    "backend_route": {
+      "code": 0,
+      "stdout": "[{\"dst\":\"172.30.20.20\",\"dev\":\"enp0s9\",\"prefsrc\":\"172.30.20.1\",\"flags\":[],\"uid\":1000,\"cache\":[]}]"
+    },
+    "management_addresses": {
+      "code": 0,
+      "stdout": "[{\"ifindex\":3,\"ifname\":\"enp0s8\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":1500,\"qdisc\":\"pfifo_fast\",\"operstate\":\"UP\",\"group\":\"default\",\"txqlen\":1000,\"altnames\":[\"enx080027de4748\"],\"addr_info\":[{\"family\":\"inet\",\"local\":\"192.168.56.30\",\"prefixlen\":24,\"broadcast\":\"192.168.56.255\",\"scope\":\"global\",\"label\":\"enp0s8\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295}]}]"
+    }
+  }
+}

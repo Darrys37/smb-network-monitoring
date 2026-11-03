@@ -1,3 +1,7 @@
+## Hoàn thiện hệ thống 03/11/2026
+
+[Báo cáo và giới hạn đã kiểm chứng](HOAN_THIEN_HE_THONG_20261103.md) · [Cách chạy/demo/khôi phục v3](../system-monitor/README.md). Đây là phần cập nhật hiện tại; các báo cáo tuần và ML trước đó giữ làm lịch sử.
+
 # Bản đồ tài liệu đồ án
 
 ## Bắt đầu ở đâu?

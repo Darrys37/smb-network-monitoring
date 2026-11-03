@@ -1,0 +1,19 @@
+{
+  "status": "OK",
+  "id": "verify-independent-auto-rollback",
+  "result": {
+    "host": "srv01",
+    "rollback_service": {
+      "exit": 0,
+      "stdout": "ActiveEnterTimestamp=\nResult=success\nExecMainExitTimestamp=\nExecMainStatus=0"
+    },
+    "rollback_journal": {
+      "exit": 0,
+      "stdout": "-- No entries --"
+    },
+    "nginx": {
+      "exit": 3,
+      "stdout": "inactive"
+    }
+  }
+}

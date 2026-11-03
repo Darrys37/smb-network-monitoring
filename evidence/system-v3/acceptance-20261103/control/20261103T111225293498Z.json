@@ -1,0 +1,10 @@
+{
+  "status": "OK",
+  "id": "post-v3-root-config-cli01",
+  "result": {
+    "host": "cli01",
+    "root_config_checkpoint": "/var/backups/do-an-system-v3/1793704343",
+    "files": 6,
+    "total_bytes": 16880
+  }
+}

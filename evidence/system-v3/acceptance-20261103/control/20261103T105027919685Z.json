@@ -1,0 +1,8 @@
+{
+  "status": "OK",
+  "id": "provision-zabbix-v3-resume",
+  "result": {
+    "status": "ERROR",
+    "provisioning_detail": "Unowned host collision"
+  }
+}

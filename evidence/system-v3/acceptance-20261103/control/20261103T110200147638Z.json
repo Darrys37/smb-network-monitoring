@@ -1,0 +1,19 @@
+{
+  "status": "OK",
+  "id": "verify-independent-auto-rollback-completed",
+  "result": {
+    "host": "srv01",
+    "rollback_service": {
+      "exit": 0,
+      "stdout": "ActiveEnterTimestamp=\nResult=success\nExecMainExitTimestamp=\nExecMainStatus=0"
+    },
+    "rollback_journal": {
+      "exit": 0,
+      "stdout": "2026-11-03T11:01:35+00:00 srv01 systemd[1]: Started do-an-v3-rollback-nginx.service - [systemd-run] /usr/bin/systemctl start nginx.\n2026-11-03T11:01:35+00:00 srv01 systemd[1]: do-an-v3-rollback-nginx.service: Deactivated successfully."
+    },
+    "nginx": {
+      "exit": 0,
+      "stdout": "active"
+    }
+  }
+}

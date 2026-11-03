@@ -1,0 +1,7 @@
+{
+  "host": "srv01",
+  "fault": "nginx",
+  "action": "recover",
+  "recovered_clock": 1793704131,
+  "baseline_restored": true
+}

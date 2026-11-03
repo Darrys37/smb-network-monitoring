@@ -1,0 +1,963 @@
+{
+  "metadata": {
+    "version": "expert-sqlite-v1",
+    "confidence_kind": "expert_priority_score_not_calibrated_probability",
+    "policy": {
+      "max_age": 180,
+      "cpu_min_samples": 3,
+      "cpu_min_coverage": 240,
+      "cpu_max_gap": 120,
+      "cpu_sample_max_age": 480,
+      "cpu_count_max_age": 86580,
+      "cpu_high_percent": 90
+    },
+    "correlation_window_seconds": 30,
+    "scope": "Expert tables; no learned ML rule activation"
+  },
+  "rules": [
+    {
+      "rule_id": "R1_HOST_OR_LOCAL_CONNECTIVITY",
+      "group": "Ping",
+      "title": "Target connectivity",
+      "hypotheses": [
+        {
+          "label": "Target interface/host unavailable",
+          "priority_score_pct": 85,
+          "explanation": "Expert-assigned investigation priority from this signature; not a calibrated probability or proof of root cause."
+        },
+        {
+          "label": "Local path or routing failure",
+          "priority_score_pct": 65,
+          "explanation": "Expert-assigned investigation priority from this signature; not a calibrated probability or proof of root cause."
+        },
+        {
+          "label": "ICMP and TCP filtered",
+          "priority_score_pct": 45,
+          "explanation": "Expert-assigned investigation priority from this signature; not a calibrated probability or proof of root cause."
+        }
+      ],
+      "rows": [
+        {
+          "when": {
+            "op": "any",
+            "args": [
+              {
+                "op": "eq",
+                "field": "target_ping",
+                "value": "success"
+              },
+              {
+                "op": "in",
+                "field": "target_tcp80",
+                "value": [
+                  "success",
+                  "refused"
+                ]
+              }
+            ]
+          },
+          "status": "not_matched",
+          "reason": "Target responded to ICMP or TCP.",
+          "missing": [],
+          "actions": []
+        },
+        {
+          "when": {
+            "op": "any",
+            "args": [
+              {
+                "op": "is_null",
+                "field": "target_ping"
+              },
+              {
+                "op": "is_null",
+                "field": "target_tcp80"
+              },
+              {
+                "op": "is_null",
+                "field": "control_ping"
+              }
+            ]
+          },
+          "status": "insufficient_evidence",
+          "reason": "Cannot isolate target/local connectivity.",
+          "missing": [
+            "Fresh target ping/TCP and a distinct same-subnet control host ping."
+          ],
+          "actions": []
+        },
+        {
+          "when": {
+            "op": "all",
+            "args": [
+              {
+                "op": "eq",
+                "field": "target_ping",
+                "value": "no_reply"
+              },
+              {
+                "op": "eq",
+                "field": "target_tcp80",
+                "value": "timeout"
+              },
+              {
+                "op": "eq",
+                "field": "control_ping",
+                "value": "success"
+              }
+            ]
+          },
+          "status": "matched",
+          "reason": "Target ping={target_ping}, TCP={target_tcp80}; control host ping={control_ping}.",
+          "missing": [
+            "Target console, route and firewall state; compare from CLI01."
+          ],
+          "actions": [
+            "Inspect target console and local network path."
+          ]
+        },
+        {
+          "when": {
+            "op": "always"
+          },
+          "status": "not_matched",
+          "reason": "Target ping={target_ping}, TCP={target_tcp80}; control host ping={control_ping}.",
+          "missing": [],
+          "actions": []
+        }
+      ]
+    },
+    {
+      "rule_id": "R2_HTTP_SERVICE_SUSPECTED",
+      "group": "HTTP",
+      "title": "HTTP service/listener",
+      "hypotheses": [
+        {
+          "label": "HTTP service stopped/unhealthy",
+          "priority_score_pct": 85,
+          "explanation": "Expert-assigned investigation priority from this signature; not a calibrated probability or proof of root cause."
+        },
+        {
+          "label": "Service bound to another address/port",
+          "priority_score_pct": 65,
+          "explanation": "Expert-assigned investigation priority from this signature; not a calibrated probability or proof of root cause."
+        },
+        {
+          "label": "Active TCP rejection",
+          "priority_score_pct": 45,
+          "explanation": "Expert-assigned investigation priority from this signature; not a calibrated probability or proof of root cause."
+        }
+      ],
+      "rows": [
+        {
+          "when": {
+            "op": "eq",
+            "field": "http_service",
+            "value": "absent"
+          },
+          "status": "not_matched",
+          "reason": "Not applicable: HTTP service is declared absent on this host. This does not establish overall host health.",
+          "missing": [],
+          "actions": []
+        },
+        {
+          "when": {
+            "op": "eq",
+            "field": "http_service",
+            "value": "unknown"
+          },
+          "status": "insufficient_evidence",
+          "reason": "HTTP service applicability is unknown.",
+          "missing": [
+            "Declare whether this host is expected to provide HTTP."
+          ],
+          "actions": []
+        },
+        {
+          "when": {
+            "op": "in",
+            "field": "local_service_state",
+            "value": [
+              "inactive",
+              "failed"
+            ]
+          },
+          "status": "matched",
+          "reason": "Direct local service state={local_service_state}; an HTTP service fault can coexist with a remote path failure.",
+          "missing": [
+            "Inspect the service journal and whether an administrator stopped it."
+          ],
+          "actions": [
+            "Inspect nginx service state and journal on the service host."
+          ]
+        },
+        {
+          "when": {
+            "op": "any",
+            "args": [
+              {
+                "op": "is_null",
+                "field": "target_ping"
+              },
+              {
+                "op": "is_null",
+                "field": "target_tcp80"
+              }
+            ]
+          },
+          "status": "insufficient_evidence",
+          "reason": "Missing usable ping/TCP evidence.",
+          "missing": [
+            "Fresh ping and TCP port 80."
+          ],
+          "actions": []
+        },
+        {
+          "when": {
+            "op": "any",
+            "args": [
+              {
+                "op": "ne",
+                "field": "target_ping",
+                "value": "success"
+              },
+              {
+                "op": "eq",
+                "field": "target_tcp80",
+                "value": "success"
+              }
+            ]
+          },
+          "status": "not_matched",
+          "reason": "Target ping={target_ping}, TCP80={target_tcp80}.",
+          "missing": [],
+          "actions": []
+        },
+        {
+          "when": {
+            "op": "eq",
+            "field": "local_http",
+            "value": "success"
+          },
+          "status": "not_matched",
+          "reason": "HTTP200 on the target's own service IP; a simple stopped-service hypothesis is not supported. Check R5.",
+          "missing": [],
+          "actions": []
+        },
+        {
+          "when": {
+            "op": "all",
+            "args": [
+              {
+                "op": "eq",
+                "field": "target_tcp80",
+                "value": "timeout"
+              },
+              {
+                "op": "is_null",
+                "field": "local_http"
+              }
+            ]
+          },
+          "status": "insufficient_evidence",
+          "reason": "Remote TCP timeout alone cannot distinguish service and access-path failure.",
+          "missing": [
+            "Fresh local HTTP probe from the service host."
+          ],
+          "actions": []
+        },
+        {
+          "when": {
+            "op": "always"
+          },
+          "status": "matched",
+          "reason": "Host ping works; TCP80={target_tcp80}; local HTTP={local_http}. Service/listener or active rejection suspected.",
+          "missing": [
+            "Service state, listening sockets and firewall policy; refusal alone does not prove nginx stopped."
+          ],
+          "actions": [
+            "On target inspect systemctl status nginx, ss -lntp and firewall rules."
+          ]
+        }
+      ]
+    },
+    {
+      "rule_id": "R3_AGENT_UNAVAILABLE",
+      "group": "Agent",
+      "title": "Agent availability",
+      "hypotheses": [
+        {
+          "label": "Agent stopped/unresponsive",
+          "priority_score_pct": 85,
+          "explanation": "Expert-assigned investigation priority from this signature; not a calibrated probability or proof of root cause."
+        },
+        {
+          "label": "Agent allow-list or mode mismatch",
+          "priority_score_pct": 65,
+          "explanation": "Expert-assigned investigation priority from this signature; not a calibrated probability or proof of root cause."
+        },
+        {
+          "label": "Agent port filtered",
+          "priority_score_pct": 45,
+          "explanation": "Expert-assigned investigation priority from this signature; not a calibrated probability or proof of root cause."
+        }
+      ],
+      "rows": [
+        {
+          "when": {
+            "op": "in",
+            "field": "local_agent_state",
+            "value": [
+              "inactive",
+              "failed"
+            ]
+          },
+          "status": "matched",
+          "reason": "Direct local agent state={local_agent_state}; this fault is independent of a remote parent path outage.",
+          "missing": [
+            "Inspect agent service logs and configuration."
+          ],
+          "actions": [
+            "Inspect zabbix-agent2 locally."
+          ]
+        },
+        {
+          "when": {
+            "op": "eq",
+            "field": "agent_status",
+            "value": "success"
+          },
+          "status": "not_matched",
+          "reason": "A recent agent.ping sample exists.",
+          "missing": [],
+          "actions": []
+        },
+        {
+          "when": {
+            "op": "any",
+            "args": [
+              {
+                "op": "is_null",
+                "field": "target_ping"
+              },
+              {
+                "op": "not",
+                "arg": {
+                  "op": "truthy",
+                  "field": "agent_present"
+                }
+              },
+              {
+                "op": "ne",
+                "field": "agent_status",
+                "value": "no_data"
+              },
+              {
+                "op": "is_null",
+                "field": "agent_tcp"
+              }
+            ]
+          },
+          "status": "insufficient_evidence",
+          "reason": "Cannot establish agent unavailability.",
+          "missing": [
+            "Enabled usable agent.ping with no recent data, target ping and passive TCP10050 probe."
+          ],
+          "actions": []
+        },
+        {
+          "when": {
+            "op": "all",
+            "args": [
+              {
+                "op": "eq",
+                "field": "target_ping",
+                "value": "success"
+              },
+              {
+                "op": "in",
+                "field": "agent_tcp",
+                "value": [
+                  "refused",
+                  "timeout"
+                ]
+              }
+            ]
+          },
+          "status": "matched",
+          "reason": "Host ping={target_ping}, agent.ping has no recent data, TCP10050={agent_tcp}.",
+          "missing": [
+            "Agent mode, Server allow-list, service and firewall state."
+          ],
+          "actions": [
+            "Inspect zabbix-agent2 service and its logs; do not assume service stopped."
+          ]
+        },
+        {
+          "when": {
+            "op": "always"
+          },
+          "status": "not_matched",
+          "reason": "Host ping={target_ping}, agent.ping has no recent data, TCP10050={agent_tcp}.",
+          "missing": [],
+          "actions": []
+        }
+      ]
+    },
+    {
+      "rule_id": "R4_DNS_RESOLVER_SUSPECTED",
+      "group": "DNS",
+      "title": "DNS resolution",
+      "hypotheses": [
+        {
+          "label": "Resolver or DNS egress unavailable",
+          "priority_score_pct": 85,
+          "explanation": "Expert-assigned investigation priority from this signature; not a calibrated probability or proof of root cause."
+        },
+        {
+          "label": "Name/zone record missing",
+          "priority_score_pct": 65,
+          "explanation": "Expert-assigned investigation priority from this signature; not a calibrated probability or proof of root cause."
+        },
+        {
+          "label": "Resolver policy/configuration mismatch",
+          "priority_score_pct": 45,
+          "explanation": "Expert-assigned investigation priority from this signature; not a calibrated probability or proof of root cause."
+        }
+      ],
+      "rows": [
+        {
+          "when": {
+            "op": "not",
+            "arg": {
+              "op": "truthy",
+              "field": "dns_configured"
+            }
+          },
+          "status": "insufficient_evidence",
+          "reason": "DNS target not configured.",
+          "missing": [
+            "Actual application name and CLI01 DNS evidence."
+          ],
+          "actions": []
+        },
+        {
+          "when": {
+            "op": "any",
+            "args": [
+              {
+                "op": "not",
+                "arg": {
+                  "op": "truthy",
+                  "field": "dns_present"
+                }
+              },
+              {
+                "op": "is_null",
+                "field": "dns_control"
+              }
+            ]
+          },
+          "status": "insufficient_evidence",
+          "reason": "DNS and IP control must be fresh and from the same intended observer.",
+          "missing": [
+            "Run dns_probe.py on CLI01 for the configured name and control IP."
+          ],
+          "actions": []
+        },
+        {
+          "when": {
+            "op": "not",
+            "arg": {
+              "op": "any",
+              "args": [
+                {
+                  "op": "all",
+                  "args": [
+                    {
+                      "op": "eq",
+                      "field": "dns_status",
+                      "value": "success"
+                    },
+                    {
+                      "op": "eq",
+                      "field": "dns_code",
+                      "value": "NOERROR"
+                    },
+                    {
+                      "op": "truthy",
+                      "field": "dns_answers"
+                    }
+                  ]
+                },
+                {
+                  "op": "all",
+                  "args": [
+                    {
+                      "op": "eq",
+                      "field": "dns_status",
+                      "value": "no_answer"
+                    },
+                    {
+                      "op": "eq",
+                      "field": "dns_code",
+                      "value": "NOERROR"
+                    }
+                  ]
+                },
+                {
+                  "op": "all",
+                  "args": [
+                    {
+                      "op": "eq",
+                      "field": "dns_status",
+                      "value": "nxdomain"
+                    },
+                    {
+                      "op": "eq",
+                      "field": "dns_code",
+                      "value": "NXDOMAIN"
+                    }
+                  ]
+                },
+                {
+                  "op": "all",
+                  "args": [
+                    {
+                      "op": "eq",
+                      "field": "dns_status",
+                      "value": "dns_error"
+                    },
+                    {
+                      "op": "in",
+                      "field": "dns_code",
+                      "value": [
+                        "SERVFAIL",
+                        "REFUSED"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "op": "eq",
+                  "field": "dns_status",
+                  "value": "timeout"
+                }
+              ]
+            }
+          },
+          "status": "insufficient_evidence",
+          "reason": "DNS collector did not produce an interpretable result.",
+          "missing": [
+            "DNS response or timeout, not a missing executable/local command error."
+          ],
+          "actions": []
+        },
+        {
+          "when": {
+            "op": "eq",
+            "field": "dns_status",
+            "value": "success"
+          },
+          "status": "not_matched",
+          "reason": "DNS returned an A answer; this does not validate the expected IP.",
+          "missing": [],
+          "actions": []
+        },
+        {
+          "when": {
+            "op": "ne",
+            "field": "dns_control",
+            "value": "success"
+          },
+          "status": "insufficient_evidence",
+          "reason": "IP control also failed; DNS-specific failure is not isolated.",
+          "missing": [
+            "Working IP connectivity from the same observer."
+          ],
+          "actions": []
+        },
+        {
+          "when": {
+            "op": "always"
+          },
+          "status": "matched",
+          "reason": "IP control works on {dns_observer}; DNS status={dns_status}, rcode={dns_code}.",
+          "missing": [
+            "Expected name/IP, intended resolver and resolver configuration; NXDOMAIN may be a spelling/name issue."
+          ],
+          "actions": [
+            "Compare CLI01 resolver settings and query the intended resolver."
+          ]
+        }
+      ]
+    },
+    {
+      "rule_id": "R5_HTTP_ACCESS_FILTER_SUSPECTED",
+      "group": "HTTP",
+      "title": "HTTP access path",
+      "hypotheses": [
+        {
+          "label": "Ingress HTTP filtering",
+          "priority_score_pct": 85,
+          "explanation": "Expert-assigned investigation priority from this signature; not a calibrated probability or proof of root cause."
+        },
+        {
+          "label": "Routing or observer-specific path failure",
+          "priority_score_pct": 65,
+          "explanation": "Expert-assigned investigation priority from this signature; not a calibrated probability or proof of root cause."
+        },
+        {
+          "label": "Source-based service policy",
+          "priority_score_pct": 45,
+          "explanation": "Expert-assigned investigation priority from this signature; not a calibrated probability or proof of root cause."
+        }
+      ],
+      "rows": [
+        {
+          "when": {
+            "op": "eq",
+            "field": "http_service",
+            "value": "absent"
+          },
+          "status": "not_matched",
+          "reason": "Not applicable: HTTP service is declared absent on this host. This does not establish overall host health.",
+          "missing": [],
+          "actions": []
+        },
+        {
+          "when": {
+            "op": "eq",
+            "field": "http_service",
+            "value": "unknown"
+          },
+          "status": "insufficient_evidence",
+          "reason": "HTTP service applicability is unknown.",
+          "missing": [
+            "Declare whether this host is expected to provide HTTP."
+          ],
+          "actions": []
+        },
+        {
+          "when": {
+            "op": "any",
+            "args": [
+              {
+                "op": "eq",
+                "field": "target_tcp80",
+                "value": "success"
+              },
+              {
+                "op": "eq",
+                "field": "target_ping",
+                "value": "no_reply"
+              }
+            ]
+          },
+          "status": "not_matched",
+          "reason": "No isolated remote HTTP connection failure with working ICMP.",
+          "missing": [],
+          "actions": []
+        },
+        {
+          "when": {
+            "op": "any",
+            "args": [
+              {
+                "op": "is_null",
+                "field": "target_ping"
+              },
+              {
+                "op": "is_null",
+                "field": "target_tcp80"
+              },
+              {
+                "op": "is_null",
+                "field": "local_http"
+              }
+            ]
+          },
+          "status": "insufficient_evidence",
+          "reason": "Need remote ping/TCP and fresh HTTP evidence from the service host.",
+          "missing": [
+            "Run http_probe.py on SRV01 and import its fresh JSON with --http-evidence."
+          ],
+          "actions": []
+        },
+        {
+          "when": {
+            "op": "all",
+            "args": [
+              {
+                "op": "eq",
+                "field": "target_ping",
+                "value": "success"
+              },
+              {
+                "op": "in",
+                "field": "target_tcp80",
+                "value": [
+                  "timeout",
+                  "refused"
+                ]
+              },
+              {
+                "op": "eq",
+                "field": "local_http",
+                "value": "success"
+              }
+            ]
+          },
+          "status": "matched",
+          "reason": "Remote ping={target_ping}, TCP80={target_tcp80}; HTTP on target's own service IP={local_http}. Filtering/access-path failure is suspected, not proven firewall causation.",
+          "missing": [
+            "Read firewall rules and relevant packet counters; compare another remote observer. Local HTTP does not traverse the same ingress path."
+          ],
+          "actions": [
+            "Inspect SRV01 firewall and routes; compare HTTP from CLI01 before attributing cause."
+          ]
+        },
+        {
+          "when": {
+            "op": "always"
+          },
+          "status": "not_matched",
+          "reason": "Remote ping={target_ping}, TCP80={target_tcp80}; HTTP on target's own service IP={local_http}. The evidence does not meet R5 conditions for suspected filtering/access-path failure.",
+          "missing": [],
+          "actions": []
+        }
+      ]
+    },
+    {
+      "rule_id": "R6_SUSTAINED_CPU_HIGH",
+      "group": "Resource",
+      "title": "Sustained CPU",
+      "hypotheses": [
+        {
+          "label": "Sustained workload saturation",
+          "priority_score_pct": 85,
+          "explanation": "Expert-assigned investigation priority from this signature; not a calibrated probability or proof of root cause."
+        },
+        {
+          "label": "Runaway process/background job",
+          "priority_score_pct": 65,
+          "explanation": "Expert-assigned investigation priority from this signature; not a calibrated probability or proof of root cause."
+        },
+        {
+          "label": "Insufficient CPU capacity",
+          "priority_score_pct": 45,
+          "explanation": "Expert-assigned investigation priority from this signature; not a calibrated probability or proof of root cause."
+        }
+      ],
+      "rows": [
+        {
+          "when": {
+            "op": "any",
+            "args": [
+              {
+                "op": "not",
+                "arg": {
+                  "op": "truthy",
+                  "field": "cpu_history_present"
+                }
+              },
+              {
+                "op": "ne",
+                "field": "cpu_history_status",
+                "value": "success"
+              },
+              {
+                "op": "ne",
+                "field": "cpu_units",
+                "value": "%"
+              }
+            ]
+          },
+          "status": "insufficient_evidence",
+          "reason": "No usable CPU history.",
+          "missing": [
+            "CPU percentage history over the last five minutes."
+          ],
+          "actions": []
+        },
+        {
+          "when": {
+            "op": "not",
+            "arg": {
+              "op": "truthy",
+              "field": "cpu_samples_valid"
+            }
+          },
+          "status": "insufficient_evidence",
+          "reason": "CPU history is sparse, stale or invalid.",
+          "missing": [
+            "At least {cpu_min_coverage}s coverage, max {cpu_max_gap}s gap, latest sample <={max_age}s old."
+          ],
+          "actions": []
+        },
+        {
+          "when": {
+            "op": "lt",
+            "field": "cpu_mean",
+            "other_field": "cpu_high_percent"
+          },
+          "status": "not_matched",
+          "reason": "Mean CPU={cpu_mean:.2f}%; below {cpu_high_percent}%.",
+          "missing": [],
+          "actions": []
+        },
+        {
+          "when": {
+            "op": "not",
+            "arg": {
+              "op": "truthy",
+              "field": "cpu_support_valid"
+            }
+          },
+          "status": "insufficient_evidence",
+          "reason": "CPU stays high, but load/cpu-count corroboration is missing.",
+          "missing": [
+            "Usable CPU count <={cpu_count_max_age}s old (1d heartbeat + {max_age}s grace) and CPU load <={max_age}s old."
+          ],
+          "actions": []
+        },
+        {
+          "when": {
+            "op": "ge",
+            "field": "cpu_load",
+            "other_field": "cpu_count"
+          },
+          "status": "matched",
+          "reason": "Mean CPU={cpu_mean:.2f}% over {cpu_span}s; threshold={cpu_high_percent}%; load={cpu_load:.2f}, CPUs={cpu_count:g}.",
+          "missing": [
+            "Response-time baseline and top processes; CPU and load suggest but do not prove overload."
+          ],
+          "actions": [
+            "Compare load and response time; inspect top processes."
+          ]
+        },
+        {
+          "when": {
+            "op": "always"
+          },
+          "status": "not_matched",
+          "reason": "Mean CPU={cpu_mean:.2f}% over {cpu_span}s; threshold={cpu_high_percent}%; load={cpu_load:.2f}, CPUs={cpu_count:g}.",
+          "missing": [],
+          "actions": []
+        }
+      ]
+    },
+    {
+      "rule_id": "R7_PARENT_GATEWAY_UNAVAILABLE",
+      "group": "Gateway",
+      "title": "Configured parent availability",
+      "hypotheses": [
+        {
+          "label": "Configured parent host/router unavailable",
+          "priority_score_pct": 85,
+          "explanation": "Expert-assigned investigation priority from this signature; not a calibrated probability or proof of root cause."
+        },
+        {
+          "label": "Parent monitoring path unavailable",
+          "priority_score_pct": 65,
+          "explanation": "Expert-assigned investigation priority from this signature; not a calibrated probability or proof of root cause."
+        },
+        {
+          "label": "Parent interface or forwarding failure",
+          "priority_score_pct": 45,
+          "explanation": "Expert-assigned investigation priority from this signature; not a calibrated probability or proof of root cause."
+        }
+      ],
+      "rows": [
+        {
+          "when": {
+            "op": "eq",
+            "field": "parent_status",
+            "value": "down"
+          },
+          "status": "matched",
+          "reason": "A configured parent is down according to fresh independent evidence.",
+          "missing": [
+            "Check the parent console and distinguish host failure from its observer path."
+          ],
+          "actions": [
+            "Investigate the parent before dependent reachability symptoms."
+          ]
+        },
+        {
+          "when": {
+            "op": "in",
+            "field": "parent_status",
+            "value": [
+              "up",
+              "not_applicable"
+            ]
+          },
+          "status": "not_matched",
+          "reason": "Configured parent is up or this node has no parent.",
+          "missing": [],
+          "actions": []
+        },
+        {
+          "when": {
+            "op": "always"
+          },
+          "status": "insufficient_evidence",
+          "reason": "Parent status is unknown; child alerts do not establish parent failure.",
+          "missing": [
+            "Fresh status of an actual configured dependency."
+          ],
+          "actions": []
+        }
+      ]
+    },
+    {
+      "rule_id": "R8_ALERT_STORM",
+      "group": "Alert Storm",
+      "title": "Alert burst",
+      "hypotheses": [
+        {
+          "label": "One dependency produced cascading alerts",
+          "priority_score_pct": 85,
+          "explanation": "Expert-assigned investigation priority from this signature; not a calibrated probability or proof of root cause."
+        },
+        {
+          "label": "Several independent incidents occurred concurrently",
+          "priority_score_pct": 65,
+          "explanation": "Expert-assigned investigation priority from this signature; not a calibrated probability or proof of root cause."
+        },
+        {
+          "label": "Repeated event delivery or flapping",
+          "priority_score_pct": 45,
+          "explanation": "Expert-assigned investigation priority from this signature; not a calibrated probability or proof of root cause."
+        }
+      ],
+      "rows": [
+        {
+          "when": {
+            "op": "ge",
+            "field": "window_alert_count",
+            "value": 10
+          },
+          "status": "matched",
+          "reason": "At least ten distinct problem events occurred in one correlation window.",
+          "missing": [
+            "Inspect topology groups and raw alerts before attributing one root cause."
+          ],
+          "actions": [
+            "Use correlation/suppression; preserve every raw event."
+          ]
+        },
+        {
+          "when": {
+            "op": "always"
+          },
+          "status": "not_matched",
+          "reason": "Distinct problem events are below the configured storm threshold.",
+          "missing": [],
+          "actions": []
+        }
+      ]
+    }
+  ]
+}

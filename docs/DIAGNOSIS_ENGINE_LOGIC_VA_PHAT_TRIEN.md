@@ -1,3 +1,5 @@
+> **Cập nhật 03/11/2026 — hệ thống v3:** Đã bổ sung SQLite expert, bảy nhóm features, automatic worker, gateway thật trên ba VM, correlation/suppression và thử nhiều lỗi. Demo ML Nginx đã chạy lại thành công nhưng model vẫn là nghiên cứu lỗi đơn theo hợp đồng cũ. Xem [báo cáo hiện tại](HOAN_THIEN_HE_THONG_20261103.md) và [hướng dẫn v3](../system-monitor/README.md). Phần bên dưới giữ mô tả baseline/lịch sử; không dùng nó để phủ định chức năng v3 mới.
+
 # Diagnosis engine: logic vận hành và bàn giao phát triển
 
 Đối tượng đọc: AI hoặc lập trình viên tiếp nhận đồ án. Tài liệu đủ để hiểu kiến trúc, lần theo một ca xử lý và chọn đúng phần source cần sửa, thay vì đọc toàn bộ repository. Khi thực sự thay đổi tính năng, vẫn phải đọc và kiểm tra những hàm bị tác động; đây không phải cam kết mọi thay đổi đều an toàn chỉ bằng tài liệu.

@@ -1,0 +1,1330 @@
+{
+  "status": "OK",
+  "id": "final-event-processing-latency",
+  "result": {
+    "zabbix_event_processing": [
+      {
+        "event_id": "2236",
+        "name": "V3 SRV01: routed TCP/80 unavailable",
+        "event_clock": 1793703219,
+        "received_clock": 1793703223,
+        "diagnosed_clock": 1793703225,
+        "event_to_ingest_seconds": 4,
+        "event_to_diagnosis_seconds": 6,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2237",
+        "name": "V3 SRV01: local Nginx stopped",
+        "event_clock": 1793703220,
+        "received_clock": 1793703223,
+        "diagnosed_clock": 1793703225,
+        "event_to_ingest_seconds": 3,
+        "event_to_diagnosis_seconds": 5,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2238",
+        "name": "SRV01: HTTP check failed",
+        "event_clock": 1793703241,
+        "received_clock": 1793703243,
+        "diagnosed_clock": 1793703245,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 4,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2239",
+        "name": "V3 SRV01: routed TCP/80 unavailable",
+        "event_clock": 1793703304,
+        "received_clock": 1793703308,
+        "diagnosed_clock": 1793703312,
+        "event_to_ingest_seconds": 4,
+        "event_to_diagnosis_seconds": 8,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2240",
+        "name": "V3 SRV01: local Nginx stopped",
+        "event_clock": 1793703305,
+        "received_clock": 1793703308,
+        "diagnosed_clock": 1793703312,
+        "event_to_ingest_seconds": 3,
+        "event_to_diagnosis_seconds": 7,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2241",
+        "name": "SRV01: HTTP check failed",
+        "event_clock": 1793703331,
+        "received_clock": 1793703334,
+        "diagnosed_clock": 1793703336,
+        "event_to_ingest_seconds": 3,
+        "event_to_diagnosis_seconds": 5,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2242",
+        "name": "V3 CLI01: gateway forwarding unavailable",
+        "event_clock": 1793703384,
+        "received_clock": 1793703392,
+        "diagnosed_clock": 1793703396,
+        "event_to_ingest_seconds": 8,
+        "event_to_diagnosis_seconds": 12,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2244",
+        "name": "V3 SRV01-Routed: ICMP unavailable",
+        "event_clock": 1793703385,
+        "received_clock": 1793703392,
+        "diagnosed_clock": 1793703403,
+        "event_to_ingest_seconds": 7,
+        "event_to_diagnosis_seconds": 18,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2243",
+        "name": "V3 SRV01: routed TCP/80 unavailable",
+        "event_clock": 1793703387,
+        "received_clock": 1793703392,
+        "diagnosed_clock": 1793703403,
+        "event_to_ingest_seconds": 5,
+        "event_to_diagnosis_seconds": 16,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2245",
+        "name": "V3 SRV01: routed agent samples missing",
+        "event_clock": 1793703412,
+        "received_clock": 1793703413,
+        "diagnosed_clock": 1793703423,
+        "event_to_ingest_seconds": 1,
+        "event_to_diagnosis_seconds": 11,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2246",
+        "name": "V3 SYNTHETIC routed symptom 1",
+        "event_clock": 1793703449,
+        "received_clock": 1793703451,
+        "diagnosed_clock": 1793703461,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 12,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2247",
+        "name": "V3 SYNTHETIC routed symptom 2",
+        "event_clock": 1793703449,
+        "received_clock": 1793703451,
+        "diagnosed_clock": 1793703461,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 12,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2248",
+        "name": "V3 SYNTHETIC routed symptom 3",
+        "event_clock": 1793703449,
+        "received_clock": 1793703451,
+        "diagnosed_clock": 1793703461,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 12,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2249",
+        "name": "V3 SYNTHETIC routed symptom 4",
+        "event_clock": 1793703449,
+        "received_clock": 1793703451,
+        "diagnosed_clock": 1793703461,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 12,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2250",
+        "name": "V3 SYNTHETIC routed symptom 5",
+        "event_clock": 1793703449,
+        "received_clock": 1793703451,
+        "diagnosed_clock": 1793703461,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 12,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2251",
+        "name": "V3 SYNTHETIC routed symptom 6",
+        "event_clock": 1793703449,
+        "received_clock": 1793703451,
+        "diagnosed_clock": 1793703461,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 12,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2252",
+        "name": "V3 SYNTHETIC routed symptom 7",
+        "event_clock": 1793703449,
+        "received_clock": 1793703451,
+        "diagnosed_clock": 1793703461,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 12,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2253",
+        "name": "V3 SYNTHETIC routed symptom 8",
+        "event_clock": 1793703449,
+        "received_clock": 1793703451,
+        "diagnosed_clock": 1793703461,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 12,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2254",
+        "name": "V3 SYNTHETIC routed symptom 9",
+        "event_clock": 1793703449,
+        "received_clock": 1793703451,
+        "diagnosed_clock": 1793703461,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 12,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2255",
+        "name": "V3 SYNTHETIC routed symptom 10",
+        "event_clock": 1793703449,
+        "received_clock": 1793703451,
+        "diagnosed_clock": 1793703461,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 12,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2256",
+        "name": "V3 SYNTHETIC routed symptom 11",
+        "event_clock": 1793703449,
+        "received_clock": 1793703451,
+        "diagnosed_clock": 1793703461,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 12,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2257",
+        "name": "V3 SYNTHETIC routed symptom 12",
+        "event_clock": 1793703449,
+        "received_clock": 1793703451,
+        "diagnosed_clock": 1793703461,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 12,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2258",
+        "name": "V3 SYNTHETIC routed symptom 13",
+        "event_clock": 1793703449,
+        "received_clock": 1793703451,
+        "diagnosed_clock": 1793703461,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 12,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2259",
+        "name": "V3 SYNTHETIC routed symptom 14",
+        "event_clock": 1793703449,
+        "received_clock": 1793703451,
+        "diagnosed_clock": 1793703461,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 12,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2260",
+        "name": "V3 SYNTHETIC routed symptom 15",
+        "event_clock": 1793703449,
+        "received_clock": 1793703451,
+        "diagnosed_clock": 1793703461,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 12,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2261",
+        "name": "V3 SYNTHETIC routed symptom 16",
+        "event_clock": 1793703449,
+        "received_clock": 1793703451,
+        "diagnosed_clock": 1793703461,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 12,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2262",
+        "name": "V3 SYNTHETIC routed symptom 17",
+        "event_clock": 1793703449,
+        "received_clock": 1793703451,
+        "diagnosed_clock": 1793703461,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 12,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2263",
+        "name": "V3 SYNTHETIC routed symptom 18",
+        "event_clock": 1793703449,
+        "received_clock": 1793703451,
+        "diagnosed_clock": 1793703461,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 12,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2264",
+        "name": "V3 SYNTHETIC routed symptom 19",
+        "event_clock": 1793703449,
+        "received_clock": 1793703451,
+        "diagnosed_clock": 1793703461,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 12,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2265",
+        "name": "V3 SYNTHETIC routed symptom 20",
+        "event_clock": 1793703449,
+        "received_clock": 1793703451,
+        "diagnosed_clock": 1793703461,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 12,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2266",
+        "name": "V3 SYNTHETIC routed symptom 1",
+        "event_clock": 1793703476,
+        "received_clock": 1793703481,
+        "diagnosed_clock": 1793703484,
+        "event_to_ingest_seconds": 5,
+        "event_to_diagnosis_seconds": 8,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2267",
+        "name": "V3 SYNTHETIC routed symptom 2",
+        "event_clock": 1793703476,
+        "received_clock": 1793703481,
+        "diagnosed_clock": 1793703484,
+        "event_to_ingest_seconds": 5,
+        "event_to_diagnosis_seconds": 8,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2268",
+        "name": "V3 SYNTHETIC routed symptom 3",
+        "event_clock": 1793703476,
+        "received_clock": 1793703481,
+        "diagnosed_clock": 1793703484,
+        "event_to_ingest_seconds": 5,
+        "event_to_diagnosis_seconds": 8,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2269",
+        "name": "V3 SYNTHETIC routed symptom 4",
+        "event_clock": 1793703476,
+        "received_clock": 1793703481,
+        "diagnosed_clock": 1793703484,
+        "event_to_ingest_seconds": 5,
+        "event_to_diagnosis_seconds": 8,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2270",
+        "name": "V3 SYNTHETIC routed symptom 5",
+        "event_clock": 1793703476,
+        "received_clock": 1793703481,
+        "diagnosed_clock": 1793703484,
+        "event_to_ingest_seconds": 5,
+        "event_to_diagnosis_seconds": 8,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2271",
+        "name": "V3 SYNTHETIC routed symptom 6",
+        "event_clock": 1793703476,
+        "received_clock": 1793703481,
+        "diagnosed_clock": 1793703484,
+        "event_to_ingest_seconds": 5,
+        "event_to_diagnosis_seconds": 8,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2272",
+        "name": "V3 SYNTHETIC routed symptom 7",
+        "event_clock": 1793703476,
+        "received_clock": 1793703481,
+        "diagnosed_clock": 1793703484,
+        "event_to_ingest_seconds": 5,
+        "event_to_diagnosis_seconds": 8,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2273",
+        "name": "V3 SYNTHETIC routed symptom 8",
+        "event_clock": 1793703476,
+        "received_clock": 1793703481,
+        "diagnosed_clock": 1793703484,
+        "event_to_ingest_seconds": 5,
+        "event_to_diagnosis_seconds": 8,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2274",
+        "name": "V3 SYNTHETIC routed symptom 9",
+        "event_clock": 1793703476,
+        "received_clock": 1793703481,
+        "diagnosed_clock": 1793703484,
+        "event_to_ingest_seconds": 5,
+        "event_to_diagnosis_seconds": 8,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2275",
+        "name": "V3 SYNTHETIC routed symptom 10",
+        "event_clock": 1793703476,
+        "received_clock": 1793703481,
+        "diagnosed_clock": 1793703484,
+        "event_to_ingest_seconds": 5,
+        "event_to_diagnosis_seconds": 8,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2276",
+        "name": "V3 SYNTHETIC routed symptom 11",
+        "event_clock": 1793703476,
+        "received_clock": 1793703481,
+        "diagnosed_clock": 1793703484,
+        "event_to_ingest_seconds": 5,
+        "event_to_diagnosis_seconds": 8,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2277",
+        "name": "V3 SYNTHETIC routed symptom 12",
+        "event_clock": 1793703476,
+        "received_clock": 1793703481,
+        "diagnosed_clock": 1793703484,
+        "event_to_ingest_seconds": 5,
+        "event_to_diagnosis_seconds": 8,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2278",
+        "name": "V3 SYNTHETIC routed symptom 13",
+        "event_clock": 1793703476,
+        "received_clock": 1793703481,
+        "diagnosed_clock": 1793703484,
+        "event_to_ingest_seconds": 5,
+        "event_to_diagnosis_seconds": 8,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2279",
+        "name": "V3 SYNTHETIC routed symptom 14",
+        "event_clock": 1793703476,
+        "received_clock": 1793703481,
+        "diagnosed_clock": 1793703484,
+        "event_to_ingest_seconds": 5,
+        "event_to_diagnosis_seconds": 8,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2280",
+        "name": "V3 SYNTHETIC routed symptom 15",
+        "event_clock": 1793703476,
+        "received_clock": 1793703481,
+        "diagnosed_clock": 1793703484,
+        "event_to_ingest_seconds": 5,
+        "event_to_diagnosis_seconds": 8,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2281",
+        "name": "V3 SYNTHETIC routed symptom 16",
+        "event_clock": 1793703476,
+        "received_clock": 1793703481,
+        "diagnosed_clock": 1793703484,
+        "event_to_ingest_seconds": 5,
+        "event_to_diagnosis_seconds": 8,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2282",
+        "name": "V3 SYNTHETIC routed symptom 17",
+        "event_clock": 1793703476,
+        "received_clock": 1793703481,
+        "diagnosed_clock": 1793703484,
+        "event_to_ingest_seconds": 5,
+        "event_to_diagnosis_seconds": 8,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2283",
+        "name": "V3 SYNTHETIC routed symptom 18",
+        "event_clock": 1793703476,
+        "received_clock": 1793703481,
+        "diagnosed_clock": 1793703484,
+        "event_to_ingest_seconds": 5,
+        "event_to_diagnosis_seconds": 8,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2284",
+        "name": "V3 SYNTHETIC routed symptom 19",
+        "event_clock": 1793703476,
+        "received_clock": 1793703481,
+        "diagnosed_clock": 1793703484,
+        "event_to_ingest_seconds": 5,
+        "event_to_diagnosis_seconds": 8,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2285",
+        "name": "V3 SYNTHETIC routed symptom 20",
+        "event_clock": 1793703476,
+        "received_clock": 1793703481,
+        "diagnosed_clock": 1793703484,
+        "event_to_ingest_seconds": 5,
+        "event_to_diagnosis_seconds": 8,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2286",
+        "name": "V3 SRV01: routed TCP/80 unavailable",
+        "event_clock": 1793703479,
+        "received_clock": 1793703481,
+        "diagnosed_clock": 1793703484,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 5,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2287",
+        "name": "V3 SRV01-Routed: ICMP unavailable",
+        "event_clock": 1793703480,
+        "received_clock": 1793703487,
+        "diagnosed_clock": 1793703489,
+        "event_to_ingest_seconds": 7,
+        "event_to_diagnosis_seconds": 9,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2288",
+        "name": "V3 CLI01: gateway forwarding unavailable",
+        "event_clock": 1793703484,
+        "received_clock": 1793703487,
+        "diagnosed_clock": 1793703490,
+        "event_to_ingest_seconds": 3,
+        "event_to_diagnosis_seconds": 6,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2289",
+        "name": "V3 SRV01: routed agent samples missing",
+        "event_clock": 1793703517,
+        "received_clock": 1793703522,
+        "diagnosed_clock": 1793703524,
+        "event_to_ingest_seconds": 5,
+        "event_to_diagnosis_seconds": 7,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2290",
+        "name": "V3 CLI01: gateway forwarding unavailable",
+        "event_clock": 1793703574,
+        "received_clock": 1793703583,
+        "diagnosed_clock": 1793703587,
+        "event_to_ingest_seconds": 9,
+        "event_to_diagnosis_seconds": 13,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2292",
+        "name": "V3 SRV01-Routed: ICMP unavailable",
+        "event_clock": 1793703575,
+        "received_clock": 1793703583,
+        "diagnosed_clock": 1793703594,
+        "event_to_ingest_seconds": 8,
+        "event_to_diagnosis_seconds": 19,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2291",
+        "name": "V3 SRV01: routed TCP/80 unavailable",
+        "event_clock": 1793703577,
+        "received_clock": 1793703583,
+        "diagnosed_clock": 1793703594,
+        "event_to_ingest_seconds": 6,
+        "event_to_diagnosis_seconds": 17,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2293",
+        "name": "SRV01: HTTP check failed",
+        "event_clock": 1793703601,
+        "received_clock": 1793703605,
+        "diagnosed_clock": 1793703616,
+        "event_to_ingest_seconds": 4,
+        "event_to_diagnosis_seconds": 15,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2294",
+        "name": "V3 SRV01: routed agent samples missing",
+        "event_clock": 1793703622,
+        "received_clock": 1793703626,
+        "diagnosed_clock": 1793703635,
+        "event_to_ingest_seconds": 4,
+        "event_to_diagnosis_seconds": 13,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2296",
+        "name": "V3 SRV01-Routed: ICMP unavailable",
+        "event_clock": 1793703656,
+        "received_clock": 1793703661,
+        "diagnosed_clock": 1793703664,
+        "event_to_ingest_seconds": 5,
+        "event_to_diagnosis_seconds": 8,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2297",
+        "name": "V3 CLI01: gateway forwarding unavailable",
+        "event_clock": 1793703659,
+        "received_clock": 1793703661,
+        "diagnosed_clock": 1793703665,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 6,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2298",
+        "name": "V3 SRV01: routed agent samples missing",
+        "event_clock": 1793703684,
+        "received_clock": 1793703686,
+        "diagnosed_clock": 1793703689,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 5,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2299",
+        "name": "V3 SRV01: local Nginx stopped",
+        "event_clock": 1793703688,
+        "received_clock": 1793703691,
+        "diagnosed_clock": 1793703694,
+        "event_to_ingest_seconds": 3,
+        "event_to_diagnosis_seconds": 6,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2300",
+        "name": "V3 SRV01: routed TCP/80 unavailable",
+        "event_clock": 1793703699,
+        "received_clock": 1793703702,
+        "diagnosed_clock": 1793703704,
+        "event_to_ingest_seconds": 3,
+        "event_to_diagnosis_seconds": 5,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2301",
+        "name": "V3 SRV01: local Nginx stopped",
+        "event_clock": 1793703700,
+        "received_clock": 1793703702,
+        "diagnosed_clock": 1793703704,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 4,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2302",
+        "name": "SRV01: HTTP check failed",
+        "event_clock": 1793703721,
+        "received_clock": 1793703722,
+        "diagnosed_clock": 1793703725,
+        "event_to_ingest_seconds": 1,
+        "event_to_diagnosis_seconds": 4,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2303",
+        "name": "V3 SRV01: routed TCP/80 unavailable",
+        "event_clock": 1793703824,
+        "received_clock": 1793703827,
+        "diagnosed_clock": 1793703830,
+        "event_to_ingest_seconds": 3,
+        "event_to_diagnosis_seconds": 6,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2304",
+        "name": "V3 SRV01: local Nginx stopped",
+        "event_clock": 1793703825,
+        "received_clock": 1793703827,
+        "diagnosed_clock": 1793703830,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 5,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2305",
+        "name": "V3 SRV01: routed TCP/80 unavailable",
+        "event_clock": 1793703834,
+        "received_clock": 1793703837,
+        "diagnosed_clock": 1793703840,
+        "event_to_ingest_seconds": 3,
+        "event_to_diagnosis_seconds": 6,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2306",
+        "name": "V3 SRV01: local Nginx stopped",
+        "event_clock": 1793703835,
+        "received_clock": 1793703837,
+        "diagnosed_clock": 1793703840,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 5,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2307",
+        "name": "V3 SRV01: routed TCP/80 unavailable",
+        "event_clock": 1793703889,
+        "received_clock": 1793703893,
+        "diagnosed_clock": 1793703895,
+        "event_to_ingest_seconds": 4,
+        "event_to_diagnosis_seconds": 6,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2308",
+        "name": "V3 SRV01: local Nginx stopped",
+        "event_clock": 1793703890,
+        "received_clock": 1793703893,
+        "diagnosed_clock": 1793703895,
+        "event_to_ingest_seconds": 3,
+        "event_to_diagnosis_seconds": 5,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2309",
+        "name": "SRV01: HTTP check failed",
+        "event_clock": 1793703901,
+        "received_clock": 1793703903,
+        "diagnosed_clock": 1793703905,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 4,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2310",
+        "name": "V3 SRV01: local Nginx stopped",
+        "event_clock": 1793703930,
+        "received_clock": 1793703933,
+        "diagnosed_clock": 1793703936,
+        "event_to_ingest_seconds": 3,
+        "event_to_diagnosis_seconds": 6,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2311",
+        "name": "SRV01: HTTP check failed",
+        "event_clock": 1793703931,
+        "received_clock": 1793703933,
+        "diagnosed_clock": 1793703936,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 5,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2312",
+        "name": "V3 SRV01: routed TCP/80 unavailable",
+        "event_clock": 1793703934,
+        "received_clock": 1793703938,
+        "diagnosed_clock": 1793703940,
+        "event_to_ingest_seconds": 4,
+        "event_to_diagnosis_seconds": 6,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2316",
+        "name": "V3 SRV01-Routed: ICMP unavailable",
+        "event_clock": 1793704110,
+        "received_clock": 1793704118,
+        "diagnosed_clock": 1793704129,
+        "event_to_ingest_seconds": 8,
+        "event_to_diagnosis_seconds": 19,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2315",
+        "name": "SRV01: HTTP check failed",
+        "event_clock": 1793704111,
+        "received_clock": 1793704118,
+        "diagnosed_clock": 1793704129,
+        "event_to_ingest_seconds": 7,
+        "event_to_diagnosis_seconds": 18,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2317",
+        "name": "V3 CLI01: gateway forwarding unavailable",
+        "event_clock": 1793704114,
+        "received_clock": 1793704118,
+        "diagnosed_clock": 1793704129,
+        "event_to_ingest_seconds": 4,
+        "event_to_diagnosis_seconds": 15,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2318",
+        "name": "V3 SRV01: routed TCP/80 unavailable",
+        "event_clock": 1793704117,
+        "received_clock": 1793704118,
+        "diagnosed_clock": 1793704129,
+        "event_to_ingest_seconds": 1,
+        "event_to_diagnosis_seconds": 12,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2319",
+        "name": "V3 SRV01: routed TCP/80 unavailable",
+        "event_clock": 1793704131,
+        "received_clock": 1793704134,
+        "diagnosed_clock": 1793704137,
+        "event_to_ingest_seconds": 3,
+        "event_to_diagnosis_seconds": 6,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2320",
+        "name": "V3 CLI01: gateway forwarding unavailable",
+        "event_clock": 1793704134,
+        "received_clock": 1793704134,
+        "diagnosed_clock": 1793704138,
+        "event_to_ingest_seconds": 0,
+        "event_to_diagnosis_seconds": 4,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2321",
+        "name": "V3 SRV01-Routed: ICMP unavailable",
+        "event_clock": 1793704135,
+        "received_clock": 1793704139,
+        "diagnosed_clock": 1793704142,
+        "event_to_ingest_seconds": 4,
+        "event_to_diagnosis_seconds": 7,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2322",
+        "name": "SRV01: HTTP check failed",
+        "event_clock": 1793704141,
+        "received_clock": 1793704144,
+        "diagnosed_clock": 1793704147,
+        "event_to_ingest_seconds": 3,
+        "event_to_diagnosis_seconds": 6,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2325",
+        "name": "V3 SYNTHETIC routed symptom 1",
+        "event_clock": 1793704221,
+        "received_clock": 1793704225,
+        "diagnosed_clock": 1793704235,
+        "event_to_ingest_seconds": 4,
+        "event_to_diagnosis_seconds": 14,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2326",
+        "name": "V3 SYNTHETIC routed symptom 2",
+        "event_clock": 1793704221,
+        "received_clock": 1793704225,
+        "diagnosed_clock": 1793704235,
+        "event_to_ingest_seconds": 4,
+        "event_to_diagnosis_seconds": 14,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2327",
+        "name": "V3 SYNTHETIC routed symptom 3",
+        "event_clock": 1793704221,
+        "received_clock": 1793704225,
+        "diagnosed_clock": 1793704235,
+        "event_to_ingest_seconds": 4,
+        "event_to_diagnosis_seconds": 14,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2328",
+        "name": "V3 SYNTHETIC routed symptom 4",
+        "event_clock": 1793704221,
+        "received_clock": 1793704225,
+        "diagnosed_clock": 1793704235,
+        "event_to_ingest_seconds": 4,
+        "event_to_diagnosis_seconds": 14,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2329",
+        "name": "V3 SYNTHETIC routed symptom 5",
+        "event_clock": 1793704221,
+        "received_clock": 1793704225,
+        "diagnosed_clock": 1793704235,
+        "event_to_ingest_seconds": 4,
+        "event_to_diagnosis_seconds": 14,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2330",
+        "name": "V3 SYNTHETIC routed symptom 6",
+        "event_clock": 1793704221,
+        "received_clock": 1793704225,
+        "diagnosed_clock": 1793704235,
+        "event_to_ingest_seconds": 4,
+        "event_to_diagnosis_seconds": 14,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2331",
+        "name": "V3 SYNTHETIC routed symptom 7",
+        "event_clock": 1793704221,
+        "received_clock": 1793704225,
+        "diagnosed_clock": 1793704235,
+        "event_to_ingest_seconds": 4,
+        "event_to_diagnosis_seconds": 14,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2332",
+        "name": "V3 SYNTHETIC routed symptom 8",
+        "event_clock": 1793704221,
+        "received_clock": 1793704225,
+        "diagnosed_clock": 1793704235,
+        "event_to_ingest_seconds": 4,
+        "event_to_diagnosis_seconds": 14,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2333",
+        "name": "V3 SYNTHETIC routed symptom 9",
+        "event_clock": 1793704221,
+        "received_clock": 1793704225,
+        "diagnosed_clock": 1793704235,
+        "event_to_ingest_seconds": 4,
+        "event_to_diagnosis_seconds": 14,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2334",
+        "name": "V3 SYNTHETIC routed symptom 10",
+        "event_clock": 1793704221,
+        "received_clock": 1793704225,
+        "diagnosed_clock": 1793704235,
+        "event_to_ingest_seconds": 4,
+        "event_to_diagnosis_seconds": 14,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2335",
+        "name": "V3 SYNTHETIC routed symptom 11",
+        "event_clock": 1793704221,
+        "received_clock": 1793704225,
+        "diagnosed_clock": 1793704235,
+        "event_to_ingest_seconds": 4,
+        "event_to_diagnosis_seconds": 14,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2336",
+        "name": "V3 SYNTHETIC routed symptom 12",
+        "event_clock": 1793704221,
+        "received_clock": 1793704225,
+        "diagnosed_clock": 1793704235,
+        "event_to_ingest_seconds": 4,
+        "event_to_diagnosis_seconds": 14,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2337",
+        "name": "V3 SYNTHETIC routed symptom 13",
+        "event_clock": 1793704221,
+        "received_clock": 1793704225,
+        "diagnosed_clock": 1793704235,
+        "event_to_ingest_seconds": 4,
+        "event_to_diagnosis_seconds": 14,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2338",
+        "name": "V3 SYNTHETIC routed symptom 14",
+        "event_clock": 1793704221,
+        "received_clock": 1793704225,
+        "diagnosed_clock": 1793704235,
+        "event_to_ingest_seconds": 4,
+        "event_to_diagnosis_seconds": 14,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2339",
+        "name": "V3 SYNTHETIC routed symptom 15",
+        "event_clock": 1793704221,
+        "received_clock": 1793704225,
+        "diagnosed_clock": 1793704235,
+        "event_to_ingest_seconds": 4,
+        "event_to_diagnosis_seconds": 14,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2340",
+        "name": "V3 SYNTHETIC routed symptom 16",
+        "event_clock": 1793704221,
+        "received_clock": 1793704225,
+        "diagnosed_clock": 1793704235,
+        "event_to_ingest_seconds": 4,
+        "event_to_diagnosis_seconds": 14,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2341",
+        "name": "V3 SYNTHETIC routed symptom 17",
+        "event_clock": 1793704221,
+        "received_clock": 1793704225,
+        "diagnosed_clock": 1793704235,
+        "event_to_ingest_seconds": 4,
+        "event_to_diagnosis_seconds": 14,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2342",
+        "name": "V3 SYNTHETIC routed symptom 18",
+        "event_clock": 1793704221,
+        "received_clock": 1793704225,
+        "diagnosed_clock": 1793704235,
+        "event_to_ingest_seconds": 4,
+        "event_to_diagnosis_seconds": 14,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2343",
+        "name": "V3 SYNTHETIC routed symptom 19",
+        "event_clock": 1793704221,
+        "received_clock": 1793704225,
+        "diagnosed_clock": 1793704235,
+        "event_to_ingest_seconds": 4,
+        "event_to_diagnosis_seconds": 14,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2344",
+        "name": "V3 SYNTHETIC routed symptom 20",
+        "event_clock": 1793704221,
+        "received_clock": 1793704225,
+        "diagnosed_clock": 1793704235,
+        "event_to_ingest_seconds": 4,
+        "event_to_diagnosis_seconds": 14,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2345",
+        "name": "V3 CLI01: gateway forwarding unavailable",
+        "event_clock": 1793704224,
+        "received_clock": 1793704225,
+        "diagnosed_clock": 1793704236,
+        "event_to_ingest_seconds": 1,
+        "event_to_diagnosis_seconds": 12,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2347",
+        "name": "V3 SRV01-Routed: ICMP unavailable",
+        "event_clock": 1793704225,
+        "received_clock": 1793704236,
+        "diagnosed_clock": 1793704246,
+        "event_to_ingest_seconds": 11,
+        "event_to_diagnosis_seconds": 21,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2346",
+        "name": "V3 SRV01: routed TCP/80 unavailable",
+        "event_clock": 1793704227,
+        "received_clock": 1793704236,
+        "diagnosed_clock": 1793704246,
+        "event_to_ingest_seconds": 9,
+        "event_to_diagnosis_seconds": 19,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2371",
+        "name": "V3 SRV01-Routed: ICMP unavailable",
+        "event_clock": 1793704249,
+        "received_clock": 1793704252,
+        "diagnosed_clock": 1793704255,
+        "event_to_ingest_seconds": 3,
+        "event_to_diagnosis_seconds": 6,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2351",
+        "name": "V3 SYNTHETIC routed symptom 1",
+        "event_clock": 1793704250,
+        "received_clock": 1793704252,
+        "diagnosed_clock": 1793704255,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 5,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2352",
+        "name": "V3 SYNTHETIC routed symptom 2",
+        "event_clock": 1793704250,
+        "received_clock": 1793704252,
+        "diagnosed_clock": 1793704255,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 5,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2353",
+        "name": "V3 SYNTHETIC routed symptom 3",
+        "event_clock": 1793704250,
+        "received_clock": 1793704252,
+        "diagnosed_clock": 1793704255,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 5,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2354",
+        "name": "V3 SYNTHETIC routed symptom 4",
+        "event_clock": 1793704250,
+        "received_clock": 1793704252,
+        "diagnosed_clock": 1793704255,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 5,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2355",
+        "name": "V3 SYNTHETIC routed symptom 5",
+        "event_clock": 1793704250,
+        "received_clock": 1793704252,
+        "diagnosed_clock": 1793704255,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 5,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2356",
+        "name": "V3 SYNTHETIC routed symptom 6",
+        "event_clock": 1793704250,
+        "received_clock": 1793704252,
+        "diagnosed_clock": 1793704255,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 5,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2357",
+        "name": "V3 SYNTHETIC routed symptom 7",
+        "event_clock": 1793704250,
+        "received_clock": 1793704252,
+        "diagnosed_clock": 1793704255,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 5,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2358",
+        "name": "V3 SYNTHETIC routed symptom 8",
+        "event_clock": 1793704250,
+        "received_clock": 1793704252,
+        "diagnosed_clock": 1793704255,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 5,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2359",
+        "name": "V3 SYNTHETIC routed symptom 9",
+        "event_clock": 1793704250,
+        "received_clock": 1793704252,
+        "diagnosed_clock": 1793704255,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 5,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2360",
+        "name": "V3 SYNTHETIC routed symptom 10",
+        "event_clock": 1793704250,
+        "received_clock": 1793704252,
+        "diagnosed_clock": 1793704255,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 5,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2361",
+        "name": "V3 SYNTHETIC routed symptom 11",
+        "event_clock": 1793704250,
+        "received_clock": 1793704252,
+        "diagnosed_clock": 1793704255,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 5,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2362",
+        "name": "V3 SYNTHETIC routed symptom 12",
+        "event_clock": 1793704250,
+        "received_clock": 1793704252,
+        "diagnosed_clock": 1793704255,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 5,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2363",
+        "name": "V3 SYNTHETIC routed symptom 13",
+        "event_clock": 1793704250,
+        "received_clock": 1793704252,
+        "diagnosed_clock": 1793704255,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 5,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2364",
+        "name": "V3 SYNTHETIC routed symptom 14",
+        "event_clock": 1793704250,
+        "received_clock": 1793704252,
+        "diagnosed_clock": 1793704255,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 5,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2365",
+        "name": "V3 SYNTHETIC routed symptom 15",
+        "event_clock": 1793704250,
+        "received_clock": 1793704252,
+        "diagnosed_clock": 1793704255,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 5,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2366",
+        "name": "V3 SYNTHETIC routed symptom 16",
+        "event_clock": 1793704250,
+        "received_clock": 1793704252,
+        "diagnosed_clock": 1793704255,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 5,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2367",
+        "name": "V3 SYNTHETIC routed symptom 17",
+        "event_clock": 1793704250,
+        "received_clock": 1793704252,
+        "diagnosed_clock": 1793704255,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 5,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2368",
+        "name": "V3 SYNTHETIC routed symptom 18",
+        "event_clock": 1793704250,
+        "received_clock": 1793704252,
+        "diagnosed_clock": 1793704255,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 5,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2369",
+        "name": "V3 SYNTHETIC routed symptom 19",
+        "event_clock": 1793704250,
+        "received_clock": 1793704252,
+        "diagnosed_clock": 1793704255,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 5,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2370",
+        "name": "V3 SYNTHETIC routed symptom 20",
+        "event_clock": 1793704250,
+        "received_clock": 1793704252,
+        "diagnosed_clock": 1793704255,
+        "event_to_ingest_seconds": 2,
+        "event_to_diagnosis_seconds": 5,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2373",
+        "name": "V3 SRV01: routed TCP/80 unavailable",
+        "event_clock": 1793704251,
+        "received_clock": 1793704252,
+        "diagnosed_clock": 1793704255,
+        "event_to_ingest_seconds": 1,
+        "event_to_diagnosis_seconds": 4,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2374",
+        "name": "V3 SRV01: routed agent samples missing",
+        "event_clock": 1793704252,
+        "received_clock": 1793704252,
+        "diagnosed_clock": 1793704255,
+        "event_to_ingest_seconds": 0,
+        "event_to_diagnosis_seconds": 3,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2376",
+        "name": "V3 CLI01: gateway forwarding unavailable",
+        "event_clock": 1793704254,
+        "received_clock": 1793704257,
+        "diagnosed_clock": 1793704259,
+        "event_to_ingest_seconds": 3,
+        "event_to_diagnosis_seconds": 5,
+        "job_state": "done"
+      },
+      {
+        "event_id": "2378",
+        "name": "V3 SRV01: routed agent samples missing",
+        "event_clock": 1793704266,
+        "received_clock": 1793704267,
+        "diagnosed_clock": 1793704270,
+        "event_to_ingest_seconds": 1,
+        "event_to_diagnosis_seconds": 4,
+        "job_state": "done"
+      }
+    ],
+    "sqlite_integrity": "ok",
+    "foreign_key_errors": []
+  }
+}

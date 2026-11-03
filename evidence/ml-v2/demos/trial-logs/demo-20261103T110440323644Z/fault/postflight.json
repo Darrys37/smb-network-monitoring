@@ -1,0 +1,225 @@
+{
+  "service": {
+    "time": 1793703945,
+    "nginx": {
+      "code": 0,
+      "stdout": "active"
+    },
+    "agent": {
+      "code": 0,
+      "stdout": "active"
+    },
+    "http": {
+      "code": 0,
+      "stdout": "200"
+    },
+    "clock": {
+      "code": 0,
+      "stdout": "yes"
+    },
+    "stress": {
+      "code": 1,
+      "stdout": ""
+    },
+    "dns": {
+      "code": 0,
+      "stdout": "172.66.147.243\n104.20.23.154"
+    },
+    "control": {
+      "code": 0,
+      "stdout": "PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.\n64 bytes from 1.1.1.1: icmp_seq=1 ttl=64 time=56.9 ms\n\n--- 1.1.1.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 56.897/56.897/56.897/0.000 ms"
+    }
+  },
+  "monitor": {
+    "problems": [],
+    "metrics": [
+      {
+        "check_type": "metric",
+        "target": "10683",
+        "collected_at": 1793703946,
+        "result": {
+          "key": "system.cpu.util",
+          "units": "%",
+          "max_age_seconds": 180,
+          "status": "success",
+          "value": 22.283330000000007,
+          "sample_clock": 1793703937,
+          "age_seconds": 9,
+          "item_id": "50822",
+          "raw_value": "22.283330000000007",
+          "error": ""
+        }
+      },
+      {
+        "check_type": "metric",
+        "target": "10683",
+        "collected_at": 1793703946,
+        "result": {
+          "key": "vm.memory.util",
+          "units": "%",
+          "max_age_seconds": 180,
+          "status": "success",
+          "value": 15.065624,
+          "sample_clock": 1793703899,
+          "age_seconds": 47,
+          "item_id": "50823",
+          "raw_value": "15.065624",
+          "error": ""
+        }
+      },
+      {
+        "check_type": "metric",
+        "target": "10683",
+        "collected_at": 1793703946,
+        "result": {
+          "key": "system.cpu.load[all,avg1]",
+          "units": "",
+          "max_age_seconds": 180,
+          "status": "success",
+          "value": 0.11377,
+          "sample_clock": 1793703931,
+          "age_seconds": 15,
+          "item_id": "50791",
+          "raw_value": "0.11377",
+          "error": ""
+        }
+      },
+      {
+        "check_type": "metric",
+        "target": "10683",
+        "collected_at": 1793703946,
+        "result": {
+          "key": "vfs.fs.dependent.size[/,pused]",
+          "units": "%",
+          "max_age_seconds": 180,
+          "status": "success",
+          "value": 54.6050810204843,
+          "sample_clock": 1793703897,
+          "age_seconds": 49,
+          "item_id": "50856",
+          "raw_value": "54.6050810204843",
+          "error": ""
+        }
+      },
+      {
+        "check_type": "agent_metric",
+        "target": "10683",
+        "collected_at": 1793703946,
+        "result": {
+          "key": "agent.ping",
+          "status": "success",
+          "max_age_seconds": 180,
+          "item": {
+            "itemid": "50782",
+            "key_": "agent.ping",
+            "value_type": "3",
+            "status": "0",
+            "units": "",
+            "state": "0",
+            "error": "",
+            "lastclock": "1793703922",
+            "lastvalue": "1"
+          },
+          "sample_clock": 1793703922
+        }
+      },
+      {
+        "check_type": "cpu_history",
+        "target": "10683",
+        "collected_at": 1793703946,
+        "result": {
+          "key": "system.cpu.util",
+          "units": "%",
+          "status": "success",
+          "window_seconds": 300,
+          "samples": [
+            {
+              "clock": 1793703697,
+              "value": 17.756668000000005
+            },
+            {
+              "clock": 1793703757,
+              "value": 16.079834000000005
+            },
+            {
+              "clock": 1793703817,
+              "value": 18.211619
+            },
+            {
+              "clock": 1793703877,
+              "value": 16.233521999999994
+            },
+            {
+              "clock": 1793703937,
+              "value": 22.283330000000007
+            }
+          ],
+          "support_items": {
+            "system.cpu.num": {
+              "itemid": "50793",
+              "key_": "system.cpu.num",
+              "value_type": "3",
+              "status": "0",
+              "units": "",
+              "state": "0",
+              "error": "",
+              "lastclock": "1793699212",
+              "lastvalue": "1"
+            },
+            "system.cpu.load[all,avg1]": {
+              "itemid": "50791",
+              "key_": "system.cpu.load[all,avg1]",
+              "value_type": "0",
+              "status": "0",
+              "units": "",
+              "state": "0",
+              "error": "",
+              "lastclock": "1793703931",
+              "lastvalue": "0.11377"
+            }
+          },
+          "item_id": "50822"
+        }
+      }
+    ]
+  },
+  "platform": {
+    "status": "ok",
+    "schema_version": 2,
+    "nodes": {
+      "mon01": {
+        "boot_id": "89ab0b4a-1fc1-4ad2-8664-21661ad968d1",
+        "stall_count": 0,
+        "recent_stall": false,
+        "last_stalls": [],
+        "package_jobs_active": false,
+        "package_jobs": [],
+        "dpkg_lock_held": false,
+        "package_audit_clean": true,
+        "package_status_sha256": "230bb4abe035e335c06caf078bfe9c677799d9f3f033ad542279152d0bf5cac2"
+      },
+      "srv01": {
+        "boot_id": "37635eff-62af-4e72-804a-419b804cf3a6",
+        "stall_count": 0,
+        "recent_stall": false,
+        "last_stalls": [],
+        "package_jobs_active": false,
+        "package_jobs": [],
+        "dpkg_lock_held": false,
+        "package_audit_clean": true,
+        "package_status_sha256": "5c2a0d4638816dea3a6dcfbec2f4cbcffa3fca9f63e728b7aea39e51c7fc53dd"
+      },
+      "cli01": {
+        "boot_id": "61af3967-7ddb-463e-b543-f2a8f957311f",
+        "stall_count": 0,
+        "recent_stall": false,
+        "last_stalls": [],
+        "package_jobs_active": false,
+        "package_jobs": [],
+        "dpkg_lock_held": false,
+        "package_audit_clean": true,
+        "package_status_sha256": "e3c32a9f71a88ceda4c33df14170343c685cd05e27064b815fe39b680219ac1a"
+      }
+    }
+  }
+}

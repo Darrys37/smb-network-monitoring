@@ -1,0 +1,10 @@
+{
+  "host": "srv01",
+  "fault": "nginx",
+  "action": "arm",
+  "fault_clock": 1793703821,
+  "rollback_seconds": 120,
+  "rollback_timer": "do-an-v3-rollback-nginx.timer",
+  "timer_active": true,
+  "fault_applied": true
+}

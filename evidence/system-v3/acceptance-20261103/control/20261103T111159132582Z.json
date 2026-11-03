@@ -1,0 +1,24 @@
+{
+  "status": "OK",
+  "id": "final-state-srv01",
+  "result": {
+    "host": "srv01",
+    "clock": 1793704317,
+    "ntp": {
+      "exit": 0,
+      "stdout": "yes"
+    },
+    "agent": {
+      "exit": 0,
+      "stdout": "active"
+    },
+    "overlay": {
+      "exit": 0,
+      "stdout": "active"
+    },
+    "nginx": {
+      "exit": 0,
+      "stdout": "active"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "status": "OK",
+  "id": "agent-extension-cli01",
+  "result": {
+    "host": "cli01",
+    "agent_service": "active",
+    "checks": {
+      "router": {
+        "code": 0,
+        "value": "1"
+      },
+      "dns": {
+        "code": 0,
+        "value": "{\"status\": \"success\", \"record_type\": \"A\", \"dns_status\": \"NOERROR\", \"addresses\": [\"104.20.23.154\", \"172.66.147.243\"], \"response_time_ms\": 0, \"tool_elapsed_ms\": 76.53, \"observer\": \"cli01\"}"
+      }
+    }
+  }
+}

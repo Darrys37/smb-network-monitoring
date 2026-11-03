@@ -1,0 +1,12 @@
+{
+  "status": "OK",
+  "id": "post-v3-small-backup-srv01",
+  "result": {
+    "host": "srv01",
+    "checkpoint": "/home/phat/system-monitor-checkpoints/after-v3-20261103T111210866418Z",
+    "public_files": {},
+    "total_bytes": 200,
+    "private_files_exported": false,
+    "virtual_disks_copied": false
+  }
+}

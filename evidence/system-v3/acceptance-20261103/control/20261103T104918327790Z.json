@@ -1,0 +1,7 @@
+{
+  "status": "OK",
+  "id": "provision-script-upload",
+  "result": {
+    "uploaded": "/home/phat/do-an/system-monitor/provision_zabbix.py"
+  }
+}

@@ -1,3 +1,17 @@
+## Trạng thái chốt 03/11/2026 — ưu tiên hệ thống trước ML
+
+- Chỉ có MON01/SRV01/CLI01; không có máy Ubuntu thật. Phần thử máy thật hoãn, không khai là đã làm.
+- Module mới `system-monitor`: expert SQLite 8 luật/7 nhóm/40 hàng; vector v3 bảy nhóm; worker event/recovery tự động có durable cursor/jobs/retry/backfill; correlation30s, topology suppression và giữ lỗi độc lập.
+- CLI01 có NIC3 làm gateway tới SRV01 `172.30.20.20`; MON01 route qua `.56.30`. IP quản trị `.56.10/.20/.30` giữ nguyên. Unit `do-an-network-v3` trên cả ba VM, `do-an-monitor-v3` trên MON01; worker dùng token chỉ đọc. `.env.admin` chỉ cho provision/storm, không xuất vào Git.
+- Đã kiểm 33 tests hệ thống,74 tests ML; 88 observation hồi quy không phải dữ liệu mới. Lượt gateway:6 active→1group; gateway+20 synthetic:26→1; multi-fault:2group. Wrapper nginx/multi/storm đều có before/detected/recovered; tự khôi phục Nginx bằng timer đã có journal.
+- ML làm sau cùng: demo `demo-20261103T110440323644Z` valid; CART/FP đều healthy→nginx_stopped→healthy. Model/freeze giữ nguyên, chưa học topology hoặc multi-fault mới; không đưa vector v3 vào model12 features.
+- Chốt kiểm tra VM vẫn chạy, Nginx/Agent/Zabbix/MySQL/worker hoạt động, forwarding=1, không còn open problem/active event/pending job. Legacy DB vẫn39/301/172/29, integrity/FK tốt.
+- Backup đĩa VM có sẵn trong `D:\Study\network-monitoring-project\VM_BACKUP`; backup source trong `SOURCE_BACKUP`, không dùng thư mục `backups` cũ đã dọn. Checkpoint v3 mới là SQLite/config nhỏ, không thêm bản sao đĩa45GB. Receipt workspace `system-v3-backup-latest.json` ghi vị trí source/runtime sau cùng.
+- Đọc [báo cáo 03/11](../HOAN_THIEN_HE_THONG_20261103.md), [README v3](../../system-monitor/README.md), [bằng chứng](../../evidence/system-v3/acceptance-20261103/VERIFICATION.json) trước các ghi chú cũ bên dưới.
+
+Các đoạn sau giữ nguyên bối cảnh của những mốc trước. Không trộn bộ thử v3 vào train/test ML đã đóng băng.
+
+
 # Hiện trạng và cách tiếp tục đồ án
 
 ## Shutdown, backup và xuất bản — 01/11/2026 16:08 UTC+7

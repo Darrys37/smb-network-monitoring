@@ -1,0 +1,11 @@
+{
+  "status": "OK",
+  "id": "live-test-nginx-recover",
+  "result": {
+    "host": "srv01",
+    "fault": "nginx",
+    "action": "recover",
+    "recovered_clock": 1793703301,
+    "baseline_restored": true
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "status": "OK",
+  "id": "ensure-synthetic-reset-timer",
+  "result": {
+    "synthetic_reset_timer": "active"
+  }
+}

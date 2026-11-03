@@ -1,0 +1,11 @@
+{
+  "status": "OK",
+  "id": "live-test-gateway-recover",
+  "result": {
+    "host": "cli01",
+    "fault": "gateway",
+    "action": "recover",
+    "recovered_clock": 1793703479,
+    "baseline_restored": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "status": "OK",
+  "id": "post-v3-root-config-mon01",
+  "result": {
+    "host": "mon01",
+    "root_config_checkpoint": "/var/backups/do-an-system-v3/1793704337",
+    "files": 4,
+    "total_bytes": 9231
+  }
+}

@@ -54,3 +54,8 @@ ml-research/mlv2/pilot.py text eol=crlf
 ml-research/mlv2/quality.py text eol=lf
 ml-research/mlv2/transport.py text eol=crlf
 ml-research/config/srv01.json text eol=lf
+
+# Preserve v3 runtime/source and evidence bytes across Windows checkouts.
+system-monitor/** text eol=lf
+evidence/system-v3/** -text -whitespace
+docs/HOAN_THIEN_HE_THONG_20261103.md text eol=lf

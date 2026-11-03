@@ -1,0 +1,8 @@
+{
+  "status": "OK",
+  "id": "provision-zabbix-v3",
+  "result": {
+    "status": "ERROR",
+    "provisioning_detail": "item.create: Invalid parameter \"/1/preprocessing/2/error_handler\": value must be 0."
+  }
+}

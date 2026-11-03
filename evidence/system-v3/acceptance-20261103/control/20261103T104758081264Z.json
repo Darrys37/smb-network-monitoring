@@ -1,0 +1,14 @@
+{
+  "status": "OK",
+  "id": "agent-extension-srv01",
+  "result": {
+    "host": "srv01",
+    "agent_service": "active",
+    "checks": {
+      "nginx": {
+        "code": 0,
+        "value": "1"
+      }
+    }
+  }
+}

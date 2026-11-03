@@ -1,0 +1,14 @@
+{
+  "status": "OK",
+  "id": "live-test-multifault-gateway-arm",
+  "result": {
+    "host": "cli01",
+    "fault": "gateway",
+    "action": "arm",
+    "fault_clock": 1793703571,
+    "rollback_seconds": 120,
+    "rollback_timer": "do-an-v3-rollback-gateway.timer",
+    "timer_active": true,
+    "fault_applied": true
+  }
+}

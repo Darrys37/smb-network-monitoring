@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "session_id": "demo-20261103T110440323644Z",
+  "run_id": "fault",
+  "registration_sha256": "ef449904cc40cfe4380a755f1feee210fcfa11b91e0cd1324620994c3d94d990",
+  "reviewed_at": 1793703948,
+  "validity": "valid",
+  "labels": [
+    "nginx_stopped"
+  ],
+  "references": [
+    {
+      "sha256": "c11343d4c2e767971b457d5ad724d6c4a63b2d57f092882df2684b84efe6c1f6",
+      "original_name": "preflight.json"
+    },
+    {
+      "sha256": "6ff9c9a2d2a5afb4425a3dbb69c175077f2105ad4bca9ae0a609af9554508153",
+      "original_name": "postflight.json"
+    },
+    {
+      "sha256": "503249d1a1b58a596683b1b117564bb5522ead97b942fe770357dcb6ca459346",
+      "original_name": "independent-logs.json"
+    }
+  ]
+}

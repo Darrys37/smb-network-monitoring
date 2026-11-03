@@ -1,0 +1,21 @@
+{
+  "status": "OK",
+  "id": "final-state-cli01",
+  "result": {
+    "host": "cli01",
+    "clock": 1793704320,
+    "ntp": {
+      "exit": 0,
+      "stdout": "yes"
+    },
+    "agent": {
+      "exit": 0,
+      "stdout": "active"
+    },
+    "overlay": {
+      "exit": 0,
+      "stdout": "active"
+    },
+    "forwarding": "1"
+  }
+}
