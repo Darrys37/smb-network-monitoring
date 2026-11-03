@@ -1,0 +1,15 @@
+{
+  "status": "OK",
+  "id": "powercycle-sequential-platform-srv01",
+  "result": {
+    "boot_id": "3e406ddf-15a6-46a5-9a50-3e79973fc72e",
+    "stall_count": 0,
+    "recent_stall": false,
+    "last_stalls": [],
+    "package_jobs_active": false,
+    "package_jobs": [],
+    "dpkg_lock_held": false,
+    "package_audit_clean": true,
+    "package_status_sha256": "5c2a0d4638816dea3a6dcfbec2f4cbcffa3fca9f63e728b7aea39e51c7fc53dd"
+  }
+}

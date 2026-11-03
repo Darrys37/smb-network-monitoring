@@ -8,6 +8,13 @@ class Topology:
         self.nodes = config["nodes"]
         if not isinstance(self.nodes, dict) or not self.nodes:
             raise ValueError("Empty topology")
+        self.informational_triggers = config.get("informational_triggers", [])
+        for row in self.informational_triggers:
+            if (set(row) != {"node", "trigger_id", "expected_name", "expected_severity"}
+                    or row["node"] not in self.nodes or not str(row["trigger_id"]).isdigit()
+                    or not isinstance(row["expected_name"], str) or not row["expected_name"]
+                    or row["expected_severity"] not in {"0", "1", "2"}):
+                raise ValueError("Invalid explicit informational trigger policy")
         self.dependent_kinds = set(config.get("dependent_kinds", ["reachability", "http_connectivity", "agent_connectivity"]))
         for name, node in self.nodes.items():
             if not name or node.get("type") not in {"host", "gateway", "service"}:
@@ -27,6 +34,15 @@ class Topology:
                     raise ValueError("Topology cycle")
                 seen.add(parent)
                 parent = self.parent(parent)
+
+    def is_notice(self, event):
+        # Exact configured signal identity and original content; never ignore
+        # all low-severity events or guess from a substring such as "restart".
+        raw = event.get("raw", {})
+        return event.get("source") == "zabbix" and any(
+            event.get("node") == row["node"] and event.get("key") == row["trigger_id"]
+            and raw.get("name") == row["expected_name"] and str(raw.get("severity")) == row["expected_severity"]
+            for row in self.informational_triggers)
 
     def parent(self, name):
         parents = self.nodes[name].get("parents", [])

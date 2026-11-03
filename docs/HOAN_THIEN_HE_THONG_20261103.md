@@ -1,3 +1,5 @@
+> **Bổ sung kiểm thử khởi động:** Xem [nhật ký tắt/bật và cảnh báo MON01](KIEM_THU_KHOI_DONG_20261103.md).36 tests hệ thống sau sửa notice; các số liệu nghiệm thu trước ở dưới giữ nguyên mốc ban đầu.
+
 # Hoàn thiện hệ thống trên ba VM — 03/11/2026
 
 Đã hoàn thiện và kiểm chứng phần mở rộng hệ thống trên **MON01, SRV01, CLI01**: bảng quyết định chuyên gia trong SQLite, bảy nhóm đặc trưng, gateway có đường đi thật, correlation/suppression, nhiều lỗi đồng thời và worker chạy tự động. Sau đó mới chạy lại demo ML theo đúng thứ tự ưu tiên. Chưa có máy Ubuntu thật; không tính phần đó là đã hoàn thành.

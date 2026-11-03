@@ -1,0 +1,113 @@
+[
+  {
+    "at": "2026-11-03T11:50:41.582723+00:00",
+    "phase": "before",
+    "states": {
+      "MON01": "running",
+      "SRV01": "running",
+      "CLI01": "running"
+    },
+    "sequential_start": true
+  },
+  {
+    "at": "2026-11-03T11:50:41.621231+00:00",
+    "phase": "acpi_shutdown_requested",
+    "vm": "MON01"
+  },
+  {
+    "at": "2026-11-03T11:50:41.652560+00:00",
+    "phase": "acpi_shutdown_requested",
+    "vm": "SRV01"
+  },
+  {
+    "at": "2026-11-03T11:50:41.688445+00:00",
+    "phase": "acpi_shutdown_requested",
+    "vm": "CLI01"
+  },
+  {
+    "at": "2026-11-03T11:50:41.860831+00:00",
+    "phase": "shutdown_progress",
+    "states": {
+      "MON01": "running",
+      "SRV01": "running",
+      "CLI01": "running"
+    }
+  },
+  {
+    "at": "2026-11-03T11:50:48.183886+00:00",
+    "phase": "shutdown_progress",
+    "states": {
+      "MON01": "poweroff",
+      "SRV01": "poweroff",
+      "CLI01": "poweroff"
+    }
+  },
+  {
+    "at": "2026-11-03T11:50:48.184543+00:00",
+    "phase": "all_poweroff_confirmed",
+    "states": {
+      "MON01": "poweroff",
+      "SRV01": "poweroff",
+      "CLI01": "poweroff"
+    }
+  },
+  {
+    "at": "2026-11-03T11:50:55.756231+00:00",
+    "phase": "headless_start_requested",
+    "vm": "CLI01"
+  },
+  {
+    "at": "2026-11-03T11:52:07.796748+00:00",
+    "phase": "sequential_ssh_port_ready",
+    "vm": "CLI01"
+  },
+  {
+    "at": "2026-11-03T11:52:11.979513+00:00",
+    "phase": "headless_start_requested",
+    "vm": "SRV01"
+  },
+  {
+    "at": "2026-11-03T11:53:24.006860+00:00",
+    "phase": "sequential_ssh_port_ready",
+    "vm": "SRV01"
+  },
+  {
+    "at": "2026-11-03T11:53:28.376491+00:00",
+    "phase": "headless_start_requested",
+    "vm": "MON01"
+  },
+  {
+    "at": "2026-11-03T11:54:40.406942+00:00",
+    "phase": "sequential_ssh_port_ready",
+    "vm": "MON01"
+  },
+  {
+    "at": "2026-11-03T11:54:40.421900+00:00",
+    "phase": "ssh_port_readiness",
+    "ready": {
+      "MON01": true,
+      "SRV01": true,
+      "CLI01": true
+    }
+  },
+  {
+    "at": "2026-11-03T11:54:40.564232+00:00",
+    "phase": "powercycle_complete",
+    "status": "CLEAN_POWER_CYCLE_PORTS_READY",
+    "before": {
+      "MON01": "running",
+      "SRV01": "running",
+      "CLI01": "running"
+    },
+    "after": {
+      "MON01": "running",
+      "SRV01": "running",
+      "CLI01": "running"
+    },
+    "evidence": "C:\\Users\\Darrys\\Documents\\ChatGPT\\\u0110\u1ed3 \u00e1n network\\verification\\powercycle-20261103T115041418557Z",
+    "services_not_yet_certified": true,
+    "forced_poweroff": false,
+    "backup_restore_test": false,
+    "sequential_start": true
+  }
+]

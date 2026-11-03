@@ -1,0 +1,15 @@
+{
+  "status": "OK",
+  "id": "powercycle-sequential-platform-mon01",
+  "result": {
+    "boot_id": "513355f4-5f10-4f8b-844e-ceaaa91dbd6f",
+    "stall_count": 0,
+    "recent_stall": false,
+    "last_stalls": [],
+    "package_jobs_active": false,
+    "package_jobs": [],
+    "dpkg_lock_held": false,
+    "package_audit_clean": true,
+    "package_status_sha256": "230bb4abe035e335c06caf078bfe9c677799d9f3f033ad542279152d0bf5cac2"
+  }
+}

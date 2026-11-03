@@ -1,0 +1,59 @@
+{
+  "status": "OK",
+  "id": "powercycle-complete-services",
+  "result": {
+    "host": "mon01",
+    "clock": 1793708309,
+    "ntp": {
+      "exit": 0,
+      "stdout": "yes"
+    },
+    "agent": {
+      "exit": 0,
+      "stdout": "active"
+    },
+    "overlay": {
+      "exit": 0,
+      "stdout": "active"
+    },
+    "worker": {
+      "exit": 0,
+      "stdout": "active"
+    },
+    "zabbix_server": {
+      "exit": 0,
+      "stdout": "active"
+    },
+    "mysql": {
+      "exit": 0,
+      "stdout": "active"
+    },
+    "deployed_source_sha256": {
+      "monitor.py": "10f839be25154fe5d181dfcc51b35907628294199938656832c6eaa1786f8e71",
+      "report.py": "145a127b5486bb290716c9594b025b31a1c5655c5272bcb0c17aa3c9c123400c",
+      "config/expert_seed.json": "e3621f0a30229bcbee7627821cfaabbd6e5353a26f9867831a896156f845b07c",
+      "storm_control.py": "d01262c1a76415336aa485922986aeae7f3198eff43498b96267c66a50d4b45d",
+      "monitoring/expressions.py": "6675471862ac9ae51e66e1822ebe560db1dc084d724f340a2e4b8b22dc4734bc",
+      "monitoring/worker.py": "17b7da52ab60de480003113c387a8c40f7bdf916c7188b89e3255c585f929cdf",
+      "monitoring/facts.py": "bd1810ca315f5d43be93dcae1ab4af8c5f4c469d718519ac79247b794e4fe24a",
+      "monitoring/correlation.py": "4d0d81696170dd5bdee8ba167f754985b46e2b3f13afd308a91ded1fdaab84d1",
+      "monitoring/vector.py": "e33c1e3470c62b5339ca02f180919b0f3d25ddabbabc8bdf0a5197dae09cf7a0",
+      "monitoring/probes.py": "049f8d9ffbe50c779402803b451e894bee1f4c044483f933f96645ac09dda6c1",
+      "monitoring/collector.py": "4bd68b690d15013d84a689d3d24ba544dcbd7dc9f75d6639e6852bc25204f5c5",
+      "monitoring/catalog.py": "be552123b21a73aad5cbd6c95ed0e8af8c2643d31dfe5e1761fdd355bb3e46c3",
+      "monitoring/__init__.py": "ad61624b2901ae7c8f92aba4600a4a3297a0d3becac0fd704e014a19d8e1388f",
+      "monitoring/store.py": "c89953345cee4efbd813d8d3598c72e604adfb1b220403bc57cc002a8a493913",
+      "monitoring/topology.py": "f679ad4df8526acb74f2a3f591ac248f3f4f97c4fe9caba655d92ddb4540ef4e"
+    },
+    "legacy_database": {
+      "integrity": "ok",
+      "foreign_keys": [],
+      "counts": {
+        "incidents": 39,
+        "evidence": 301,
+        "diagnoses": 172,
+        "recoveries": 29
+      }
+    }
+  }
+}

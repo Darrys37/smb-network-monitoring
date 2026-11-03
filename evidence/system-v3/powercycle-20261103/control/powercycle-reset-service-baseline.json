@@ -1,0 +1,6146 @@
+{
+  "status": "OK",
+  "id": "powercycle-reset-service-baseline",
+  "result": {
+    "report_clock": 1793706570,
+    "counts": {
+      "events": 158,
+      "diagnostics": 201,
+      "batches": 42,
+      "pending_jobs": 0
+    },
+    "zabbix_cursor": "2378",
+    "node_states": {
+      "cli01": {
+        "status": "up",
+        "observed_at": 1793706567,
+        "down_since": null,
+        "evidence": {
+          "ping": {
+            "check_type": "ping",
+            "target": "192.168.56.30",
+            "collected_at": 1793706567,
+            "result": {
+              "status": "success",
+              "observer": "mon01"
+            }
+          },
+          "tcp22": {
+            "check_type": "tcp",
+            "target": "192.168.56.30",
+            "collected_at": 1793706567,
+            "result": {
+              "status": "success",
+              "port": 22,
+              "observer": "mon01"
+            }
+          },
+          "routing": {
+            "observer": "cli01",
+            "forwarding_enabled": true,
+            "interface": "enp0s9",
+            "interface_up": true,
+            "route_target": "172.30.20.20",
+            "route_uses_interface": true,
+            "ready": true
+          }
+        }
+      },
+      "srv01": {
+        "status": "up",
+        "observed_at": 1793706567,
+        "down_since": null,
+        "evidence": {
+          "ping": {
+            "check_type": "ping",
+            "target": "172.30.20.20",
+            "collected_at": 1793706567,
+            "result": {
+              "status": "success",
+              "observer": "mon01"
+            }
+          },
+          "tcp22": {
+            "check_type": "tcp",
+            "target": "172.30.20.20",
+            "collected_at": 1793706567,
+            "result": {
+              "status": "success",
+              "port": 22,
+              "observer": "mon01"
+            }
+          }
+        }
+      }
+    },
+    "correlation": {
+      "decision_time": 1793706570,
+      "topology_version": "routed-lab-v3",
+      "window_seconds": 30,
+      "raw_unique_events": 158,
+      "distinct_problem_events": 79,
+      "active_problem_events": 0,
+      "recent_problem_events": 0,
+      "peak_window_event_count": 25,
+      "emitted_groups": 0,
+      "suppressed_events": 0,
+      "groups": [],
+      "raw_retained": true,
+      "confidence_kind": "topology_and_fresh_evidence_correlation_not_proof_of_unique_physical_cause"
+    },
+    "latest_diagnostics": [
+      {
+        "node": "cli01",
+        "observation": {
+          "schema_version": 3,
+          "profile": {
+            "profile_id": "cli01-gateway-v3",
+            "node": "cli01",
+            "host_id": "10685",
+            "event_host_ids": [
+              "10685",
+              "10684"
+            ],
+            "metrics_host_id": "10684",
+            "agent_host_id": "10684",
+            "target_ip": "192.168.56.30",
+            "control_ip": "192.168.56.20",
+            "http_service": "absent",
+            "http_observer": "cli01",
+            "dns_observer": "cli01",
+            "dns_name": "example.com",
+            "dns_control_ip": "1.1.1.1"
+          },
+          "started_at": 1793706543,
+          "decision_time": 1793706544,
+          "evidence": [
+            {
+              "check_type": "ping",
+              "target": "192.168.56.30",
+              "collected_at": 1793706543,
+              "result": {
+                "status": "success",
+                "observer": "mon01"
+              }
+            },
+            {
+              "check_type": "tcp",
+              "target": "192.168.56.30",
+              "collected_at": 1793706543,
+              "result": {
+                "status": "refused",
+                "port": 80,
+                "observer": "mon01"
+              }
+            },
+            {
+              "check_type": "tcp",
+              "target": "192.168.56.30",
+              "collected_at": 1793706543,
+              "result": {
+                "status": "success",
+                "port": 10050,
+                "observer": "mon01"
+              }
+            },
+            {
+              "check_type": "ping",
+              "target": "192.168.56.20",
+              "collected_at": 1793706543,
+              "result": {
+                "status": "success",
+                "observer": "mon01"
+              }
+            },
+            {
+              "check_type": "metric",
+              "target": "10684",
+              "collected_at": 1793706543,
+              "result": {
+                "key": "system.cpu.util",
+                "units": "%",
+                "max_age_seconds": 180,
+                "status": "success",
+                "value": 24.260711999999998,
+                "sample_clock": 1793706525,
+                "age_seconds": 18,
+                "item_id": "50934",
+                "raw_value": "24.260711999999998",
+                "error": ""
+              }
+            },
+            {
+              "check_type": "metric",
+              "target": "10684",
+              "collected_at": 1793706543,
+              "result": {
+                "key": "vm.memory.util",
+                "units": "%",
+                "max_age_seconds": 180,
+                "status": "success",
+                "value": 22.0561,
+                "sample_clock": 1793706531,
+                "age_seconds": 12,
+                "item_id": "50935",
+                "raw_value": "22.0561",
+                "error": ""
+              }
+            },
+            {
+              "check_type": "metric",
+              "target": "10684",
+              "collected_at": 1793706543,
+              "result": {
+                "key": "system.cpu.load[all,avg1]",
+                "units": "",
+                "max_age_seconds": 180,
+                "status": "success",
+                "value": 0.228516,
+                "sample_clock": 1793706503,
+                "age_seconds": 40,
+                "item_id": "50903",
+                "raw_value": "0.228516",
+                "error": ""
+              }
+            },
+            {
+              "check_type": "metric",
+              "target": "10684",
+              "collected_at": 1793706543,
+              "result": {
+                "key": "vfs.fs.dependent.size[/,pused]",
+                "units": "%",
+                "max_age_seconds": 180,
+                "status": "success",
+                "value": 57.24987342556907,
+                "sample_clock": 1793706529,
+                "age_seconds": 14,
+                "item_id": "50968",
+                "raw_value": "57.24987342556907",
+                "error": ""
+              }
+            },
+            {
+              "check_type": "agent_metric",
+              "target": "10684",
+              "collected_at": 1793706543,
+              "result": {
+                "key": "agent.ping",
+                "status": "success",
+                "max_age_seconds": 180,
+                "item": {
+                  "itemid": "50894",
+                  "key_": "agent.ping",
+                  "value_type": "3",
+                  "status": "0",
+                  "units": "",
+                  "state": "0",
+                  "error": "",
+                  "lastclock": "1793706494",
+                  "lastvalue": "1"
+                },
+                "sample_clock": 1793706494
+              }
+            },
+            {
+              "check_type": "cpu_history",
+              "target": "10684",
+              "collected_at": 1793706543,
+              "result": {
+                "key": "system.cpu.util",
+                "units": "%",
+                "status": "success",
+                "window_seconds": 300,
+                "samples": [
+                  {
+                    "clock": 1793706525,
+                    "value": 24.260711999999998
+                  }
+                ],
+                "support_items": {
+                  "system.cpu.num": {
+                    "itemid": "50905",
+                    "key_": "system.cpu.num",
+                    "value_type": "3",
+                    "status": "0",
+                    "units": "",
+                    "state": "0",
+                    "error": "",
+                    "lastclock": "1793706525",
+                    "lastvalue": "1"
+                  },
+                  "system.cpu.load[all,avg1]": {
+                    "itemid": "50903",
+                    "key_": "system.cpu.load[all,avg1]",
+                    "value_type": "0",
+                    "status": "0",
+                    "units": "",
+                    "state": "0",
+                    "error": "",
+                    "lastclock": "1793706503",
+                    "lastvalue": "0.228516"
+                  }
+                },
+                "item_id": "50934"
+              }
+            },
+            {
+              "check_type": "dns",
+              "target": "example.com",
+              "collected_at": 1793706544,
+              "result": {
+                "status": "success",
+                "record_type": "A",
+                "dns_status": "NOERROR",
+                "addresses": [
+                  "104.20.23.154",
+                  "172.66.147.243"
+                ],
+                "response_time_ms": 0,
+                "tool_elapsed_ms": 24.352,
+                "observer": "cli01"
+              }
+            },
+            {
+              "check_type": "dns_control_ping",
+              "target": "1.1.1.1",
+              "collected_at": 1793706544,
+              "result": {
+                "status": "success",
+                "observer": "cli01"
+              }
+            },
+            {
+              "check_type": "dns_control_tcp",
+              "target": "1.1.1.1",
+              "collected_at": 1793706544,
+              "result": {
+                "status": "success",
+                "port": 443,
+                "observer": "cli01"
+              }
+            }
+          ],
+          "sources": {
+            "monitor_metrics": {
+              "status": "ok",
+              "error_type": null
+            },
+            "dns": {
+              "status": "ok",
+              "error_type": null
+            }
+          },
+          "observer": "mon01"
+        },
+        "assessment": {
+          "catalog_version": "expert-sqlite-v1",
+          "facts": {
+            "target_ping": "success",
+            "target_tcp80": "refused",
+            "agent_tcp": "success",
+            "control_ping": "success",
+            "local_http": null,
+            "http_service": "absent",
+            "agent_present": true,
+            "agent_status": "success",
+            "dns_configured": true,
+            "dns_present": true,
+            "dns_status": "success",
+            "dns_code": "NOERROR",
+            "dns_answers": true,
+            "dns_control": "success",
+            "dns_observer": "cli01",
+            "local_service_state": null,
+            "local_agent_state": null,
+            "dns_response_time_ms": 0,
+            "http_status_code": null,
+            "cpu_history_present": true,
+            "cpu_history_status": "success",
+            "cpu_units": "%",
+            "cpu_samples_valid": false,
+            "cpu_support_valid": true,
+            "cpu_mean": null,
+            "cpu_span": null,
+            "cpu_count": 1.0,
+            "cpu_load": 0.228516,
+            "cpu_percent": 24.260711999999998,
+            "ram_percent": 22.0561,
+            "parent_status": "not_applicable",
+            "window_alert_count": 0,
+            "max_age": 180,
+            "cpu_min_coverage": 240,
+            "cpu_max_gap": 120,
+            "cpu_high_percent": 90,
+            "cpu_count_max_age": 86580
+          },
+          "diagnoses": [
+            {
+              "rule_id": "R1_HOST_OR_LOCAL_CONNECTIVITY",
+              "group": "Ping",
+              "status": "not_matched",
+              "probable_cause": null,
+              "reasoning": "Target responded to ICMP or TCP.",
+              "missing_info": [],
+              "next_actions": [],
+              "hypotheses": [],
+              "confidence_kind": "expert_priority_score_not_calibrated_probability"
+            },
+            {
+              "rule_id": "R2_HTTP_SERVICE_SUSPECTED",
+              "group": "HTTP",
+              "status": "not_matched",
+              "probable_cause": null,
+              "reasoning": "Not applicable: HTTP service is declared absent on this host. This does not establish overall host health.",
+              "missing_info": [],
+              "next_actions": [],
+              "hypotheses": [],
+              "confidence_kind": "expert_priority_score_not_calibrated_probability"
+            },
+            {
+              "rule_id": "R3_AGENT_UNAVAILABLE",
+              "group": "Agent",
+              "status": "not_matched",
+              "probable_cause": null,
+              "reasoning": "A recent agent.ping sample exists.",
+              "missing_info": [],
+              "next_actions": [],
+              "hypotheses": [],
+              "confidence_kind": "expert_priority_score_not_calibrated_probability"
+            },
+            {
+              "rule_id": "R4_DNS_RESOLVER_SUSPECTED",
+              "group": "DNS",
+              "status": "not_matched",
+              "probable_cause": null,
+              "reasoning": "DNS returned an A answer; this does not validate the expected IP.",
+              "missing_info": [],
+              "next_actions": [],
+              "hypotheses": [],
+              "confidence_kind": "expert_priority_score_not_calibrated_probability"
+            },
+            {
+              "rule_id": "R5_HTTP_ACCESS_FILTER_SUSPECTED",
+              "group": "HTTP",
+              "status": "not_matched",
+              "probable_cause": null,
+              "reasoning": "Not applicable: HTTP service is declared absent on this host. This does not establish overall host health.",
+              "missing_info": [],
+              "next_actions": [],
+              "hypotheses": [],
+              "confidence_kind": "expert_priority_score_not_calibrated_probability"
+            },
+            {
+              "rule_id": "R6_SUSTAINED_CPU_HIGH",
+              "group": "Resource",
+              "status": "insufficient_evidence",
+              "probable_cause": null,
+              "reasoning": "CPU history is sparse, stale or invalid.",
+              "missing_info": [
+                "At least 240s coverage, max 120s gap, latest sample <=180s old."
+              ],
+              "next_actions": [],
+              "hypotheses": [],
+              "confidence_kind": "expert_priority_score_not_calibrated_probability"
+            },
+            {
+              "rule_id": "R7_PARENT_GATEWAY_UNAVAILABLE",
+              "group": "Gateway",
+              "status": "not_matched",
+              "probable_cause": null,
+              "reasoning": "Configured parent is up or this node has no parent.",
+              "missing_info": [],
+              "next_actions": [],
+              "hypotheses": [],
+              "confidence_kind": "expert_priority_score_not_calibrated_probability"
+            },
+            {
+              "rule_id": "R8_ALERT_STORM",
+              "group": "Alert Storm",
+              "status": "not_matched",
+              "probable_cause": null,
+              "reasoning": "Distinct problem events are below the configured storm threshold.",
+              "missing_info": [],
+              "next_actions": [],
+              "hypotheses": [],
+              "confidence_kind": "expert_priority_score_not_calibrated_probability"
+            }
+          ],
+          "feature_vector": {
+            "schema": "system-vector-v3.0",
+            "features": {
+              "icmp_status": "success",
+              "tcp80_status": "refused",
+              "http_status_code": null,
+              "dns_response_time_ms": 0,
+              "resource_status": "normal",
+              "agent_availability": "available",
+              "parent_status": "not_applicable"
+            },
+            "raw_resources": {
+              "cpu_percent": 24.260711999999998,
+              "ram_percent": 22.0561,
+              "cpu_mean": null,
+              "cpu_samples_valid": false
+            },
+            "note": "Resource status summarizes current CPU/RAM percentages; sustained overload is separately checked by the expert table. No old ML model is retrained or silently fed this new schema."
+          }
+        }
+      },
+      {
+        "node": "srv01",
+        "observation": {
+          "schema_version": 3,
+          "profile": {
+            "profile_id": "srv01-routed-v3",
+            "node": "srv01",
+            "host_id": "10686",
+            "event_host_ids": [
+              "10686",
+              "10683"
+            ],
+            "metrics_host_id": "10683",
+            "agent_host_id": "10686",
+            "trigger_kinds": {
+              "25334": "http_connectivity"
+            },
+            "target_ip": "172.30.20.20",
+            "control_ip": "192.168.56.30",
+            "http_service": "expected",
+            "http_observer": "srv01",
+            "dns_observer": "cli01",
+            "dns_name": "example.com",
+            "dns_control_ip": "1.1.1.1"
+          },
+          "started_at": 1793706544,
+          "decision_time": 1793706546,
+          "evidence": [
+            {
+              "check_type": "ping",
+              "target": "172.30.20.20",
+              "collected_at": 1793706544,
+              "result": {
+                "status": "success",
+                "observer": "mon01"
+              }
+            },
+            {
+              "check_type": "tcp",
+              "target": "172.30.20.20",
+              "collected_at": 1793706544,
+              "result": {
+                "status": "success",
+                "port": 80,
+                "observer": "mon01"
+              }
+            },
+            {
+              "check_type": "tcp",
+              "target": "172.30.20.20",
+              "collected_at": 1793706544,
+              "result": {
+                "status": "success",
+                "port": 10050,
+                "observer": "mon01"
+              }
+            },
+            {
+              "check_type": "ping",
+              "target": "192.168.56.30",
+              "collected_at": 1793706544,
+              "result": {
+                "status": "success",
+                "observer": "mon01"
+              }
+            },
+            {
+              "check_type": "metric",
+              "target": "10683",
+              "collected_at": 1793706544,
+              "result": {
+                "key": "system.cpu.util",
+                "units": "%",
+                "max_age_seconds": 180,
+                "status": "success",
+                "value": 14.896292000000003,
+                "sample_clock": 1793706532,
+                "age_seconds": 12,
+                "item_id": "50822",
+                "raw_value": "14.896292000000003",
+                "error": ""
+              }
+            },
+            {
+              "check_type": "metric",
+              "target": "10683",
+              "collected_at": 1793706544,
+              "result": {
+                "key": "vm.memory.util",
+                "units": "%",
+                "max_age_seconds": 180,
+                "status": "success",
+                "value": 14.769833000000006,
+                "sample_clock": 1793706539,
+                "age_seconds": 5,
+                "item_id": "50823",
+                "raw_value": "14.769833000000006",
+                "error": ""
+              }
+            },
+            {
+              "check_type": "metric",
+              "target": "10683",
+              "collected_at": 1793706544,
+              "result": {
+                "key": "system.cpu.load[all,avg1]",
+                "units": "",
+                "max_age_seconds": 180,
+                "status": "success",
+                "value": 0.008789,
+                "sample_clock": 1793706511,
+                "age_seconds": 33,
+                "item_id": "50791",
+                "raw_value": "0.008789",
+                "error": ""
+              }
+            },
+            {
+              "check_type": "metric",
+              "target": "10683",
+              "collected_at": 1793706544,
+              "result": {
+                "key": "vfs.fs.dependent.size[/,pused]",
+                "units": "%",
+                "max_age_seconds": 180,
+                "status": "success",
+                "value": 54.60895905904422,
+                "sample_clock": 1793706537,
+                "age_seconds": 7,
+                "item_id": "50856",
+                "raw_value": "54.60895905904422",
+                "error": ""
+              }
+            },
+            {
+              "check_type": "cpu_history",
+              "target": "10683",
+              "collected_at": 1793706544,
+              "result": {
+                "key": "system.cpu.util",
+                "units": "%",
+                "status": "success",
+                "window_seconds": 300,
+                "samples": [
+                  {
+                    "clock": 1793706532,
+                    "value": 14.896292000000003
+                  }
+                ],
+                "support_items": {
+                  "system.cpu.num": {
+                    "itemid": "50793",
+                    "key_": "system.cpu.num",
+                    "value_type": "3",
+                    "status": "0",
+                    "units": "",
+                    "state": "0",
+                    "error": "",
+                    "lastclock": "1793706532",
+                    "lastvalue": "1"
+                  },
+                  "system.cpu.load[all,avg1]": {
+                    "itemid": "50791",
+                    "key_": "system.cpu.load[all,avg1]",
+                    "value_type": "0",
+                    "status": "0",
+                    "units": "",
+                    "state": "0",
+                    "error": "",
+                    "lastclock": "1793706511",
+                    "lastvalue": "0.008789"
+                  }
+                },
+                "item_id": "50822"
+              }
+            },
+            {
+              "check_type": "agent_metric",
+              "target": "10686",
+              "collected_at": 1793706544,
+              "result": {
+                "key": "agent.ping",
+                "status": "success",
+                "max_age_seconds": 180,
+                "item": {
+                  "itemid": "51018",
+                  "key_": "agent.ping",
+                  "value_type": "3",
+                  "status": "0",
+                  "units": "",
+                  "state": "0",
+                  "error": "",
+                  "lastclock": "1793706543",
+                  "lastvalue": "1"
+                },
+                "sample_clock": 1793706543
+              }
+            },
+            {
+              "check_type": "dns",
+              "target": "example.com",
+              "collected_at": 1793706544,
+              "result": {
+                "status": "success",
+                "record_type": "A",
+                "dns_status": "NOERROR",
+                "addresses": [
+                  "104.20.23.154",
+                  "172.66.147.243"
+                ],
+                "response_time_ms": 0,
+                "tool_elapsed_ms": 26.054,
+                "observer": "cli01"
+              }
+            },
+            {
+              "check_type": "dns_control_ping",
+              "target": "1.1.1.1",
+              "collected_at": 1793706545,
+              "result": {
+                "status": "success",
+                "observer": "cli01"
+              }
+            },
+            {
+              "check_type": "dns_control_tcp",
+              "target": "1.1.1.1",
+              "collected_at": 1793706545,
+              "result": {
+                "status": "success",
+                "port": 443,
+                "observer": "cli01"
+              }
+            },
+            {
+              "check_type": "local_http",
+              "target": "172.30.20.20",
+              "collected_at": 1793706546,
+              "result": {
+                "status": "success",
+                "http_status": 200,
+                "port": 80,
+                "path": "/",
+                "local_address_verified": true,
+                "observer": "srv01"
+              }
+            },
+            {
+              "check_type": "service_state",
+              "target": "172.30.20.20",
+              "collected_at": 1793706546,
+              "result": {
+                "status": "success",
+                "service": "nginx",
+                "state": "active",
+                "observer": "srv01"
+              }
+            },
+            {
+              "check_type": "service_state",
+              "target": "172.30.20.20",
+              "collected_at": 1793706546,
+              "result": {
+                "status": "success",
+                "service": "zabbix-agent2",
+                "state": "active",
+                "observer": "srv01"
+              }
+            }
+          ],
+          "sources": {
+            "monitor_metrics": {
+              "status": "ok",
+              "error_type": null
+            },
+            "dns": {
+              "status": "ok",
+              "error_type": null
+            },
+            "local_http": {
+              "status": "ok",
+              "error_type": null
+            }
+          },
+          "observer": "mon01"
+        },
+        "assessment": {
+          "catalog_version": "expert-sqlite-v1",
+          "facts": {
+            "target_ping": "success",
+            "target_tcp80": "success",
+            "agent_tcp": "success",
+            "control_ping": "success",
+            "local_http": "success",
+            "http_service": "expected",
+            "agent_present": true,
+            "agent_status": "success",
+            "dns_configured": true,
+            "dns_present": true,
+            "dns_status": "success",
+            "dns_code": "NOERROR",
+            "dns_answers": true,
+            "dns_control": "success",
+            "dns_observer": "cli01",
+            "local_service_state": "active",
+            "local_agent_state": "active",
+            "dns_response_time_ms": 0,
+            "http_status_code": 200,
+            "cpu_history_present": true,
+            "cpu_history_status": "success",
+            "cpu_units": "%",
+            "cpu_samples_valid": false,
+            "cpu_support_valid": true,
+            "cpu_mean": null,
+            "cpu_span": null,
+            "cpu_count": 1.0,
+            "cpu_load": 0.008789,
+            "cpu_percent": 14.896292000000003,
+            "ram_percent": 14.769833000000006,
+            "parent_status": "up",
+            "window_alert_count": 0,
+            "max_age": 180,
+            "cpu_min_coverage": 240,
+            "cpu_max_gap": 120,
+            "cpu_high_percent": 90,
+            "cpu_count_max_age": 86580
+          },
+          "diagnoses": [
+            {
+              "rule_id": "R1_HOST_OR_LOCAL_CONNECTIVITY",
+              "group": "Ping",
+              "status": "not_matched",
+              "probable_cause": null,
+              "reasoning": "Target responded to ICMP or TCP.",
+              "missing_info": [],
+              "next_actions": [],
+              "hypotheses": [],
+              "confidence_kind": "expert_priority_score_not_calibrated_probability"
+            },
+            {
+              "rule_id": "R2_HTTP_SERVICE_SUSPECTED",
+              "group": "HTTP",
+              "status": "not_matched",
+              "probable_cause": null,
+              "reasoning": "Target ping=success, TCP80=success.",
+              "missing_info": [],
+              "next_actions": [],
+              "hypotheses": [],
+              "confidence_kind": "expert_priority_score_not_calibrated_probability"
+            },
+            {
+              "rule_id": "R3_AGENT_UNAVAILABLE",
+              "group": "Agent",
+              "status": "not_matched",
+              "probable_cause": null,
+              "reasoning": "A recent agent.ping sample exists.",
+              "missing_info": [],
+              "next_actions": [],
+              "hypotheses": [],
+              "confidence_kind": "expert_priority_score_not_calibrated_probability"
+            },
+            {
+              "rule_id": "R4_DNS_RESOLVER_SUSPECTED",
+              "group": "DNS",
+              "status": "not_matched",
+              "probable_cause": null,
+              "reasoning": "DNS returned an A answer; this does not validate the expected IP.",
+              "missing_info": [],
+              "next_actions": [],
+              "hypotheses": [],
+              "confidence_kind": "expert_priority_score_not_calibrated_probability"
+            },
+            {
+              "rule_id": "R5_HTTP_ACCESS_FILTER_SUSPECTED",
+              "group": "HTTP",
+              "status": "not_matched",
+              "probable_cause": null,
+              "reasoning": "No isolated remote HTTP connection failure with working ICMP.",
+              "missing_info": [],
+              "next_actions": [],
+              "hypotheses": [],
+              "confidence_kind": "expert_priority_score_not_calibrated_probability"
+            },
+            {
+              "rule_id": "R6_SUSTAINED_CPU_HIGH",
+              "group": "Resource",
+              "status": "insufficient_evidence",
+              "probable_cause": null,
+              "reasoning": "CPU history is sparse, stale or invalid.",
+              "missing_info": [
+                "At least 240s coverage, max 120s gap, latest sample <=180s old."
+              ],
+              "next_actions": [],
+              "hypotheses": [],
+              "confidence_kind": "expert_priority_score_not_calibrated_probability"
+            },
+            {
+              "rule_id": "R7_PARENT_GATEWAY_UNAVAILABLE",
+              "group": "Gateway",
+              "status": "not_matched",
+              "probable_cause": null,
+              "reasoning": "Configured parent is up or this node has no parent.",
+              "missing_info": [],
+              "next_actions": [],
+              "hypotheses": [],
+              "confidence_kind": "expert_priority_score_not_calibrated_probability"
+            },
+            {
+              "rule_id": "R8_ALERT_STORM",
+              "group": "Alert Storm",
+              "status": "not_matched",
+              "probable_cause": null,
+              "reasoning": "Distinct problem events are below the configured storm threshold.",
+              "missing_info": [],
+              "next_actions": [],
+              "hypotheses": [],
+              "confidence_kind": "expert_priority_score_not_calibrated_probability"
+            }
+          ],
+          "feature_vector": {
+            "schema": "system-vector-v3.0",
+            "features": {
+              "icmp_status": "success",
+              "tcp80_status": "success",
+              "http_status_code": 200,
+              "dns_response_time_ms": 0,
+              "resource_status": "normal",
+              "agent_availability": "available",
+              "parent_status": "up"
+            },
+            "raw_resources": {
+              "cpu_percent": 14.896292000000003,
+              "ram_percent": 14.769833000000006,
+              "cpu_mean": null,
+              "cpu_samples_valid": false
+            },
+            "note": "Resource status summarizes current CPU/RAM percentages; sustained overload is separately checked by the expert table. No old ML model is retrained or silently fed this new schema."
+          }
+        }
+      }
+    ],
+    "events": [
+      {
+        "source": "zabbix",
+        "event_id": "2236",
+        "clock": 1793703219,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25340",
+        "host_id": "10686",
+        "name": "V3 SRV01: routed TCP/80 unavailable",
+        "raw": {
+          "eventid": "2236",
+          "clock": "1793703219",
+          "objectid": "25340",
+          "value": "1",
+          "name": "V3 SRV01: routed TCP/80 unavailable",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2237",
+        "clock": 1793703220,
+        "node": "srv01",
+        "kind": "http_service",
+        "state": "problem",
+        "key": "25341",
+        "host_id": "10686",
+        "name": "V3 SRV01: local Nginx stopped",
+        "raw": {
+          "eventid": "2237",
+          "clock": "1793703220",
+          "objectid": "25341",
+          "value": "1",
+          "name": "V3 SRV01: local Nginx stopped",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_service"
+            }
+          ]
+        }
+      },
+      {
+        "source": "local_service_probe",
+        "event_id": "7f2fc27dac8f4ee6825a9f6ef3fe5d39",
+        "clock": 1793703221,
+        "node": "srv01",
+        "kind": "http_service",
+        "state": "problem",
+        "key": "srv01:http_service",
+        "independent_fault": true,
+        "diagnostic_id": "39d9e2c43b524ca7b196ba959f1bdcae"
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2238",
+        "clock": 1793703241,
+        "node": "srv01",
+        "kind": "unknown",
+        "state": "problem",
+        "key": "25334",
+        "host_id": "10683",
+        "name": "SRV01: HTTP check failed",
+        "raw": {
+          "eventid": "2238",
+          "clock": "1793703241",
+          "objectid": "25334",
+          "value": "1",
+          "name": "SRV01: HTTP check failed",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10683",
+              "host": "SRV01"
+            }
+          ],
+          "tags": []
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2239",
+        "clock": 1793703304,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25340",
+        "host_id": "10686",
+        "name": "V3 SRV01: routed TCP/80 unavailable",
+        "raw": {
+          "eventid": "2239",
+          "clock": "1793703304",
+          "objectid": "25340",
+          "value": "0",
+          "name": "V3 SRV01: routed TCP/80 unavailable",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2240",
+        "clock": 1793703305,
+        "node": "srv01",
+        "kind": "http_service",
+        "state": "recovery",
+        "key": "25341",
+        "host_id": "10686",
+        "name": "V3 SRV01: local Nginx stopped",
+        "raw": {
+          "eventid": "2240",
+          "clock": "1793703305",
+          "objectid": "25341",
+          "value": "0",
+          "name": "V3 SRV01: local Nginx stopped",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_service"
+            }
+          ]
+        }
+      },
+      {
+        "source": "local_service_probe",
+        "event_id": "c7a4bceebc9b4846add1534bb8f0d5af",
+        "clock": 1793703313,
+        "node": "srv01",
+        "kind": "http_service",
+        "state": "recovery",
+        "key": "srv01:http_service",
+        "independent_fault": true,
+        "diagnostic_id": "bbd892c2533140d4ae9a78322bf85111"
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2241",
+        "clock": 1793703331,
+        "node": "srv01",
+        "kind": "unknown",
+        "state": "recovery",
+        "key": "25334",
+        "host_id": "10683",
+        "name": "SRV01: HTTP check failed",
+        "raw": {
+          "eventid": "2241",
+          "clock": "1793703331",
+          "objectid": "25334",
+          "value": "0",
+          "name": "SRV01: HTTP check failed",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10683",
+              "host": "SRV01"
+            }
+          ],
+          "tags": []
+        }
+      },
+      {
+        "source": "probe",
+        "event_id": "224ccc415301424181d3175419b412cd",
+        "clock": 1793703383,
+        "node": "cli01",
+        "kind": "reachability",
+        "state": "problem",
+        "key": "cli01:availability",
+        "evidence": {
+          "ping": {
+            "check_type": "ping",
+            "target": "192.168.56.30",
+            "collected_at": 1793703381,
+            "result": {
+              "status": "success",
+              "observer": "mon01"
+            }
+          },
+          "tcp22": {
+            "check_type": "tcp",
+            "target": "192.168.56.30",
+            "collected_at": 1793703381,
+            "result": {
+              "status": "success",
+              "port": 22,
+              "observer": "mon01"
+            }
+          },
+          "routing": {
+            "observer": "cli01",
+            "forwarding_enabled": false,
+            "interface": "enp0s9",
+            "interface_up": true,
+            "route_target": "172.30.20.20",
+            "route_uses_interface": true,
+            "ready": false
+          }
+        }
+      },
+      {
+        "source": "probe",
+        "event_id": "79bf9664668240f7825eb48bb9a7d492",
+        "clock": 1793703384,
+        "node": "srv01",
+        "kind": "reachability",
+        "state": "problem",
+        "key": "srv01:availability",
+        "evidence": {
+          "ping": {
+            "check_type": "ping",
+            "target": "172.30.20.20",
+            "collected_at": 1793703382,
+            "result": {
+              "status": "no_reply",
+              "observer": "mon01"
+            }
+          },
+          "tcp22": {
+            "check_type": "tcp",
+            "target": "172.30.20.20",
+            "collected_at": 1793703384,
+            "result": {
+              "status": "timeout",
+              "port": 22,
+              "observer": "mon01"
+            }
+          }
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2242",
+        "clock": 1793703384,
+        "node": "cli01",
+        "kind": "reachability",
+        "state": "problem",
+        "key": "25338",
+        "host_id": "10685",
+        "name": "V3 CLI01: gateway forwarding unavailable",
+        "raw": {
+          "eventid": "2242",
+          "clock": "1793703384",
+          "objectid": "25338",
+          "value": "1",
+          "name": "V3 CLI01: gateway forwarding unavailable",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10685",
+              "host": "CLI01-Gateway"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "reachability"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2244",
+        "clock": 1793703385,
+        "node": "srv01",
+        "kind": "reachability",
+        "state": "problem",
+        "key": "25337",
+        "host_id": "10686",
+        "name": "V3 SRV01-Routed: ICMP unavailable",
+        "raw": {
+          "eventid": "2244",
+          "clock": "1793703385",
+          "objectid": "25337",
+          "value": "1",
+          "name": "V3 SRV01-Routed: ICMP unavailable",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "reachability"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2243",
+        "clock": 1793703387,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25340",
+        "host_id": "10686",
+        "name": "V3 SRV01: routed TCP/80 unavailable",
+        "raw": {
+          "eventid": "2243",
+          "clock": "1793703387",
+          "objectid": "25340",
+          "value": "1",
+          "name": "V3 SRV01: routed TCP/80 unavailable",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2245",
+        "clock": 1793703412,
+        "node": "srv01",
+        "kind": "agent_connectivity",
+        "state": "problem",
+        "key": "25342",
+        "host_id": "10686",
+        "name": "V3 SRV01: routed agent samples missing",
+        "raw": {
+          "eventid": "2245",
+          "clock": "1793703412",
+          "objectid": "25342",
+          "value": "1",
+          "name": "V3 SRV01: routed agent samples missing",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "agent_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2246",
+        "clock": 1793703449,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25343",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 1",
+        "raw": {
+          "eventid": "2246",
+          "clock": "1793703449",
+          "objectid": "25343",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 1",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2247",
+        "clock": 1793703449,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25344",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 2",
+        "raw": {
+          "eventid": "2247",
+          "clock": "1793703449",
+          "objectid": "25344",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 2",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2248",
+        "clock": 1793703449,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25345",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 3",
+        "raw": {
+          "eventid": "2248",
+          "clock": "1793703449",
+          "objectid": "25345",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 3",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2249",
+        "clock": 1793703449,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25346",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 4",
+        "raw": {
+          "eventid": "2249",
+          "clock": "1793703449",
+          "objectid": "25346",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 4",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2250",
+        "clock": 1793703449,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25347",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 5",
+        "raw": {
+          "eventid": "2250",
+          "clock": "1793703449",
+          "objectid": "25347",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 5",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2251",
+        "clock": 1793703449,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25348",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 6",
+        "raw": {
+          "eventid": "2251",
+          "clock": "1793703449",
+          "objectid": "25348",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 6",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2252",
+        "clock": 1793703449,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25349",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 7",
+        "raw": {
+          "eventid": "2252",
+          "clock": "1793703449",
+          "objectid": "25349",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 7",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2253",
+        "clock": 1793703449,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25350",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 8",
+        "raw": {
+          "eventid": "2253",
+          "clock": "1793703449",
+          "objectid": "25350",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 8",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2254",
+        "clock": 1793703449,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25351",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 9",
+        "raw": {
+          "eventid": "2254",
+          "clock": "1793703449",
+          "objectid": "25351",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 9",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2255",
+        "clock": 1793703449,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25352",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 10",
+        "raw": {
+          "eventid": "2255",
+          "clock": "1793703449",
+          "objectid": "25352",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 10",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2256",
+        "clock": 1793703449,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25353",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 11",
+        "raw": {
+          "eventid": "2256",
+          "clock": "1793703449",
+          "objectid": "25353",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 11",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2257",
+        "clock": 1793703449,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25354",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 12",
+        "raw": {
+          "eventid": "2257",
+          "clock": "1793703449",
+          "objectid": "25354",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 12",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2258",
+        "clock": 1793703449,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25355",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 13",
+        "raw": {
+          "eventid": "2258",
+          "clock": "1793703449",
+          "objectid": "25355",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 13",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2259",
+        "clock": 1793703449,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25356",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 14",
+        "raw": {
+          "eventid": "2259",
+          "clock": "1793703449",
+          "objectid": "25356",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 14",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2260",
+        "clock": 1793703449,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25357",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 15",
+        "raw": {
+          "eventid": "2260",
+          "clock": "1793703449",
+          "objectid": "25357",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 15",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2261",
+        "clock": 1793703449,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25358",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 16",
+        "raw": {
+          "eventid": "2261",
+          "clock": "1793703449",
+          "objectid": "25358",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 16",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2262",
+        "clock": 1793703449,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25359",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 17",
+        "raw": {
+          "eventid": "2262",
+          "clock": "1793703449",
+          "objectid": "25359",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 17",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2263",
+        "clock": 1793703449,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25360",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 18",
+        "raw": {
+          "eventid": "2263",
+          "clock": "1793703449",
+          "objectid": "25360",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 18",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2264",
+        "clock": 1793703449,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25361",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 19",
+        "raw": {
+          "eventid": "2264",
+          "clock": "1793703449",
+          "objectid": "25361",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 19",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2265",
+        "clock": 1793703449,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25362",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 20",
+        "raw": {
+          "eventid": "2265",
+          "clock": "1793703449",
+          "objectid": "25362",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 20",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2266",
+        "clock": 1793703476,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25343",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 1",
+        "raw": {
+          "eventid": "2266",
+          "clock": "1793703476",
+          "objectid": "25343",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 1",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2267",
+        "clock": 1793703476,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25344",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 2",
+        "raw": {
+          "eventid": "2267",
+          "clock": "1793703476",
+          "objectid": "25344",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 2",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2268",
+        "clock": 1793703476,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25345",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 3",
+        "raw": {
+          "eventid": "2268",
+          "clock": "1793703476",
+          "objectid": "25345",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 3",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2269",
+        "clock": 1793703476,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25346",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 4",
+        "raw": {
+          "eventid": "2269",
+          "clock": "1793703476",
+          "objectid": "25346",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 4",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2270",
+        "clock": 1793703476,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25347",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 5",
+        "raw": {
+          "eventid": "2270",
+          "clock": "1793703476",
+          "objectid": "25347",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 5",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2271",
+        "clock": 1793703476,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25348",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 6",
+        "raw": {
+          "eventid": "2271",
+          "clock": "1793703476",
+          "objectid": "25348",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 6",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2272",
+        "clock": 1793703476,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25349",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 7",
+        "raw": {
+          "eventid": "2272",
+          "clock": "1793703476",
+          "objectid": "25349",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 7",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2273",
+        "clock": 1793703476,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25350",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 8",
+        "raw": {
+          "eventid": "2273",
+          "clock": "1793703476",
+          "objectid": "25350",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 8",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2274",
+        "clock": 1793703476,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25351",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 9",
+        "raw": {
+          "eventid": "2274",
+          "clock": "1793703476",
+          "objectid": "25351",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 9",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2275",
+        "clock": 1793703476,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25352",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 10",
+        "raw": {
+          "eventid": "2275",
+          "clock": "1793703476",
+          "objectid": "25352",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 10",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2276",
+        "clock": 1793703476,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25353",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 11",
+        "raw": {
+          "eventid": "2276",
+          "clock": "1793703476",
+          "objectid": "25353",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 11",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2277",
+        "clock": 1793703476,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25354",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 12",
+        "raw": {
+          "eventid": "2277",
+          "clock": "1793703476",
+          "objectid": "25354",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 12",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2278",
+        "clock": 1793703476,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25355",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 13",
+        "raw": {
+          "eventid": "2278",
+          "clock": "1793703476",
+          "objectid": "25355",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 13",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2279",
+        "clock": 1793703476,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25356",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 14",
+        "raw": {
+          "eventid": "2279",
+          "clock": "1793703476",
+          "objectid": "25356",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 14",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2280",
+        "clock": 1793703476,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25357",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 15",
+        "raw": {
+          "eventid": "2280",
+          "clock": "1793703476",
+          "objectid": "25357",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 15",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2281",
+        "clock": 1793703476,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25358",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 16",
+        "raw": {
+          "eventid": "2281",
+          "clock": "1793703476",
+          "objectid": "25358",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 16",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2282",
+        "clock": 1793703476,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25359",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 17",
+        "raw": {
+          "eventid": "2282",
+          "clock": "1793703476",
+          "objectid": "25359",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 17",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2283",
+        "clock": 1793703476,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25360",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 18",
+        "raw": {
+          "eventid": "2283",
+          "clock": "1793703476",
+          "objectid": "25360",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 18",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2284",
+        "clock": 1793703476,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25361",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 19",
+        "raw": {
+          "eventid": "2284",
+          "clock": "1793703476",
+          "objectid": "25361",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 19",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2285",
+        "clock": 1793703476,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25362",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 20",
+        "raw": {
+          "eventid": "2285",
+          "clock": "1793703476",
+          "objectid": "25362",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 20",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2286",
+        "clock": 1793703479,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25340",
+        "host_id": "10686",
+        "name": "V3 SRV01: routed TCP/80 unavailable",
+        "raw": {
+          "eventid": "2286",
+          "clock": "1793703479",
+          "objectid": "25340",
+          "value": "0",
+          "name": "V3 SRV01: routed TCP/80 unavailable",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2287",
+        "clock": 1793703480,
+        "node": "srv01",
+        "kind": "reachability",
+        "state": "recovery",
+        "key": "25337",
+        "host_id": "10686",
+        "name": "V3 SRV01-Routed: ICMP unavailable",
+        "raw": {
+          "eventid": "2287",
+          "clock": "1793703480",
+          "objectid": "25337",
+          "value": "0",
+          "name": "V3 SRV01-Routed: ICMP unavailable",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "reachability"
+            }
+          ]
+        }
+      },
+      {
+        "source": "probe",
+        "event_id": "ead456d1070c4b33a9a67d367c35822a",
+        "clock": 1793703482,
+        "node": "srv01",
+        "kind": "reachability",
+        "state": "recovery",
+        "key": "srv01:availability",
+        "evidence": {
+          "ping": {
+            "check_type": "ping",
+            "target": "172.30.20.20",
+            "collected_at": 1793703482,
+            "result": {
+              "status": "success",
+              "observer": "mon01"
+            }
+          },
+          "tcp22": {
+            "check_type": "tcp",
+            "target": "172.30.20.20",
+            "collected_at": 1793703482,
+            "result": {
+              "status": "success",
+              "port": 22,
+              "observer": "mon01"
+            }
+          }
+        }
+      },
+      {
+        "source": "probe",
+        "event_id": "2cc8490625064b72bc35cf30b83c79fe",
+        "clock": 1793703483,
+        "node": "cli01",
+        "kind": "reachability",
+        "state": "recovery",
+        "key": "cli01:availability",
+        "evidence": {
+          "ping": {
+            "check_type": "ping",
+            "target": "192.168.56.30",
+            "collected_at": 1793703482,
+            "result": {
+              "status": "success",
+              "observer": "mon01"
+            }
+          },
+          "tcp22": {
+            "check_type": "tcp",
+            "target": "192.168.56.30",
+            "collected_at": 1793703482,
+            "result": {
+              "status": "success",
+              "port": 22,
+              "observer": "mon01"
+            }
+          },
+          "routing": {
+            "observer": "cli01",
+            "forwarding_enabled": true,
+            "interface": "enp0s9",
+            "interface_up": true,
+            "route_target": "172.30.20.20",
+            "route_uses_interface": true,
+            "ready": true
+          }
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2288",
+        "clock": 1793703484,
+        "node": "cli01",
+        "kind": "reachability",
+        "state": "recovery",
+        "key": "25338",
+        "host_id": "10685",
+        "name": "V3 CLI01: gateway forwarding unavailable",
+        "raw": {
+          "eventid": "2288",
+          "clock": "1793703484",
+          "objectid": "25338",
+          "value": "0",
+          "name": "V3 CLI01: gateway forwarding unavailable",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10685",
+              "host": "CLI01-Gateway"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "reachability"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2289",
+        "clock": 1793703517,
+        "node": "srv01",
+        "kind": "agent_connectivity",
+        "state": "recovery",
+        "key": "25342",
+        "host_id": "10686",
+        "name": "V3 SRV01: routed agent samples missing",
+        "raw": {
+          "eventid": "2289",
+          "clock": "1793703517",
+          "objectid": "25342",
+          "value": "0",
+          "name": "V3 SRV01: routed agent samples missing",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "agent_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "probe",
+        "event_id": "673cd9eb67b54698ab91aa2eaaf6b0bc",
+        "clock": 1793703573,
+        "node": "cli01",
+        "kind": "reachability",
+        "state": "problem",
+        "key": "cli01:availability",
+        "evidence": {
+          "ping": {
+            "check_type": "ping",
+            "target": "192.168.56.30",
+            "collected_at": 1793703573,
+            "result": {
+              "status": "success",
+              "observer": "mon01"
+            }
+          },
+          "tcp22": {
+            "check_type": "tcp",
+            "target": "192.168.56.30",
+            "collected_at": 1793703573,
+            "result": {
+              "status": "success",
+              "port": 22,
+              "observer": "mon01"
+            }
+          },
+          "routing": {
+            "observer": "cli01",
+            "forwarding_enabled": false,
+            "interface": "enp0s9",
+            "interface_up": true,
+            "route_target": "172.30.20.20",
+            "route_uses_interface": true,
+            "ready": false
+          }
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2290",
+        "clock": 1793703574,
+        "node": "cli01",
+        "kind": "reachability",
+        "state": "problem",
+        "key": "25338",
+        "host_id": "10685",
+        "name": "V3 CLI01: gateway forwarding unavailable",
+        "raw": {
+          "eventid": "2290",
+          "clock": "1793703574",
+          "objectid": "25338",
+          "value": "1",
+          "name": "V3 CLI01: gateway forwarding unavailable",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10685",
+              "host": "CLI01-Gateway"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "reachability"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2292",
+        "clock": 1793703575,
+        "node": "srv01",
+        "kind": "reachability",
+        "state": "problem",
+        "key": "25337",
+        "host_id": "10686",
+        "name": "V3 SRV01-Routed: ICMP unavailable",
+        "raw": {
+          "eventid": "2292",
+          "clock": "1793703575",
+          "objectid": "25337",
+          "value": "1",
+          "name": "V3 SRV01-Routed: ICMP unavailable",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "reachability"
+            }
+          ]
+        }
+      },
+      {
+        "source": "probe",
+        "event_id": "1b8f368b5ec64d8d89b897838f2ba52d",
+        "clock": 1793703576,
+        "node": "srv01",
+        "kind": "reachability",
+        "state": "problem",
+        "key": "srv01:availability",
+        "evidence": {
+          "ping": {
+            "check_type": "ping",
+            "target": "172.30.20.20",
+            "collected_at": 1793703574,
+            "result": {
+              "status": "no_reply",
+              "observer": "mon01"
+            }
+          },
+          "tcp22": {
+            "check_type": "tcp",
+            "target": "172.30.20.20",
+            "collected_at": 1793703576,
+            "result": {
+              "status": "timeout",
+              "port": 22,
+              "observer": "mon01"
+            }
+          }
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2291",
+        "clock": 1793703577,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25340",
+        "host_id": "10686",
+        "name": "V3 SRV01: routed TCP/80 unavailable",
+        "raw": {
+          "eventid": "2291",
+          "clock": "1793703577",
+          "objectid": "25340",
+          "value": "1",
+          "name": "V3 SRV01: routed TCP/80 unavailable",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "local_service_probe",
+        "event_id": "00dc4c6d6eab4859bd835defe14435d4",
+        "clock": 1793703583,
+        "node": "srv01",
+        "kind": "http_service",
+        "state": "problem",
+        "key": "srv01:http_service",
+        "independent_fault": true,
+        "diagnostic_id": "438bd2aecc714d2997dc149828d4e9ce"
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2293",
+        "clock": 1793703601,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25334",
+        "host_id": "10683",
+        "name": "SRV01: HTTP check failed",
+        "raw": {
+          "eventid": "2293",
+          "clock": "1793703601",
+          "objectid": "25334",
+          "value": "1",
+          "name": "SRV01: HTTP check failed",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10683",
+              "host": "SRV01"
+            }
+          ],
+          "tags": []
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2294",
+        "clock": 1793703622,
+        "node": "srv01",
+        "kind": "agent_connectivity",
+        "state": "problem",
+        "key": "25342",
+        "host_id": "10686",
+        "name": "V3 SRV01: routed agent samples missing",
+        "raw": {
+          "eventid": "2294",
+          "clock": "1793703622",
+          "objectid": "25342",
+          "value": "1",
+          "name": "V3 SRV01: routed agent samples missing",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "agent_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2296",
+        "clock": 1793703656,
+        "node": "srv01",
+        "kind": "reachability",
+        "state": "recovery",
+        "key": "25337",
+        "host_id": "10686",
+        "name": "V3 SRV01-Routed: ICMP unavailable",
+        "raw": {
+          "eventid": "2296",
+          "clock": "1793703656",
+          "objectid": "25337",
+          "value": "0",
+          "name": "V3 SRV01-Routed: ICMP unavailable",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "reachability"
+            }
+          ]
+        }
+      },
+      {
+        "source": "probe",
+        "event_id": "2624830a7c0e453ea34043edf7139496",
+        "clock": 1793703657,
+        "node": "cli01",
+        "kind": "reachability",
+        "state": "recovery",
+        "key": "cli01:availability",
+        "evidence": {
+          "ping": {
+            "check_type": "ping",
+            "target": "192.168.56.30",
+            "collected_at": 1793703657,
+            "result": {
+              "status": "success",
+              "observer": "mon01"
+            }
+          },
+          "tcp22": {
+            "check_type": "tcp",
+            "target": "192.168.56.30",
+            "collected_at": 1793703657,
+            "result": {
+              "status": "success",
+              "port": 22,
+              "observer": "mon01"
+            }
+          },
+          "routing": {
+            "observer": "cli01",
+            "forwarding_enabled": true,
+            "interface": "enp0s9",
+            "interface_up": true,
+            "route_target": "172.30.20.20",
+            "route_uses_interface": true,
+            "ready": true
+          }
+        }
+      },
+      {
+        "source": "probe",
+        "event_id": "8a6e38bc942e42f4a3ec04398ec7d6db",
+        "clock": 1793703658,
+        "node": "srv01",
+        "kind": "reachability",
+        "state": "recovery",
+        "key": "srv01:availability",
+        "evidence": {
+          "ping": {
+            "check_type": "ping",
+            "target": "172.30.20.20",
+            "collected_at": 1793703658,
+            "result": {
+              "status": "no_reply",
+              "observer": "mon01"
+            }
+          },
+          "tcp22": {
+            "check_type": "tcp",
+            "target": "172.30.20.20",
+            "collected_at": 1793703658,
+            "result": {
+              "status": "success",
+              "port": 22,
+              "observer": "mon01"
+            }
+          }
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2297",
+        "clock": 1793703659,
+        "node": "cli01",
+        "kind": "reachability",
+        "state": "recovery",
+        "key": "25338",
+        "host_id": "10685",
+        "name": "V3 CLI01: gateway forwarding unavailable",
+        "raw": {
+          "eventid": "2297",
+          "clock": "1793703659",
+          "objectid": "25338",
+          "value": "0",
+          "name": "V3 CLI01: gateway forwarding unavailable",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10685",
+              "host": "CLI01-Gateway"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "reachability"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2298",
+        "clock": 1793703684,
+        "node": "srv01",
+        "kind": "agent_connectivity",
+        "state": "recovery",
+        "key": "25342",
+        "host_id": "10686",
+        "name": "V3 SRV01: routed agent samples missing",
+        "raw": {
+          "eventid": "2298",
+          "clock": "1793703684",
+          "objectid": "25342",
+          "value": "0",
+          "name": "V3 SRV01: routed agent samples missing",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "agent_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2299",
+        "clock": 1793703688,
+        "node": "srv01",
+        "kind": "http_service",
+        "state": "problem",
+        "key": "25341",
+        "host_id": "10686",
+        "name": "V3 SRV01: local Nginx stopped",
+        "raw": {
+          "eventid": "2299",
+          "clock": "1793703688",
+          "objectid": "25341",
+          "value": "1",
+          "name": "V3 SRV01: local Nginx stopped",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_service"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2300",
+        "clock": 1793703699,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25340",
+        "host_id": "10686",
+        "name": "V3 SRV01: routed TCP/80 unavailable",
+        "raw": {
+          "eventid": "2300",
+          "clock": "1793703699",
+          "objectid": "25340",
+          "value": "0",
+          "name": "V3 SRV01: routed TCP/80 unavailable",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2301",
+        "clock": 1793703700,
+        "node": "srv01",
+        "kind": "http_service",
+        "state": "recovery",
+        "key": "25341",
+        "host_id": "10686",
+        "name": "V3 SRV01: local Nginx stopped",
+        "raw": {
+          "eventid": "2301",
+          "clock": "1793703700",
+          "objectid": "25341",
+          "value": "0",
+          "name": "V3 SRV01: local Nginx stopped",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_service"
+            }
+          ]
+        }
+      },
+      {
+        "source": "local_service_probe",
+        "event_id": "8d9adc22294c4bae9e8e36f36d6fb3e1",
+        "clock": 1793703704,
+        "node": "srv01",
+        "kind": "http_service",
+        "state": "recovery",
+        "key": "srv01:http_service",
+        "independent_fault": true,
+        "diagnostic_id": "795b4039f58645de95915e9b2dc0655b"
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2302",
+        "clock": 1793703721,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25334",
+        "host_id": "10683",
+        "name": "SRV01: HTTP check failed",
+        "raw": {
+          "eventid": "2302",
+          "clock": "1793703721",
+          "objectid": "25334",
+          "value": "0",
+          "name": "SRV01: HTTP check failed",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10683",
+              "host": "SRV01"
+            }
+          ],
+          "tags": []
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2303",
+        "clock": 1793703824,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25340",
+        "host_id": "10686",
+        "name": "V3 SRV01: routed TCP/80 unavailable",
+        "raw": {
+          "eventid": "2303",
+          "clock": "1793703824",
+          "objectid": "25340",
+          "value": "1",
+          "name": "V3 SRV01: routed TCP/80 unavailable",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2304",
+        "clock": 1793703825,
+        "node": "srv01",
+        "kind": "http_service",
+        "state": "problem",
+        "key": "25341",
+        "host_id": "10686",
+        "name": "V3 SRV01: local Nginx stopped",
+        "raw": {
+          "eventid": "2304",
+          "clock": "1793703825",
+          "objectid": "25341",
+          "value": "1",
+          "name": "V3 SRV01: local Nginx stopped",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_service"
+            }
+          ]
+        }
+      },
+      {
+        "source": "local_service_probe",
+        "event_id": "0f04af331430406393ad4ea91df87fa6",
+        "clock": 1793703830,
+        "node": "srv01",
+        "kind": "http_service",
+        "state": "problem",
+        "key": "srv01:http_service",
+        "independent_fault": true,
+        "diagnostic_id": "ed71a8eacd3e42da90b82d957f9790dc"
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2305",
+        "clock": 1793703834,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25340",
+        "host_id": "10686",
+        "name": "V3 SRV01: routed TCP/80 unavailable",
+        "raw": {
+          "eventid": "2305",
+          "clock": "1793703834",
+          "objectid": "25340",
+          "value": "0",
+          "name": "V3 SRV01: routed TCP/80 unavailable",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2306",
+        "clock": 1793703835,
+        "node": "srv01",
+        "kind": "http_service",
+        "state": "recovery",
+        "key": "25341",
+        "host_id": "10686",
+        "name": "V3 SRV01: local Nginx stopped",
+        "raw": {
+          "eventid": "2306",
+          "clock": "1793703835",
+          "objectid": "25341",
+          "value": "0",
+          "name": "V3 SRV01: local Nginx stopped",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_service"
+            }
+          ]
+        }
+      },
+      {
+        "source": "local_service_probe",
+        "event_id": "43b89d16b1e7420b8cac5db605f4c5d3",
+        "clock": 1793703841,
+        "node": "srv01",
+        "kind": "http_service",
+        "state": "recovery",
+        "key": "srv01:http_service",
+        "independent_fault": true,
+        "diagnostic_id": "65f95e663a394f48ad14a1a996b5aab3"
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2307",
+        "clock": 1793703889,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25340",
+        "host_id": "10686",
+        "name": "V3 SRV01: routed TCP/80 unavailable",
+        "raw": {
+          "eventid": "2307",
+          "clock": "1793703889",
+          "objectid": "25340",
+          "value": "1",
+          "name": "V3 SRV01: routed TCP/80 unavailable",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2308",
+        "clock": 1793703890,
+        "node": "srv01",
+        "kind": "http_service",
+        "state": "problem",
+        "key": "25341",
+        "host_id": "10686",
+        "name": "V3 SRV01: local Nginx stopped",
+        "raw": {
+          "eventid": "2308",
+          "clock": "1793703890",
+          "objectid": "25341",
+          "value": "1",
+          "name": "V3 SRV01: local Nginx stopped",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_service"
+            }
+          ]
+        }
+      },
+      {
+        "source": "local_service_probe",
+        "event_id": "908c3f0118e343bbbb2b7b027d620977",
+        "clock": 1793703895,
+        "node": "srv01",
+        "kind": "http_service",
+        "state": "problem",
+        "key": "srv01:http_service",
+        "independent_fault": true,
+        "diagnostic_id": "4fab241388ab43deba72bdd22a5e0f4c"
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2309",
+        "clock": 1793703901,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25334",
+        "host_id": "10683",
+        "name": "SRV01: HTTP check failed",
+        "raw": {
+          "eventid": "2309",
+          "clock": "1793703901",
+          "objectid": "25334",
+          "value": "1",
+          "name": "SRV01: HTTP check failed",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10683",
+              "host": "SRV01"
+            }
+          ],
+          "tags": []
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2310",
+        "clock": 1793703930,
+        "node": "srv01",
+        "kind": "http_service",
+        "state": "recovery",
+        "key": "25341",
+        "host_id": "10686",
+        "name": "V3 SRV01: local Nginx stopped",
+        "raw": {
+          "eventid": "2310",
+          "clock": "1793703930",
+          "objectid": "25341",
+          "value": "0",
+          "name": "V3 SRV01: local Nginx stopped",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_service"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2311",
+        "clock": 1793703931,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25334",
+        "host_id": "10683",
+        "name": "SRV01: HTTP check failed",
+        "raw": {
+          "eventid": "2311",
+          "clock": "1793703931",
+          "objectid": "25334",
+          "value": "0",
+          "name": "SRV01: HTTP check failed",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10683",
+              "host": "SRV01"
+            }
+          ],
+          "tags": []
+        }
+      },
+      {
+        "source": "local_service_probe",
+        "event_id": "4c9a13d3bb8045f4a48394586717edde",
+        "clock": 1793703932,
+        "node": "srv01",
+        "kind": "http_service",
+        "state": "recovery",
+        "key": "srv01:http_service",
+        "independent_fault": true,
+        "diagnostic_id": "db05068e19f44d1eacf7fa0e4974814a"
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2312",
+        "clock": 1793703934,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25340",
+        "host_id": "10686",
+        "name": "V3 SRV01: routed TCP/80 unavailable",
+        "raw": {
+          "eventid": "2312",
+          "clock": "1793703934",
+          "objectid": "25340",
+          "value": "0",
+          "name": "V3 SRV01: routed TCP/80 unavailable",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "probe",
+        "event_id": "f6d86cabe223456b8b7f6cc65f9f5ce5",
+        "clock": 1793704110,
+        "node": "cli01",
+        "kind": "reachability",
+        "state": "problem",
+        "key": "cli01:availability",
+        "evidence": {
+          "ping": {
+            "check_type": "ping",
+            "target": "192.168.56.30",
+            "collected_at": 1793704109,
+            "result": {
+              "status": "success",
+              "observer": "mon01"
+            }
+          },
+          "tcp22": {
+            "check_type": "tcp",
+            "target": "192.168.56.30",
+            "collected_at": 1793704109,
+            "result": {
+              "status": "success",
+              "port": 22,
+              "observer": "mon01"
+            }
+          },
+          "routing": {
+            "observer": "cli01",
+            "forwarding_enabled": false,
+            "interface": "enp0s9",
+            "interface_up": true,
+            "route_target": "172.30.20.20",
+            "route_uses_interface": true,
+            "ready": false
+          }
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2316",
+        "clock": 1793704110,
+        "node": "srv01",
+        "kind": "reachability",
+        "state": "problem",
+        "key": "25337",
+        "host_id": "10686",
+        "name": "V3 SRV01-Routed: ICMP unavailable",
+        "raw": {
+          "eventid": "2316",
+          "clock": "1793704110",
+          "objectid": "25337",
+          "value": "1",
+          "name": "V3 SRV01-Routed: ICMP unavailable",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "reachability"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2315",
+        "clock": 1793704111,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25334",
+        "host_id": "10683",
+        "name": "SRV01: HTTP check failed",
+        "raw": {
+          "eventid": "2315",
+          "clock": "1793704111",
+          "objectid": "25334",
+          "value": "1",
+          "name": "SRV01: HTTP check failed",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10683",
+              "host": "SRV01"
+            }
+          ],
+          "tags": []
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2317",
+        "clock": 1793704114,
+        "node": "cli01",
+        "kind": "reachability",
+        "state": "problem",
+        "key": "25338",
+        "host_id": "10685",
+        "name": "V3 CLI01: gateway forwarding unavailable",
+        "raw": {
+          "eventid": "2317",
+          "clock": "1793704114",
+          "objectid": "25338",
+          "value": "1",
+          "name": "V3 CLI01: gateway forwarding unavailable",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10685",
+              "host": "CLI01-Gateway"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "reachability"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2318",
+        "clock": 1793704117,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25340",
+        "host_id": "10686",
+        "name": "V3 SRV01: routed TCP/80 unavailable",
+        "raw": {
+          "eventid": "2318",
+          "clock": "1793704117",
+          "objectid": "25340",
+          "value": "1",
+          "name": "V3 SRV01: routed TCP/80 unavailable",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "local_service_probe",
+        "event_id": "e54dfe309b2d4785a72a48997ff781d1",
+        "clock": 1793704118,
+        "node": "srv01",
+        "kind": "http_service",
+        "state": "problem",
+        "key": "srv01:http_service",
+        "independent_fault": true,
+        "diagnostic_id": "a7e67dc53f7b41669600b605f43676f1"
+      },
+      {
+        "source": "probe",
+        "event_id": "6c10bfed556945d1a3d74ec20f4b0958",
+        "clock": 1793704122,
+        "node": "srv01",
+        "kind": "reachability",
+        "state": "problem",
+        "key": "srv01:availability",
+        "evidence": {
+          "ping": {
+            "check_type": "ping",
+            "target": "172.30.20.20",
+            "collected_at": 1793704120,
+            "result": {
+              "status": "no_reply",
+              "observer": "mon01"
+            }
+          },
+          "tcp22": {
+            "check_type": "tcp",
+            "target": "172.30.20.20",
+            "collected_at": 1793704122,
+            "result": {
+              "status": "timeout",
+              "port": 22,
+              "observer": "mon01"
+            }
+          }
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2319",
+        "clock": 1793704131,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25340",
+        "host_id": "10686",
+        "name": "V3 SRV01: routed TCP/80 unavailable",
+        "raw": {
+          "eventid": "2319",
+          "clock": "1793704131",
+          "objectid": "25340",
+          "value": "0",
+          "name": "V3 SRV01: routed TCP/80 unavailable",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "probe",
+        "event_id": "dd48cae299f44b04afe4fe2636feb29d",
+        "clock": 1793704132,
+        "node": "srv01",
+        "kind": "reachability",
+        "state": "recovery",
+        "key": "srv01:availability",
+        "evidence": {
+          "ping": {
+            "check_type": "ping",
+            "target": "172.30.20.20",
+            "collected_at": 1793704131,
+            "result": {
+              "status": "no_reply",
+              "observer": "mon01"
+            }
+          },
+          "tcp22": {
+            "check_type": "tcp",
+            "target": "172.30.20.20",
+            "collected_at": 1793704132,
+            "result": {
+              "status": "success",
+              "port": 22,
+              "observer": "mon01"
+            }
+          }
+        }
+      },
+      {
+        "source": "local_service_probe",
+        "event_id": "801d18088bfc4360acb829812304db86",
+        "clock": 1793704133,
+        "node": "srv01",
+        "kind": "http_service",
+        "state": "recovery",
+        "key": "srv01:http_service",
+        "independent_fault": true,
+        "diagnostic_id": "5aa21a4b4aa04a899ccc0c94db315d82"
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2320",
+        "clock": 1793704134,
+        "node": "cli01",
+        "kind": "reachability",
+        "state": "recovery",
+        "key": "25338",
+        "host_id": "10685",
+        "name": "V3 CLI01: gateway forwarding unavailable",
+        "raw": {
+          "eventid": "2320",
+          "clock": "1793704134",
+          "objectid": "25338",
+          "value": "0",
+          "name": "V3 CLI01: gateway forwarding unavailable",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10685",
+              "host": "CLI01-Gateway"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "reachability"
+            }
+          ]
+        }
+      },
+      {
+        "source": "probe",
+        "event_id": "fbd95df895c34945ae6ba1bafbc212b9",
+        "clock": 1793704135,
+        "node": "cli01",
+        "kind": "reachability",
+        "state": "recovery",
+        "key": "cli01:availability",
+        "evidence": {
+          "ping": {
+            "check_type": "ping",
+            "target": "192.168.56.30",
+            "collected_at": 1793704135,
+            "result": {
+              "status": "success",
+              "observer": "mon01"
+            }
+          },
+          "tcp22": {
+            "check_type": "tcp",
+            "target": "192.168.56.30",
+            "collected_at": 1793704135,
+            "result": {
+              "status": "success",
+              "port": 22,
+              "observer": "mon01"
+            }
+          },
+          "routing": {
+            "observer": "cli01",
+            "forwarding_enabled": true,
+            "interface": "enp0s9",
+            "interface_up": true,
+            "route_target": "172.30.20.20",
+            "route_uses_interface": true,
+            "ready": true
+          }
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2321",
+        "clock": 1793704135,
+        "node": "srv01",
+        "kind": "reachability",
+        "state": "recovery",
+        "key": "25337",
+        "host_id": "10686",
+        "name": "V3 SRV01-Routed: ICMP unavailable",
+        "raw": {
+          "eventid": "2321",
+          "clock": "1793704135",
+          "objectid": "25337",
+          "value": "0",
+          "name": "V3 SRV01-Routed: ICMP unavailable",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "reachability"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2322",
+        "clock": 1793704141,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25334",
+        "host_id": "10683",
+        "name": "SRV01: HTTP check failed",
+        "raw": {
+          "eventid": "2322",
+          "clock": "1793704141",
+          "objectid": "25334",
+          "value": "0",
+          "name": "SRV01: HTTP check failed",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10683",
+              "host": "SRV01"
+            }
+          ],
+          "tags": []
+        }
+      },
+      {
+        "source": "probe",
+        "event_id": "82f611a25fce41958b10daf3ef962509",
+        "clock": 1793704221,
+        "node": "cli01",
+        "kind": "reachability",
+        "state": "problem",
+        "key": "cli01:availability",
+        "evidence": {
+          "ping": {
+            "check_type": "ping",
+            "target": "192.168.56.30",
+            "collected_at": 1793704220,
+            "result": {
+              "status": "success",
+              "observer": "mon01"
+            }
+          },
+          "tcp22": {
+            "check_type": "tcp",
+            "target": "192.168.56.30",
+            "collected_at": 1793704220,
+            "result": {
+              "status": "success",
+              "port": 22,
+              "observer": "mon01"
+            }
+          },
+          "routing": {
+            "observer": "cli01",
+            "forwarding_enabled": false,
+            "interface": "enp0s9",
+            "interface_up": true,
+            "route_target": "172.30.20.20",
+            "route_uses_interface": true,
+            "ready": false
+          }
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2325",
+        "clock": 1793704221,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25343",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 1",
+        "raw": {
+          "eventid": "2325",
+          "clock": "1793704221",
+          "objectid": "25343",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 1",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2326",
+        "clock": 1793704221,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25344",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 2",
+        "raw": {
+          "eventid": "2326",
+          "clock": "1793704221",
+          "objectid": "25344",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 2",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2327",
+        "clock": 1793704221,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25345",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 3",
+        "raw": {
+          "eventid": "2327",
+          "clock": "1793704221",
+          "objectid": "25345",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 3",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2328",
+        "clock": 1793704221,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25346",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 4",
+        "raw": {
+          "eventid": "2328",
+          "clock": "1793704221",
+          "objectid": "25346",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 4",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2329",
+        "clock": 1793704221,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25347",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 5",
+        "raw": {
+          "eventid": "2329",
+          "clock": "1793704221",
+          "objectid": "25347",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 5",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2330",
+        "clock": 1793704221,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25348",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 6",
+        "raw": {
+          "eventid": "2330",
+          "clock": "1793704221",
+          "objectid": "25348",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 6",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2331",
+        "clock": 1793704221,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25349",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 7",
+        "raw": {
+          "eventid": "2331",
+          "clock": "1793704221",
+          "objectid": "25349",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 7",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2332",
+        "clock": 1793704221,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25350",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 8",
+        "raw": {
+          "eventid": "2332",
+          "clock": "1793704221",
+          "objectid": "25350",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 8",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2333",
+        "clock": 1793704221,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25351",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 9",
+        "raw": {
+          "eventid": "2333",
+          "clock": "1793704221",
+          "objectid": "25351",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 9",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2334",
+        "clock": 1793704221,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25352",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 10",
+        "raw": {
+          "eventid": "2334",
+          "clock": "1793704221",
+          "objectid": "25352",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 10",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2335",
+        "clock": 1793704221,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25353",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 11",
+        "raw": {
+          "eventid": "2335",
+          "clock": "1793704221",
+          "objectid": "25353",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 11",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2336",
+        "clock": 1793704221,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25354",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 12",
+        "raw": {
+          "eventid": "2336",
+          "clock": "1793704221",
+          "objectid": "25354",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 12",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2337",
+        "clock": 1793704221,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25355",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 13",
+        "raw": {
+          "eventid": "2337",
+          "clock": "1793704221",
+          "objectid": "25355",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 13",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2338",
+        "clock": 1793704221,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25356",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 14",
+        "raw": {
+          "eventid": "2338",
+          "clock": "1793704221",
+          "objectid": "25356",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 14",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2339",
+        "clock": 1793704221,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25357",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 15",
+        "raw": {
+          "eventid": "2339",
+          "clock": "1793704221",
+          "objectid": "25357",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 15",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2340",
+        "clock": 1793704221,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25358",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 16",
+        "raw": {
+          "eventid": "2340",
+          "clock": "1793704221",
+          "objectid": "25358",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 16",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2341",
+        "clock": 1793704221,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25359",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 17",
+        "raw": {
+          "eventid": "2341",
+          "clock": "1793704221",
+          "objectid": "25359",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 17",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2342",
+        "clock": 1793704221,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25360",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 18",
+        "raw": {
+          "eventid": "2342",
+          "clock": "1793704221",
+          "objectid": "25360",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 18",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2343",
+        "clock": 1793704221,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25361",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 19",
+        "raw": {
+          "eventid": "2343",
+          "clock": "1793704221",
+          "objectid": "25361",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 19",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2344",
+        "clock": 1793704221,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25362",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 20",
+        "raw": {
+          "eventid": "2344",
+          "clock": "1793704221",
+          "objectid": "25362",
+          "value": "1",
+          "name": "V3 SYNTHETIC routed symptom 20",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2345",
+        "clock": 1793704224,
+        "node": "cli01",
+        "kind": "reachability",
+        "state": "problem",
+        "key": "25338",
+        "host_id": "10685",
+        "name": "V3 CLI01: gateway forwarding unavailable",
+        "raw": {
+          "eventid": "2345",
+          "clock": "1793704224",
+          "objectid": "25338",
+          "value": "1",
+          "name": "V3 CLI01: gateway forwarding unavailable",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10685",
+              "host": "CLI01-Gateway"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "reachability"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2347",
+        "clock": 1793704225,
+        "node": "srv01",
+        "kind": "reachability",
+        "state": "problem",
+        "key": "25337",
+        "host_id": "10686",
+        "name": "V3 SRV01-Routed: ICMP unavailable",
+        "raw": {
+          "eventid": "2347",
+          "clock": "1793704225",
+          "objectid": "25337",
+          "value": "1",
+          "name": "V3 SRV01-Routed: ICMP unavailable",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "reachability"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2346",
+        "clock": 1793704227,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "problem",
+        "key": "25340",
+        "host_id": "10686",
+        "name": "V3 SRV01: routed TCP/80 unavailable",
+        "raw": {
+          "eventid": "2346",
+          "clock": "1793704227",
+          "objectid": "25340",
+          "value": "1",
+          "name": "V3 SRV01: routed TCP/80 unavailable",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "probe",
+        "event_id": "2c0c55459c8a4b92a25e86697c33f7ff",
+        "clock": 1793704228,
+        "node": "srv01",
+        "kind": "reachability",
+        "state": "problem",
+        "key": "srv01:availability",
+        "evidence": {
+          "ping": {
+            "check_type": "ping",
+            "target": "172.30.20.20",
+            "collected_at": 1793704226,
+            "result": {
+              "status": "no_reply",
+              "observer": "mon01"
+            }
+          },
+          "tcp22": {
+            "check_type": "tcp",
+            "target": "172.30.20.20",
+            "collected_at": 1793704228,
+            "result": {
+              "status": "timeout",
+              "port": 22,
+              "observer": "mon01"
+            }
+          }
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2371",
+        "clock": 1793704249,
+        "node": "srv01",
+        "kind": "reachability",
+        "state": "recovery",
+        "key": "25337",
+        "host_id": "10686",
+        "name": "V3 SRV01-Routed: ICMP unavailable",
+        "raw": {
+          "eventid": "2371",
+          "clock": "1793704249",
+          "objectid": "25337",
+          "value": "0",
+          "name": "V3 SRV01-Routed: ICMP unavailable",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "reachability"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2351",
+        "clock": 1793704250,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25343",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 1",
+        "raw": {
+          "eventid": "2351",
+          "clock": "1793704250",
+          "objectid": "25343",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 1",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2352",
+        "clock": 1793704250,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25344",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 2",
+        "raw": {
+          "eventid": "2352",
+          "clock": "1793704250",
+          "objectid": "25344",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 2",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2353",
+        "clock": 1793704250,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25345",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 3",
+        "raw": {
+          "eventid": "2353",
+          "clock": "1793704250",
+          "objectid": "25345",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 3",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2354",
+        "clock": 1793704250,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25346",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 4",
+        "raw": {
+          "eventid": "2354",
+          "clock": "1793704250",
+          "objectid": "25346",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 4",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2355",
+        "clock": 1793704250,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25347",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 5",
+        "raw": {
+          "eventid": "2355",
+          "clock": "1793704250",
+          "objectid": "25347",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 5",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2356",
+        "clock": 1793704250,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25348",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 6",
+        "raw": {
+          "eventid": "2356",
+          "clock": "1793704250",
+          "objectid": "25348",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 6",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2357",
+        "clock": 1793704250,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25349",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 7",
+        "raw": {
+          "eventid": "2357",
+          "clock": "1793704250",
+          "objectid": "25349",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 7",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2358",
+        "clock": 1793704250,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25350",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 8",
+        "raw": {
+          "eventid": "2358",
+          "clock": "1793704250",
+          "objectid": "25350",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 8",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2359",
+        "clock": 1793704250,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25351",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 9",
+        "raw": {
+          "eventid": "2359",
+          "clock": "1793704250",
+          "objectid": "25351",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 9",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2360",
+        "clock": 1793704250,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25352",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 10",
+        "raw": {
+          "eventid": "2360",
+          "clock": "1793704250",
+          "objectid": "25352",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 10",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2361",
+        "clock": 1793704250,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25353",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 11",
+        "raw": {
+          "eventid": "2361",
+          "clock": "1793704250",
+          "objectid": "25353",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 11",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2362",
+        "clock": 1793704250,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25354",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 12",
+        "raw": {
+          "eventid": "2362",
+          "clock": "1793704250",
+          "objectid": "25354",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 12",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2363",
+        "clock": 1793704250,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25355",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 13",
+        "raw": {
+          "eventid": "2363",
+          "clock": "1793704250",
+          "objectid": "25355",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 13",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2364",
+        "clock": 1793704250,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25356",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 14",
+        "raw": {
+          "eventid": "2364",
+          "clock": "1793704250",
+          "objectid": "25356",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 14",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2365",
+        "clock": 1793704250,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25357",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 15",
+        "raw": {
+          "eventid": "2365",
+          "clock": "1793704250",
+          "objectid": "25357",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 15",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2366",
+        "clock": 1793704250,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25358",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 16",
+        "raw": {
+          "eventid": "2366",
+          "clock": "1793704250",
+          "objectid": "25358",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 16",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2367",
+        "clock": 1793704250,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25359",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 17",
+        "raw": {
+          "eventid": "2367",
+          "clock": "1793704250",
+          "objectid": "25359",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 17",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2368",
+        "clock": 1793704250,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25360",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 18",
+        "raw": {
+          "eventid": "2368",
+          "clock": "1793704250",
+          "objectid": "25360",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 18",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2369",
+        "clock": 1793704250,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25361",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 19",
+        "raw": {
+          "eventid": "2369",
+          "clock": "1793704250",
+          "objectid": "25361",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 19",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2370",
+        "clock": 1793704250,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25362",
+        "host_id": "10686",
+        "name": "V3 SYNTHETIC routed symptom 20",
+        "raw": {
+          "eventid": "2370",
+          "clock": "1793704250",
+          "objectid": "25362",
+          "value": "0",
+          "name": "V3 SYNTHETIC routed symptom 20",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2373",
+        "clock": 1793704251,
+        "node": "srv01",
+        "kind": "http_connectivity",
+        "state": "recovery",
+        "key": "25340",
+        "host_id": "10686",
+        "name": "V3 SRV01: routed TCP/80 unavailable",
+        "raw": {
+          "eventid": "2373",
+          "clock": "1793704251",
+          "objectid": "25340",
+          "value": "0",
+          "name": "V3 SRV01: routed TCP/80 unavailable",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "http_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "probe",
+        "event_id": "cfc58c4fa6914f74904d78f132b70c7a",
+        "clock": 1793704252,
+        "node": "srv01",
+        "kind": "reachability",
+        "state": "recovery",
+        "key": "srv01:availability",
+        "evidence": {
+          "ping": {
+            "check_type": "ping",
+            "target": "172.30.20.20",
+            "collected_at": 1793704252,
+            "result": {
+              "status": "success",
+              "observer": "mon01"
+            }
+          },
+          "tcp22": {
+            "check_type": "tcp",
+            "target": "172.30.20.20",
+            "collected_at": 1793704252,
+            "result": {
+              "status": "success",
+              "port": 22,
+              "observer": "mon01"
+            }
+          }
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2374",
+        "clock": 1793704252,
+        "node": "srv01",
+        "kind": "agent_connectivity",
+        "state": "problem",
+        "key": "25342",
+        "host_id": "10686",
+        "name": "V3 SRV01: routed agent samples missing",
+        "raw": {
+          "eventid": "2374",
+          "clock": "1793704252",
+          "objectid": "25342",
+          "value": "1",
+          "name": "V3 SRV01: routed agent samples missing",
+          "severity": "3",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "agent_connectivity"
+            }
+          ]
+        }
+      },
+      {
+        "source": "probe",
+        "event_id": "a1b905dbe3184afab042ea77a704d36c",
+        "clock": 1793704253,
+        "node": "cli01",
+        "kind": "reachability",
+        "state": "recovery",
+        "key": "cli01:availability",
+        "evidence": {
+          "ping": {
+            "check_type": "ping",
+            "target": "192.168.56.30",
+            "collected_at": 1793704252,
+            "result": {
+              "status": "success",
+              "observer": "mon01"
+            }
+          },
+          "tcp22": {
+            "check_type": "tcp",
+            "target": "192.168.56.30",
+            "collected_at": 1793704252,
+            "result": {
+              "status": "success",
+              "port": 22,
+              "observer": "mon01"
+            }
+          },
+          "routing": {
+            "observer": "cli01",
+            "forwarding_enabled": true,
+            "interface": "enp0s9",
+            "interface_up": true,
+            "route_target": "172.30.20.20",
+            "route_uses_interface": true,
+            "ready": true
+          }
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2376",
+        "clock": 1793704254,
+        "node": "cli01",
+        "kind": "reachability",
+        "state": "recovery",
+        "key": "25338",
+        "host_id": "10685",
+        "name": "V3 CLI01: gateway forwarding unavailable",
+        "raw": {
+          "eventid": "2376",
+          "clock": "1793704254",
+          "objectid": "25338",
+          "value": "0",
+          "name": "V3 CLI01: gateway forwarding unavailable",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10685",
+              "host": "CLI01-Gateway"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "reachability"
+            }
+          ]
+        }
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2378",
+        "clock": 1793704266,
+        "node": "srv01",
+        "kind": "agent_connectivity",
+        "state": "recovery",
+        "key": "25342",
+        "host_id": "10686",
+        "name": "V3 SRV01: routed agent samples missing",
+        "raw": {
+          "eventid": "2378",
+          "clock": "1793704266",
+          "objectid": "25342",
+          "value": "0",
+          "name": "V3 SRV01: routed agent samples missing",
+          "severity": "0",
+          "hosts": [
+            {
+              "hostid": "10686",
+              "host": "SRV01-Routed"
+            }
+          ],
+          "tags": [
+            {
+              "tag": "diag.scope",
+              "value": "system-v3"
+            },
+            {
+              "tag": "diag.kind",
+              "value": "agent_connectivity"
+            }
+          ]
+        }
+      }
+    ],
+    "worker_service": "active",
+    "zabbix_open_problems": []
+  }
+}

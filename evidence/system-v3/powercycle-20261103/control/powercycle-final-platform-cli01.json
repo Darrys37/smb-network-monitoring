@@ -1,0 +1,15 @@
+{
+  "status": "OK",
+  "id": "powercycle-final-platform-cli01",
+  "result": {
+    "boot_id": "aa2b6c30-a96f-4125-a40b-96333eb02528",
+    "stall_count": 0,
+    "recent_stall": false,
+    "last_stalls": [],
+    "package_jobs_active": false,
+    "package_jobs": [],
+    "dpkg_lock_held": false,
+    "package_audit_clean": true,
+    "package_status_sha256": "e3c32a9f71a88ceda4c33df14170343c685cd05e27064b815fe39b680219ac1a"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "status": "OK",
+  "id": "powercycle-after-cli01",
+  "result": {
+    "host": "cli01",
+    "clock": 1793705508,
+    "boot_id": "c60a86d5-977f-4c70-ae26-7371508417c6",
+    "uptime_seconds": 55.77,
+    "units": {
+      "do-an-network-v3.service": {
+        "active": {
+          "exit": 0,
+          "stdout": "active"
+        },
+        "enabled": {
+          "exit": 0,
+          "stdout": "enabled"
+        },
+        "details": {
+          "exit": 0,
+          "stdout": "ActiveEnterTimestamp=Tue 2026-11-03 11:31:20 UTC\nResult=success\nNRestarts=0\nExecMainStartTimestamp=Tue 2026-11-03 11:31:13 UTC\nExecMainStatus=0"
+        }
+      },
+      "zabbix-agent2.service": {
+        "active": {
+          "exit": 0,
+          "stdout": "active"
+        },
+        "enabled": {
+          "exit": 0,
+          "stdout": "enabled"
+        },
+        "details": {
+          "exit": 0,
+          "stdout": "ActiveEnterTimestamp=Tue 2026-11-03 11:31:18 UTC\nResult=success\nNRestarts=0\nExecMainStartTimestamp=Tue 2026-11-03 11:31:18 UTC\nExecMainStatus=0"
+        }
+      },
+      "ssh.service": {
+        "active": {
+          "exit": 0,
+          "stdout": "active"
+        },
+        "enabled": {
+          "exit": 1,
+          "stdout": "disabled"
+        },
+        "details": {
+          "exit": 0,
+          "stdout": "ActiveEnterTimestamp=Tue 2026-11-03 11:31:19 UTC\nResult=success\nNRestarts=0\nExecMainStartTimestamp=Tue 2026-11-03 11:31:19 UTC\nExecMainStatus=0"
+        }
+      }
+    },
+    "ntp": {
+      "exit": 0,
+      "stdout": "yes"
+    },
+    "rollback_timers": {
+      "exit": 0,
+      "stdout": ""
+    },
+    "worker_journal": null,
+    "forwarding": "1"
+  }
+}

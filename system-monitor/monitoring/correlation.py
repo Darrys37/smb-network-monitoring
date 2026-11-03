@@ -36,7 +36,9 @@ def correlate(events, topology, node_states, now, *, window_seconds=30, max_age=
     latest = {}
     for event in ordered:
         latest[(event["source"], event["key"])] = event
-    active = [event for event in latest.values() if event["state"] == "problem"]
+    all_active = [event for event in latest.values() if event["state"] == "problem"]
+    notices = [event for event in all_active if topology.is_notice(event)]
+    active = [event for event in all_active if not topology.is_notice(event)]
     local_http_failures = [event for event in active if event["kind"] == "http_service" and event.get("independent_fault") is True]
 
     def down(name):
@@ -74,7 +76,7 @@ def correlate(events, topology, node_states, now, *, window_seconds=30, max_age=
                                       "dependency_path": topology.path(node, root) if suppressed else [node]})
         if node == root:
             groups[key]["derived_root"] = False
-    problems = [event for event in ordered if event["state"] == "problem"]
+    problems = [event for event in ordered if event["state"] == "problem" and not topology.is_notice(event)]
     clocks = [event["clock"] for event in problems]
     left, peak = 0, 0
     for right, clock in enumerate(clocks):
@@ -83,6 +85,8 @@ def correlate(events, topology, node_states, now, *, window_seconds=30, max_age=
         peak = max(peak, right - left + 1)
     output = sorted(groups.values(), key=lambda group: (group["root_node"], group["cause_group"]))
     return {"decision_time": now, "topology_version": topology.version, "window_seconds": window_seconds,
+            "active_total_problem_events": len(all_active), "active_notice_events": len(notices),
+            "notices": [{key: event.get(key) for key in ("source", "event_id", "node", "key", "name", "clock")} for event in notices],
             "raw_unique_events": len(ordered), "distinct_problem_events": len(problems), "active_problem_events": len(active),
             "recent_problem_events": sum(now - window_seconds < event["clock"] <= now for event in problems),
             "peak_window_event_count": peak, "emitted_groups": len(output),

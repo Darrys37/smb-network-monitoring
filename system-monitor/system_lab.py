@@ -32,7 +32,7 @@ def storm(transport,value):
 def show(result):
     corr=result['correlation']
     print(json.dumps({'worker':result['worker_service'],'active_events':corr['active_problem_events'],'groups':corr['emitted_groups'],
-                      'suppressed':corr['suppressed_events'],'pending_jobs':result['counts']['pending_jobs'],
+                      'suppressed':corr['suppressed_events'],'startup_notices':corr.get('active_notice_events',0),'pending_jobs':result['counts']['pending_jobs'],
                       'roots':[{'node':g['root_node'],'kind':g['cause_group'],'alerts':len(g['members'])} for g in corr['groups']]},ensure_ascii=True),flush=True)
 
 

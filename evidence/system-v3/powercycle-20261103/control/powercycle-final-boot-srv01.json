@@ -1,0 +1,77 @@
+{
+  "status": "OK",
+  "id": "powercycle-final-boot-srv01",
+  "result": {
+    "host": "srv01",
+    "clock": 1793708097,
+    "boot_id": "fadefb63-2441-4343-9f67-d81bbe456604",
+    "uptime_seconds": 792.36,
+    "units": {
+      "do-an-network-v3.service": {
+        "active": {
+          "exit": 0,
+          "stdout": "active"
+        },
+        "enabled": {
+          "exit": 0,
+          "stdout": "enabled"
+        },
+        "details": {
+          "exit": 0,
+          "stdout": "ActiveEnterTimestamp=Tue 2026-11-03 12:02:09 UTC\nResult=success\nNRestarts=0\nExecMainStartTimestamp=Tue 2026-11-03 12:02:04 UTC\nExecMainStatus=0"
+        }
+      },
+      "zabbix-agent2.service": {
+        "active": {
+          "exit": 0,
+          "stdout": "active"
+        },
+        "enabled": {
+          "exit": 0,
+          "stdout": "enabled"
+        },
+        "details": {
+          "exit": 0,
+          "stdout": "ActiveEnterTimestamp=Tue 2026-11-03 12:02:07 UTC\nResult=success\nNRestarts=0\nExecMainStartTimestamp=Tue 2026-11-03 12:02:07 UTC\nExecMainStatus=0"
+        }
+      },
+      "ssh.service": {
+        "active": {
+          "exit": 0,
+          "stdout": "active"
+        },
+        "enabled": {
+          "exit": 1,
+          "stdout": "disabled"
+        },
+        "details": {
+          "exit": 0,
+          "stdout": "ActiveEnterTimestamp=Tue 2026-11-03 12:02:47 UTC\nResult=success\nNRestarts=0\nExecMainStartTimestamp=Tue 2026-11-03 12:02:47 UTC\nExecMainStatus=0"
+        }
+      },
+      "nginx.service": {
+        "active": {
+          "exit": 0,
+          "stdout": "active"
+        },
+        "enabled": {
+          "exit": 0,
+          "stdout": "enabled"
+        },
+        "details": {
+          "exit": 0,
+          "stdout": "ActiveEnterTimestamp=Tue 2026-11-03 12:02:06 UTC\nResult=success\nNRestarts=0\nExecMainStartTimestamp=Tue 2026-11-03 12:02:06 UTC\nExecMainStatus=0"
+        }
+      }
+    },
+    "ntp": {
+      "exit": 0,
+      "stdout": "yes"
+    },
+    "rollback_timers": {
+      "exit": 0,
+      "stdout": ""
+    },
+    "worker_journal": null
+  }
+}

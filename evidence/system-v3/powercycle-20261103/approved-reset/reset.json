@@ -1,0 +1,10 @@
+{
+  "user_authorized_forced_reset": true,
+  "vm": "MON01",
+  "uuid": "a420f6c6-8ddc-4e94-bf1f-272bea122370",
+  "reset_requested_at": "2026-11-03T11:46:32.818320+00:00",
+  "prior_clean_acpi_and_pause_resume_failed": true,
+  "other_vms_reset": false,
+  "ssh_port_ready_at": "2026-11-03T11:47:59.827029+00:00",
+  "reset_to_ssh_port_seconds": 84.04
+}

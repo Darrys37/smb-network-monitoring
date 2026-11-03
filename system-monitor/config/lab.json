@@ -20,7 +20,21 @@
         ],
         "dependency_basis": "MON01 route 172.30.20.0/24 via CLI01 192.168.56.30; dedicated internal NIC and SRV01 source-policy return path, confirmed by TTL=1 and HTTP"
       }
-    }
+    },
+    "informational_triggers": [
+      {
+        "node": "cli01",
+        "trigger_id": "25300",
+        "expected_name": "Linux: CLI01 has been restarted (uptime < 10m)",
+        "expected_severity": "2"
+      },
+      {
+        "node": "srv01",
+        "trigger_id": "25256",
+        "expected_name": "Linux: SRV01 has been restarted (uptime < 10m)",
+        "expected_severity": "2"
+      }
+    ]
   },
   "profiles": [
     {

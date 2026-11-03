@@ -1,0 +1,123 @@
+{
+  "status": "FUNCTIONAL_POWER_CYCLE_AND_DEMO_PASSED_WITH_PLATFORM_WARNINGS",
+  "at": "2026-11-03T12:19:06.019063+00:00",
+  "attempt_1": "Failed MON01 boot/SSH readiness within 240s; preserved, not converted into a pass",
+  "approved_recovery": "One forced reset of MON01 explicitly approved by user; not counted as a clean boot pass",
+  "attempt_2": "Clean all-three poweroff, sequential start, automatic services active; no kernel stalls at observation",
+  "attempt_3": "Clean all-three poweroff, sequential start with notice policy, automatic services active; MON01 had one startup soft lockup",
+  "boot_ids_before": {
+    "mon01": "89ab0b4a-1fc1-4ad2-8664-21661ad968d1",
+    "srv01": "37635eff-62af-4e72-804a-419b804cf3a6",
+    "cli01": "61af3967-7ddb-463e-b543-f2a8f957311f"
+  },
+  "boot_ids_after": {
+    "mon01": "1e0826be-6f49-4b99-8358-ea8d570971bf",
+    "srv01": "fadefb63-2441-4343-9f67-d81bbe456604",
+    "cli01": "aa2b6c30-a96f-4125-a40b-96333eb02528"
+  },
+  "manual_service_start_in_clean_attempts": false,
+  "all_old_events_unchanged": true,
+  "sqlite_continuity": {
+    "checkpoint": "/home/phat/system-monitor-checkpoints/after-v3-20261103T112921957233Z/monitoring.sqlite",
+    "old_events": 158,
+    "current_events": 174,
+    "missing": [],
+    "changed": [],
+    "previous_cursors": {
+      "zabbix": "2378"
+    },
+    "current_cursors": {
+      "zabbix": "2424"
+    },
+    "cursor_monotonic": true,
+    "integrity": "ok",
+    "foreign_key_errors": []
+  },
+  "mysql_six_tables_quick_check_ok": true,
+  "deployed_source_matches": true,
+  "source_sha256": {
+    "monitor.py": "10f839be25154fe5d181dfcc51b35907628294199938656832c6eaa1786f8e71",
+    "report.py": "145a127b5486bb290716c9594b025b31a1c5655c5272bcb0c17aa3c9c123400c",
+    "config/expert_seed.json": "e3621f0a30229bcbee7627821cfaabbd6e5353a26f9867831a896156f845b07c",
+    "storm_control.py": "d01262c1a76415336aa485922986aeae7f3198eff43498b96267c66a50d4b45d",
+    "monitoring/expressions.py": "6675471862ac9ae51e66e1822ebe560db1dc084d724f340a2e4b8b22dc4734bc",
+    "monitoring/worker.py": "17b7da52ab60de480003113c387a8c40f7bdf916c7188b89e3255c585f929cdf",
+    "monitoring/facts.py": "bd1810ca315f5d43be93dcae1ab4af8c5f4c469d718519ac79247b794e4fe24a",
+    "monitoring/correlation.py": "4d0d81696170dd5bdee8ba167f754985b46e2b3f13afd308a91ded1fdaab84d1",
+    "monitoring/vector.py": "e33c1e3470c62b5339ca02f180919b0f3d25ddabbabc8bdf0a5197dae09cf7a0",
+    "monitoring/probes.py": "049f8d9ffbe50c779402803b451e894bee1f4c044483f933f96645ac09dda6c1",
+    "monitoring/collector.py": "4bd68b690d15013d84a689d3d24ba544dcbd7dc9f75d6639e6852bc25204f5c5",
+    "monitoring/catalog.py": "be552123b21a73aad5cbd6c95ed0e8af8c2643d31dfe5e1761fdd355bb3e46c3",
+    "monitoring/__init__.py": "ad61624b2901ae7c8f92aba4600a4a3297a0d3becac0fd704e014a19d8e1388f",
+    "monitoring/store.py": "c89953345cee4efbd813d8d3598c72e604adfb1b220403bc57cc002a8a493913",
+    "monitoring/topology.py": "f679ad4df8526acb74f2a3f591ac248f3f4f97c4fe9caba655d92ddb4540ef4e"
+  },
+  "notice_replay": {
+    "raw_events": 160,
+    "total_active": 2,
+    "notices": 2,
+    "actionable": 0
+  },
+  "postboot_demo": {
+    "path": "evidence/system-v3/demos/20261103T121633397186Z",
+    "groups": 2,
+    "active_events": 6,
+    "suppressed": 3,
+    "fully_recovered": true
+  },
+  "final": {
+    "worker": "active",
+    "actionable_events": 0,
+    "notices": 0,
+    "pending_jobs": 0,
+    "zabbix_open_problems": []
+  },
+  "platform_warning": {
+    "mon01_boot_stalls": 1,
+    "recent_stall": false,
+    "messages": [
+      {
+        "monotonic_us": 65555616,
+        "realtime_us": 1793707446556626,
+        "message": "watchdog: BUG: soft lockup - CPU#1 stuck for 34s! [boot:1349]"
+      }
+    ],
+    "new_stalls_during_demo": 0,
+    "root_cause": "Unconfirmed; sequential startup is a tested procedure, not proof that the platform bug is fixed"
+  },
+  "backup_restore_test": false,
+  "virtual_disks_copied": false,
+  "runtime_checkpoint": {
+    "host": "mon01",
+    "checkpoint": "/home/phat/system-monitor-checkpoints/after-v3-20261103T121830012640Z",
+    "public_files": {
+      "monitoring.sqlite": {
+        "bytes": 3067904,
+        "sha256": "56a536f3642bd8eb41191c6c2523a9efa6a7de20333d99caa5b7d450dbb42286"
+      },
+      "expert_rules.sqlite": {
+        "bytes": 61440,
+        "sha256": "ed92150a2e22381771e63e09bf32461aab4b09b7fbd514939181b20dedf9a184"
+      },
+      "diagnosis.db": {
+        "bytes": 196608,
+        "sha256": "af5b374beeed981fa1860595883322c7a76d841a1e4c603927f07a592b1c76c2"
+      },
+      "provisioned.json": {
+        "bytes": 2771,
+        "sha256": "7146c7a5adf915fc56e60e8c65b6a01062f7d4d7d2e2bd7e7e8978dc29306b9e"
+      },
+      "lab.json": {
+        "bytes": 2345,
+        "sha256": "a2ae137cc2acc94353b2e752c2f35b5956ca879e88738748c62448fcc86ca2b0"
+      },
+      "expert_seed.json": {
+        "bytes": 30308,
+        "sha256": "e3621f0a30229bcbee7627821cfaabbd6e5353a26f9867831a896156f845b07c"
+      }
+    },
+    "total_bytes": 3361600,
+    "private_files_exported": false,
+    "virtual_disks_copied": false
+  }
+}

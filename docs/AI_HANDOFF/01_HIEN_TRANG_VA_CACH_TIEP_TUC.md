@@ -1,3 +1,11 @@
+## Kiểm thử boot bổ sung — tối03/11/2026
+
+- Lượt bật gần đồng thời thất bại ở MON01. Người dùng đã cho phép một reset cưỡng bức riêng MON01; dữ liệu SQLite gốc158 event còn nguyên, sáu bảng MySQL kiểm nhanh OK.
+- Hai lượt bật tuần tự CLI01→SRV01→MON01 lên dịch vụ tự động; demo multi sau lượt cuối đạt và phục hồi0 event/0 job. Cả ba VM đang chạy.
+- **Cảnh báo còn lại:** MON01 ghi soft lockup lúc boot (lượt cuối một lần); không phát sinh thêm trong demo. Chưa xác định nguyên nhân gốc, không tuyên bố hết lỗi nền tảng. Không tự reset thêm nếu chưa cân nhắc dữ liệu đang chạy.
+- Đã sửa chính sách đúng hai thông báo uptime<10 phút bằng allowlist node/ID/tên/severity, giữ raw/notices; không bỏ qua mọi Warning.36 tests hệ thống và74 tests ML qua, model/freeze cũ giữ nguyên.
+- Đọc [báo cáo boot](../KIEM_THU_KHOI_DONG_20261103.md) và [bằng chứng](../../evidence/system-v3/powercycle-20261103/VERIFICATION.json). Chưa thực hiện restore toàn VM từ cold backup.
+
 ## Trạng thái chốt 03/11/2026 — ưu tiên hệ thống trước ML
 
 - Chỉ có MON01/SRV01/CLI01; không có máy Ubuntu thật. Phần thử máy thật hoãn, không khai là đã làm.

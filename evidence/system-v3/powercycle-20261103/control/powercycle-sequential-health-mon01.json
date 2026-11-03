@@ -1,0 +1,29 @@
+{
+  "status": "OK",
+  "id": "powercycle-sequential-health-mon01",
+  "result": {
+    "host": "mon01",
+    "clock": 1793706898,
+    "boot_id": "513355f4-5f10-4f8b-844e-ceaaa91dbd6f",
+    "ntp_properties": {
+      "exit": 0,
+      "stdout": "NTP=yes\nNTPSynchronized=yes"
+    },
+    "timesync_status": {
+      "exit": 1,
+      "stdout": ""
+    },
+    "ntp_service": {
+      "exit": 4,
+      "stdout": "inactive"
+    },
+    "failed_units": {
+      "exit": 0,
+      "stdout": ""
+    },
+    "timers": {
+      "exit": 0,
+      "stdout": ""
+    }
+  }
+}

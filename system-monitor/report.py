@@ -33,6 +33,7 @@ if __name__=='__main__':
     else:
         corr=result['correlation']
         print(f"Active events: {corr['active_problem_events']} | Incident groups: {corr['emitted_groups']} | Suppressed dependent alerts: {corr['suppressed_events']}")
+        print('Informational startup notices retained:',corr.get('active_notice_events',0))
         print('Raw events retained:',result['counts']['events'],'| Pending diagnosis jobs:',result['counts']['pending_jobs'])
         for group in corr['groups']:
             print('ROOT',group['root_node'],'|',group['cause_group'],'| alerts:',len(group['members']))

@@ -1,0 +1,38 @@
+{
+  "before_policy_active": 2,
+  "after_policy": {
+    "decision_time": 1793706909,
+    "topology_version": "routed-lab-v3",
+    "window_seconds": 30,
+    "active_total_problem_events": 2,
+    "active_notice_events": 2,
+    "notices": [
+      {
+        "source": "zabbix",
+        "event_id": "2394",
+        "node": "cli01",
+        "key": "25300",
+        "name": "Linux: CLI01 has been restarted (uptime < 10m)",
+        "clock": 1793706856
+      },
+      {
+        "source": "zabbix",
+        "event_id": "2395",
+        "node": "srv01",
+        "key": "25256",
+        "name": "Linux: SRV01 has been restarted (uptime < 10m)",
+        "clock": 1793706864
+      }
+    ],
+    "raw_unique_events": 160,
+    "distinct_problem_events": 79,
+    "active_problem_events": 0,
+    "recent_problem_events": 0,
+    "peak_window_event_count": 25,
+    "emitted_groups": 0,
+    "suppressed_events": 0,
+    "groups": [],
+    "raw_retained": true,
+    "confidence_kind": "topology_and_fresh_evidence_correlation_not_proof_of_unique_physical_cause"
+  }
+}

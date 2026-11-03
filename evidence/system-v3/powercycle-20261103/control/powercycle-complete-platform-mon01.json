@@ -1,0 +1,21 @@
+{
+  "status": "OK",
+  "id": "powercycle-complete-platform-mon01",
+  "result": {
+    "boot_id": "1e0826be-6f49-4b99-8358-ea8d570971bf",
+    "stall_count": 1,
+    "recent_stall": false,
+    "last_stalls": [
+      {
+        "monotonic_us": 65555616,
+        "realtime_us": 1793707446556626,
+        "message": "watchdog: BUG: soft lockup - CPU#1 stuck for 34s! [boot:1349]"
+      }
+    ],
+    "package_jobs_active": false,
+    "package_jobs": [],
+    "dpkg_lock_held": false,
+    "package_audit_clean": true,
+    "package_status_sha256": "230bb4abe035e335c06caf078bfe9c677799d9f3f033ad542279152d0bf5cac2"
+  }
+}

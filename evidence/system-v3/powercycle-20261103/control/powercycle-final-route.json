@@ -1,0 +1,24 @@
+{
+  "status": "OK",
+  "id": "powercycle-final-route",
+  "result": {
+    "host": "mon01",
+    "route": {
+      "code": 0,
+      "stdout": "[{\"dst\":\"172.30.20.20\",\"gateway\":\"192.168.56.30\",\"dev\":\"enp0s8\",\"prefsrc\":\"192.168.56.10\",\"flags\":[],\"uid\":1000,\"cache\":[]}]"
+    },
+    "ping": {
+      "code": 0,
+      "stdout": "PING 172.30.20.20 (172.30.20.20) 56(84) bytes of data.\n64 bytes from 172.30.20.20: icmp_seq=1 ttl=63 time=2.17 ms\n64 bytes from 172.30.20.20: icmp_seq=2 ttl=63 time=2.37 ms\n\n--- 172.30.20.20 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1002ms\nrtt min/avg/max/mdev = 2.172/2.271/2.370/0.099 ms"
+    },
+    "first_hop": {
+      "code": 1,
+      "stdout": "PING 172.30.20.20 (172.30.20.20) 56(84) bytes of data.\nFrom 192.168.56.30 icmp_seq=1 Time to live exceeded\n\n--- 172.30.20.20 ping statistics ---\n1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms"
+    },
+    "routed_http_status": 200,
+    "management_addresses": {
+      "code": 0,
+      "stdout": "[{\"ifindex\":3,\"ifname\":\"enp0s8\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":1500,\"qdisc\":\"pfifo_fast\",\"operstate\":\"UP\",\"group\":\"default\",\"txqlen\":1000,\"altnames\":[\"enx080027b28ef2\"],\"addr_info\":[{\"family\":\"inet\",\"local\":\"192.168.56.10\",\"prefixlen\":24,\"broadcast\":\"192.168.56.255\",\"scope\":\"global\",\"label\":\"enp0s8\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295}]}]"
+    }
+  }
+}

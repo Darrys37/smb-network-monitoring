@@ -1,0 +1,127 @@
+{
+  "status": "OK",
+  "id": "powercycle-after-approved-reset-mon01",
+  "result": {
+    "host": "mon01",
+    "clock": 1793706500,
+    "boot_id": "e2da018a-0597-4738-8a59-7dda09d8cbcd",
+    "uptime_seconds": 91.16,
+    "units": {
+      "do-an-network-v3.service": {
+        "active": {
+          "exit": 0,
+          "stdout": "active"
+        },
+        "enabled": {
+          "exit": 0,
+          "stdout": "enabled"
+        },
+        "details": {
+          "exit": 0,
+          "stdout": "ActiveEnterTimestamp=Tue 2026-11-03 11:47:09 UTC\nResult=success\nNRestarts=0\nExecMainStartTimestamp=Tue 2026-11-03 11:47:06 UTC\nExecMainStatus=0"
+        }
+      },
+      "zabbix-agent2.service": {
+        "active": {
+          "exit": 0,
+          "stdout": "active"
+        },
+        "enabled": {
+          "exit": 0,
+          "stdout": "enabled"
+        },
+        "details": {
+          "exit": 0,
+          "stdout": "ActiveEnterTimestamp=Tue 2026-11-03 11:47:09 UTC\nResult=success\nNRestarts=0\nExecMainStartTimestamp=Tue 2026-11-03 11:47:09 UTC\nExecMainStatus=0"
+        }
+      },
+      "ssh.service": {
+        "active": {
+          "exit": 0,
+          "stdout": "active"
+        },
+        "enabled": {
+          "exit": 0,
+          "stdout": "enabled"
+        },
+        "details": {
+          "exit": 0,
+          "stdout": "ActiveEnterTimestamp=Tue 2026-11-03 11:47:07 UTC\nResult=success\nNRestarts=0\nExecMainStartTimestamp=Tue 2026-11-03 11:47:07 UTC\nExecMainStatus=0"
+        }
+      },
+      "do-an-monitor-v3.service": {
+        "active": {
+          "exit": 0,
+          "stdout": "active"
+        },
+        "enabled": {
+          "exit": 0,
+          "stdout": "enabled"
+        },
+        "details": {
+          "exit": 0,
+          "stdout": "ActiveEnterTimestamp=Tue 2026-11-03 11:47:58 UTC\nResult=success\nNRestarts=0\nExecMainStartTimestamp=Tue 2026-11-03 11:47:58 UTC\nExecMainStatus=0"
+        }
+      },
+      "zabbix-server.service": {
+        "active": {
+          "exit": 0,
+          "stdout": "active"
+        },
+        "enabled": {
+          "exit": 0,
+          "stdout": "enabled"
+        },
+        "details": {
+          "exit": 0,
+          "stdout": "ActiveEnterTimestamp=Tue 2026-11-03 11:47:58 UTC\nResult=success\nNRestarts=0\nExecMainStartTimestamp=Tue 2026-11-03 11:47:58 UTC\nExecMainStatus=0"
+        }
+      },
+      "mysql.service": {
+        "active": {
+          "exit": 0,
+          "stdout": "active"
+        },
+        "enabled": {
+          "exit": 0,
+          "stdout": "enabled"
+        },
+        "details": {
+          "exit": 0,
+          "stdout": "ActiveEnterTimestamp=Tue 2026-11-03 11:47:58 UTC\nResult=success\nNRestarts=0\nExecMainStartTimestamp=Tue 2026-11-03 11:47:10 UTC\nExecMainStatus=0"
+        }
+      }
+    },
+    "ntp": {
+      "exit": 0,
+      "stdout": "no"
+    },
+    "rollback_timers": {
+      "exit": 0,
+      "stdout": ""
+    },
+    "worker_journal": {
+      "exit": 0,
+      "stdout": "2026-11-03T11:47:58+00:00 mon01 systemd[1]: Started do-an-monitor-v3.service - Zabbix evidence, SQLite expert diagnosis and topology correlation."
+    },
+    "runtime": {
+      "integrity": "ok",
+      "fk_errors": [],
+      "raw_events": 158,
+      "raw_identity_sha256": "a018b7d84451074ff39c018093298827428507d1f50d72a23c898b4874720146",
+      "cursors": {
+        "zabbix": "2378"
+      },
+      "pending_jobs": 0
+    },
+    "legacy": {
+      "integrity": "ok",
+      "counts": {
+        "incidents": 39,
+        "evidence": 301,
+        "diagnoses": 172,
+        "recoveries": 29
+      }
+    }
+  }
+}

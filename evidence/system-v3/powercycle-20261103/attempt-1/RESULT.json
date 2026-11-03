@@ -1,0 +1,12 @@
+{
+  "status": "FAILED_MON01_BOOT_READINESS",
+  "all_three_cleanly_powered_off": true,
+  "mon01_ssh_returned_within_240_seconds": false,
+  "srv01_automatic_services_active": true,
+  "cli01_automatic_services_active": true,
+  "mon01_observed": "Console unchanged, IP/SSH unavailable, VirtualBox guest heartbeat warning; exact root cause unconfirmed",
+  "manual_service_start_used": false,
+  "pause_resume_attempted": true,
+  "forced_reset_performed": false,
+  "recovery_approval": "Requested before forced reset; pending at this checkpoint"
+}

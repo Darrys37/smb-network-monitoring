@@ -59,3 +59,5 @@ ml-research/config/srv01.json text eol=lf
 system-monitor/** text eol=lf
 evidence/system-v3/** -text -whitespace
 docs/HOAN_THIEN_HE_THONG_20261103.md text eol=lf
+
+docs/KIEM_THU_KHOI_DONG_20261103.md text eol=lf

@@ -1,0 +1,18 @@
+{
+  "status": "CLEAN_POWER_CYCLE_PORTS_READY",
+  "before": {
+    "MON01": "running",
+    "SRV01": "running",
+    "CLI01": "running"
+  },
+  "after": {
+    "MON01": "running",
+    "SRV01": "running",
+    "CLI01": "running"
+  },
+  "evidence": "C:\\Users\\Darrys\\Documents\\ChatGPT\\\u0110\u1ed3 \u00e1n network\\verification\\powercycle-20261103T115041418557Z",
+  "services_not_yet_certified": true,
+  "forced_poweroff": false,
+  "backup_restore_test": false,
+  "sequential_start": true
+}

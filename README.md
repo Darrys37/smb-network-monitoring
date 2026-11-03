@@ -7,13 +7,15 @@
 >
 > Nhánh `main` giữ baseline; muốn xem hoặc chạy phần ML, dùng nhánh nêu trên.
 
+> **Kiểm thử khởi động lại 03/11:** [Kết quả và cảnh báo MON01](docs/KIEM_THU_KHOI_DONG_20261103.md). Bật tuần tự đã qua kiểm tra chức năng/demo; MON01 vẫn có cảnh báo kernel lúc boot, chưa coi nền tảng hoàn toàn ổn định.
+
 ## Hệ thống v3 đã kiểm chứng trên ba VM
 
 **[Hướng dẫn chạy/demo](system-monitor/README.md)** · **[Báo cáo hoàn thiện 03/11](docs/HOAN_THIEN_HE_THONG_20261103.md)** · [Bằng chứng](evidence/system-v3/acceptance-20261103/VERIFICATION.json)
 
 - 8 luật chuyên gia trong SQLite, bảy nhóm đặc trưng và worker systemd tự xử lý event/recovery với cursor/queue bền vững.
 - CLI01 làm gateway thật tới địa chỉ dịch vụ SRV01; thử gateway, Nginx, hai lỗi đồng thời và 20 kênh cảnh báo synthetic; giữ raw và kiểm phục hồi.
-- 33 tests hệ thống và 74 tests ML đều qua. Demo Nginx/multi/storm bằng CLI mới đã chạy trọn vẹn. Timer rollback độc lập đã được chứng minh tự chạy.
+- 36 tests hệ thống (sau kiểm thử boot) và 74 tests ML đều qua. Demo Nginx/multi/storm bằng CLI mới đã chạy trọn vẹn. Timer rollback độc lập đã được chứng minh tự chạy.
 - Chỉ có ba VM; máy Ubuntu thật vẫn hoãn. Vector v3 bảy nhóm không tương thích ngầm với model ML cũ12 features.
 
 ```powershell

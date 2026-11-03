@@ -1,0 +1,13 @@
+00:00:00.529083 Console: Machine state changed to 'Starting'
+00:00:01.066540 HM: HMR3Init: Attempting fall back to NEM: VT-x is not available
+00:00:01.835148 Changing the VM state from 'CREATING' to 'CREATED'
+00:00:01.837544 Changing the VM state from 'CREATED' to 'POWERING_ON'
+00:00:01.838676 Changing the VM state from 'POWERING_ON' to 'RUNNING'
+00:00:01.838688 Console: Machine state changed to 'Running'
+00:00:34.623969 VMMDev: vmmDevHeartbeatFlatlinedTimer: Guest seems to be unresponsive. Last heartbeat received 4 seconds ago
+00:04:59.858099 Changing the VM state from 'RUNNING' to 'SUSPENDING'
+00:04:59.862456 Changing the VM state from 'SUSPENDING' to 'SUSPENDED'
+00:04:59.862467 Console: Machine state changed to 'Paused'
+00:04:59.900579 Changing the VM state from 'SUSPENDED' to 'RESUMING'
+00:04:59.902186 Changing the VM state from 'RESUMING' to 'RUNNING'
+00:04:59.902215 Console: Machine state changed to 'Running'

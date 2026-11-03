@@ -1,0 +1,15 @@
+{
+  "status": "OK",
+  "id": "powercycle-sequential-platform-cli01",
+  "result": {
+    "boot_id": "a09414e6-dc8a-4c96-a9ae-835e621950b9",
+    "stall_count": 0,
+    "recent_stall": false,
+    "last_stalls": [],
+    "package_jobs_active": false,
+    "package_jobs": [],
+    "dpkg_lock_held": false,
+    "package_audit_clean": true,
+    "package_status_sha256": "e3c32a9f71a88ceda4c33df14170343c685cd05e27064b815fe39b680219ac1a"
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "status": "OK",
+  "id": "powercycle-sequential-after-mon01",
+  "result": {
+    "host": "mon01",
+    "clock": 1793706894,
+    "boot_id": "513355f4-5f10-4f8b-844e-ceaaa91dbd6f",
+    "uptime_seconds": 77.66,
+    "units": {
+      "do-an-network-v3.service": {
+        "active": {
+          "exit": 0,
+          "stdout": "active"
+        },
+        "enabled": {
+          "exit": 0,
+          "stdout": "enabled"
+        },
+        "details": {
+          "exit": 0,
+          "stdout": "ActiveEnterTimestamp=Tue 2026-11-03 11:53:56 UTC\nResult=success\nNRestarts=0\nExecMainStartTimestamp=Tue 2026-11-03 11:53:54 UTC\nExecMainStatus=0"
+        }
+      },
+      "zabbix-agent2.service": {
+        "active": {
+          "exit": 0,
+          "stdout": "active"
+        },
+        "enabled": {
+          "exit": 0,
+          "stdout": "enabled"
+        },
+        "details": {
+          "exit": 0,
+          "stdout": "ActiveEnterTimestamp=Tue 2026-11-03 11:53:57 UTC\nResult=success\nNRestarts=0\nExecMainStartTimestamp=Tue 2026-11-03 11:53:57 UTC\nExecMainStatus=0"
+        }
+      },
+      "ssh.service": {
+        "active": {
+          "exit": 0,
+          "stdout": "active"
+        },
+        "enabled": {
+          "exit": 0,
+          "stdout": "enabled"
+        },
+        "details": {
+          "exit": 0,
+          "stdout": "ActiveEnterTimestamp=Tue 2026-11-03 11:53:55 UTC\nResult=success\nNRestarts=0\nExecMainStartTimestamp=Tue 2026-11-03 11:53:54 UTC\nExecMainStatus=0"
+        }
+      },
+      "do-an-monitor-v3.service": {
+        "active": {
+          "exit": 0,
+          "stdout": "active"
+        },
+        "enabled": {
+          "exit": 0,
+          "stdout": "enabled"
+        },
+        "details": {
+          "exit": 0,
+          "stdout": "ActiveEnterTimestamp=Tue 2026-11-03 11:54:06 UTC\nResult=success\nNRestarts=0\nExecMainStartTimestamp=Tue 2026-11-03 11:54:06 UTC\nExecMainStatus=0"
+        }
+      },
+      "zabbix-server.service": {
+        "active": {
+          "exit": 0,
+          "stdout": "active"
+        },
+        "enabled": {
+          "exit": 0,
+          "stdout": "enabled"
+        },
+        "details": {
+          "exit": 0,
+          "stdout": "ActiveEnterTimestamp=Tue 2026-11-03 11:54:06 UTC\nResult=success\nNRestarts=0\nExecMainStartTimestamp=Tue 2026-11-03 11:54:06 UTC\nExecMainStatus=0"
+        }
+      },
+      "mysql.service": {
+        "active": {
+          "exit": 0,
+          "stdout": "active"
+        },
+        "enabled": {
+          "exit": 0,
+          "stdout": "enabled"
+        },
+        "details": {
+          "exit": 0,
+          "stdout": "ActiveEnterTimestamp=Tue 2026-11-03 11:54:05 UTC\nResult=success\nNRestarts=0\nExecMainStartTimestamp=Tue 2026-11-03 11:53:58 UTC\nExecMainStatus=0"
+        }
+      }
+    },
+    "ntp": {
+      "exit": 0,
+      "stdout": "yes"
+    },
+    "rollback_timers": {
+      "exit": 0,
+      "stdout": ""
+    },
+    "worker_journal": {
+      "exit": 0,
+      "stdout": "2026-11-03T11:54:06+00:00 mon01 systemd[1]: Started do-an-monitor-v3.service - Zabbix evidence, SQLite expert diagnosis and topology correlation.\n2026-11-03T11:54:21+00:00 mon01 python[1378]: {\"status\": \"CYCLE_COMPLETE\", \"ingested_events\": 1, \"correlation\": {\"decision_time\": 1793706860, \"topology_version\": \"routed-lab-v3\", \"window_seconds\": 30, \"raw_unique_events\": 159, \"distinct_problem_events\": 80, \"active_problem_events\": 1, \"recent_problem_events\": 1, \"peak_window_event_count\": 25, \"emitted_groups\": 1, \"suppressed_events\": 0, \"groups\": [{\"group_id\": \"47de66c53119738cb7b3a03d\", \"root_node\": \"cli01\", \"cause_group\": \"unknown\", \"root_status_evidence\": {\"status\": \"up\", \"observed_at\": 1793706860, \"down_since\": null, \"evidence\": {\"ping\": {\"check_type\": \"ping\", \"target\": \"192.168.56.30\", \"collected_at\": 1793706859, \"result\": {\"status\": \"success\", \"observer\": \"mon01\"}}, \"tcp22\": {\"check_type\": \"tcp\", \"target\": \"192.168.56.30\", \"collected_at\": 1793706859, \"result\": {\"status\": \"success\", \"port\": 22, \"observer\": \"mon01\"}}, \"routing\": {\"observer\": \"cli01\", \"forwarding_enabled\": true, \"interface\": \"enp0s9\", \"interface_up\": true, \"route_target\": \"172.30.20.20\", \"route_uses_interface\": true, \"ready\": true}}}, \"members\": [{\"source\": \"zabbix\", \"event_id\": \"2394\", \"node\": \"cli01\", \"kind\": \"unknown\", \"clock\": 1793706856, \"suppressed\": false, \"reason\": \"Independent/root alert retained\", \"dependency_path\": [\"cli01\"]}], \"derived_root\": false}], \"raw_retained\": true, \"confidence_kind\": \"topology_and_fresh_evidence_correlation_not_proof_of_unique_physical_cause\"}, \"store_counts\": {\"events\": 159, \"diagnostics\": 210, \"batches\": 43, \"pending_jobs\": 0}}\n2026-11-03T11:54:26+00:00 mon01 python[1378]: {\"status\": \"CYCLE_COMPLETE\", \"ingested_events\": 1, \"correlation\": {\"decision_time\": 1793706866, \"topology_version\": \"routed-lab-v3\", \"window_seconds\": 30, \"raw_unique_events\": 160, \"distinct_problem_events\": 81, \"active_problem_events\": 2, \"recent_problem_events\": 2, \"peak_window_event_count\": 25, \"emitted_groups\": 2, \"suppressed_events\": 0, \"groups\": [{\"group_id\": \"47de66c53119738cb7b3a03d\", \"root_node\": \"cli01\", \"cause_group\": \"unknown\", \"root_status_evidence\": {\"status\": \"up\", \"observed_at\": 1793706864, \"down_since\": null, \"evidence\": {\"ping\": {\"check_type\": \"ping\", \"target\": \"192.168.56.30\", \"collected_at\": 1793706864, \"result\": {\"status\": \"success\", \"observer\": \"mon01\"}}, \"tcp22\": {\"check_type\": \"tcp\", \"target\": \"192.168.56.30\", \"collected_at\": 1793706864, \"result\": {\"status\": \"success\", \"port\": 22, \"observer\": \"mon01\"}}, \"routing\": {\"observer\": \"cli01\", \"forwarding_enabled\": true, \"interface\": \"enp0s9\", \"interface_up\": true, \"route_target\": \"172.30.20.20\", \"route_uses_interface\": true, \"ready\": true}}}, \"members\": [{\"source\": \"zabbix\", \"event_id\": \"2394\", \"node\": \"cli01\", \"kind\": \"unknown\", \"clock\": 1793706856, \"suppressed\": false, \"reason\": \"Independent/root alert retained\", \"dependency_path\": [\"cli01\"]}], \"derived_root\": false}, {\"group_id\": \"e1d50846df2acf1a473c2ca1\", \"root_node\": \"srv01\", \"cause_group\": \"unknown\", \"root_status_evidence\": {\"status\": \"up\", \"observed_at\": 1793706864, \"down_since\": null, \"evidence\": {\"ping\": {\"check_type\": \"ping\", \"target\": \"172.30.20.20\", \"collected_at\": 1793706864, \"result\": {\"status\": \"success\", \"observer\": \"mon01\"}}, \"tcp22\": {\"check_type\": \"tcp\", \"target\": \"172.30.20.20\", \"collected_at\": 1793706864, \"result\": {\"status\": \"success\", \"port\": 22, \"observer\": \"mon01\"}}}}, \"members\": [{\"source\": \"zabbix\", \"event_id\": \"2395\", \"node\": \"srv01\", \"kind\": \"unknown\", \"clock\": 1793706864, \"suppressed\": false, \"reason\": \"Independent/root alert retained\", \"dependency_path\": [\"srv01\"]}], \"derived_root\": false}], \"raw_retained\": true, \"confidence_kind\": \"topology_and_fresh_evidence_correlation_not_proof_of_unique_physical_cause\"}, \"store_counts\": {\"events\": 160, \"diagnostics\": 211, \"batches\": 44, \"pending_jobs\": 0}}"
+    },
+    "runtime": {
+      "integrity": "ok",
+      "fk_errors": [],
+      "raw_events": 160,
+      "raw_identity_sha256": "778074bfe53ec4c03638496b6738b217272b6b00d5e6bbfdff2ff07687459b0f",
+      "cursors": {
+        "zabbix": "2395"
+      },
+      "pending_jobs": 0
+    },
+    "legacy": {
+      "integrity": "ok",
+      "counts": {
+        "incidents": 39,
+        "evidence": 301,
+        "diagnoses": 172,
+        "recoveries": 29
+      }
+    }
+  }
+}

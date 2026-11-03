@@ -11,7 +11,7 @@ Zabbix → cursor + hàng đợi SQLite → thu bằng chứng → 8 luật chuy
 
 ## Dùng ngay trên laptop lab hiện tại
 
-Bật ba VM bằng VirtualBox, giữ máy cắm sạc. Gateway overlay và worker tự khởi động bằng systemd. Mở PowerShell ở thư mục repository:
+Bật tuần tự **CLI01 → SRV01 → MON01**, chờ từng máy vào được SSH rồi bật máy tiếp theo; giữ máy cắm sạc. Lượt bật gần đồng thời đã từng làm MON01 kẹt boot, nên chưa coi cách bật đó là ổn định. Gateway overlay và worker tự khởi động bằng systemd. Mở PowerShell ở thư mục repository:
 
 ```powershell
 python .\system-monitor\system_lab.py status
@@ -66,7 +66,9 @@ Muốn sửa ngưỡng/luật: sao lưu catalog hiện tại, sửa seed, tạo 
 
 ```powershell
 python .\system-monitor\build_catalog.py
-python -m unittest discover -s .\system-monitor\tests -v
+Push-Location .\system-monitor
+python -m unittest discover -s tests -v
+Pop-Location
 python .\system-monitor\monitor.py rules
 ```
 
@@ -101,3 +103,13 @@ sudo systemctl disable --now do-an-monitor-v3.service
 Muốn gỡ đường mạng thử: dừng worker; trên MON01, SRV01 rồi CLI01 chạy `sudo systemctl disable --now do-an-network-v3.service`. `ExecStop` gỡ đúng route/rule/address/nft table do module tạo và phục hồi sysctl ban đầu. Giữ file state `/var/lib/do-an-system-v3/network-before.json` tới khi gỡ xong. Baseline/ML cũ vẫn dùng các IP `192.168.56.x`.
 
 Backup toàn VM có sẵn trong `D:\Study\network-monitoring-project\VM_BACKUP`; backup source riêng trong `SOURCE_BACKUP`. Bản cold VM trước v3 không tự có mạng thử mới: dùng lại source và quy trình triển khai. GitHub lưu source/tài liệu/bằng chứng công khai, không thay thế backup đĩa VM, MySQL, cấu hình và secrets.
+
+## Thông báo sau khi bật máy
+
+Zabbix có hai trigger uptime <10 phút của CLI01/SRV01. Chúng có mức Warning trong template hiện tại nhưng chỉ thông báo máy vừa khởi động. V3 tách đúng hai tín hiệu này ra khỏi số sự cố cần xử lý, hiển thị `startup_notices` và vẫn giữ raw/recovery trong SQLite.
+
+Chính sách nằm trong `topology.informational_triggers` của `config/lab.json`: phải khớp node, trigger ID, tên nguyên bản và severity. Cảnh báo khác có cùng severity vẫn là sự cố; nếu trigger đổi tên/mức độ thì không tự được bỏ qua. Không disable/đóng thủ công trigger Zabbix để chạy demo.
+
+`active_total_problem_events` gồm cả thông báo; `active_problem_events` là các sự cố cần xử lý; `active_notice_events` và `notices` cho biết các thông báo được giữ. Các số này có thể khác nhau ngay sau boot. Khi demo phục hồi, số sự cố/job phải về0; thông báo uptime có thể còn tới khi đủ10 phút.
+
+Xem [nhật ký thử khởi động và giới hạn](../docs/KIEM_THU_KHOI_DONG_20261103.md). Phép thử tắt/bật khác với restore toàn bộ VM từ cold backup; chưa thực hiện restore toàn bộ đĩa.

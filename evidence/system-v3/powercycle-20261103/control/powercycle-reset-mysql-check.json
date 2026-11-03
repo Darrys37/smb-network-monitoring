@@ -1,0 +1,46 @@
+{
+  "status": "OK",
+  "id": "powercycle-reset-mysql-check",
+  "result": {
+    "mysql_check_exit": 0,
+    "tables": [
+      [
+        "zabbix.hosts",
+        "check",
+        "status",
+        "OK"
+      ],
+      [
+        "zabbix.items",
+        "check",
+        "status",
+        "OK"
+      ],
+      [
+        "zabbix.triggers",
+        "check",
+        "status",
+        "OK"
+      ],
+      [
+        "zabbix.events",
+        "check",
+        "status",
+        "OK"
+      ],
+      [
+        "zabbix.history",
+        "check",
+        "status",
+        "OK"
+      ],
+      [
+        "zabbix.history_uint",
+        "check",
+        "status",
+        "OK"
+      ]
+    ],
+    "all_ok": true
+  }
+}

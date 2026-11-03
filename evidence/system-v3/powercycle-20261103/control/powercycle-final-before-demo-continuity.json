@@ -1,0 +1,20 @@
+{
+  "status": "OK",
+  "id": "powercycle-final-before-demo-continuity",
+  "result": {
+    "checkpoint": "/home/phat/system-monitor-checkpoints/after-v3-20261103T112921957233Z/monitoring.sqlite",
+    "old_events": 158,
+    "current_events": 162,
+    "missing": [],
+    "changed": [],
+    "previous_cursors": {
+      "zabbix": "2378"
+    },
+    "current_cursors": {
+      "zabbix": "2417"
+    },
+    "cursor_monotonic": true,
+    "integrity": "ok",
+    "foreign_key_errors": []
+  }
+}

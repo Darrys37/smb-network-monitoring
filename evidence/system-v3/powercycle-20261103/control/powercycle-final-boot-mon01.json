@@ -1,0 +1,127 @@
+{
+  "status": "OK",
+  "id": "powercycle-final-boot-mon01",
+  "result": {
+    "host": "mon01",
+    "clock": 1793708104,
+    "boot_id": "1e0826be-6f49-4b99-8358-ea8d570971bf",
+    "uptime_seconds": 726.26,
+    "units": {
+      "do-an-network-v3.service": {
+        "active": {
+          "exit": 0,
+          "stdout": "active"
+        },
+        "enabled": {
+          "exit": 0,
+          "stdout": "enabled"
+        },
+        "details": {
+          "exit": 0,
+          "stdout": "ActiveEnterTimestamp=Tue 2026-11-03 12:03:23 UTC\nResult=success\nNRestarts=0\nExecMainStartTimestamp=Tue 2026-11-03 12:03:20 UTC\nExecMainStatus=0"
+        }
+      },
+      "zabbix-agent2.service": {
+        "active": {
+          "exit": 0,
+          "stdout": "active"
+        },
+        "enabled": {
+          "exit": 0,
+          "stdout": "enabled"
+        },
+        "details": {
+          "exit": 0,
+          "stdout": "ActiveEnterTimestamp=Tue 2026-11-03 12:03:23 UTC\nResult=success\nNRestarts=0\nExecMainStartTimestamp=Tue 2026-11-03 12:03:23 UTC\nExecMainStatus=0"
+        }
+      },
+      "ssh.service": {
+        "active": {
+          "exit": 0,
+          "stdout": "active"
+        },
+        "enabled": {
+          "exit": 0,
+          "stdout": "enabled"
+        },
+        "details": {
+          "exit": 0,
+          "stdout": "ActiveEnterTimestamp=Tue 2026-11-03 12:03:21 UTC\nResult=success\nNRestarts=0\nExecMainStartTimestamp=Tue 2026-11-03 12:03:21 UTC\nExecMainStatus=0"
+        }
+      },
+      "do-an-monitor-v3.service": {
+        "active": {
+          "exit": 0,
+          "stdout": "active"
+        },
+        "enabled": {
+          "exit": 0,
+          "stdout": "enabled"
+        },
+        "details": {
+          "exit": 0,
+          "stdout": "ActiveEnterTimestamp=Tue 2026-11-03 12:04:09 UTC\nResult=success\nNRestarts=0\nExecMainStartTimestamp=Tue 2026-11-03 12:04:09 UTC\nExecMainStatus=0"
+        }
+      },
+      "zabbix-server.service": {
+        "active": {
+          "exit": 0,
+          "stdout": "active"
+        },
+        "enabled": {
+          "exit": 0,
+          "stdout": "enabled"
+        },
+        "details": {
+          "exit": 0,
+          "stdout": "ActiveEnterTimestamp=Tue 2026-11-03 12:04:09 UTC\nResult=success\nNRestarts=0\nExecMainStartTimestamp=Tue 2026-11-03 12:04:09 UTC\nExecMainStatus=0"
+        }
+      },
+      "mysql.service": {
+        "active": {
+          "exit": 0,
+          "stdout": "active"
+        },
+        "enabled": {
+          "exit": 0,
+          "stdout": "enabled"
+        },
+        "details": {
+          "exit": 0,
+          "stdout": "ActiveEnterTimestamp=Tue 2026-11-03 12:04:08 UTC\nResult=success\nNRestarts=0\nExecMainStartTimestamp=Tue 2026-11-03 12:03:24 UTC\nExecMainStatus=0"
+        }
+      }
+    },
+    "ntp": {
+      "exit": 0,
+      "stdout": "yes"
+    },
+    "rollback_timers": {
+      "exit": 0,
+      "stdout": ""
+    },
+    "worker_journal": {
+      "exit": 0,
+      "stdout": "2026-11-03T12:04:09+00:00 mon01 systemd[1]: Started do-an-monitor-v3.service - Zabbix evidence, SQLite expert diagnosis and topology correlation.\n2026-11-03T12:04:18+00:00 mon01 python[1393]: {\"status\": \"CYCLE_COMPLETE\", \"ingested_events\": 0, \"correlation\": {\"decision_time\": 1793707458, \"topology_version\": \"routed-lab-v3\", \"window_seconds\": 30, \"active_total_problem_events\": 2, \"active_notice_events\": 2, \"notices\": [{\"source\": \"zabbix\", \"event_id\": \"2394\", \"node\": \"cli01\", \"key\": \"25300\", \"name\": \"Linux: CLI01 has been restarted (uptime < 10m)\", \"clock\": 1793706856}, {\"source\": \"zabbix\", \"event_id\": \"2395\", \"node\": \"srv01\", \"key\": \"25256\", \"name\": \"Linux: SRV01 has been restarted (uptime < 10m)\", \"clock\": 1793706864}], \"raw_unique_events\": 160, \"distinct_problem_events\": 79, \"active_problem_events\": 0, \"recent_problem_events\": 0, \"peak_window_event_count\": 25, \"emitted_groups\": 0, \"suppressed_events\": 0, \"groups\": [], \"raw_retained\": true, \"confidence_kind\": \"topology_and_fresh_evidence_correlation_not_proof_of_unique_physical_cause\"}, \"store_counts\": {\"events\": 160, \"diagnostics\": 235, \"batches\": 45, \"pending_jobs\": 0}}\n2026-11-03T12:10:21+00:00 mon01 python[1393]: {\"status\": \"CYCLE_COMPLETE\", \"ingested_events\": 1, \"correlation\": {\"decision_time\": 1793707821, \"topology_version\": \"routed-lab-v3\", \"window_seconds\": 30, \"active_total_problem_events\": 1, \"active_notice_events\": 1, \"notices\": [{\"source\": \"zabbix\", \"event_id\": \"2395\", \"node\": \"srv01\", \"key\": \"25256\", \"name\": \"Linux: SRV01 has been restarted (uptime < 10m)\", \"clock\": 1793706864}], \"raw_unique_events\": 161, \"distinct_problem_events\": 79, \"active_problem_events\": 0, \"recent_problem_events\": 0, \"peak_window_event_count\": 25, \"emitted_groups\": 0, \"suppressed_events\": 0, \"groups\": [], \"raw_retained\": true, \"confidence_kind\": \"topology_and_fresh_evidence_correlation_not_proof_of_unique_physical_cause\"}, \"store_counts\": {\"events\": 161, \"diagnostics\": 259, \"batches\": 46, \"pending_jobs\": 0}}\n2026-11-03T12:11:59+00:00 mon01 python[1393]: {\"status\": \"CYCLE_COMPLETE\", \"ingested_events\": 1, \"correlation\": {\"decision_time\": 1793707919, \"topology_version\": \"routed-lab-v3\", \"window_seconds\": 30, \"active_total_problem_events\": 0, \"active_notice_events\": 0, \"notices\": [], \"raw_unique_events\": 162, \"distinct_problem_events\": 79, \"active_problem_events\": 0, \"recent_problem_events\": 0, \"peak_window_event_count\": 25, \"emitted_groups\": 0, \"suppressed_events\": 0, \"groups\": [], \"raw_retained\": true, \"confidence_kind\": \"topology_and_fresh_evidence_correlation_not_proof_of_unique_physical_cause\"}, \"store_counts\": {\"events\": 162, \"diagnostics\": 266, \"batches\": 47, \"pending_jobs\": 0}}"
+    },
+    "runtime": {
+      "integrity": "ok",
+      "fk_errors": [],
+      "raw_events": 162,
+      "raw_identity_sha256": "fd554683992b048c5a12206966708a64f1d7dae9c5ef9cdbb8179f3bef66f16d",
+      "cursors": {
+        "zabbix": "2417"
+      },
+      "pending_jobs": 0
+    },
+    "legacy": {
+      "integrity": "ok",
+      "counts": {
+        "incidents": 39,
+        "evidence": 301,
+        "diagnoses": 172,
+        "recoveries": 29
+      }
+    }
+  }
+}

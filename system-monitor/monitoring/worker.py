@@ -117,7 +117,7 @@ class Worker:
                 if parent and not (type(state.get("observed_at")) is int and 0 <= observation["decision_time"] - state["observed_at"] <= self.catalog.metadata["policy"]["max_age"]):
                     parent_status = "unknown"
                 assessment = self.catalog.assess(profile, observation["evidence"], observation["decision_time"], parent_status=parent_status,
-                                                 window_alert_count=sum(event["state"] == "problem" and observation["decision_time"] - self.catalog.metadata["correlation_window_seconds"] < event["clock"] <= observation["decision_time"] for event in self.store.events()))
+                                                 window_alert_count=sum(event["state"] == "problem" and not self.topology.is_notice(event) and observation["decision_time"] - self.catalog.metadata["correlation_window_seconds"] < event["clock"] <= observation["decision_time"] for event in self.store.events()))
                 assessment["feature_vector"] = feature_vector(assessment["facts"], self.catalog.metadata["policy"])
                 diagnostic_id = self.store.save_diagnostic(profile["profile_id"], observation, assessment)
                 diagnostics.append({"id": diagnostic_id, "node": node, "jobs": len(pending), "assessment": assessment})
@@ -158,7 +158,7 @@ class Worker:
         fingerprint_input = [{"id": group["group_id"], "members": group["members"],
                               "root_status": (group.get("root_status_evidence") or {}).get("status")}
                              for group in correlation["groups"]]
-        fingerprint = hashlib.sha256(json.dumps(fingerprint_input, sort_keys=True).encode()).hexdigest()
+        fingerprint = hashlib.sha256(json.dumps({"groups":fingerprint_input,"notices":correlation["notices"]}, sort_keys=True).encode()).hexdigest()
         changed = added > 0 or self.store.metadata("correlation_fingerprint") != fingerprint
         if changed:
             self.store.save_batch(correlation)

@@ -1,0 +1,11 @@
+{
+  "status": "OK",
+  "id": "powercycle-final-stall-process",
+  "result": {
+    "pid": 1349,
+    "present": true,
+    "comm": "ib_log_writer",
+    "exe": "/usr/sbin/mysqld",
+    "cgroup": "0::/system.slice/mysql.service"
+  }
+}
