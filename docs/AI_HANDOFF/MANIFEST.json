@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-03T18:21:33.499467+07:00",
-  "source_commit": "eca26b662a1acbe455a857b693f4e4183382c40e",
+  "generated_at": "2026-11-03T19:23:55.420333+07:00",
+  "source_commit": "504bf49263f6840fe3c92039ce85a21193b386ae",
   "engine_tree": "44ced0643fb0d3c34673ab5b2912a5645b2894c6",
   "repository": "https://github.com/Darrys37/smb-network-monitoring",
   "state_document": "01_HIEN_TRANG_VA_CACH_TIEP_TUC.md",
@@ -18,8 +18,8 @@
   },
   "files": {
     "00_BAT_DAU_O_DAY.md": "36f24707d6fe84c50af17ec274308507ed494ed0e4868215d9f19a1b0c96c39a",
-    "01_HIEN_TRANG_VA_CACH_TIEP_TUC.md": "6f536b596a3cb3b8a49f816f58aaf0bd7bb96b5415f2a6f0714386f872cce2df",
-    "02_GIOI_THIEU_DO_AN.md": "dc16154f1898659eeba468368492ec2c3d3338fd95decdc344b871639d55417f",
-    "03_LOGIC_DIAGNOSIS_ENGINE.md": "6cccb7c0c1f031edefe6ef44a96745145d42e33c8e81f681394266db8bfa2efa"
+    "01_HIEN_TRANG_VA_CACH_TIEP_TUC.md": "0d20b6e33c258f56eb98fe1f9549568c769b8b1920bfa8da36ac1d5641a0d95d",
+    "02_GIOI_THIEU_DO_AN.md": "31fbcf24c22f282bc11b4bb3974b7522f9dfdefa11b62af5287b622a6a3bc8a1",
+    "03_LOGIC_DIAGNOSIS_ENGINE.md": "96dd03bf9be74bfee866748f6980036abac7fc1b44195d23acd3f2ab446afcd1"
   }
 }
