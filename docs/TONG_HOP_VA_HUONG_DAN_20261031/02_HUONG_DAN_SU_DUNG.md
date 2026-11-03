@@ -1,5 +1,3 @@
-> **Cập nhật 03/11 — workflow hệ thống:** Có [báo cáo bổ sung](../HOAN_THIEN_HE_THONG_20261103.md) và [lệnh demo v3](../../system-monitor/README.md) cho SQLite/correlation/gateway/multi-fault. ML Nginx trên runtime tối ưu đã chạy lại thành công. Các số liệu ML bên dưới giữ nguyên bộ thí nghiệm cũ.
-
 # Hướng dẫn sử dụng hệ thống giám sát và học luật
 
 Áp dụng cho lab MON01 SRV01 CLI01 và bản ML chốt ngày 31 tháng 10 năm 2026
