@@ -1,5 +1,7 @@
-> Bản dùng để chuyển chat/tài khoản. Nguồn: `docs/DIAGNOSIS_ENGINE_LOGIC_VA_PHAT_TRIEN.md` tại `34bf592cf83e0fa39d36a1fecf8a836d3dc25eab`.
+> Bản dùng để chuyển chat/tài khoản. Nguồn: `docs/DIAGNOSIS_ENGINE_LOGIC_VA_PHAT_TRIEN.md` tại `eca26b662a1acbe455a857b693f4e4183382c40e`.
 > Nội dung lấy từ tài liệu nguồn; các liên kết được đổi để dùng ngoài project. Đọc file 01 về trạng thái cuối phiên trước khi tiếp tục.
+
+> **Cập nhật 03/11/2026 — hệ thống v3:** Đã bổ sung SQLite expert, bảy nhóm features, automatic worker, gateway thật trên ba VM, correlation/suppression và thử nhiều lỗi. Demo ML Nginx đã chạy lại thành công nhưng model vẫn là nghiên cứu lỗi đơn theo hợp đồng cũ. Xem [báo cáo hiện tại](https://github.com/Darrys37/smb-network-monitoring/blob/eca26b662a1acbe455a857b693f4e4183382c40e/docs/HOAN_THIEN_HE_THONG_20261103.md) và [hướng dẫn v3](https://github.com/Darrys37/smb-network-monitoring/blob/eca26b662a1acbe455a857b693f4e4183382c40e/system-monitor/README.md). Phần bên dưới giữ mô tả baseline/lịch sử; không dùng nó để phủ định chức năng v3 mới.
 
 # Diagnosis engine: logic vận hành và bàn giao phát triển
 
@@ -287,7 +289,7 @@ Sơ đồ nói về khả năng xác minh của hồ sơ, không phải cột st
 
 Đây là ví dụ tổ hợp, không phải mọi firewall đều timeout hoặc mọi service lỗi đều refused. Các luật vẫn phải giữ thông tin cần kiểm tra thêm.
 
-Hồ sơ thực nghiệm để đọc nhanh: [R2-01](https://github.com/Darrys37/smb-network-monitoring/blob/34bf592cf83e0fa39d36a1fecf8a836d3dc25eab/evidence/week4/official-runs/R2-01/incident.json) và [R5-01](https://github.com/Darrys37/smb-network-monitoring/blob/34bf592cf83e0fa39d36a1fecf8a836d3dc25eab/evidence/week4/official-runs/R5-01/incident.json). Report là bằng chứng đã lưu, không dùng event lịch sử đã closed để ép chạy app mới.
+Hồ sơ thực nghiệm để đọc nhanh: [R2-01](https://github.com/Darrys37/smb-network-monitoring/blob/eca26b662a1acbe455a857b693f4e4183382c40e/evidence/week4/official-runs/R2-01/incident.json) và [R5-01](https://github.com/Darrys37/smb-network-monitoring/blob/eca26b662a1acbe455a857b693f4e4183382c40e/evidence/week4/official-runs/R5-01/incident.json). Report là bằng chứng đã lưu, không dùng event lịch sử đã closed để ép chạy app mới.
 
 ### 9.2. Ví dụ thuần dữ liệu, không cần VM/API
 
@@ -399,10 +401,10 @@ Không có tập âm độc lập nên không tính accuracy tổng quát/specif
 
 Các đường dẫn chỉ cần mở khi cần kiểm chứng:
 
-- [Audit kỹ thuật cuối](https://github.com/Darrys37/smb-network-monitoring/blob/34bf592cf83e0fa39d36a1fecf8a836d3dc25eab/evidence/week5/final-20261017/final-audit.json).
-- [CSV18 run sạch](https://github.com/Darrys37/smb-network-monitoring/blob/34bf592cf83e0fa39d36a1fecf8a836d3dc25eab/evidence/week5/day29-20261017/clean-runs.csv), [định nghĩa chỉ số](https://github.com/Darrys37/smb-network-monitoring/blob/34bf592cf83e0fa39d36a1fecf8a836d3dc25eab/evidence/week5/day29-20261017/audit.json).
-- [Ví dụ R5-02 có CPU span239s](https://github.com/Darrys37/smb-network-monitoring/blob/34bf592cf83e0fa39d36a1fecf8a836d3dc25eab/evidence/week4/official-runs/R5-02/incident.json): đừng hạ ngưỡng240s chỉ để loại abstention.
-- [Chương 2](https://github.com/Darrys37/smb-network-monitoring/blob/34bf592cf83e0fa39d36a1fecf8a836d3dc25eab/docs/CHUONG_2_KIEN_TRUC_VA_TRIEN_KHAI.md), [hướng dẫn cài/chạy](https://github.com/Darrys37/smb-network-monitoring/blob/34bf592cf83e0fa39d36a1fecf8a836d3dc25eab/docs/HUONG_DAN_CAI_DAT_VA_KHOI_PHUC.md), [giới thiệu đồ án](02_GIOI_THIEU_DO_AN.md).
+- [Audit kỹ thuật cuối](https://github.com/Darrys37/smb-network-monitoring/blob/eca26b662a1acbe455a857b693f4e4183382c40e/evidence/week5/final-20261017/final-audit.json).
+- [CSV18 run sạch](https://github.com/Darrys37/smb-network-monitoring/blob/eca26b662a1acbe455a857b693f4e4183382c40e/evidence/week5/day29-20261017/clean-runs.csv), [định nghĩa chỉ số](https://github.com/Darrys37/smb-network-monitoring/blob/eca26b662a1acbe455a857b693f4e4183382c40e/evidence/week5/day29-20261017/audit.json).
+- [Ví dụ R5-02 có CPU span239s](https://github.com/Darrys37/smb-network-monitoring/blob/eca26b662a1acbe455a857b693f4e4183382c40e/evidence/week4/official-runs/R5-02/incident.json): đừng hạ ngưỡng240s chỉ để loại abstention.
+- [Chương 2](https://github.com/Darrys37/smb-network-monitoring/blob/eca26b662a1acbe455a857b693f4e4183382c40e/docs/CHUONG_2_KIEN_TRUC_VA_TRIEN_KHAI.md), [hướng dẫn cài/chạy](https://github.com/Darrys37/smb-network-monitoring/blob/eca26b662a1acbe455a857b693f4e4183382c40e/docs/HUONG_DAN_CAI_DAT_VA_KHOI_PHUC.md), [giới thiệu đồ án](02_GIOI_THIEU_DO_AN.md).
 
 ## 15. Cách bắt đầu một phiên phát triển mới
 

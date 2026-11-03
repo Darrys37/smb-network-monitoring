@@ -32,8 +32,8 @@
     "system-monitor/storm_control.py": "d01262c1a76415336aa485922986aeae7f3198eff43498b96267c66a50d4b45d",
     "system-monitor/system_lab.py": "e4877ee63cb9b043658bad9d9b74f0a4a1886b4d64fec6fd3c16a1b35078711f",
     "system-monitor/config/expert_seed.json": "e3621f0a30229bcbee7627821cfaabbd6e5353a26f9867831a896156f845b07c",
-    "system-monitor/config/lab.json": "cd29e6c5f4198a7f06b893fd9fd5ce5f0b36a152d0fbe08d72762d26301cf3c6",
-    "system-monitor/config/provisioned.json": "c7331288e17ed3c16b53bf13695b08f6074992b0b820a042510e9b55b13d3507",
+    "system-monitor/config/lab.json": "e87f9ba2e778ccfdf0b600264e69108d3873b6d9cd1cc881fd84d7a30b0fb061",
+    "system-monitor/config/provisioned.json": "7146c7a5adf915fc56e60e8c65b6a01062f7d4d7d2e2bd7e7e8978dc29306b9e",
     "system-monitor/deployment/install_agent.py": "b5782115f9ed57c67463bdcef12e91c8164b29bfe9e5248bab3d61b7f3003f41",
     "system-monitor/deployment/install_network.py": "f26f308f836a565b524ec1d85748d008f4aed66e9a7ef8d9bfc7d11b32c0b1f4",
     "system-monitor/deployment/install_worker.py": "256e34291d9050ad5b00243eac962d56626568ccbbf0af6581d27de889d45598",
@@ -53,5 +53,17 @@
     "system-monitor/tests/test_correlation.py": "84e615ffba25873b60c30729b949efc5b396392416e91121870d356e00b35db8",
     "system-monitor/tests/test_probes.py": "ed7d83ffde19eb9428f892ace30f75c633af83719d1e1e04453c2a7bb2eddf63",
     "system-monitor/tests/test_worker.py": "ded607e03331469c60d5bc27ebb85a0aa5e1a2c7664a115bbc03391f6605d1e9"
-  }
+  },
+  "portable_config_newlines": [
+    {
+      "path": "system-monitor/config/lab.json",
+      "json_unchanged": true,
+      "matches_committed_bytes": true
+    },
+    {
+      "path": "system-monitor/config/provisioned.json",
+      "json_unchanged": true,
+      "matches_committed_bytes": true
+    }
+  ]
 }

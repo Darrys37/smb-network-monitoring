@@ -1,5 +1,7 @@
-> Bản dùng để chuyển chat/tài khoản. Nguồn: `docs/GIOI_THIEU_VA_GIAI_THICH_DO_AN.md` tại `34bf592cf83e0fa39d36a1fecf8a836d3dc25eab`.
+> Bản dùng để chuyển chat/tài khoản. Nguồn: `docs/GIOI_THIEU_VA_GIAI_THICH_DO_AN.md` tại `eca26b662a1acbe455a857b693f4e4183382c40e`.
 > Nội dung lấy từ tài liệu nguồn; các liên kết được đổi để dùng ngoài project. Đọc file 01 về trạng thái cuối phiên trước khi tiếp tục.
+
+> **Cập nhật 03/11/2026 — hệ thống v3:** Đã bổ sung SQLite expert, bảy nhóm features, automatic worker, gateway thật trên ba VM, correlation/suppression và thử nhiều lỗi. Demo ML Nginx đã chạy lại thành công nhưng model vẫn là nghiên cứu lỗi đơn theo hợp đồng cũ. Xem [báo cáo hiện tại](https://github.com/Darrys37/smb-network-monitoring/blob/eca26b662a1acbe455a857b693f4e4183382c40e/docs/HOAN_THIEN_HE_THONG_20261103.md) và [hướng dẫn v3](https://github.com/Darrys37/smb-network-monitoring/blob/eca26b662a1acbe455a857b693f4e4183382c40e/system-monitor/README.md). Phần bên dưới giữ mô tả baseline/lịch sử; không dùng nó để phủ định chức năng v3 mới.
 
 # Giới thiệu và giải thích đồ án giám sát mạng
 
@@ -139,10 +141,10 @@ Muốn đánh giá chất lượng rộng hơn cần thêm mẫu âm gắn nhãn
 ## 12. Đọc tiếp ở đâu?
 
 - Dành cho AI/người viết tính năng: [Logic engine và bàn giao phát triển](03_LOGIC_DIAGNOSIS_ENGINE.md).
-- Tự cài/chạy lab: [Hướng dẫn cài đặt và khôi phục](https://github.com/Darrys37/smb-network-monitoring/blob/34bf592cf83e0fa39d36a1fecf8a836d3dc25eab/docs/HUONG_DAN_CAI_DAT_VA_KHOI_PHUC.md).
-- Kiến trúc đầy đủ: [Chương 2](https://github.com/Darrys37/smb-network-monitoring/blob/34bf592cf83e0fa39d36a1fecf8a836d3dc25eab/docs/CHUONG_2_KIEN_TRUC_VA_TRIEN_KHAI.md).
-- Phương pháp và kết quả: [Chương 3](https://github.com/Darrys37/smb-network-monitoring/blob/34bf592cf83e0fa39d36a1fecf8a836d3dc25eab/docs/CHUONG_3_THUC_NGHIEM_VA_DANH_GIA.md).
-- Trạng thái bàn giao: [Tổng hợp tuần 5](https://github.com/Darrys37/smb-network-monitoring/blob/34bf592cf83e0fa39d36a1fecf8a836d3dc25eab/docs/TONG_HOP_TUAN_5.markdown).
+- Tự cài/chạy lab: [Hướng dẫn cài đặt và khôi phục](https://github.com/Darrys37/smb-network-monitoring/blob/eca26b662a1acbe455a857b693f4e4183382c40e/docs/HUONG_DAN_CAI_DAT_VA_KHOI_PHUC.md).
+- Kiến trúc đầy đủ: [Chương 2](https://github.com/Darrys37/smb-network-monitoring/blob/eca26b662a1acbe455a857b693f4e4183382c40e/docs/CHUONG_2_KIEN_TRUC_VA_TRIEN_KHAI.md).
+- Phương pháp và kết quả: [Chương 3](https://github.com/Darrys37/smb-network-monitoring/blob/eca26b662a1acbe455a857b693f4e4183382c40e/docs/CHUONG_3_THUC_NGHIEM_VA_DANH_GIA.md).
+- Trạng thái bàn giao: [Tổng hợp tuần 5](https://github.com/Darrys37/smb-network-monitoring/blob/eca26b662a1acbe455a857b693f4e4183382c40e/docs/TONG_HOP_TUAN_5.markdown).
 
 Thông tin kết quả ở tài liệu này gắn với mốc tuần 5, không phải kiểm tra live mới tại thời điểm người khác mở file. Hai bản backup C:/D: nằm trên hai ổ NVMe cùng laptop; bản ngoài thiết bị, định dạng theo mẫu trường và năng lực trình bày của người thực hiện cần xác nhận riêng trước nộp.
 
