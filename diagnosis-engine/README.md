@@ -20,7 +20,7 @@ Nhập ZABBIX_URL và token đọc trong .env bằng editor cục bộ; không c
 .venv/bin/python app.py --host-id 10683
 ```
 
-Không truyền event-id thì chỉ liệt kê problem. Để chạy/lưu, chọn problem mới còn mở đúng host, khai báo target/control/scope và probe mới. Xem [README gốc](../README.md) và [hướng dẫn đầy đủ](../docs/HUONG_DAN_CAI_DAT_VA_KHOI_PHUC.md).
+Không truyền event-id thì chỉ liệt kê problem. Để chạy/lưu, chọn problem mới còn mở đúng host, khai báo target/control/scope và probe mới. Xem [README gốc](../README.md) và [hướng dẫn đầy đủ](https://github.com/Darrys37/smb-network-monitoring/blob/324f76bc3e13628a64116a7081b4d434037ec4ef/docs/HUONG_DAN_CAI_DAT_VA_KHOI_PHUC.md).
 
 ## Probe và scope
 
@@ -39,9 +39,9 @@ Sau rollback, chạy recovery.py --event-id với event mới đã có recovery 
 
 ## Tài liệu và kiểm chứng
 
-- [Kiến trúc, điều kiện luật và SQLite](../docs/CHUONG_2_KIEN_TRUC_VA_TRIEN_KHAI.md).
-- [Thực nghiệm và giới hạn](../docs/CHUONG_3_THUC_NGHIEM_VA_DANH_GIA.md).
-- [Demo và rollback](../docs/KICH_BAN_DEMO_10_PHUT.md).
+- [Kiến trúc, điều kiện luật và SQLite](https://github.com/Darrys37/smb-network-monitoring/blob/324f76bc3e13628a64116a7081b4d434037ec4ef/docs/CHUONG_2_KIEN_TRUC_VA_TRIEN_KHAI.md).
+- [Thực nghiệm và giới hạn](https://github.com/Darrys37/smb-network-monitoring/blob/324f76bc3e13628a64116a7081b4d434037ec4ef/docs/CHUONG_3_THUC_NGHIEM_VA_DANH_GIA.md).
+- [Demo và rollback](https://github.com/Darrys37/smb-network-monitoring/blob/324f76bc3e13628a64116a7081b4d434037ec4ef/docs/KICH_BAN_DEMO_10_PHUT.md).
 
 280 tests trước đợt tuần4 là mốc lịch sử; kết quả test cuối tuần5 ghi trong hồ sơ final, không dùng unit test làm số fault thật. 18/18 mục tiêu khớp không phải accuracy tổng quát có mẫu âm. Legacy rules.py còn để tái lập dữ liệu cũ; bộ chính thức dùng roadmap. Giữ .env và DB runtime ngoài Git; backup bằng SQLite backup API.
 

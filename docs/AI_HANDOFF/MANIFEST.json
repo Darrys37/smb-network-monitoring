@@ -1,25 +1,25 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-17T23:11:23.624554+07:00",
-  "source_commit": "34bf592cf83e0fa39d36a1fecf8a836d3dc25eab",
-  "engine_tree": "44ced0643fb0d3c34673ab5b2912a5645b2894c6",
+  "generated_at": "2026-11-05T00:56:23.600251+07:00",
+  "source_commit": "8df20a7bd5143ba0210b5116a1cc26fcc0a53366",
+  "engine_tree": "d58af2351162b3e9258fa15e0354f4e39900639d",
   "repository": "https://github.com/Darrys37/smb-network-monitoring",
   "state_document": "01_HIEN_TRANG_VA_CACH_TIEP_TUC.md",
   "state_requires_manual_update": true,
   "sources": {
     "02_GIOI_THIEU_DO_AN.md": {
       "path": "docs/GIOI_THIEU_VA_GIAI_THICH_DO_AN.md",
-      "sha256": "25ffab342f2335da952db8cb072e955baceccdc59e9e7697f75dfd812ce7ddc3"
+      "sha256": "4bfea13376571dac49b9e5deef245f9da4ad287414a6538c6017773ab27f2c8e"
     },
     "03_LOGIC_DIAGNOSIS_ENGINE.md": {
       "path": "docs/DIAGNOSIS_ENGINE_LOGIC_VA_PHAT_TRIEN.md",
-      "sha256": "ba0ae2ce1e9d5145175d5cc3dc3ec290aa1c8725ac3a27316cc12c048592f15d"
+      "sha256": "f103e9960e53618384b93c4a16928799c6e46c2dd38db5c5285a53783a5b3193"
     }
   },
   "files": {
-    "00_BAT_DAU_O_DAY.md": "8620cc3d716bc60cc96e3b40e336013f03e7fc709dce5b5d81bb642b6a5499c1",
-    "01_HIEN_TRANG_VA_CACH_TIEP_TUC.md": "be2f9f0a3843cb130512c105f81340ad588c9322a14e5c447af28b895d5ad9ac",
-    "02_GIOI_THIEU_DO_AN.md": "4819b1b1ae2a54316de55ae55d193cbd4e9492702557b29963d794dd27364f5a",
-    "03_LOGIC_DIAGNOSIS_ENGINE.md": "639d8c95357c965f9adb2a33dffa2ba49a8094d249063cf302ab931b9e4392ae"
+    "00_BAT_DAU_O_DAY.md": "6d597fdc776e972cb232cc577fc9f9049b262a3d5fe8a161d91194bab82f6deb",
+    "01_HIEN_TRANG_VA_CACH_TIEP_TUC.md": "cad73845512a132de9abbadcd19450196ac07e67a3272221f6999a4aebefa107",
+    "02_GIOI_THIEU_DO_AN.md": "a55fc01f64b21f9fb89ea638a5460bc72e1b3e4347c448a69e89d7a2dcac3d74",
+    "03_LOGIC_DIAGNOSIS_ENGINE.md": "c01202d6a7dc7c08600c2e368c3d75469415dd4222d65ab63448d6539bd7bc8f"
   }
 }
