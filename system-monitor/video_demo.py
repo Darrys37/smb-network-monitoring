@@ -22,12 +22,12 @@ CASES={
  'R8':('BÃO CẢNH BÁO','mon01','Bơm 20 tín hiệu cảnh báo thử, không phải 20 máy bị lỗi.', 'Có ít nhất 10 sự kiện lỗi mới trong 30 giây.')}
 
 
-def panel(case,step,title,lines,prompt=None):
+def panel(case,step,title,lines,pause=False):
     if sys.stdout.isatty():print('\033[2J\033[H',end='')
     print('\n'+'═'*76+'\n  DEMO '+case+' — '+CASES[case][0])
     print('  BƯỚC '+str(step)+'/4  |  '+title+'\n'+'═'*76)
     for line in lines:print('\n  '+line)
-    if prompt:input('\n  '+prompt+' ')
+    if pause:input()
 
 
 def snapshot(transport):
@@ -134,13 +134,13 @@ def main():
             if not healthy(before):raise RuntimeError('Chưa tạo lỗi. '+baseline_reason(before))
             panel(case,1,'HỆ THỐNG ĐANG BÌNH THƯỜNG',[
                 'Máy chủ web hoạt động — HTTP 200.','Gateway hoạt động; không còn sự cố của lần trước.',
-                'Sắp thực hiện: '+CASES[case][2]],'Bắt đầu quay video, rồi nhấn Enter để tạo lỗi.')
+                'Tình huống thử nghiệm: '+CASES[case][2]],pause=True)
             if not healthy(snapshot(transport)) or not ready(transport.platform_health()):
                 raise RuntimeError('Baseline đã thay đổi khi chờ; chưa tạo lỗi.')
             stage=2;armed=True;fault=command('arm');save('fault',fault)
             panel(case,2,'ĐÃ TẠO LỖI — CHỜ WORKER PHÁT HIỆN',[
                 CASES[case][2],'Worker đang tự thu bằng chứng và đối chiếu luật.',
-                'Không cần gõ thêm lệnh. Có phục hồi dự phòng nếu mất kết nối.'])
+                'Đang kiểm tra trạng thái kết nối và dịch vụ.'])
             deadline=time.monotonic()+(400 if case=='R6' else 100)
             result=None
             while time.monotonic()<deadline:
@@ -153,9 +153,7 @@ def main():
             panel(case,3,'ĐÃ PHÁT HIỆN — LUẬT '+case,[
                 'Bằng chứng được worker ghi nhận lúc '+stamp+':',*evidence(result,case),
                 'KẾT LUẬN: '+CASES[case][3],
-                'Đây là dấu hiệu phù hợp luật; chưa khẳng định duy nhất nguyên nhân.',
-                'Lỗi có thể tự được thu hồi khi hết thời gian dự phòng.'],
-                'Thuyết minh xong → nhấn Enter để phục hồi và kiểm tra.')
+                'Nhận định dựa trên bằng chứng tại thời điểm kiểm tra.'],pause=True)
             stage=4;save('recovery',command('recover'));armed=False
             panel(case,4,'ĐANG XÁC NHẬN PHỤC HỒI',['Đã gửi lệnh phục hồi.','Chờ dữ liệu mới từ Zabbix và worker…'])
             deadline=time.monotonic()+(360 if case=='R6' else 150)
@@ -168,15 +166,14 @@ def main():
             after=transport.platform_health();save('platform-after',after)
             if not unchanged(platform,after):raise RuntimeError('VM thay đổi/treo trong lượt thử; không chứng nhận demo đạt.')
             save('result',{'status':'VIDEO_DEMO_VERIFIED','case':case,'token':token})
-            panel(case,4,'ĐÃ PHỤC HỒI — VIDEO HOÀN TẤT',[
+            panel(case,4,'ĐÃ PHỤC HỒI — HỆ THỐNG BÌNH THƯỜNG',[
                 'Web trả HTTP 200; gateway hoạt động.','Sự cố của lượt thử đã hết; hàng đợi xử lý xong.',
-                'Worker phát hiện và theo dõi. Người vận hành thực hiện phục hồi.',
-                'DỪNG QUAY VÀ LƯU VIDEO '+case+'.'])
+                'Worker đã phát hiện sự cố và ghi nhận trạng thái sau phục hồi.'],pause=True)
         except (Exception,KeyboardInterrupt) as error:
             save('failure',{'error_type':type(error).__name__})
             panel(case,stage,'LƯỢT DEMO CHƯA HOÀN TẤT',[
                 str(error) if isinstance(error,(RuntimeError,TimeoutError)) else type(error).__name__,
-                'Không dùng lượt này làm bằng chứng demo thành công.'])
+                'Kết quả: chưa xác minh hoàn tất tình huống thử nghiệm.'])
             raise
         finally:
             if armed:
