@@ -1,166 +1,166 @@
-# Hệ thống giám sát và hỗ trợ chẩn đoán sự cố mạng
+# Hệ thống giám sát tập trung và hỗ trợ chẩn đoán sự cố mạng
 
-> **Bản mở rộng Machine Learning nằm ở nhánh [feature/ml-research-v2](https://github.com/Darrys37/smb-network-monitoring/tree/feature/ml-research-v2).**
->
-> **[Mở toàn bộ code ML](https://github.com/Darrys37/smb-network-monitoring/tree/feature/ml-research-v2/ml-research)** · [README bản ML và cách chạy](https://github.com/Darrys37/smb-network-monitoring/blob/feature/ml-research-v2/README.md) · [Báo cáo/hướng dẫn](https://github.com/Darrys37/smb-network-monitoring/tree/feature/ml-research-v2/docs/TONG_HOP_VA_HUONG_DAN_20261031).
->
-> Nhánh `main` hiện giữ baseline chuyên gia R1–R6. CART, FP-Growth, candidate SQLite và CLI demo mới thuộc nhánh ML ở trên; xem/chạy các lệnh ML trên nhánh đó.
+Đồ án xây dựng hệ thống giám sát hạ tầng mạng doanh nghiệp nhỏ bằng **Zabbix 7.0 LTS**, kết hợp **worker Python tự động thu thập bằng chứng, đối chiếu luật chuyên gia trong SQLite và tương quan cảnh báo theo topology**.
 
-Đồ án sử dụng Zabbix để giám sát và phát sinh cảnh báo, kết hợp module Python CLI thu bằng chứng, áp dụng luật và lưu hồ sơ sự cố có giải thích. Người vận hành kiểm tra và xử lý sự cố; module không tự khắc phục.
+Thay vì chỉ báo “không truy cập được web”, hệ thống kiểm tra thêm kết nối, trạng thái dịch vụ và thiết bị phụ thuộc để hỗ trợ người quản trị phân biệt lỗi dịch vụ, lỗi đường truy cập hoặc lỗi gateway.
 
+**[Mã nguồn Worker V3](https://github.com/Darrys37/smb-network-monitoring/tree/feature/ml-research-v2/system-monitor)** · **[Hướng dẫn vận hành và demo](https://github.com/Darrys37/smb-network-monitoring/blob/feature/ml-research-v2/system-monitor/README.md)** · **[Tài liệu dự án](https://github.com/Darrys37/smb-network-monitoring/blob/feature/ml-research-v2/docs/README.md)**
 
-## Tài liệu tiếp nhận và source hiện tại
+> **Chọn đúng phiên bản:** Worker V3 hiện nằm trên nhánh [`feature/ml-research-v2`](https://github.com/Darrys37/smb-network-monitoring/tree/feature/ml-research-v2). Tên nhánh được giữ từ quá trình phát triển; nội dung giới thiệu dưới đây tập trung vào hệ thống chuyên gia V3. Nhánh `main` giữ mã nguồn baseline và trang giới thiệu này.
 
-- **[Bộ bốn file để bàn giao cho AI/chat khác](docs/AI_HANDOFF/00_BAT_DAU_O_DAY.md).**
-- [Bản đồ toàn bộ tài liệu](docs/README.md).
-- [Giới thiệu và giải thích đồ án](docs/GIOI_THIEU_VA_GIAI_THICH_DO_AN.md).
-- [Logic diagnosis engine, đọc code và phát triển](docs/DIAGNOSIS_ENGINE_LOGIC_VA_PHAT_TRIEN.md).
+## Chức năng chính
 
-Cleanup ngày 17/10/2026 thống nhất HTTP mặc định `unknown` giữa CLI/Python,
-tách rõ orchestration/collection/rules và chuẩn hóa nhập HTTP/DNS. Bản này đạt
-355 tests trên Windows và MON01; replay 108 kết quả trong 18 hồ sơ giữ nguyên.
-Kết quả thực nghiệm ở tag tuần 4–5 vẫn thuộc phiên bản lịch sử. Xem mục 16 của
-tài liệu logic để biết thay đổi tương thích, cách kiểm thử và cách giải thích code.
+- Tự động đọc sự kiện lỗi và phục hồi từ Zabbix API; lưu sự kiện, con trỏ đọc và hàng đợi xử lý trong SQLite.
+- Thu thập bảy nhóm đặc trưng: ICMP, TCP/80, HTTP, DNS, tài nguyên CPU/RAM, Zabbix Agent và trạng thái nút cha.
+- Đánh giá **8 luật thuộc 7 nhóm sự cố**, với **40 hàng quyết định** lưu trong SQLite; kết quả kèm bằng chứng, giả thuyết và hướng kiểm tra tiếp theo.
+- Gom cảnh báo theo cửa sổ thời gian **30 giây** và quan hệ phụ thuộc; giảm cảnh báo dây chuyền khi gateway gặp lỗi.
+- Giữ lại lỗi độc lập khi nhiều sự cố xảy ra đồng thời, chẳng hạn gateway không chuyển tiếp và Nginx thực sự dừng.
+- Lưu lịch sử chẩn đoán và trạng thái phục hồi để đối chiếu sau thử nghiệm.
 
-## Mô hình lab
+Worker hỗ trợ chẩn đoán. Việc khắc phục do người quản trị hoặc công cụ tạo/hoàn tác lỗi trong lab thực hiện.
 
-| Máy | IP Host-only | Vai trò |
-|---|---|---|
-| MON01 | 192.168.56.10/24 | Zabbix 7.0 LTS, MySQL, frontend, Agent2, Python và SQLite |
-| SRV01 | 192.168.56.20/24 | Nginx cổng 80, SSH và Agent2; host ID 10683 |
-| CLI01 | 192.168.56.30/24 | Máy khách, điểm đo DNS và Agent2; host ID 10684 |
-
-Ba VM Ubuntu Server chạy trong VirtualBox. `enp0s3` dùng NAT riêng để ra Internet; `enp0s8` dùng IP tĩnh trên cùng mạng Host-only. Lưu lượng giữa các IP 192.168.56.x đi trực tiếp trên subnet này. Gateway NAT 10.0.2.2 của từng VM và adapter Windows 192.168.56.1 không phải router trung gian của luồng nội bộ.
-
-Giao diện Zabbix trong lab: `http://192.168.56.10:8080/`. Host MON01 có tên kỹ thuật `Zabbix server` trong Zabbix. Giám sát Agent dùng template passive; HTTP scenario do MON01 thực hiện tới SRV01; phép đo DNS nằm trên CLI01.
-
-## Luồng xử lý
+## Kiến trúc và luồng hoạt động
 
 ```text
-Zabbix problem → API / chuẩn hóa → evidence hiện tại → R1–R6 → SQLite
-                                           recovery.py → xác minh recovery
-                                               report.py → JSON / Markdown / CSV
+                  Zabbix Server
+               sự kiện / số liệu
+                        |
+                        v
+              Worker Python tự động
+                        |
+          lưu sự kiện + hàng đợi SQLite
+                        |
+        thu và kiểm tra độ mới của bằng chứng
+                        |
+            bảng quyết định SQLite
+                 8 luật chuyên gia
+                        |
+       tương quan cảnh báo theo topology
+                        |
+        nhóm sự cố + giải thích + lịch sử
 ```
 
-Engine là CLI. Khi không truyền event ID, chương trình liệt kê problem đang mở của host được chọn. Khi chẩn đoán, chương trình xác minh event còn mở trước và sau collection; chỉ ghi dữ liệu khi có `--save`. Event ID dùng để chống tạo incident trùng. Hồ sơ lịch sử được giữ nguyên khi đồng bộ recovery.
+Worker chạy bằng systemd trên MON01, đọc sự kiện theo chu kỳ và làm mới bằng chứng định kỳ. Người vận hành dùng `report.py` để xem kết quả đã xử lý; không cần chọn từng event ID rồi gọi chẩn đoán thủ công.
 
-Evidence phản ánh thời điểm thu, không tự tái dựng trạng thái tại event time. `matched` nghĩa là điều kiện của luật khớp bằng chứng; `not_matched` chỉ nói về luật đó; `insufficient_evidence` giữ rõ dữ liệu chưa đủ để đánh giá.
+Các luật được xét độc lập nên có thể đồng thời khớp. Dữ liệu thiếu hoặc quá cũ được giữ thành `unknown` / `insufficient_evidence`, tránh biến một phép đo thất bại thành kết luận chắc chắn.
 
-| Nhóm luật hiện hành | Đối chiếu chính |
+## Mô hình thực nghiệm
+
+Hệ thống hiện được triển khai trên **3 máy ảo Ubuntu Server trong VirtualBox**.
+
+| Máy | IP quản trị | IP mạng dịch vụ | Vai trò |
+|---|---|---|---|
+| MON01 | `192.168.56.10` | Truy cập qua CLI01 | Zabbix Server, MySQL, giao diện web, worker Python và SQLite |
+| CLI01 | `192.168.56.30` | `172.30.20.1` | Gateway chuyển tiếp và máy quan sát DNS |
+| SRV01 | `192.168.56.20` | `172.30.20.20` | Nginx Web Server và Zabbix Agent2 |
+
+```text
+MON01 192.168.56.10
+          |
+          | route tới 172.30.20.0/24
+          v
+CLI01 192.168.56.30 / 172.30.20.1
+          |
+          | Internal Network: do-an-v3-backend
+          v
+SRV01 172.30.20.20 — Nginx TCP/80
+```
+
+Các IP `192.168.56.x` dùng cho quản trị. IP dịch vụ `172.30.20.20` đi qua CLI01, giúp kiểm chứng sự phụ thuộc gateway thật. Đường quản trị riêng cho phép worker đọc trạng thái Nginx ngay cả khi đường dịch vụ gặp lỗi.
+
+`CLI01-Gateway` và `SRV01-Routed` là hai đối tượng giám sát trong Zabbix, không phải hai VM bổ sung. Giao diện web trong lab: `http://192.168.56.10:8080/`.
+
+## Bộ luật chẩn đoán
+
+| Luật | Nhóm | Dấu hiệu chính |
+|---|---|---|
+| R1 | Ping / kết nối | Đích không phản hồi ICMP và TCP, máy đối chứng vẫn phản hồi |
+| R2 | Dịch vụ HTTP | Nginx inactive/failed hoặc dấu hiệu dịch vụ/listener không phục vụ |
+| R3 | Agent | Agent cục bộ dừng hoặc thiếu mẫu mới kèm bằng chứng kết nối phù hợp |
+| R4 | DNS | Phân giải tên thất bại trong khi kết nối IP đối chứng vẫn hoạt động |
+| R5 | Đường truy cập HTTP | Ping được, TCP/80 từ xa lỗi nhưng HTTP tại đúng IP dịch vụ vẫn trả 200 |
+| R6 | Tài nguyên | CPU trung bình cao kéo dài, đủ lịch sử và có load/số CPU đối chứng |
+| R7 | Gateway / nút cha | Nút cha được cấu hình có bằng chứng down còn mới |
+| R8 | Bão cảnh báo | Có ít nhất 10 sự kiện lỗi khác nhau trong cửa sổ 30 giây |
+
+R2 và R5 cùng thuộc nhóm HTTP nên có 8 luật nhưng 7 nhóm. Điều kiện chi tiết nằm trong [bảng luật nguồn](https://github.com/Darrys37/smb-network-monitoring/blob/feature/ml-research-v2/system-monitor/config/expert_seed.json), được nạp vào catalog SQLite.
+
+`matched` nghĩa là phù hợp dấu hiệu của luật, chưa khẳng định duy nhất nguyên nhân. Các điểm 85/65/45% là điểm ưu tiên điều tra do chuyên gia gán, không phải xác suất đúng đã được hiệu chỉnh.
+
+## Lấy mã nguồn
+
+```bash
+git clone --branch feature/ml-research-v2 --single-branch https://github.com/Darrys37/smb-network-monitoring.git
+cd smb-network-monitoring
+```
+
+Để triển khai sang môi trường khác, làm theo [hướng dẫn triển khai V3](https://github.com/Darrys37/smb-network-monitoring/blob/feature/ml-research-v2/system-monitor/deployment/README.md). Tài liệu giả định đã có ba VM và các dịch vụ nền; đây chưa phải bộ cài đặt tự động từ một máy trống. IP, host ID, NIC và SSH phải được đối chiếu với môi trường thực tế.
+
+## Xem trạng thái trên lab đã cấu hình
+
+Trên **MON01**:
+
+```bash
+systemctl is-active do-an-monitor-v3.service
+
+/home/phat/do-an/diagnosis-engine/.venv/bin/python \
+  /home/phat/do-an/system-monitor/report.py
+```
+
+Những trường cần đọc:
+
+| Trường | Ý nghĩa |
 |---|---|
-| R1 — mất liên lạc với host / đường cục bộ | Ping/TCP đích và host đối chứng cùng subnet |
-| R2 — dịch vụ/listener HTTP nghi gặp lỗi | Ping, TCP80 và HTTP probe từ máy dịch vụ |
-| R3 — Agent không khả dụng | Ping, tuổi agent.ping và TCP10050 |
-| R4 — phân giải / đường truy cập DNS nghi gặp lỗi | DNS và ping IP đối chứng cùng observer CLI01 |
-| R5 — filtering / đường truy cập HTTP nghi gặp lỗi | Remote TCP thất bại nhưng local HTTP200 trên IP dịch vụ |
-| R6 — CPU cao kéo dài | Lịch sử CPU, độ phủ mẫu, load và CPU count |
+| `Active events` | Sự kiện lỗi đang hoạt động sau khi tách các thông báo đã được cấu hình |
+| `Incident groups` | Số nhóm sự cố sau tương quan |
+| `Suppressed dependent alerts` | Số cảnh báo con được gắn về nhóm gốc do phụ thuộc |
+| `Pending diagnosis jobs` | Số công việc chẩn đoán chưa hoàn thành |
+| `ROOT srv01 \| http_service` | Nhóm sự cố dịch vụ HTTP trên SRV01 |
 
-R5 hiện hành dùng phương án firewall HTTP thay gateway. R1 thực nghiệm bằng ngắt Host-only, R4 bằng chặn truy vấn DNS trên CLI01. Không mô tả các phép thử này như đã kiểm chứng tắt VM, gateway chung hoặc resolver upstream hỏng.
+Suppression giữ nguyên sự kiện nguồn trong Zabbix và SQLite. Vì vậy Zabbix vẫn có thể hiện nhiều cảnh báo trong khi module chỉ đưa ra một nhóm gốc cần điều tra.
 
-## Vận hành CLI trên MON01
+## Demo có kiểm soát
 
-Các lệnh sau dành cho lab đã cài đặt. Hướng dẫn module và cấu hình mẫu nằm trong [diagnosis-engine/README.md](diagnosis-engine/README.md).
+Trên **Windows**, mở terminal tại thư mục repository của lab đã cấu hình:
 
-```bash
-cd ~/do-an/diagnosis-engine
-source .venv/bin/activate
-python app.py
+```powershell
+python .\system-monitor\system_lab.py status
+
+# Chọn một tình huống mỗi lần
+python .\system-monitor\system_lab.py demo --fault nginx
+python .\system-monitor\system_lab.py demo --fault gateway
+python .\system-monitor\system_lab.py demo --fault multi
+python .\system-monitor\system_lab.py demo --fault storm
 ```
 
-Với R1/R3/R6, chẩn đoán event mới của SRV01 khi fault còn tồn tại:
+Các lệnh `demo` chủ động tạo lỗi, kiểm tra kết quả rồi phục hồi. Có timer rollback độc lập cho các can thiệp; demo storm dùng 20 kênh cảnh báo synthetic, không đại diện cho 20 VM hoặc 20 lỗi vật lý. Cần ba VM hoạt động, SSH/sudo đã cấu hình và thiết lập cục bộ theo [hướng dẫn vận hành](https://github.com/Darrys37/smb-network-monitoring/blob/feature/ml-research-v2/system-monitor/README.md).
 
-```bash
-read -r -p 'Problem event ID mới của SRV01: ' EVENT_ID
-python app.py --event-id "$EVENT_ID" --host-id 10683 \
-  --target-ip 192.168.56.20 --ruleset roadmap \
-  --control-ip 192.168.56.30 --http-service expected --save
+Nếu demo bị ngắt, chạy lệnh phục hồi rồi kiểm tra lại trạng thái:
+
+```powershell
+python .\system-monitor\system_lab.py recover
+python .\system-monitor\system_lab.py status
 ```
 
-**R2/R5 cần HTTP evidence mới từ SRV01**, dùng IP dịch vụ 192.168.56.20, observer `srv01`, tuổi không quá 180 giây. Sau khi chuyển JSON về MON01, chạy:
+Các kịch bản V3 đã có hồ sơ kiểm chứng Nginx, gateway, nhiều lỗi và bão cảnh báo trong [báo cáo thực nghiệm](https://github.com/Darrys37/smb-network-monitoring/blob/feature/ml-research-v2/docs/HOAN_THIEN_HE_THONG_20261103.md). Hồ sơ ghi kết quả tại thời điểm thử; một README không thay thế việc kiểm tra baseline trước lần demo mới.
 
-```bash
-read -r -p 'Problem event ID mới của SRV01: ' EVENT_ID
-read -r -p 'Đường dẫn HTTP JSON mới trên MON01: ' HTTP_FILE
-python app.py --event-id "$EVENT_ID" --host-id 10683 \
-  --target-ip 192.168.56.20 --ruleset roadmap \
-  --control-ip 192.168.56.30 --http-service expected \
-  --http-observer srv01 --http-evidence "$HTTP_FILE" --save
-```
+## Cấu trúc mã nguồn V3
 
-Probe chạy trên **SRV01**, bằng Python tiêu chuẩn:
+| Đường dẫn | Nội dung |
+|---|---|
+| [`system-monitor/monitor.py`](https://github.com/Darrys37/smb-network-monitoring/blob/feature/ml-research-v2/system-monitor/monitor.py) | Điểm vào worker, xem danh mục luật và replay |
+| [`system-monitor/monitoring/`](https://github.com/Darrys37/smb-network-monitoring/tree/feature/ml-research-v2/system-monitor/monitoring) | Thu bằng chứng, chuẩn hóa dữ liệu, thực thi luật, hàng đợi và tương quan |
+| [`system-monitor/config/`](https://github.com/Darrys37/smb-network-monitoring/tree/feature/ml-research-v2/system-monitor/config) | Profile lab, topology và nguồn bảng quyết định |
+| `system-monitor/catalog/` | Catalog SQLite được tạo khi triển khai bằng [`build_catalog.py`](https://github.com/Darrys37/smb-network-monitoring/blob/feature/ml-research-v2/system-monitor/build_catalog.py) |
+| [`system-monitor/deployment/`](https://github.com/Darrys37/smb-network-monitoring/tree/feature/ml-research-v2/system-monitor/deployment) | Hướng dẫn và script triển khai |
+| [`system-monitor/tests/`](https://github.com/Darrys37/smb-network-monitoring/tree/feature/ml-research-v2/system-monitor/tests) | Kiểm thử logic hệ thống |
+| [`evidence/system-v3/`](https://github.com/Darrys37/smb-network-monitoring/tree/feature/ml-research-v2/evidence/system-v3) | Hồ sơ thử nghiệm và kết quả demo đã lưu |
+| [`diagnosis-engine/`](https://github.com/Darrys37/smb-network-monitoring/tree/feature/ml-research-v2/diagnosis-engine) | Engine CLI gốc và thành phần API/thu số liệu được tái sử dụng |
 
-```bash
-python3 ~/http_probe.py --target-ip 192.168.56.20 --observer srv01 \
-  --output "$HOME/http-$(date -u +%Y%m%dT%H%M%SZ).json"
-```
+## Phạm vi và giới hạn
 
-**R4 dùng host CLI01**: host ID 10684, target 192.168.56.30, control R1 192.168.56.20, HTTP scope `absent`. DNS probe chạy trên CLI01 cho `example.com`, IP đối chứng `1.1.1.1`; JSON được chuyển sang MON01 khi còn fresh. Trên MON01:
+Hệ thống được kiểm chứng trong lab 3 VM, chưa thử trên máy Ubuntu vật lý và chưa đánh giá tải vận hành doanh nghiệp. CPU cao, lỗi DNS hay mất kết nối là dấu hiệu hỗ trợ điều tra; kết luận phải đi cùng chất lượng và thời điểm của bằng chứng.
 
-```bash
-read -r -p 'Problem event ID DNS mới của CLI01: ' EVENT_ID
-read -r -p 'Đường dẫn DNS JSON mới trên MON01: ' DNS_FILE
-python app.py --event-id "$EVENT_ID" --host-id 10684 \
-  --target-ip 192.168.56.30 --ruleset roadmap \
-  --control-ip 192.168.56.20 --http-service absent \
-  --dns-name example.com --dns-observer cli01 \
-  --dns-control-ip 1.1.1.1 --dns-evidence "$DNS_FILE" --save
-```
+Worker V3 không tự sửa hạ tầng và chưa tích hợp gửi thông báo ra email/chat. Token, private key, môi trường Python và database runtime được cấu hình riêng; GitHub không thay thế backup VM, MySQL hoặc dữ liệu vận hành.
 
-Sau khôi phục, đồng bộ recovery rồi xuất hồ sơ bằng incident ID đã được engine in ra:
-
-```bash
-python recovery.py --event-id "$EVENT_ID"
-read -r -p 'Incident ID đã được engine lưu: ' INCIDENT_ID
-python report.py --incident-id "$INCIDENT_ID" --format json
-```
-
-Report hỗ trợ JSON, Markdown và CSV. File output được tạo theo chế độ không ghi đè; chọn tên mới khi xuất. CSV incident có một dòng cho mỗi diagnosis, khác với bảng thực nghiệm có một dòng cho mỗi Run ID.
-
-## Kiểm chứng và thực nghiệm
-
-- Mốc trước đợt đo: 280 tests passed trên MON01; tests không thay thế các lượt fault thật.
-- Source tham chiếu `ca04071`, export host/template `978b4f9`, phiếu thử `4cabeb0`. Snapshot hiệu lực và hash source được lưu trong hồ sơ freeze/baseline.
-- Baseline ngày 16/10/2026 kéo dài 30 phút 06 giây theo lựa chọn người thực hiện, đã kiểm tra liên tục và lưu 963 mẫu history của 28 item. Đây là phiên ngắn, chưa đạt mục tiêu bốn giờ của roadmap.
-- Hồ sơ chính thức nằm trong [evidence/week4/official-runs](evidence/week4/official-runs). Xem [phụ lục vận hành](evidence/week4/official-runs/PHU_LUC_VAN_HANH_THUC_NGHIEM.md) để phân biệt engine với công cụ ghi thử, timer fault và cách đo/chấm.
-- Mỗi lượt giữ fault/rollback log độc lập, problem/recovery ID, CLI log, evidence và report nếu engine hoàn tất. Lượt không phát hiện, engine error hoặc thiếu bằng chứng cũng phải được giữ.
-
-Chỉ ba lượt mỗi kịch bản trên lab nhỏ; kết quả không chứng minh độ tin cậy vận hành doanh nghiệp. Tần suất cảnh báo nền của Zabbix và tỷ lệ chẩn đoán sai của engine CLI là hai đại lượng khác nhau. Khoảng problem–recovery không phải downtime thật; CLI elapsed gồm cả API, collection, luật và lưu trữ.
-
-## Dữ liệu và cấu hình
-
-Database SQLite của module độc lập với MySQL của Zabbix. Sao lưu SQLite bằng backup API nhất quán. Export YAML lưu cấu hình host/template, không thay thế backup database hoặc cấu hình daemon/global settings.
-
-Source sử dụng `.env` trên MON01 cho URL/API token có quyền đọc phù hợp. Probe trên CLI01/SRV01 không cần token Zabbix. Repository loại cấu hình bí mật, venv và database runtime theo `.gitignore`.
-
-Các thư mục evidence có checksum cần giữ nguyên byte khi lưu/chuyển/checkout. Dữ liệu gốc, bảng tổng hợp và nhận xét phải truy ngược được theo Run ID và đúng phiên bản thực nghiệm.
-
-## Tài liệu báo cáo và demo
-
-- [Tổng hợp và nghiệm thu tuần 4](docs/TONG_HOP_TUAN_4.markdown).
-
-- [Tiến độ và việc tiếp theo ngày 17/10/2026](docs/BAO_CAO_TIEN_DO_20261017.md).
-- [Chương 2: kiến trúc và triển khai](docs/CHUONG_2_KIEN_TRUC_VA_TRIEN_KHAI.md).
-- [Chương 3: thực nghiệm và đánh giá](docs/CHUONG_3_THUC_NGHIEM_VA_DANH_GIA.md).
-- [Kịch bản demo 10 phút](docs/KICH_BAN_DEMO_10_PHUT.md).
-- [Bảng tổng hợp chính thức](evidence/week4/official-runs/TONG_HOP_THUC_NGHIEM_TUAN4.md), [dữ liệu từng lượt](evidence/week4/official-runs/all-trials.csv) và [công thức/thống kê JSON](evidence/week4/official-runs/experiment-summary.json).
-
-Chương2/3 đã hoàn thiện kỹ thuật và có bản báo cáo tổng hợp; ba luồng diễn tập kỹ thuật sau reboot và test cuối có bằng chứng tuần5. Bản nộp vẫn cần kiểm tra định dạng trường, năng lực trình bày và bản backup ngoài laptop. Xem TONG_HOP_TUAN_5.markdown để biết phạm vi nghiệm thu.
-
-## Bàn giao tuần 5
-
-- [Cài đặt và khôi phục](docs/HUONG_DAN_CAI_DAT_VA_KHOI_PHUC.md).
-- [Câu hỏi ôn bảo vệ](docs/CAU_HOI_BAO_VE.md).
-- [Kết quả và phần cần người thực hiện xác nhận](docs/TONG_HOP_TUAN_5.markdown).
-
-Tệp tổng hợp cuối công bố kết quả test/demo thực tế, bản nộp và vị trí backup; không dùng các ghi chú tiến độ cũ làm trạng thái hiện tại.
-
-
-## Cập nhật tối ưu sau cleanup
-
-Ngày 17/10/2026: gộp ba lần `item.get` thành một lần trong mỗi lượt roadmap;
-giữ history CPU và kiểm tra event trước/sau. Đường chạy thành công có history
-dùng 6 request thay cho 8. Không đổi điều kiện sáu luật hoặc cấu trúc hồ sơ.
-369 tests đạt trên Windows và bản thử riêng trên MON01; 108 kết luận cũ giữ
-nguyên khi đánh giá lại. Chi tiết và giới hạn nằm ở mục 17 của
-[tài liệu logic](docs/DIAGNOSIS_ENGINE_LOGIC_VA_PHAT_TRIEN.md) và mục 14 của
-[tài liệu giới thiệu](docs/GIOI_THIEU_VA_GIAI_THICH_DO_AN.md).
+Nhật ký theo tuần và các phiên bản cũ được giữ trong tài liệu lịch sử để truy vết; chúng không phải hướng dẫn vận hành V3 hiện tại. Xem [mục lục tài liệu](https://github.com/Darrys37/smb-network-monitoring/blob/feature/ml-research-v2/docs/README.md) để chọn đúng phần cần đọc.
