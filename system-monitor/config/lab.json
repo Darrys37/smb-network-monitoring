@@ -39,6 +39,12 @@
         "trigger_id": "25298",
         "expected_name": "Linux: Number of installed packages has been changed",
         "expected_severity": "2"
+      },
+      {
+        "node": "cli01",
+        "trigger_id": "25297",
+        "expected_name": "Linux: Operating system description has changed",
+        "expected_severity": "1"
       }
     ]
   },

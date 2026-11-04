@@ -83,11 +83,19 @@ class Worker:
     def observe_nodes(self, now):
         observed = self.backend.node_states(self.topology)
         previous = self.store.node_states()
+        latest_probe = {}
+        for event in self.store.events():
+            if event["source"] == "probe":
+                latest_probe[event["key"]] = event["state"]
         events = []
         for node, value in observed.items():
             self.store.set_node_state(node, value["status"], value["observed_at"], value["evidence"])
             old = previous.get(node, {}).get("status")
-            if value["status"] in {"up", "down"} and old != value["status"] and (value["status"] == "down" or old == "down"):
+            pending_problem = latest_probe.get(node + ":availability") == "problem"
+            # An unknown observation must not erase the need to recover an open probe event.
+            became_down = value["status"] == "down" and old != "down" and not pending_problem
+            recovered = value["status"] == "up" and (old == "down" or pending_problem)
+            if became_down or recovered:
                 events.append({"source": "probe", "event_id": uuid.uuid4().hex, "clock": value["observed_at"], "node": node,
                                "kind": "reachability", "state": "problem" if value["status"] == "down" else "recovery",
                                "key": node + ":availability", "evidence": value["evidence"]})

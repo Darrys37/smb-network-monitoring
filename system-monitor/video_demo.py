@@ -48,6 +48,30 @@ def healthy(result):
             all(0<=result['report_clock']-r['observation']['decision_time']<=60 and all(s['status']=='ok' for s in r['observation']['sources'].values()) for r in result['latest_diagnostics']))
 
 
+
+def baseline_reason(result):
+    problems = []
+    if result.get('worker_service') != 'active':problems.append('Worker chưa chạy.')
+    if result['counts']['pending_jobs']:problems.append('Còn '+str(result['counts']['pending_jobs'])+' tác vụ đang xử lý.')
+    if result['correlation']['active_problem_events']:
+        problems.append('Còn '+str(result['correlation']['active_problem_events'])+' cảnh báo chưa phục hồi.')
+        events={(e['source'],e['event_id']):e for e in result.get('events',[])}
+        for group in result['correlation']['groups']:
+            for member in group['members']:
+                event=events.get((member['source'],member['event_id']),{})
+                label=event.get('name') or ('Cảnh báo kết nối '+member['node']+' chưa ghi nhận phục hồi')
+                problems.append(label)
+    f=row(result)['assessment']['feature_vector']['features']
+    if f['http_status_code']!=200:problems.append('Web chưa trả HTTP 200.')
+    if f['parent_status']!='up':problems.append('Gateway chưa được xác nhận hoạt động.')
+    for r in result['latest_diagnostics']:
+        if not 0<=result['report_clock']-r['observation']['decision_time']<=60:problems.append('Bằng chứng '+r['node']+' đã cũ.')
+        for name,s in r['observation']['sources'].items():
+            if s['status']!='ok':problems.append('Nguồn đo '+r['node']+'/'+name+' chưa hoạt động.')
+    if not problems:problems.append('Trạng thái node chưa đủ mới hoặc chưa được xác nhận up.')
+    return ' '.join(problems)
+
+
 def detected(result,case,since):
     node='cli01' if case=='R4' else 'srv01'
     r=row(result,node)
@@ -102,18 +126,18 @@ def main():
         return json.loads(transport.sudo(HOST[case],'python3 -c '+shlex.quote(code)))
     with lab_session(config['coordination_root']):
         print('Đăng nhập trước khi quay. Mật khẩu không được lưu.')
-        transport=LabTransport(getpass.getpass('Mật khẩu SSH lab: '));armed=False
+        transport=LabTransport(getpass.getpass('Mật khẩu SSH lab: '));armed=False;stage=1
         try:
             platform=transport.platform_health();save('platform-before',platform)
             if not ready(platform):raise RuntimeError('Nền VM chưa ổn định; chưa tạo lỗi.')
             before=snapshot(transport);save('before',before)
-            if not healthy(before):raise RuntimeError('Baseline chưa bình thường; chưa tạo lỗi.')
+            if not healthy(before):raise RuntimeError('Chưa tạo lỗi. '+baseline_reason(before))
             panel(case,1,'HỆ THỐNG ĐANG BÌNH THƯỜNG',[
                 'Máy chủ web hoạt động — HTTP 200.','Gateway hoạt động; không còn sự cố của lần trước.',
                 'Sắp thực hiện: '+CASES[case][2]],'Bắt đầu quay video, rồi nhấn Enter để tạo lỗi.')
             if not healthy(snapshot(transport)) or not ready(transport.platform_health()):
                 raise RuntimeError('Baseline đã thay đổi khi chờ; chưa tạo lỗi.')
-            armed=True;fault=command('arm');save('fault',fault)
+            stage=2;armed=True;fault=command('arm');save('fault',fault)
             panel(case,2,'ĐÃ TẠO LỖI — CHỜ WORKER PHÁT HIỆN',[
                 CASES[case][2],'Worker đang tự thu bằng chứng và đối chiếu luật.',
                 'Không cần gõ thêm lệnh. Có phục hồi dự phòng nếu mất kết nối.'])
@@ -124,7 +148,7 @@ def main():
                 if detected(current,case,fault['fault_at']):result=current;break
                 time.sleep(3)
             if result is None:raise TimeoutError('Chưa ghi nhận đúng luật trong thời gian chờ; không tính demo đạt.')
-            save('detected',result)
+            save('detected',result);stage=3
             stamp=datetime.fromtimestamp(row(result,'cli01' if case=='R4' else 'srv01')['observation']['decision_time']).strftime('%H:%M:%S')
             panel(case,3,'ĐÃ PHÁT HIỆN — LUẬT '+case,[
                 'Bằng chứng được worker ghi nhận lúc '+stamp+':',*evidence(result,case),
@@ -132,7 +156,7 @@ def main():
                 'Đây là dấu hiệu phù hợp luật; chưa khẳng định duy nhất nguyên nhân.',
                 'Lỗi có thể tự được thu hồi khi hết thời gian dự phòng.'],
                 'Thuyết minh xong → nhấn Enter để phục hồi và kiểm tra.')
-            save('recovery',command('recover'));armed=False
+            stage=4;save('recovery',command('recover'));armed=False
             panel(case,4,'ĐANG XÁC NHẬN PHỤC HỒI',['Đã gửi lệnh phục hồi.','Chờ dữ liệu mới từ Zabbix và worker…'])
             deadline=time.monotonic()+(360 if case=='R6' else 150)
             while time.monotonic()<deadline:
@@ -150,7 +174,7 @@ def main():
                 'DỪNG QUAY VÀ LƯU VIDEO '+case+'.'])
         except (Exception,KeyboardInterrupt) as error:
             save('failure',{'error_type':type(error).__name__})
-            panel(case,4,'LƯỢT DEMO CHƯA HOÀN TẤT',[
+            panel(case,stage,'LƯỢT DEMO CHƯA HOÀN TẤT',[
                 str(error) if isinstance(error,(RuntimeError,TimeoutError)) else type(error).__name__,
                 'Không dùng lượt này làm bằng chứng demo thành công.'])
             raise
