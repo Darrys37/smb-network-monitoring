@@ -14,5 +14,14 @@
   "engine_test_log_sha256": "e99d6a081922e677bfd6ee59d009bb15f281eb5680922a0343b44506d9db5cee",
   "live_vm_changes": false,
   "runtime_database_changes": false,
-  "note": "Offline regression after removing historical docs/evidence from main; old files remain in archive and Git history"
+  "note": "Offline regression after removing historical docs/evidence from main; old files remain in archive and Git history",
+  "after": {
+    "docs_files": 9,
+    "evidence_files": 5
+  },
+  "validated_links": 61,
+  "handoff_generation": "PASS",
+  "handoff_checksums": "PASS",
+  "worker_source_tree_unchanged": true,
+  "fixture_tree_unchanged": true
 }

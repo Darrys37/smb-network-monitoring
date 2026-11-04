@@ -1,4 +1,4 @@
-> Bản dùng để chuyển chat/tài khoản. Nguồn: `docs/DIAGNOSIS_ENGINE_LOGIC_VA_PHAT_TRIEN.md` tại `8df20a7bd5143ba0210b5116a1cc26fcc0a53366`.
+> Bản dùng để chuyển chat/tài khoản. Nguồn: `docs/DIAGNOSIS_ENGINE_LOGIC_VA_PHAT_TRIEN.md` tại `72697328a36237989bf0a313385269cd520b79a7`.
 > Nội dung lấy từ tài liệu nguồn; các liên kết được đổi để dùng ngoài project. Đọc file 01 về trạng thái cuối phiên trước khi tiếp tục.
 
 # Logic Worker V3 và bản đồ mã nguồn
@@ -47,7 +47,7 @@ Engine CLI nền trong `diagnosis-engine` được giữ để tái sử dụng 
 | R7 | Nút cha được cấu hình có bằng chứng down còn mới; lỗi con không tự chứng minh parent down |
 | R8 | Ít nhất 10 sự kiện lỗi khác nhau trong cửa sổ 30 giây; sau khi cửa sổ trượt, luật có thể không còn khớp dù cảnh báo còn mở |
 
-Điều kiện chi tiết ở [expert_seed.json](https://github.com/Darrys37/smb-network-monitoring/blob/8df20a7bd5143ba0210b5116a1cc26fcc0a53366/system-monitor/config/expert_seed.json), gồm 8 luật / 40 hàng quyết định. [build_catalog.py](https://github.com/Darrys37/smb-network-monitoring/blob/8df20a7bd5143ba0210b5116a1cc26fcc0a53366/system-monitor/build_catalog.py) tạo catalog mới; runtime mở catalog chỉ đọc và cache theo phiên. Muốn đổi luật cần tạo phiên bản mới, kiểm thử rồi restart với catalog phù hợp; không sửa ngầm catalog để làm demo khớp.
+Điều kiện chi tiết ở [expert_seed.json](https://github.com/Darrys37/smb-network-monitoring/blob/72697328a36237989bf0a313385269cd520b79a7/system-monitor/config/expert_seed.json), gồm 8 luật / 40 hàng quyết định. [build_catalog.py](https://github.com/Darrys37/smb-network-monitoring/blob/72697328a36237989bf0a313385269cd520b79a7/system-monitor/build_catalog.py) tạo catalog mới; runtime mở catalog chỉ đọc và cache theo phiên. Muốn đổi luật cần tạo phiên bản mới, kiểm thử rồi restart với catalog phù hợp; không sửa ngầm catalog để làm demo khớp.
 
 ## Nhóm sự cố và suppression
 
@@ -59,6 +59,6 @@ Các cảnh báo phụ thuộc thuộc cùng đợt được gắn về parent d
 
 `runtime/monitoring.sqlite` chứa sự kiện, cursor, jobs, diagnostics, batches và trạng thái node. Nó độc lập với MySQL của Zabbix và không đưa vào Git. Dọn tài liệu/evidence cũ không phải thao tác xóa runtime hoặc xóa lịch sử cảnh báo.
 
-Regression V3 dùng observation đã đóng gói tại [tests/fixtures](https://github.com/Darrys37/smb-network-monitoring/tree/8df20a7bd5143ba0210b5116a1cc26fcc0a53366/system-monitor/tests/fixtures); test engine nền có fixture riêng trong [diagnosis-engine/tests](https://github.com/Darrys37/smb-network-monitoring/tree/8df20a7bd5143ba0210b5116a1cc26fcc0a53366/diagnosis-engine/tests). Các thư mục evidence theo tuần không phải đầu vào runtime của V3.
+Regression V3 dùng observation đã đóng gói tại [tests/fixtures](https://github.com/Darrys37/smb-network-monitoring/tree/72697328a36237989bf0a313385269cd520b79a7/system-monitor/tests/fixtures); test engine nền có fixture riêng trong [diagnosis-engine/tests](https://github.com/Darrys37/smb-network-monitoring/tree/72697328a36237989bf0a313385269cd520b79a7/diagnosis-engine/tests). Các thư mục evidence theo tuần không phải đầu vào runtime của V3.
 
-Xem [hướng dẫn chạy và phục hồi](https://github.com/Darrys37/smb-network-monitoring/blob/8df20a7bd5143ba0210b5116a1cc26fcc0a53366/system-monitor/README.md), [kiểm chứng](https://github.com/Darrys37/smb-network-monitoring/blob/8df20a7bd5143ba0210b5116a1cc26fcc0a53366/docs/KIEM_CHUNG_WORKER_V3.md) và [mục lục bằng chứng](https://github.com/Darrys37/smb-network-monitoring/blob/8df20a7bd5143ba0210b5116a1cc26fcc0a53366/evidence/README.md).
+Xem [hướng dẫn chạy và phục hồi](https://github.com/Darrys37/smb-network-monitoring/blob/72697328a36237989bf0a313385269cd520b79a7/system-monitor/README.md), [kiểm chứng](https://github.com/Darrys37/smb-network-monitoring/blob/72697328a36237989bf0a313385269cd520b79a7/docs/KIEM_CHUNG_WORKER_V3.md) và [mục lục bằng chứng](https://github.com/Darrys37/smb-network-monitoring/blob/72697328a36237989bf0a313385269cd520b79a7/evidence/README.md).

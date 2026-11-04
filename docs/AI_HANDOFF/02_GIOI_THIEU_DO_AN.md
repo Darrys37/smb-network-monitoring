@@ -1,4 +1,4 @@
-> Bản dùng để chuyển chat/tài khoản. Nguồn: `docs/GIOI_THIEU_VA_GIAI_THICH_DO_AN.md` tại `8df20a7bd5143ba0210b5116a1cc26fcc0a53366`.
+> Bản dùng để chuyển chat/tài khoản. Nguồn: `docs/GIOI_THIEU_VA_GIAI_THICH_DO_AN.md` tại `72697328a36237989bf0a313385269cd520b79a7`.
 > Nội dung lấy từ tài liệu nguồn; các liên kết được đổi để dùng ngoài project. Đọc file 01 về trạng thái cuối phiên trước khi tiếp tục.
 
 # Giới thiệu đồ án — Worker V3
@@ -36,4 +36,4 @@ Kết quả gồm trạng thái từng luật, bằng chứng, giả thuyết, h
 - `matched` là phù hợp dấu hiệu. Điểm 85/65/45% là ưu tiên điều tra do chuyên gia gán, chưa phải xác suất đúng đã hiệu chỉnh.
 - Hệ thống hiện được kiểm chứng trên ba VM, chưa có thử nghiệm máy Ubuntu vật lý hoặc tải production.
 
-Đọc [logic V3](03_LOGIC_DIAGNOSIS_ENGINE.md), [hướng dẫn vận hành](https://github.com/Darrys37/smb-network-monitoring/blob/8df20a7bd5143ba0210b5116a1cc26fcc0a53366/system-monitor/README.md) và [hồ sơ kiểm chứng](https://github.com/Darrys37/smb-network-monitoring/blob/8df20a7bd5143ba0210b5116a1cc26fcc0a53366/docs/KIEM_CHUNG_WORKER_V3.md) để đi sâu hơn.
+Đọc [logic V3](03_LOGIC_DIAGNOSIS_ENGINE.md), [hướng dẫn vận hành](https://github.com/Darrys37/smb-network-monitoring/blob/72697328a36237989bf0a313385269cd520b79a7/system-monitor/README.md) và [hồ sơ kiểm chứng](https://github.com/Darrys37/smb-network-monitoring/blob/72697328a36237989bf0a313385269cd520b79a7/docs/KIEM_CHUNG_WORKER_V3.md) để đi sâu hơn.
