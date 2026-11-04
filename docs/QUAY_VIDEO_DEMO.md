@@ -6,7 +6,7 @@ Mỗi lượt chỉ tạo **một video**, không tự chuyển qua các lỗi k
 
 1. **HỆ THỐNG ĐANG BÌNH THƯỜNG:** bấm ghi hình; đọc tên tình huống rồi nhấn Enter.
 2. **ĐÃ TẠO LỖI:** nói “Worker đang tự kiểm tra bằng chứng và đối chiếu luật.” Không cần gõ thêm lệnh.
-3. **ĐÃ PHÁT HIỆN:** chỉ vào ba dòng bằng chứng, đọc câu KẾT LUẬN. Thuyết minh xong nhấn Enter để phục hồi.
+3. **ĐÃ PHÁT HIỆN:** chỉ vào các dòng bằng chứng, đọc câu KẾT LUẬN. Thuyết minh xong nhấn Enter để phục hồi.
 4. **ĐÃ PHỤC HỒI — HỆ THỐNG BÌNH THƯỜNG:** đọc “Sau khi khôi phục, hệ thống xác nhận hoạt động bình thường”, dừng quay và lưu video riêng.
 
 Không cần mở thêm màn hình JSON, Zabbix hay terminal khác trong video ngắn. Màn hình này lấy kết quả worker thật, không dựng kết luận có sẵn. Có thể quay thêm Zabbix trong đoạn phụ nếu muốn đối chiếu.
@@ -30,3 +30,7 @@ Chế độ mới đã được kiểm tra bằng các bài offline; chưa coi 8
 ## Điều khiển dành riêng cho người trình bày
 
 Màn hình chiếu không hiện lời nhắc quay phim hoặc nhấn phím. Người trình bày nhớ ba điểm dừng im lặng: bước 1 nhấn Enter để tạo lỗi; bước 3 nhấn Enter để phục hồi; bước 4 giữ kết quả để thầy xem, dừng ghi hình rồi mới nhấn Enter để thoát.
+
+## Nội dung giải thích trên màn hình
+
+Màn hình phát hiện hiện số đo thực tế, trạng thái gốc, điều kiện luật, các luật đang khớp và số cảnh báo được gom. Kết quả thiếu được ghi rõ chưa đủ dữ liệu. Màn hình phục hồi hiện lại các số đo để đối chiếu. Các điểm chờ Enter vẫn im lặng, không hiện lời hướng dẫn dành cho người quay.

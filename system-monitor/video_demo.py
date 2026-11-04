@@ -8,6 +8,8 @@ import shlex
 import sys
 import time
 import uuid
+import textwrap
+from video_view import diagnosis_lines, recovery_lines
 
 ROOT=Path(__file__).resolve().parents[1]
 REMOTE='/home/phat/do-an/system-monitor'
@@ -26,7 +28,9 @@ def panel(case,step,title,lines,pause=False):
     if sys.stdout.isatty():print('\033[2J\033[H',end='')
     print('\n'+'═'*76+'\n  DEMO '+case+' — '+CASES[case][0])
     print('  BƯỚC '+str(step)+'/4  |  '+title+'\n'+'═'*76)
-    for line in lines:print('\n  '+line)
+    print()
+    for line in lines:
+        for part in textwrap.wrap(line,72) or ['']:print('  '+part)
     if pause:input()
 
 
@@ -80,19 +84,6 @@ def detected(result,case,since):
     return any(d['rule_id'].startswith(case+'_') and d['status']=='matched' for d in r['assessment']['diagnoses'])
 
 
-def evidence(result,case):
-    r=row(result,'cli01' if case=='R4' else 'srv01');f=r['assessment']['facts']
-    yes=lambda value:'ĐẠT' if value else 'KHÔNG ĐẠT'
-    lines={
-      'R1':[f"Ping tới đích: {yes(f['target_ping']=='success')}",f"Kết nối cổng web: {yes(f['target_tcp80']=='success')}",f"Máy đối chứng còn phản hồi: {yes(f['control_ping']=='success')}"],
-      'R2':[f"Máy chủ còn phản hồi: {yes(f['target_ping']=='success')}",f"Nginx đã dừng: {yes(f['local_service_state'] in ['inactive','failed'])}",f"Cổng web phục vụ: {yes(f['target_tcp80']=='success')}"],
-      'R3':[f"Máy chủ còn phản hồi: {yes(f['target_ping']=='success')}",f"Web tại máy chủ trả 200: {yes(f['http_status_code']==200)}",f"Agent đã dừng: {yes(f['local_agent_state'] in ['inactive','failed'])}"],
-      'R4':[f"Phân giải DNS thành công: {yes(f['dns_status']=='success')}",f"Truy cập IP đối chứng: {yes(f['dns_control']=='success')}",'Phép đo DNS được thực hiện trên CLI01.'],
-      'R5':[f"Nginx vẫn hoạt động: {yes(f['local_service_state']=='active')}",f"Web tại máy chủ trả 200: {yes(f['http_status_code']==200)}",f"Truy cập web từ xa: {yes(f['target_tcp80']=='success')}"],
-      'R6':[f"CPU trung bình: {f['cpu_mean']}%",f"Độ dài lịch sử: {f['cpu_span']} giây",f"Load / số CPU: {f['cpu_load']} / {f['cpu_count']}"],
-      'R7':[f"Nút cha được xác minh không hoạt động đúng: {yes(f['parent_status']=='down')}",f"Nhóm sự cố: {result['correlation']['emitted_groups']}",f"Cảnh báo phụ thuộc được gom: {result['correlation']['suppressed_events']}"],
-      'R8':[f"Sự kiện lỗi mới trong cửa sổ: {f['window_alert_count']}",'Cửa sổ tương quan: 30 giây.','20 kênh cảnh báo thử; giữ nguyên sự kiện nguồn.']}
-    return lines[case]
 
 
 def main():
@@ -150,10 +141,8 @@ def main():
             if result is None:raise TimeoutError('Chưa ghi nhận đúng luật trong thời gian chờ; không tính demo đạt.')
             save('detected',result);stage=3
             stamp=datetime.fromtimestamp(row(result,'cli01' if case=='R4' else 'srv01')['observation']['decision_time']).strftime('%H:%M:%S')
-            panel(case,3,'ĐÃ PHÁT HIỆN — LUẬT '+case,[
-                'Bằng chứng được worker ghi nhận lúc '+stamp+':',*evidence(result,case),
-                'KẾT LUẬN: '+CASES[case][3],
-                'Nhận định dựa trên bằng chứng tại thời điểm kiểm tra.'],pause=True)
+            panel(case,3,'ĐÃ PHÁT HIỆN — LUẬT '+case,
+                  ['Thời điểm ghi nhận: '+stamp,'',*diagnosis_lines(result,case)],pause=True)
             stage=4;save('recovery',command('recover'));armed=False
             panel(case,4,'ĐANG XÁC NHẬN PHỤC HỒI',['Đã gửi lệnh phục hồi.','Chờ dữ liệu mới từ Zabbix và worker…'])
             deadline=time.monotonic()+(360 if case=='R6' else 150)
@@ -166,9 +155,8 @@ def main():
             after=transport.platform_health();save('platform-after',after)
             if not unchanged(platform,after):raise RuntimeError('VM thay đổi/treo trong lượt thử; không chứng nhận demo đạt.')
             save('result',{'status':'VIDEO_DEMO_VERIFIED','case':case,'token':token})
-            panel(case,4,'ĐÃ PHỤC HỒI — HỆ THỐNG BÌNH THƯỜNG',[
-                'Web trả HTTP 200; gateway hoạt động.','Sự cố của lượt thử đã hết; hàng đợi xử lý xong.',
-                'Worker đã phát hiện sự cố và ghi nhận trạng thái sau phục hồi.'],pause=True)
+            panel(case,4,'ĐÃ PHỤC HỒI — HỆ THỐNG BÌNH THƯỜNG',
+                  recovery_lines(current,case),pause=True)
         except (Exception,KeyboardInterrupt) as error:
             save('failure',{'error_type':type(error).__name__})
             panel(case,stage,'LƯỢT DEMO CHƯA HOÀN TẤT',[
