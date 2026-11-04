@@ -4,6 +4,7 @@ Các tài liệu dưới đây mô tả phiên bản chính trên nhánh `main`.
 
 | Cần tìm | Đọc tại đây |
 |---|---|
+| Quay từng video tự động, màn hình gọn | [Chế độ quay demo](QUAY_VIDEO_DEMO.md) |
 | Tổng quan, mô hình mạng và bộ luật | [README dự án](../README.md) |
 | Giải thích bài toán và các thành phần | [Giới thiệu đồ án](GIOI_THIEU_VA_GIAI_THICH_DO_AN.md) |
 | Hiểu luồng Python, SQLite và correlation | [Logic Worker V3](DIAGNOSIS_ENGINE_LOGIC_VA_PHAT_TRIEN.md) |

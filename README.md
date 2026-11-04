@@ -164,3 +164,13 @@ Hệ thống được kiểm chứng trong lab 3 VM, chưa thử trên máy Ubun
 Worker V3 không tự sửa hạ tầng và chưa tích hợp gửi thông báo ra email/chat. Token, private key, môi trường Python và database runtime được cấu hình riêng; GitHub không thay thế backup VM, MySQL hoặc dữ liệu vận hành.
 
 Nhật ký theo tuần và các phiên bản cũ được giữ trong tài liệu lịch sử để truy vết; chúng không phải hướng dẫn vận hành V3 hiện tại. Xem [mục lục tài liệu](https://github.com/Darrys37/smb-network-monitoring/blob/main/docs/README.md) để chọn đúng phần cần đọc.
+
+## Quay video demo gọn
+
+Mỗi lượt quay một tình huống, bốn màn hình tiếng Việt và nhấn Enter để chuyển bước. Công cụ tự tạo lỗi có rollback, đọc kết quả worker rồi xác nhận phục hồi.
+
+```powershell
+python .\system-monitor\video_demo.py
+```
+
+[Hướng dẫn quay từng video](docs/QUAY_VIDEO_DEMO.md). Cài requirements-operator và cấu hình lab theo hướng dẫn vận hành trước khi chạy.

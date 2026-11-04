@@ -221,3 +221,13 @@ Muốn gỡ mạng thử, dừng worker rồi làm theo trình tự trong tài l
 Phạm vi hiện tại là 3 VM, chưa có kiểm chứng máy Ubuntu vật lý hoặc tải production. Worker hỗ trợ điều tra và tương quan, không tự khắc phục hoặc gửi email/chat. Các notice chỉ được tách khi khớp đúng cấu hình node/trigger/tên/severity; không bỏ qua toàn bộ cảnh báo Warning.
 
 Đọc [báo cáo kiểm chứng](../docs/KIEM_CHUNG_WORKER_V3.md) để xem hồ sơ thử và giới hạn tại từng mốc. Các nhật ký phát triển được giữ riêng trong [mục lục tài liệu](../docs/README.md).
+
+## Quay video demo gọn
+
+Mỗi lượt quay một tình huống, bốn màn hình tiếng Việt và nhấn Enter để chuyển bước. Công cụ tự tạo lỗi có rollback, đọc kết quả worker rồi xác nhận phục hồi.
+
+```powershell
+python .\system-monitor\video_demo.py
+```
+
+[Hướng dẫn quay từng video](../docs/QUAY_VIDEO_DEMO.md). Cài requirements-operator và cấu hình lab theo hướng dẫn vận hành trước khi chạy.
