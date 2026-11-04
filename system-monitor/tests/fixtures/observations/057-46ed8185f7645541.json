@@ -1,0 +1,291 @@
+{
+  "schema_version": 2,
+  "session_id": "test-v2-s01",
+  "run_id": "r03-02-remote_http_filtered",
+  "window_id": "w-0e58828174e949a3a268b06c5eb440f8",
+  "collector_version": "ml-observation-v2.0",
+  "profile": {
+    "schema_version": 1,
+    "profile_id": "srv01-web-v1",
+    "host_id": "10683",
+    "target_ip": "192.168.56.20",
+    "observer": "srv01",
+    "control_ip": "192.168.56.30",
+    "http_service": "expected",
+    "dns_name": "example.com",
+    "dns_control_ip": "1.1.1.1",
+    "topology_version": "host-only-flat-v1"
+  },
+  "started_at": 1793450197,
+  "decision_time": 1793450200,
+  "sources": {
+    "monitor": {
+      "status": "ok",
+      "error_type": null
+    },
+    "local_http": {
+      "status": "ok",
+      "error_type": null
+    },
+    "dns": {
+      "status": "ok",
+      "error_type": null
+    }
+  },
+  "evidence": [
+    {
+      "check_type": "ping",
+      "target": "192.168.56.20",
+      "collected_at": 1793450197,
+      "result": {
+        "timeout_seconds": 2,
+        "process_timeout_seconds": 3,
+        "returncode": 0,
+        "stdout": "PING 192.168.56.20 (192.168.56.20) 56(84) bytes of data.\n64 bytes from 192.168.56.20: icmp_seq=1 ttl=64 time=0.811 ms\n\n--- 192.168.56.20 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.811/0.811/0.811/0.000 ms",
+        "stderr": "",
+        "status": "success",
+        "duration_ms": 10.98,
+        "observer": "mon01"
+      }
+    },
+    {
+      "check_type": "tcp",
+      "target": "192.168.56.20",
+      "collected_at": 1793450197,
+      "result": {
+        "port": 80,
+        "timeout_seconds": 2,
+        "error": "timed out",
+        "errno": null,
+        "status": "timeout",
+        "duration_ms": 2005.76,
+        "observer": "mon01"
+      }
+    },
+    {
+      "check_type": "tcp",
+      "target": "192.168.56.20",
+      "collected_at": 1793450199,
+      "result": {
+        "port": 10050,
+        "timeout_seconds": 2,
+        "error": "",
+        "errno": null,
+        "status": "success",
+        "duration_ms": 1.22,
+        "observer": "mon01"
+      }
+    },
+    {
+      "check_type": "metric",
+      "target": "10683",
+      "collected_at": 1793450199,
+      "result": {
+        "key": "system.cpu.util",
+        "units": "%",
+        "max_age_seconds": 180,
+        "status": "success",
+        "value": 4.478750000000005,
+        "sample_clock": 1793450197,
+        "age_seconds": 2,
+        "item_id": "50822",
+        "raw_value": "4.478750000000005",
+        "error": "",
+        "observer": "mon01"
+      }
+    },
+    {
+      "check_type": "metric",
+      "target": "10683",
+      "collected_at": 1793450199,
+      "result": {
+        "key": "vm.memory.util",
+        "units": "%",
+        "max_age_seconds": 180,
+        "status": "success",
+        "value": 16.198705000000004,
+        "sample_clock": 1793450159,
+        "age_seconds": 40,
+        "item_id": "50823",
+        "raw_value": "16.198705000000004",
+        "error": "",
+        "observer": "mon01"
+      }
+    },
+    {
+      "check_type": "metric",
+      "target": "10683",
+      "collected_at": 1793450199,
+      "result": {
+        "key": "system.cpu.load[all,avg1]",
+        "units": "",
+        "max_age_seconds": 180,
+        "status": "success",
+        "value": 0.050781,
+        "sample_clock": 1793450191,
+        "age_seconds": 8,
+        "item_id": "50791",
+        "raw_value": "0.050781",
+        "error": "",
+        "observer": "mon01"
+      }
+    },
+    {
+      "check_type": "metric",
+      "target": "10683",
+      "collected_at": 1793450199,
+      "result": {
+        "key": "vfs.fs.dependent.size[/,pused]",
+        "units": "%",
+        "max_age_seconds": 180,
+        "status": "success",
+        "value": 54.515419332668564,
+        "sample_clock": 1793450157,
+        "age_seconds": 42,
+        "item_id": "50856",
+        "raw_value": "54.515419332668564",
+        "error": "",
+        "observer": "mon01"
+      }
+    },
+    {
+      "check_type": "agent_metric",
+      "target": "10683",
+      "collected_at": 1793450199,
+      "result": {
+        "key": "agent.ping",
+        "status": "success",
+        "max_age_seconds": 180,
+        "item": {
+          "itemid": "50782",
+          "key_": "agent.ping",
+          "value_type": "3",
+          "status": "0",
+          "units": "",
+          "state": "0",
+          "error": "",
+          "lastclock": "1793450182",
+          "lastvalue": "1"
+        },
+        "sample_clock": 1793450182,
+        "observer": "mon01"
+      }
+    },
+    {
+      "check_type": "cpu_history",
+      "target": "10683",
+      "collected_at": 1793450199,
+      "result": {
+        "key": "system.cpu.util",
+        "units": "%",
+        "status": "success",
+        "window_seconds": 300,
+        "samples": [
+          {
+            "clock": 1793450131,
+            "value": 1.958609999999993
+          },
+          {
+            "clock": 1793450137,
+            "value": 2.2895129999999995
+          },
+          {
+            "clock": 1793450197,
+            "value": 4.478750000000005
+          }
+        ],
+        "support_items": {
+          "system.cpu.num": {
+            "itemid": "50793",
+            "key_": "system.cpu.num",
+            "value_type": "3",
+            "status": "0",
+            "units": "",
+            "state": "0",
+            "error": "",
+            "lastclock": "1793433333",
+            "lastvalue": "1"
+          },
+          "system.cpu.load[all,avg1]": {
+            "itemid": "50791",
+            "key_": "system.cpu.load[all,avg1]",
+            "value_type": "0",
+            "status": "0",
+            "units": "",
+            "state": "0",
+            "error": "",
+            "lastclock": "1793450191",
+            "lastvalue": "0.050781"
+          }
+        },
+        "item_id": "50822",
+        "observer": "mon01"
+      }
+    },
+    {
+      "check_type": "ping",
+      "target": "192.168.56.30",
+      "collected_at": 1793450199,
+      "result": {
+        "timeout_seconds": 2,
+        "process_timeout_seconds": 3,
+        "returncode": 0,
+        "stdout": "PING 192.168.56.30 (192.168.56.30) 56(84) bytes of data.\n64 bytes from 192.168.56.30: icmp_seq=1 ttl=64 time=0.583 ms\n\n--- 192.168.56.30 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.583/0.583/0.583/0.000 ms",
+        "stderr": "",
+        "status": "success",
+        "duration_ms": 6.65,
+        "observer": "mon01"
+      }
+    },
+    {
+      "check_type": "local_http",
+      "target": "192.168.56.20",
+      "collected_at": 1793450199,
+      "result": {
+        "observer": "srv01",
+        "port": 80,
+        "path": "/",
+        "local_address_verified": true,
+        "status": "success",
+        "http_status": 200,
+        "error": ""
+      }
+    },
+    {
+      "check_type": "dns",
+      "target": "example.com",
+      "collected_at": 1793450199,
+      "result": {
+        "record_type": "A",
+        "timeout_seconds": 2,
+        "process_timeout_seconds": 3,
+        "status": "success",
+        "dns_status": "NOERROR",
+        "addresses": [
+          "104.20.23.154",
+          "172.66.147.243"
+        ],
+        "returncode": 0,
+        "stdout": "; <<>> DiG 9.20.24-1ubuntu0.4-Ubuntu <<>> -r +time=2 +tries=1 -q example.com. -t A\n;; global options: +cmd\n;; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 10178\n;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 65494\n;; QUESTION SECTION:\n;example.com.\t\t\tIN\tA\n\n;; ANSWER SECTION:\nexample.com.\t\t171\tIN\tA\t104.20.23.154\nexample.com.\t\t171\tIN\tA\t172.66.147.243\n\n;; Query time: 0 msec\n;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)\n;; WHEN: Sat Oct 31 12:36:39 UTC 2026\n;; MSG SIZE  rcvd: 72",
+        "stderr": "",
+        "duration_ms": 25.7,
+        "observer": "srv01"
+      }
+    },
+    {
+      "check_type": "dns_control_ping",
+      "target": "1.1.1.1",
+      "collected_at": 1793450199,
+      "result": {
+        "timeout_seconds": 2,
+        "process_timeout_seconds": 3,
+        "returncode": 0,
+        "stdout": "PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.\n64 bytes from 1.1.1.1: icmp_seq=1 ttl=64 time=46.7 ms\n\n--- 1.1.1.1 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 46.697/46.697/46.697/0.000 ms",
+        "stderr": "",
+        "status": "success",
+        "duration_ms": 54.6,
+        "observer": "srv01"
+      }
+    }
+  ]
+}

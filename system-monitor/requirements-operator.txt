@@ -1,0 +1,2 @@
+# Windows operator CLI; worker dependencies are in requirements.txt.
+paramiko>=3.5,<6

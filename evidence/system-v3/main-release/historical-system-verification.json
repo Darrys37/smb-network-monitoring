@@ -1,0 +1,71 @@
+{
+  "date": "2026-11-03",
+  "rules": 8,
+  "groups": 7,
+  "decision_rows": 40,
+  "manual_cases": {
+    "gateway": {
+      "receipt_id": "live-test-gateway-detected",
+      "active_events": 6,
+      "groups": 1,
+      "suppressed": 4,
+      "pending_jobs": 1
+    },
+    "gateway_with_20_synthetic_alerts": {
+      "receipt_id": "live-test-storm-detected",
+      "active_events": 26,
+      "groups": 1,
+      "suppressed": 24,
+      "pending_jobs": 0
+    },
+    "gateway_and_nginx": {
+      "receipt_id": "live-test-multifault-detected",
+      "active_events": 6,
+      "groups": 2,
+      "suppressed": 3,
+      "pending_jobs": 0
+    }
+  },
+  "operator_wrapper_demos": [
+    {
+      "path": "evidence/system-v3/demos/20261103T110341211214Z",
+      "faults": [
+        "arm-nginx"
+      ],
+      "synthetic": false,
+      "detected_groups": 1,
+      "active_events": 3,
+      "suppressed": 0,
+      "fully_recovered": true
+    },
+    {
+      "path": "evidence/system-v3/demos/20261103T110829751598Z",
+      "faults": [
+        "arm-gateway",
+        "arm-nginx"
+      ],
+      "synthetic": false,
+      "detected_groups": 2,
+      "active_events": 7,
+      "suppressed": 4,
+      "fully_recovered": true
+    },
+    {
+      "path": "evidence/system-v3/demos/20261103T111020375034Z",
+      "faults": [
+        "arm-gateway"
+      ],
+      "synthetic": true,
+      "detected_groups": 1,
+      "active_events": 25,
+      "suppressed": 23,
+      "fully_recovered": true
+    }
+  ],
+  "auto_rollback_verified": true,
+  "final_active_events": 0,
+  "final_pending_jobs": 0,
+  "scope": "Extracted historical expert-system results; not a new VM fault run",
+  "source_sha256": "315a5f37c8830d8e733d07bfc6e71bc5dbdc5318fb85fab4c1878e1effdd9514",
+  "source_url": "https://github.com/Darrys37/smb-network-monitoring/blob/501a03a5f2416f13ceab147cece37f87db60e697/evidence/system-v3/acceptance-20261103/VERIFICATION.json"
+}

@@ -4,9 +4,9 @@
 
 Thay vì chỉ báo “không truy cập được web”, hệ thống kiểm tra thêm kết nối, trạng thái dịch vụ và thiết bị phụ thuộc để hỗ trợ người quản trị phân biệt lỗi dịch vụ, lỗi đường truy cập hoặc lỗi gateway.
 
-**[Mã nguồn Worker V3](https://github.com/Darrys37/smb-network-monitoring/tree/feature/ml-research-v2/system-monitor)** · **[Hướng dẫn vận hành và demo](https://github.com/Darrys37/smb-network-monitoring/blob/feature/ml-research-v2/system-monitor/README.md)** · **[Tài liệu dự án](https://github.com/Darrys37/smb-network-monitoring/blob/feature/ml-research-v2/docs/README.md)**
+**[Mã nguồn Worker V3](https://github.com/Darrys37/smb-network-monitoring/tree/main/system-monitor)** · **[Hướng dẫn vận hành và demo](https://github.com/Darrys37/smb-network-monitoring/blob/main/system-monitor/README.md)** · **[Tài liệu dự án](https://github.com/Darrys37/smb-network-monitoring/blob/main/docs/README.md)**
 
-> **Chọn đúng phiên bản:** Worker V3 hiện nằm trên nhánh [`feature/ml-research-v2`](https://github.com/Darrys37/smb-network-monitoring/tree/feature/ml-research-v2). Tên nhánh được giữ từ quá trình phát triển; nội dung giới thiệu dưới đây tập trung vào hệ thống chuyên gia V3. Nhánh `main` giữ mã nguồn baseline và trang giới thiệu này.
+> **Phiên bản chính: Worker V3 trên nhánh `main`.** Tải repository mặc định sẽ có worker tự động, bảng quyết định và công cụ demo. Engine CLI gốc được giữ làm thành phần nền và tham khảo.
 
 ## Chức năng chính
 
@@ -83,18 +83,18 @@ Các IP `192.168.56.x` dùng cho quản trị. IP dịch vụ `172.30.20.20` đi
 | R7 | Gateway / nút cha | Nút cha được cấu hình có bằng chứng down còn mới |
 | R8 | Bão cảnh báo | Có ít nhất 10 sự kiện lỗi khác nhau trong cửa sổ 30 giây |
 
-R2 và R5 cùng thuộc nhóm HTTP nên có 8 luật nhưng 7 nhóm. Điều kiện chi tiết nằm trong [bảng luật nguồn](https://github.com/Darrys37/smb-network-monitoring/blob/feature/ml-research-v2/system-monitor/config/expert_seed.json), được nạp vào catalog SQLite.
+R2 và R5 cùng thuộc nhóm HTTP nên có 8 luật nhưng 7 nhóm. Điều kiện chi tiết nằm trong [bảng luật nguồn](https://github.com/Darrys37/smb-network-monitoring/blob/main/system-monitor/config/expert_seed.json), được nạp vào catalog SQLite.
 
 `matched` nghĩa là phù hợp dấu hiệu của luật, chưa khẳng định duy nhất nguyên nhân. Các điểm 85/65/45% là điểm ưu tiên điều tra do chuyên gia gán, không phải xác suất đúng đã được hiệu chỉnh.
 
 ## Lấy mã nguồn
 
 ```bash
-git clone --branch feature/ml-research-v2 --single-branch https://github.com/Darrys37/smb-network-monitoring.git
-cd smb-network-monitoring
+git clone https://github.com/Darrys37/smb-network-monitoring.git do-an
+cd do-an
 ```
 
-Để triển khai sang môi trường khác, làm theo [hướng dẫn triển khai V3](https://github.com/Darrys37/smb-network-monitoring/blob/feature/ml-research-v2/system-monitor/deployment/README.md). Tài liệu giả định đã có ba VM và các dịch vụ nền; đây chưa phải bộ cài đặt tự động từ một máy trống. IP, host ID, NIC và SSH phải được đối chiếu với môi trường thực tế.
+Để triển khai sang môi trường khác, làm theo [hướng dẫn triển khai V3](https://github.com/Darrys37/smb-network-monitoring/blob/main/system-monitor/deployment/README.md). Tài liệu giả định đã có ba VM và các dịch vụ nền; đây chưa phải bộ cài đặt tự động từ một máy trống. IP, host ID, NIC và SSH phải được đối chiếu với môi trường thực tế.
 
 ## Xem trạng thái trên lab đã cấu hình
 
@@ -133,7 +133,7 @@ python .\system-monitor\system_lab.py demo --fault multi
 python .\system-monitor\system_lab.py demo --fault storm
 ```
 
-Các lệnh `demo` chủ động tạo lỗi, kiểm tra kết quả rồi phục hồi. Có timer rollback độc lập cho các can thiệp; demo storm dùng 20 kênh cảnh báo synthetic, không đại diện cho 20 VM hoặc 20 lỗi vật lý. Cần ba VM hoạt động, SSH/sudo đã cấu hình và thiết lập cục bộ theo [hướng dẫn vận hành](https://github.com/Darrys37/smb-network-monitoring/blob/feature/ml-research-v2/system-monitor/README.md).
+Các lệnh `demo` chủ động tạo lỗi, kiểm tra kết quả rồi phục hồi. Có timer rollback độc lập cho các can thiệp; demo storm dùng 20 kênh cảnh báo synthetic, không đại diện cho 20 VM hoặc 20 lỗi vật lý. Cần ba VM hoạt động, SSH/sudo đã cấu hình và thiết lập cục bộ theo [hướng dẫn vận hành](https://github.com/Darrys37/smb-network-monitoring/blob/main/system-monitor/README.md).
 
 Nếu demo bị ngắt, chạy lệnh phục hồi rồi kiểm tra lại trạng thái:
 
@@ -142,20 +142,20 @@ python .\system-monitor\system_lab.py recover
 python .\system-monitor\system_lab.py status
 ```
 
-Các kịch bản V3 đã có hồ sơ kiểm chứng Nginx, gateway, nhiều lỗi và bão cảnh báo trong [báo cáo thực nghiệm](https://github.com/Darrys37/smb-network-monitoring/blob/feature/ml-research-v2/docs/HOAN_THIEN_HE_THONG_20261103.md). Hồ sơ ghi kết quả tại thời điểm thử; một README không thay thế việc kiểm tra baseline trước lần demo mới.
+Các kịch bản V3 đã có hồ sơ kiểm chứng Nginx, gateway, nhiều lỗi và bão cảnh báo trong [báo cáo thực nghiệm](https://github.com/Darrys37/smb-network-monitoring/blob/main/docs/KIEM_CHUNG_WORKER_V3.md). Hồ sơ ghi kết quả tại thời điểm thử; một README không thay thế việc kiểm tra baseline trước lần demo mới.
 
 ## Cấu trúc mã nguồn V3
 
 | Đường dẫn | Nội dung |
 |---|---|
-| [`system-monitor/monitor.py`](https://github.com/Darrys37/smb-network-monitoring/blob/feature/ml-research-v2/system-monitor/monitor.py) | Điểm vào worker, xem danh mục luật và replay |
-| [`system-monitor/monitoring/`](https://github.com/Darrys37/smb-network-monitoring/tree/feature/ml-research-v2/system-monitor/monitoring) | Thu bằng chứng, chuẩn hóa dữ liệu, thực thi luật, hàng đợi và tương quan |
-| [`system-monitor/config/`](https://github.com/Darrys37/smb-network-monitoring/tree/feature/ml-research-v2/system-monitor/config) | Profile lab, topology và nguồn bảng quyết định |
-| `system-monitor/catalog/` | Catalog SQLite được tạo khi triển khai bằng [`build_catalog.py`](https://github.com/Darrys37/smb-network-monitoring/blob/feature/ml-research-v2/system-monitor/build_catalog.py) |
-| [`system-monitor/deployment/`](https://github.com/Darrys37/smb-network-monitoring/tree/feature/ml-research-v2/system-monitor/deployment) | Hướng dẫn và script triển khai |
-| [`system-monitor/tests/`](https://github.com/Darrys37/smb-network-monitoring/tree/feature/ml-research-v2/system-monitor/tests) | Kiểm thử logic hệ thống |
-| [`evidence/system-v3/`](https://github.com/Darrys37/smb-network-monitoring/tree/feature/ml-research-v2/evidence/system-v3) | Hồ sơ thử nghiệm và kết quả demo đã lưu |
-| [`diagnosis-engine/`](https://github.com/Darrys37/smb-network-monitoring/tree/feature/ml-research-v2/diagnosis-engine) | Engine CLI gốc và thành phần API/thu số liệu được tái sử dụng |
+| [`system-monitor/monitor.py`](https://github.com/Darrys37/smb-network-monitoring/blob/main/system-monitor/monitor.py) | Điểm vào worker, xem danh mục luật và replay |
+| [`system-monitor/monitoring/`](https://github.com/Darrys37/smb-network-monitoring/tree/main/system-monitor/monitoring) | Thu bằng chứng, chuẩn hóa dữ liệu, thực thi luật, hàng đợi và tương quan |
+| [`system-monitor/config/`](https://github.com/Darrys37/smb-network-monitoring/tree/main/system-monitor/config) | Profile lab, topology và nguồn bảng quyết định |
+| `system-monitor/catalog/` | Catalog SQLite được tạo khi triển khai bằng [`build_catalog.py`](https://github.com/Darrys37/smb-network-monitoring/blob/main/system-monitor/build_catalog.py) |
+| [`system-monitor/deployment/`](https://github.com/Darrys37/smb-network-monitoring/tree/main/system-monitor/deployment) | Hướng dẫn và script triển khai |
+| [`system-monitor/tests/`](https://github.com/Darrys37/smb-network-monitoring/tree/main/system-monitor/tests) | Kiểm thử logic hệ thống |
+| [`evidence/system-v3/`](https://github.com/Darrys37/smb-network-monitoring/tree/main/evidence/system-v3) | Hồ sơ thử nghiệm và kết quả demo đã lưu |
+| [`diagnosis-engine/`](https://github.com/Darrys37/smb-network-monitoring/tree/main/diagnosis-engine) | Engine CLI gốc và thành phần API/thu số liệu được tái sử dụng |
 
 ## Phạm vi và giới hạn
 
@@ -163,4 +163,4 @@ Hệ thống được kiểm chứng trong lab 3 VM, chưa thử trên máy Ubun
 
 Worker V3 không tự sửa hạ tầng và chưa tích hợp gửi thông báo ra email/chat. Token, private key, môi trường Python và database runtime được cấu hình riêng; GitHub không thay thế backup VM, MySQL hoặc dữ liệu vận hành.
 
-Nhật ký theo tuần và các phiên bản cũ được giữ trong tài liệu lịch sử để truy vết; chúng không phải hướng dẫn vận hành V3 hiện tại. Xem [mục lục tài liệu](https://github.com/Darrys37/smb-network-monitoring/blob/feature/ml-research-v2/docs/README.md) để chọn đúng phần cần đọc.
+Nhật ký theo tuần và các phiên bản cũ được giữ trong tài liệu lịch sử để truy vết; chúng không phải hướng dẫn vận hành V3 hiện tại. Xem [mục lục tài liệu](https://github.com/Darrys37/smb-network-monitoring/blob/main/docs/README.md) để chọn đúng phần cần đọc.

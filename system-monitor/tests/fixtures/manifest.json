@@ -1,0 +1,467 @@
+{
+  "purpose": "Historical raw observations for expert-rule regression only; not new live trials",
+  "observations": [
+    {
+      "path": "observations/000-fa08ed0c2b3c5c0d.json",
+      "sha256": "fa08ed0c2b3c5c0d3afa476e9fdb4a54bc8cbdf03f055e9f185886cb7066f578",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s01/r01-01-healthy/w-c5fa2fa758594364a2568d45fb2a83bf.json"
+    },
+    {
+      "path": "observations/001-4ae09c5ff4305207.json",
+      "sha256": "4ae09c5ff43052078be2fabf1278ace86a620079ad5a27f770507efef853c335",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s01/r01-02-cpu_stress/w-ecc3009a7a9d4039be96c5dbfabce959.json"
+    },
+    {
+      "path": "observations/002-2dcd8657e98621e1.json",
+      "sha256": "2dcd8657e98621e1207e92d5f49e7baed3de38028ae0713e509997c1a8d04cac",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s01/r01-03-dns_egress_blocked/w-29782632afeb4a508b18bc3f6c1c1708.json"
+    },
+    {
+      "path": "observations/003-bea77e9fdc77a161.json",
+      "sha256": "bea77e9fdc77a16165641669e9f3b488bf75fb5372152aa04157a8414ba64498",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s01/r01-04-remote_http_filtered-retry1/w-6944002b014142a1a902f69c2edaa362.json"
+    },
+    {
+      "path": "observations/004-a41577682da8adf0.json",
+      "sha256": "a41577682da8adf0036b3ad9ca4a0c99e304f3891bfd5395c4bc5910835d884b",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s01/r01-05-agent_stopped-retry1/w-d1486087b98f4f58bfdab5b645ab4663.json"
+    },
+    {
+      "path": "observations/005-70c5bde17323c5a3.json",
+      "sha256": "70c5bde17323c5a3a7f239f81821507a67453e52f3e8736c9b33f452c75d698a",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s01/r01-06-interface_down/w-c3ae3c7beed1468d998703a99aa9d9ee.json"
+    },
+    {
+      "path": "observations/006-3a6b164f1eefc2ca.json",
+      "sha256": "3a6b164f1eefc2cacf76ceea7bc6bd0c1174235aa6c95ccb1265ba62f7b713bb",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s01/r01-07-nginx_stopped-retry1/w-af7e045134074750b01a3fb0eeeb89b3.json"
+    },
+    {
+      "path": "observations/007-95436e6c38ee887c.json",
+      "sha256": "95436e6c38ee887c759f811ab13a4b6e4e9cc9a162b9c465987d4bb9fcae94a2",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s01/r02-01-nginx_stopped/w-35e8e837950442e381694f9e99d12ff2.json"
+    },
+    {
+      "path": "observations/008-0b7d7f1d7ac52185.json",
+      "sha256": "0b7d7f1d7ac521859de9b65b572d2c2eae997f06454679920695d1560b198a5c",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s01/r02-02-cpu_stress/w-77115d5eacea4c59bd1519b10b347b20.json"
+    },
+    {
+      "path": "observations/009-4a29c77d9013bccb.json",
+      "sha256": "4a29c77d9013bccbf5416c9a2d3b4a0376a5249e65f26d3426830e20991e6246",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s01/r02-03-dns_egress_blocked/w-775e634f9c9e42e9b933f86bc6d4f9b9.json"
+    },
+    {
+      "path": "observations/010-82492e594ff33eb8.json",
+      "sha256": "82492e594ff33eb82914adba13fc9b2a438cc8322303bcae38313c2add3609af",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s01/r02-04-remote_http_filtered/w-7d246893eb194596b43c1c61d0e4d6b8.json"
+    },
+    {
+      "path": "observations/011-b336856dc636ac3a.json",
+      "sha256": "b336856dc636ac3a8578d1dffa209fd234514e43605f8a51631ecceb8b2c9278",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s01/r02-05-agent_stopped-retry1/w-23def0b56be84ee0b96f0d66c708c432.json"
+    },
+    {
+      "path": "observations/012-37237bd587337fff.json",
+      "sha256": "37237bd587337fff1b0b5e883d36f4c89c8a6b6b0b614b90ffe6f0b3fca7dc80",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s01/r02-06-interface_down/w-b7d8ec821160444eb145be0cb2f0ee05.json"
+    },
+    {
+      "path": "observations/013-6de13409d1d42c25.json",
+      "sha256": "6de13409d1d42c25b76b92239b3700b48147d17ad50a82fa1406fb2cbe233874",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s01/r02-07-healthy/w-16f902b6c2074d229431c7a91abc2249.json"
+    },
+    {
+      "path": "observations/014-4ab9090634572487.json",
+      "sha256": "4ab90906345724877cc36b370ffabc724135c9353a545b1a70fcd5745551356c",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s01/r03-01-cpu_stress-retry1/w-402050d825c5475686ae66b0aa588202.json"
+    },
+    {
+      "path": "observations/015-6c95715ad40cd858.json",
+      "sha256": "6c95715ad40cd858faf9ea634962ac9c9ec2f744217f64f9dcc6ee2fb44daf92",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s01/r03-02-dns_egress_blocked/w-fc82eacfb34f4656b314f5477ab8f5aa.json"
+    },
+    {
+      "path": "observations/016-92dd1efaea93c344.json",
+      "sha256": "92dd1efaea93c344b012361194afba4027289b93725502fd13b4c1854e0b45da",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s01/r03-03-agent_stopped/w-243e0c21884b4c0e962a6ad298481bc5.json"
+    },
+    {
+      "path": "observations/017-cbd57e50af90d1f5.json",
+      "sha256": "cbd57e50af90d1f5d2f07fecaca4b0d9d623cb6b978e19126ea34dc74fe81444",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s01/r03-04-interface_down/w-c8e77eb11e804879a96745878d6e0aa1.json"
+    },
+    {
+      "path": "observations/018-b499044784b95a69.json",
+      "sha256": "b499044784b95a69b00ffb5251a548797c68fdc6690d559511eaa4b44145e022",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s01/r03-05-remote_http_filtered/w-f86cc49101b44b87aba40a97bb53e583.json"
+    },
+    {
+      "path": "observations/019-8afd179e5768cd23.json",
+      "sha256": "8afd179e5768cd23bb3501bb9d6a34e1fef5271ade604e4f66efc710be19bae0",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s01/r03-06-nginx_stopped/w-946220916e4c4f1e8885e8490b6b82fe.json"
+    },
+    {
+      "path": "observations/020-38617205edee08c2.json",
+      "sha256": "38617205edee08c2043fc2771619a4544be78d77061656aaad565a5e034f958a",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s01/r03-07-healthy/w-44f275ac3c25457ca55eb6b70b3ddc1a.json"
+    },
+    {
+      "path": "observations/021-7008ce31cc432fb0.json",
+      "sha256": "7008ce31cc432fb0ad8d06d77d28d9441864a54e4faae0adb8aee3252e2d1fdd",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s02/r01-01-interface_down/w-0ba9edb4978b480bbbbf44501df40e24.json"
+    },
+    {
+      "path": "observations/022-1a9611d0b0da3076.json",
+      "sha256": "1a9611d0b0da307663168c5657a0b54084a2a407fbd2e7d4fc0f12f5f72bda74",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s02/r01-02-nginx_stopped/w-985d86b2e3504d79be9d746dbe684ba2.json"
+    },
+    {
+      "path": "observations/023-9941644543c58cc7.json",
+      "sha256": "9941644543c58cc76bfab08ea832e0c3024f90100f2ecf5e6f9bc945b817afc0",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s02/r01-03-cpu_stress/w-92ef6a159ab44f2a956e7710d696037a.json"
+    },
+    {
+      "path": "observations/024-cc69639c21723694.json",
+      "sha256": "cc69639c217236946a3b1dc6cb00d54b327c675c7453737d5e137fa2444f5a4c",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s02/r01-04-dns_egress_blocked/w-8e1eaf05d29545ba9605840809e3d982.json"
+    },
+    {
+      "path": "observations/025-5c8e13d1e9ebd550.json",
+      "sha256": "5c8e13d1e9ebd55051e39fe2ba27c476656875b1f5a981ca8113af6c787f2117",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s02/r01-05-remote_http_filtered/w-74e250efcc984089be23e481c3ff13b8.json"
+    },
+    {
+      "path": "observations/026-88f3f8e74463a6fe.json",
+      "sha256": "88f3f8e74463a6fe0b3c895d674bec9900000c51620067c8c13dd1c517c651b0",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s02/r01-06-healthy/w-05dd1d3b8d2144ae8b0fc5c412ff58bc.json"
+    },
+    {
+      "path": "observations/027-dc6090be228cdf8f.json",
+      "sha256": "dc6090be228cdf8f94293baf201535051b17f423eb071a360c34b817b5015f6e",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s02/r01-07-agent_stopped-retry1/w-0d30f67b85f94ad0a32dabbcd767eee5.json"
+    },
+    {
+      "path": "observations/028-d29a1ecc143ccc5b.json",
+      "sha256": "d29a1ecc143ccc5bf1fc10db03519cfabf9f13a87fcfd5df3256f23e4499b0c7",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s02/r02-01-cpu_stress/w-12d7504fff4b48d38679888fec71d715.json"
+    },
+    {
+      "path": "observations/029-67d9bbca8f140ee3.json",
+      "sha256": "67d9bbca8f140ee3338037ee40772e44e833e77979b4edd3e5f12f0e37873aeb",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s02/r02-02-agent_stopped-retry2/w-99640cc939c445d8acb5350d3368795e.json"
+    },
+    {
+      "path": "observations/030-a5d34d99626bcab4.json",
+      "sha256": "a5d34d99626bcab4babeeaeea84c9f19f78769e727c99a0c27cd5ee6fd3d43ae",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s02/r02-03-healthy/w-69448afc917648368d8f6a498b60244b.json"
+    },
+    {
+      "path": "observations/031-d1df7f05471d3688.json",
+      "sha256": "d1df7f05471d3688da56b94531136cd7a925d150887b3f21e067d526d1ed2493",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s02/r02-04-dns_egress_blocked/w-00f182e1435b4e229a4e728b3e0da1d3.json"
+    },
+    {
+      "path": "observations/032-b27346df97168d0f.json",
+      "sha256": "b27346df97168d0f3b2b706d5d6f8728cda3e09e7efcb11635c5e4390d15bd57",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s02/r02-05-nginx_stopped/w-ee61f8c0d40d4a3d988d86d04368a540.json"
+    },
+    {
+      "path": "observations/033-abdf89eef577cd94.json",
+      "sha256": "abdf89eef577cd94060e34ac0741460cb4c0f6833f042760a88f185e7f6a6b62",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s02/r02-06-interface_down/w-3af9f11c930f4b1cadad3de78926e385.json"
+    },
+    {
+      "path": "observations/034-b7fe7efbe6c5e642.json",
+      "sha256": "b7fe7efbe6c5e6421142d6447c77dda8478c01c5b43aa7893b90296013908e0d",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s02/r02-07-remote_http_filtered/w-982d5534613246dc9149edb82874f7b1.json"
+    },
+    {
+      "path": "observations/035-3516d1a4e25b4625.json",
+      "sha256": "3516d1a4e25b4625040a1629c7e14d65a400d985fd8fe6ef4c75c3c15a2ab6f3",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s02/r03-01-agent_stopped/w-2feda5ec6b194bc2933b372a803d0074.json"
+    },
+    {
+      "path": "observations/036-75fe5772a61c0426.json",
+      "sha256": "75fe5772a61c0426a477c158d99cbeccbf31630f66ffff90b22cccca1d17b44d",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s02/r03-02-healthy/w-2b60a4e69baf4e2a8330851845f65064.json"
+    },
+    {
+      "path": "observations/037-70d3564e60136bcb.json",
+      "sha256": "70d3564e60136bcb6f993211d0a9df09f81490eebba3c9a4e1c703b2610f20c2",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s02/r03-03-dns_egress_blocked/w-a901d4e37217431e8b5834ffb5da327a.json"
+    },
+    {
+      "path": "observations/038-e965de60be2014be.json",
+      "sha256": "e965de60be2014be6e54ad7e1eaebbf29cccc39d9385e1cf684d9948421e50cf",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s02/r03-04-cpu_stress-retry1/w-4b17d5889bbb4b78ae17b0f57b9b02ed.json"
+    },
+    {
+      "path": "observations/039-11faa5e52c767a3e.json",
+      "sha256": "11faa5e52c767a3eb679373cb3c8a12c13531cfaa4ebf192b4b1eb1d4aea0ab3",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s02/r03-05-nginx_stopped/w-2380e25d38c744f8b75de82ba524587b.json"
+    },
+    {
+      "path": "observations/040-3ce0d410bf360408.json",
+      "sha256": "3ce0d410bf3604083c7f6c8778fb07c56400c723bdaf70b391185d0108e3f94a",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s02/r03-06-interface_down/w-ef3740b71d0d4c8b9a70cd7c5027da8b.json"
+    },
+    {
+      "path": "observations/041-8898148956ce2c7e.json",
+      "sha256": "8898148956ce2c7e76f79f0ead40a8f564df5a0e7498ae73c415582c322f7888",
+      "origin": "evidence/ml-v2/observations/pilot-v2-s02/r03-07-remote_http_filtered/w-7272fd62f0254268820c3579c1c7feb2.json"
+    },
+    {
+      "path": "observations/042-db7215deba630f65.json",
+      "sha256": "db7215deba630f652bd6d62d90ea1a9f47b9ca561d25e29e23d8e2c3d646bc36",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s01/r01-01-healthy/w-912f18741281408e8bdd153043bfff89.json"
+    },
+    {
+      "path": "observations/043-5b2b497640aa714a.json",
+      "sha256": "5b2b497640aa714a80d3b1c4d5385911da630e8425458d2eb953fd0ee73827f6",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s01/r01-02-agent_stopped/w-34d6ce6255f74934959f81154fd369d5.json"
+    },
+    {
+      "path": "observations/044-63a77e2ee7b11898.json",
+      "sha256": "63a77e2ee7b1189832a3a2e488e4179b8fc46f443237c5566e4bfab721928e55",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s01/r01-03-nginx_stopped/w-873ad7dd772e49d89bb3c366461b71c3.json"
+    },
+    {
+      "path": "observations/045-bdba163de36eca12.json",
+      "sha256": "bdba163de36eca12a5374becda4185249bec72074cb34605cdccf3dac59235ce",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s01/r01-04-dns_egress_blocked/w-6ed85e0ff6464efabbfbae5b8fbdaba2.json"
+    },
+    {
+      "path": "observations/046-cf89072a7d2281fd.json",
+      "sha256": "cf89072a7d2281fda72692d5c44d3f83783828ca486ed815309ac7803c4f51f6",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s01/r01-05-remote_http_filtered/w-9c25aa4d47334fc78912d32d5ad19050.json"
+    },
+    {
+      "path": "observations/047-01118c71d9fcf61a.json",
+      "sha256": "01118c71d9fcf61a03212371e3f4bac85724a69f23532a454dc1d895de90eee3",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s01/r01-06-cpu_stress/w-e1b1943d77594b34ad553717633633bc.json"
+    },
+    {
+      "path": "observations/048-be3f448f43d1c4b7.json",
+      "sha256": "be3f448f43d1c4b78d649feadad4d1de4553ffa9d8b52eedb8cca7a9468cbbfb",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s01/r01-07-interface_down/w-b23981ae66cb4b2aae168837699111c1.json"
+    },
+    {
+      "path": "observations/049-3d2cd53a8c2dcfdc.json",
+      "sha256": "3d2cd53a8c2dcfdc3a13c8af03d4de6daeebb2e4aec0d700ad7498542d0be814",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s01/r02-01-agent_stopped/w-d7c2063b2c874be7a4b9bab2bd7bd4f1.json"
+    },
+    {
+      "path": "observations/050-77c16545601ffb24.json",
+      "sha256": "77c16545601ffb24aa86b3390b6832d71a5845444463d9df3084d5a164ceca0a",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s01/r02-02-dns_egress_blocked/w-770b521b22a3480b9846bd9959fb5cb9.json"
+    },
+    {
+      "path": "observations/051-b06ad17c54daf36d.json",
+      "sha256": "b06ad17c54daf36dbdf8b6e7d1116ae5c2e11eb952a35600be2aa3abb275c4b0",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s01/r02-03-healthy/w-0a8ed780644e4199b721fba33d0246b4.json"
+    },
+    {
+      "path": "observations/052-98c99651ebf90390.json",
+      "sha256": "98c99651ebf90390c71c16011ab978de3e7b8787e9984f5195607641dfadf66f",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s01/r02-04-remote_http_filtered/w-9d9ad73157f541689d68fb09a6e66bde.json"
+    },
+    {
+      "path": "observations/053-2107c611b7538706.json",
+      "sha256": "2107c611b7538706b01ced0237f23ad8816a7a1059ed50e550eb2b7c43413d91",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s01/r02-05-cpu_stress-retry1/w-45e6046829954f9db3816032ee46d8bf.json"
+    },
+    {
+      "path": "observations/054-6c0e4bb18296ed04.json",
+      "sha256": "6c0e4bb18296ed041d040b9b30e054ec33336266c6d86d8bc07d0d21984fe7fa",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s01/r02-06-interface_down/w-98a8c50302c34534b493515073a07929.json"
+    },
+    {
+      "path": "observations/055-d9b02d6506ca9e2f.json",
+      "sha256": "d9b02d6506ca9e2fac602691245afbf88843ddaeca1965062a684a88feb509dd",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s01/r02-07-nginx_stopped/w-e573472e33644999b37eaea3c0fedd6f.json"
+    },
+    {
+      "path": "observations/056-b95ef7823f9a40b5.json",
+      "sha256": "b95ef7823f9a40b5c805284d4582d0025ef2d51809b31d8d2d3e055e2f5063e7",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s01/r03-01-interface_down/w-85f513ad4b084667be0d7d954ec69b1c.json"
+    },
+    {
+      "path": "observations/057-46ed8185f7645541.json",
+      "sha256": "46ed8185f76455418a7cefb37576e1d13bf21c40ff01999fa0f0c8690011e6b3",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s01/r03-02-remote_http_filtered/w-0e58828174e949a3a268b06c5eb440f8.json"
+    },
+    {
+      "path": "observations/058-b928ac952784029c.json",
+      "sha256": "b928ac952784029c00d441bc6c18f89fa5f0b10800227dbf1462236c2241baf3",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s01/r03-03-agent_stopped/w-7296863edfed4a0f8347bf7808e257f4.json"
+    },
+    {
+      "path": "observations/059-c6169f0bf72fec15.json",
+      "sha256": "c6169f0bf72fec15f9ee1a4330f65919cbe2944836d14da6a3efdbc1ce5d63c8",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s01/r03-04-healthy/w-a9170ea090d44f37ad3bacb0bc0bd61f.json"
+    },
+    {
+      "path": "observations/060-c65490648d1d00cd.json",
+      "sha256": "c65490648d1d00cd02f2ac8ba836d788f7c3177dcb47b15e3a11b77d851e371f",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s01/r03-05-dns_egress_blocked/w-16537c81a3d44b98b415a08543ded5e3.json"
+    },
+    {
+      "path": "observations/061-d530e7362f67ae4c.json",
+      "sha256": "d530e7362f67ae4c673cee4e6f114479ee7b6cd46b199217743cb32cafb58a89",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s01/r03-06-cpu_stress/w-fcc34aa2d1c048e8bc9b63680b0fb67d.json"
+    },
+    {
+      "path": "observations/062-8fcf0a114d9d60a6.json",
+      "sha256": "8fcf0a114d9d60a6fc3b76fe593ae1a5f729e93ceb4254449712f09e3a38894c",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s01/r03-07-nginx_stopped/w-ccb7ac932ed540ccb9a237c4b65778c5.json"
+    },
+    {
+      "path": "observations/063-ee1aaa5bd7a77d2f.json",
+      "sha256": "ee1aaa5bd7a77d2fb616282b3f48a915a7c038c5f50183e532dc5a1a91525a9c",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s02/r01-01-interface_down/w-a41643e907524ef3a0889f4877dba3d2.json"
+    },
+    {
+      "path": "observations/064-e9601f6928fb2e4b.json",
+      "sha256": "e9601f6928fb2e4bc781edb7a686b34d346b00989f0d455cf410908d8f90318c",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s02/r01-02-nginx_stopped/w-460bb3249cb149f585389a8ee02dbbea.json"
+    },
+    {
+      "path": "observations/065-a633390e40011c97.json",
+      "sha256": "a633390e40011c972675a2385da09088af549deff15e1ff9cae0e679e3c8e4b8",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s02/r01-03-dns_egress_blocked/w-845db85cc6364bff8ddaaa597157314d.json"
+    },
+    {
+      "path": "observations/066-a96c1317a6e6d21a.json",
+      "sha256": "a96c1317a6e6d21a668df53e8e0956e2e38989dd9770c9717c9d1861e4873101",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s02/r01-04-healthy/w-0ea1d56c35134d20ad956a092d7633d1.json"
+    },
+    {
+      "path": "observations/067-31fa412de09bce6d.json",
+      "sha256": "31fa412de09bce6df7f7b3fdbf953a06cddb6e4f9136fd6d05dd874bb7d8d996",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s02/r01-05-agent_stopped/w-b61588704dc34eb28abeed0f3f389b12.json"
+    },
+    {
+      "path": "observations/068-156e26a9c0e57eac.json",
+      "sha256": "156e26a9c0e57eac2df40cb628789f435d3ede3c4b623cee37ea7cce78cd7ecb",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s02/r01-06-remote_http_filtered/w-f1b2c901161040ccbefe81b312efe839.json"
+    },
+    {
+      "path": "observations/069-473850b5c70db505.json",
+      "sha256": "473850b5c70db505b5aa08ee31933122404d263e48f1971dfc208240046bb40d",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s02/r01-07-cpu_stress/w-b075b05fde8d4b76aaf80e3c465c8607.json"
+    },
+    {
+      "path": "observations/070-cfb926e536ffc8fb.json",
+      "sha256": "cfb926e536ffc8fbd4debc9a4792f48c8d9b50163833d22c8face2b264d73ecc",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s02/r02-01-agent_stopped/w-8f0a740ea68745d79641819cff944913.json"
+    },
+    {
+      "path": "observations/071-2962388df3353772.json",
+      "sha256": "2962388df33537720dd696c84f2a4c7ced0dd447704d3694dc2d64bd672a1b07",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s02/r02-02-nginx_stopped/w-482215459f2d4d1fb2b62a605e2cdd2c.json"
+    },
+    {
+      "path": "observations/072-c8cf22126d6250d6.json",
+      "sha256": "c8cf22126d6250d6a7e893ac5fa3e2004cf9d1e0869d6920de93d555c400ecf9",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s02/r02-03-interface_down/w-240a751c7dd8485bb36011137e34f61d.json"
+    },
+    {
+      "path": "observations/073-51f1fa147086a571.json",
+      "sha256": "51f1fa147086a571c5519beda351790274735bf0ddd02a56b4a52562de48b61b",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s02/r02-04-remote_http_filtered/w-02600f77929e4d74aa72b41031e42c8b.json"
+    },
+    {
+      "path": "observations/074-38400f1d19ed010d.json",
+      "sha256": "38400f1d19ed010dea60acb308df76451e293480d75161c3f8ef3cae721640e1",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s02/r02-05-dns_egress_blocked/w-f1f3ec4b3ae3444aa99041d52fab310f.json"
+    },
+    {
+      "path": "observations/075-36975eaf8ad75f1c.json",
+      "sha256": "36975eaf8ad75f1c91c4c38f8fe6d51380632f7a77c21e4541e9e18bcb3d66f6",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s02/r02-06-healthy/w-9b44a9896a35436cb387971b011e869d.json"
+    },
+    {
+      "path": "observations/076-bb53ee14ed3922e7.json",
+      "sha256": "bb53ee14ed3922e74bbdae35db89c4a2e67536cbc9ca7671c95a1de5e699cae4",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s02/r02-07-cpu_stress/w-fb733c8c585740caa9e525611aa5d936.json"
+    },
+    {
+      "path": "observations/077-4142ab11a73a6e62.json",
+      "sha256": "4142ab11a73a6e6288c41cf27b5a6c1e62594db8636a0892c44cee9ef815a861",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s02/r03-01-interface_down/w-2002dc3e7d4b4867a59824468795288b.json"
+    },
+    {
+      "path": "observations/078-85793c12d2c601a3.json",
+      "sha256": "85793c12d2c601a3b96b89c6ed41235b005b2c837dd045db5ba2df074b5d0781",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s02/r03-02-dns_egress_blocked/w-c3e5fc03482e4242a2efa322c4cd735e.json"
+    },
+    {
+      "path": "observations/079-9d76f52200cd9650.json",
+      "sha256": "9d76f52200cd96505c28f4b81f1379da32490f349ba6362b0f2afbd52c22948f",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s02/r03-03-nginx_stopped/w-8b18322c0d1541098c6d2c5b11cfe043.json"
+    },
+    {
+      "path": "observations/080-613a8f88ca77eb64.json",
+      "sha256": "613a8f88ca77eb6459febf708f3078ed12b6209941db39f08b5c5ed9cb36fad1",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s02/r03-04-remote_http_filtered/w-9ec3ca2228b44a2cb4759afd3f2f68f5.json"
+    },
+    {
+      "path": "observations/081-1e86301acfe68197.json",
+      "sha256": "1e86301acfe68197b142d28029f4ba77620c813aa726d1f5c8ec052fa0d0b1cf",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s02/r03-05-agent_stopped/w-a75110b81eb5492ea80f772177f207d7.json"
+    },
+    {
+      "path": "observations/082-86e0155a2ea99a48.json",
+      "sha256": "86e0155a2ea99a48774d4284c0c62405e115c60f5436187dfb5afa721b51de15",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s02/r03-06-cpu_stress/w-98b337294513461aae7f3e5531dc1af4.json"
+    },
+    {
+      "path": "observations/083-0e7168a6544c39fe.json",
+      "sha256": "0e7168a6544c39fe4923361c6a1b6f170c0fff6238e7748092d7208df8c2a8b7",
+      "origin": "evidence/ml-v2/locked-test-v1/observations/test-v2-s02/r03-07-healthy/w-f08a87c073ed4627a4720763e7fe6fe4.json"
+    },
+    {
+      "path": "observations/084-ed430361cd32a229.json",
+      "sha256": "ed430361cd32a229ad025e0296731d66a86c898226ad2119e38e8438d6bc6929",
+      "origin": "evidence/ml-v2/demos/observations/demo-20261031T141114556079Z/after/w-64c6337f48124a19a40d376ef3fb40db.json"
+    },
+    {
+      "path": "observations/085-106a2da45c191604.json",
+      "sha256": "106a2da45c191604446cca70da9e0e159ae1849e48107edc434636f123205714",
+      "origin": "evidence/ml-v2/demos/observations/demo-20261031T141114556079Z/before/w-4173665ef9ef4507b077d8a3fdffe991.json"
+    },
+    {
+      "path": "observations/086-d7c60b8c26359bf6.json",
+      "sha256": "d7c60b8c26359bf67118e662a66e023a547183fe3d4cc100e405236a0c66c397",
+      "origin": "evidence/ml-v2/demos/observations/demo-20261031T141114556079Z/fault/w-66e65eeb33ee4c3d88d47bc1e442ccd8.json"
+    },
+    {
+      "path": "observations/087-d89931f762394705.json",
+      "sha256": "d89931f762394705f148e9876638739cba6339f946fe342e874c5444b0aa117a",
+      "origin": "evidence/ml-v2/demos/observations/demo-20261031T141114556079Z/fault/w-a2e0fe93df924506abf4c03b743893ff.json"
+    },
+    {
+      "path": "observations/088-80421526d705c8b0.json",
+      "sha256": "80421526d705c8b0e74a011e6fd20f2e80e6a6997d15269a5d971ccb70359bf2",
+      "origin": "evidence/ml-v2/demos/observations/demo-20261103T110440323644Z/after/w-e3fb881968364b9c84ce1096c95978b4.json"
+    },
+    {
+      "path": "observations/089-59ec5a39d52dfe5a.json",
+      "sha256": "59ec5a39d52dfe5a497c09e10ceadc09a9d7b21dc9e492b3dcfee1b9f9aaf103",
+      "origin": "evidence/ml-v2/demos/observations/demo-20261103T110440323644Z/before/w-df2d347eedfe4d29a2a07d9b180911dc.json"
+    },
+    {
+      "path": "observations/090-5db3edfc2c6417db.json",
+      "sha256": "5db3edfc2c6417db3b618dfcab0a842dd84403729addfab00f8bbb3035996341",
+      "origin": "evidence/ml-v2/demos/observations/demo-20261103T110440323644Z/fault/w-0b23dc77e3cd404695d2e83aa5f1b851.json"
+    },
+    {
+      "path": "observations/091-ec2b0278abe84d9f.json",
+      "sha256": "ec2b0278abe84d9f5124efb53c9eedecd48e83f2ecea8d180ea7b88a79471b03",
+      "origin": "evidence/ml-v2/demos/observations/demo-20261103T110440323644Z/fault/w-5a1085196d014759882c4d7a24073fc6.json"
+    }
+  ],
+  "baseline": "observations/085-106a2da45c191604.json",
+  "cpu": "observations/092-c31a5f21e0879b5c.json"
+}

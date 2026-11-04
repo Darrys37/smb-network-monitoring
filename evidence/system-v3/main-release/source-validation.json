@@ -1,0 +1,23 @@
+{
+  "status": "SOURCE_CHECKS_PASSED",
+  "scope": "Offline source verification; no live VM fault run in this publication",
+  "tests_run": 42,
+  "tests_passed": 42,
+  "historical_regression_observations": 92,
+  "fixture_sha256_checks": "PASS",
+  "catalog_build": "PASS",
+  "catalog": {
+    "rules": 8,
+    "groups": 7,
+    "decision_rows": 40
+  },
+  "rules_cli": "PASS",
+  "operator_help": "PASS",
+  "operator_status_with_mocked_ssh": "PASS",
+  "no_research_checkout_required": true,
+  "live_vm_faults_executed": false,
+  "python_version": "3.12.14",
+  "test_log_sha256": "cba4fca5fff428cf15336c42c04e1c8de6d5182a466101be174fef7ecf68f3e3",
+  "validated_document_links": 46,
+  "publish_file_count": 146
+}

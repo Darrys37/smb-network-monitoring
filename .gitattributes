@@ -19,3 +19,12 @@ evidence/week5/** -whitespace
 # Portable AI handoff checksums must survive Windows checkouts.
 docs/AI_HANDOFF/*.md text eol=lf
 docs/AI_HANDOFF/MANIFEST.json text eol=lf
+
+# Worker sources use portable newlines; fixture checksums preserve raw bytes.
+system-monitor/** text eol=lf
+system-monitor/tests/fixtures/** -text -whitespace
+tools/lab_settings.py text eol=lf
+tools/lab_transport.py text eol=lf
+tools/lab_session.py text eol=lf
+tools/lab-settings.example.json text eol=lf
+evidence/system-v3/main-release/** -text -whitespace

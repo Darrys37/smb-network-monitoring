@@ -5,3 +5,7 @@
 /evidence/week4/pre-freeze-20261016/*.db
 
 /evidence/week5/final-20261017/*.db
+
+# Local operator paths are configured per machine.
+/tools/lab.local.json
+/tools/__pycache__/
