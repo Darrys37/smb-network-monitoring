@@ -1,115 +1,217 @@
-# Hệ thống chuyên gia và tương quan cảnh báo v3
+# Worker V3 — Chẩn đoán chuyên gia và tương quan cảnh báo
 
-Luồng mới hoạt động trên **đúng ba VM MON01, SRV01, CLI01**. Worker đọc Zabbix bằng token chỉ đọc, thu bằng chứng, đánh giá bảng quyết định SQLite và gom cảnh báo theo topology. Xem [báo cáo nghiệm thu](../docs/HOAN_THIEN_HE_THONG_20261103.md) để biết bằng chứng và giới hạn.
+Worker V3 tự động đọc sự kiện Zabbix, thu bằng chứng, đánh giá **8 luật / 7 nhóm sự cố** từ SQLite và gom cảnh báo theo topology. Hướng dẫn này dành cho lab **MON01, CLI01 và SRV01**.
 
-```text
-Zabbix → cursor + hàng đợi SQLite → thu bằng chứng → 8 luật chuyên gia trong SQLite
-                              └→ topology + trạng thái gateway → nhóm sự cố
+**[Giới thiệu dự án](../README.md)** · **[Triển khai lại](deployment/README.md)** · **[Kết quả kiểm chứng](../docs/HOAN_THIEN_HE_THONG_20261103.md)**
+
+## Trước khi vận hành
+
+Lab hiện tại dùng mạng quản trị `192.168.56.0/24` và mạng dịch vụ `172.30.20.0/24` qua CLI01. Các IP, host ID và tên NIC trong cấu hình là giá trị của lab này, cần đối chiếu nếu triển khai nơi khác.
+
+1. Bật lần lượt **CLI01 → SRV01 → MON01**, chờ từng máy vào được SSH. Giữ laptop cắm sạc và màn hình thức trong lúc diễn tập.
+2. Trên MON01, xác nhận worker active và xem trạng thái:
+
+   ```bash
+   systemctl is-active do-an-monitor-v3.service
+   /home/phat/do-an/diagnosis-engine/.venv/bin/python /home/phat/do-an/system-monitor/report.py
+   ```
+
+3. Chỉ bắt đầu tạo lỗi khi SRV01 HTTP 200, parent up, các nguồn dữ liệu hoạt động, không còn sự cố của lượt trước và hàng đợi đã xử lý hết. Notice khởi động đã được cấu hình có thể được hiển thị riêng.
+
+## Xem và đọc kết quả
+
+Trên **MON01**:
+
+```bash
+cd /home/phat/do-an/diagnosis-engine
+.venv/bin/python ../system-monitor/report.py
 ```
 
-**ML vẫn là nhánh nghiên cứu riêng trong `ml-research`.** Mô hình cũ dùng 12 features, profile SRV01 `192.168.56.20`. Worker v3 xuất bảy nhóm features theo schema mới; không đưa vector mới vào mô hình cũ, không train lại hay tự kích hoạt luật ML.
+Xuất trạng thái đầy đủ hoặc xem log gần nhất:
 
-## Dùng ngay trên laptop lab hiện tại
+```bash
+.venv/bin/python ../system-monitor/report.py --json
+journalctl -u do-an-monitor-v3.service -n 10 --no-pager
+```
 
-Bật tuần tự **CLI01 → SRV01 → MON01**, chờ từng máy vào được SSH rồi bật máy tiếp theo; giữ máy cắm sạc. Lượt bật gần đồng thời đã từng làm MON01 kẹt boot, nên chưa coi cách bật đó là ổn định. Gateway overlay và worker tự khởi động bằng systemd. Mở PowerShell ở thư mục repository:
+`report.py` đọc trạng thái worker đã lưu, không khởi động thêm worker. Các số cần đọc:
+
+| Trường | Cách hiểu |
+|---|---|
+| Active events | Các sự kiện lỗi còn hoạt động sau khi tách notice đã cấu hình |
+| Incident groups | Các nhóm sau tương quan |
+| Suppressed dependent alerts | Cảnh báo con được gắn về nhóm gốc theo phụ thuộc |
+| Pending diagnosis jobs | Các job chưa hoàn thành; cần kiểm tra khi không giảm |
+| ROOT | Node và loại nhóm sự cố, không phải kết luận chắc chắn duy nhất |
+
+Mỗi node có vector 7 nhóm: `[icmp_status, tcp80_status, http_status_code, dns_response_time_ms, resource_status, agent_availability, parent_status]`. CPU/RAM thô và chất lượng lịch sử vẫn được giữ riêng.
+
+Sau khi phục hồi, dịch vụ hoạt động lại trước khi mọi item/trigger Zabbix kịp cập nhật. Chờ dữ liệu mới rồi kiểm tra lại. `Raw events retained` tăng theo lịch sử, không cần về 0.
+
+## Demo Nginx từng bước để quay video
+
+Mở sẵn SSH vào MON01 và SRV01. Trên MON01 chạy report một lần để thấy trạng thái bình thường.
+
+**1. Tạo lỗi trên SRV01:**
+
+```bash
+sudo python3 /home/phat/do-an/system-monitor/fault_control.py arm nginx --seconds 180
+systemctl is-active nginx
+```
+
+Helper kiểm tra Nginx ban đầu active, tạo và xác nhận timer phục hồi độc lập trước khi dừng dịch vụ. Cần thấy `timer_active: true`, `fault_applied: true` và Nginx inactive.
+
+**2. Sau khoảng 15–30 giây, xem trên MON01:**
+
+```bash
+/home/phat/do-an/diagnosis-engine/.venv/bin/python /home/phat/do-an/system-monitor/report.py
+```
+
+Nếu observation chưa cập nhật, đợi thêm rồi xem lại. Tìm nhóm `ROOT srv01 | http_service` và luật `R2_HTTP_SERVICE_SUSPECTED`. Bằng chứng chính: máy vẫn ping được, TCP/80 refused và trạng thái Nginx cục bộ inactive. HTTP null riêng lẻ chưa đủ chứng minh Nginx dừng.
+
+**3. Phục hồi trên SRV01:**
+
+```bash
+sudo python3 /home/phat/do-an/system-monitor/fault_control.py recover nginx
+systemctl is-active nginx
+```
+
+**4. Xem lại trên MON01:** đợi các phép đo cập nhật, chạy report và xác nhận HTTP 200, lỗi của lượt thử hết, queue về 0. Đây mới là kết thúc một cảnh demo đầy đủ.
+
+Trên giao diện Zabbix chọn **Monitoring → Problems → History**, đặt khoảng thời gian gần đây và lọc các host của lab. History giữ dòng **RESOLVED** sau phục hồi; chế độ chỉ xem problem đang mở sẽ không giữ lỗi đã hết. Worker quan sát và ghi nhận phục hồi; người vận hành/helper thực hiện việc khắc phục.
+
+## Demo tự động trên Windows
+
+Mở PowerShell tại thư mục gốc repository. Wrapper yêu cầu ba VM running, SSH/sudo hoạt động, host keys đã xác minh và Paramiko có trong môi trường Python.
+
+Thiết lập đường dẫn cục bộ trong `tools/lab.local.json` theo [mẫu cấu hình](../tools/lab-settings.example.json). `coordination_root` là thư mục ghi được dùng để khóa phiên demo; `dependency_paths` là danh sách đường dẫn thư viện phụ nếu có. File này không chứa mật khẩu/token và không được đưa vào Git.
 
 ```powershell
 python .\system-monitor\system_lab.py status
+
+# Chạy một tình huống mỗi lần
 python .\system-monitor\system_lab.py demo --fault nginx
 python .\system-monitor\system_lab.py demo --fault gateway
 python .\system-monitor\system_lab.py demo --fault multi
 python .\system-monitor\system_lab.py demo --fault storm
 ```
 
-Chạy **một demo mỗi lần**. Lệnh `demo` cố ý tạo lỗi; nhập mật khẩu SSH khi được hỏi, mật khẩu chỉ giữ trong RAM. Host keys phải có trong `~/.ssh/known_hosts`. Wrapper dùng `tools/lab.local.json` để tìm Paramiko và thư mục khóa dùng chung với demo ML. Nó giữ màn hình thức tạm thời, kiểm baseline trước lỗi và lưu `before/detected/recovered` dưới `evidence/system-v3/demos/<thời điểm>`.
+| Tình huống | Nội dung kiểm tra |
+|---|---|
+| nginx | Dừng Nginx, phát hiện nhóm dịch vụ, khởi động lại và xác nhận phục hồi |
+| gateway | Tắt forwarding CLI01, gom cảnh báo kết nối phụ thuộc về gateway |
+| multi | Gateway lỗi đồng thời Nginx dừng; giữ lỗi dịch vụ độc lập |
+| storm | Gateway lỗi kèm 20 kênh synthetic để thử tương quan/ức chế khi nhiều cảnh báo |
 
-Chưa cần train hoặc nạp token quản trị để chạy các demo nginx/gateway/multi. Demo storm dùng `.env.admin` **trên MON01** để gửi giá trị vào đúng 20 kênh cảnh báo thử. Đây là 20 cảnh báo được bơm vào Zabbix, không phải 20 VM hay 20 lỗi vật lý.
+Wrapper lưu hồ sơ `before/detected/recovered` dưới `evidence/system-v3/demos/<thời điểm>`. Nó tự phục hồi sau khi đạt điều kiện nên thời gian giữ cảnh ngắn hơn cách quay thủ công.
 
-Nếu demo bị ngắt:
+Demo storm cần token cấu hình tại `.env.admin` trên MON01 để ghi 20 kênh thử. Worker thông thường dùng token chỉ đọc riêng. Các kênh synthetic là cảnh báo được bơm vào Zabbix, không phải 20 VM hay 20 sự cố vật lý.
+
+Timer Nginx/gateway của wrapper có thời hạn 120 giây, storm 100 giây. Có cleanup trong `finally`. Nếu mất kết nối laptop, timer đã được tạo bên trong VM vẫn là cơ chế phục hồi dự phòng; sau đó vẫn phải kiểm tra trạng thái thực tế.
+
+## Phục hồi khi demo bị ngắt
+
+Trên **Windows**, tại repository:
 
 ```powershell
 python .\system-monitor\system_lab.py recover
+python .\system-monitor\system_lab.py status
 ```
 
-Nginx/gateway có timer rollback systemd độc lập 120 giây, được xác nhận hoạt động trước khi tạo lỗi. Wrapper có `finally` để khôi phục sớm và đợi các cảnh báo phục hồi. Demo storm có timer trả kênh thử về 0 sau 100 giây. Không chạy demo ML đồng thời với demo hệ thống; hai wrapper dùng chung khóa.
-
-## Xem trực tiếp trên MON01
+Nếu cần thao tác riêng qua SSH:
 
 ```bash
-cd /home/phat/do-an/diagnosis-engine
-systemctl status do-an-monitor-v3.service --no-pager
-.venv/bin/python ../system-monitor/report.py
-.venv/bin/python ../system-monitor/report.py --json
-journalctl -u do-an-monitor-v3.service -n 10 --no-pager
+# SRV01
+sudo python3 /home/phat/do-an/system-monitor/fault_control.py recover nginx
 ```
 
-`report.py` chỉ đọc trạng thái, không chạy thêm worker. Các số cần xem: `active events`, số nhóm sự cố, cảnh báo phụ thuộc bị ức chế và `pending jobs`. Sau phục hồi cần chờ chu kỳ item/trigger Zabbix; dịch vụ chạy lại chưa có nghĩa cảnh báo cũ đã được cập nhật ngay.
+```bash
+# CLI01
+sudo python3 /home/phat/do-an/system-monitor/fault_control.py recover gateway
+```
 
-Mỗi worker giữ một file lock. Lệnh `monitor.py once` sẽ từ chối nếu `watch` đang giữ cùng runtime DB. Khi cần chạy một lần để sửa lỗi, dừng service trước rồi khởi động lại sau; không chạy hai worker vào cùng DB.
+```bash
+# MON01: chỉ dùng khi đã thử synthetic storm
+/home/phat/do-an/diagnosis-engine/.venv/bin/python /home/phat/do-an/system-monitor/storm_control.py 0
+```
 
-## Dữ liệu và bảng quyết định
+Kiểm tra HTTP 200, parent up, các lỗi của lượt thử được phục hồi và pending jobs = 0. Không xóa runtime DB, cursor hoặc lịch sử Zabbix để làm sạch màn hình. Không flush toàn bộ firewall.
 
-| File | Vai trò |
+## Các luật và điều kiện cần hiểu
+
+| Luật | Nội dung |
 |---|---|
-| `config/expert_seed.json` | Nguồn có thể review: 7 nhóm, 8 luật, 40 hàng quyết định, mỗi luật 3 giả thuyết |
-| `build_catalog.py` | Tạo catalog SQLite mới; từ chối ghi đè |
-| `catalog/expert_rules.sqlite` | Bảng metadata, expert_rules, decision_rows, hypotheses; runtime mở chỉ đọc |
-| `config/lab.json` | Profile, topology có căn cứ, host IDs và đường dẫn khóa SSH; không chứa khóa/token |
-| `config/provisioned.json` | IDs của hai host logic/item/trigger v3 đã tạo trong lab |
-| `runtime/monitoring.sqlite` | Sự kiện gốc, cursor, jobs, diagnoses, batches, trạng thái node; bỏ qua Git |
+| R1 | Mất phản hồi đích khi máy đối chứng vẫn phản hồi |
+| R2 | Dịch vụ/listener HTTP nghi gặp lỗi |
+| R3 | Agent không khả dụng |
+| R4 | DNS lỗi khi kết nối IP đối chứng vẫn tốt |
+| R5 | RemoteHTTP lỗi nhưng HTTP cục bộ 200; nghi ngờ đường truy cập/lọc |
+| R6 | CPU trung bình ≥ 90% với lịch sử đủ dài và load/số CPU đối chứng |
+| R7 | Nút cha có bằng chứng down còn mới |
+| R8 | Ít nhất10 sự kiện lỗi mới trong 30 giây |
 
-Các nhóm: Ping; HTTP (hai luật: dịch vụ và đường truy cập); DNS; Agent; Resource; Gateway; Alert Storm. Chọn hàng đầu tiên khớp trong từng luật; các luật được đánh giá độc lập nên có thể đồng thời khớp. Điều kiện và kết luận nằm trong SQLite, Python chịu trách nhiệm thu/chuẩn hóa bằng chứng và thực thi bộ so khớp chung.
+R6 kiểm ít nhất 3 mẫu, độ phủ ≥ 240 giây, khoảng cách mẫu ≤ 120 giây và độ mới hợp lệ. Một mẫu CPU cao hoặc RAM cao chưa đủ để R6 khớp.
 
-Các điểm 85/65/45% là **điểm ưu tiên điều tra do chuyên gia gán**, không phải xác suất chẩn đoán đúng đã được đo/hiệu chỉnh. `matched` nghĩa là khớp dấu hiệu; `not_matched` không đồng nghĩa toàn hệ thống khỏe; `insufficient_evidence` là chưa đủ bằng chứng.
+R8 xét cửa sổ trượt của sự kiện mới. Sau 30 giây có thể không còn khớp dù những cảnh báo đó vẫn đang mở; chẩn đoán đã lưu tại thời điểm xảy ra là hồ sơ cần truy lại. Wrapper storm kiểm hành vi tương quan/suppression; không lấy riêng việc 20 cảnh báo xuất hiện làm bằng chứng mọi luật đều đã khớp.
 
-Muốn sửa ngưỡng/luật: sao lưu catalog hiện tại, sửa seed, tạo **catalog ở đường dẫn mới**, kiểm thử rồi đổi đường dẫn và restart worker. Catalog được cache một lần mỗi phiên, không tự tải lại giữa chừng. Mỗi thay đổi cần phiên bản mới để có thể truy nguyên.
+Mỗi luật trả `matched`, `not_matched` hoặc `insufficient_evidence`. Luật khớp có3 giả thuyết và điểm ưu tiên85/65/45% do chuyên gia gán. Đây không phải xác suất đúng đã được đo. Các luật độc lập nên có thể cùng khớp trong một observation.
 
-```powershell
-python .\system-monitor\build_catalog.py
-Push-Location .\system-monitor
-python -m unittest discover -s tests -v
-Pop-Location
-python .\system-monitor\monitor.py rules
-```
-
-`build_catalog.py` chỉ cần ở lần cài mới. Nếu catalog đã tồn tại thì dùng file đó; không xóa DB để chạy lệnh này lại. Các bài regression lịch sử cần cây repository và dữ liệu `evidence/ml-v2` hiện có.
-
-## Topology thật trong lab
+## Mạng dịch vụ và tương quan
 
 ```text
 MON01 192.168.56.10
   → route 172.30.20.0/24 via 192.168.56.30
-CLI01 192.168.56.30 / 172.30.20.1   [gateway]
-  → internal network do-an-v3-backend
-SRV01 172.30.20.20                 [địa chỉ dịch vụ được giám sát]
+CLI01 192.168.56.30 / 172.30.20.1
+  → Internal Network do-an-v3-backend
+SRV01 172.30.20.20
 ```
 
-SRV01 vẫn có `192.168.56.20` để quản trị/thu bằng chứng tại máy. Đường trả lời từ nguồn `172.30.20.20` dùng bảng route 203 qua CLI01; các đường quản trị cũ giữ nguyên. Hai host Zabbix mới `CLI01-Gateway`, `SRV01-Routed` là hai đối tượng giám sát trên ba VM hiện có.
+SRV01 giữ IP quản trị `192.168.56.20`; đường trả lời từ IP dịch vụ dùng bảng route 203 qua CLI01. Gateway được kiểm tra forwarding, interface và route, không chỉ ping.
 
-Gateway được kiểm tra forwarding, interface và route, không chỉ ping. Cửa sổ correlation 30 giây so thời điểm các sự kiện; parent phải có bằng chứng down còn mới. Cảnh báo cũ có trước parent quá 30 giây không bị quy ngược cho parent. Lỗi CPU/DNS hoặc dịch vụ được đo độc lập vẫn giữ riêng. HTTP từ xa cùng đợt với lỗi Nginx cục bộ được gom về nhóm dịch vụ khi không có parent hỏng phù hợp. Không xóa/sửa cảnh báo nguồn trong Zabbix.
+Correlation dùng cửa sổ 30 giây, topology đã khai báo và bằng chứng parent down còn mới. Cảnh báo con cũ không tự bị quy ngược cho gateway mới hỏng. Lỗi dịch vụ có bằng chứng cục bộ độc lập, CPU và DNS không bị ức chế chỉ vì parent down. Sự kiện gốc luôn được giữ.
 
-SSH của worker dùng khóa riêng trên MON01, giới hạn nguồn MON01 và forced command chỉ cho phép probe đọc HTTP/DNS/routing. Private key và `.env*` không đưa vào Git hay gói source. Probe HTTP kiểm tra IP thực sự thuộc máy quan sát.
+## Dữ liệu, cấu hình và sửa luật
 
-## Cài lại thành phần hoặc quay về baseline
+| File | Vai trò |
+|---|---|
+| `config/expert_seed.json` | Nguồn điều kiện: 8 luật, 40 hàng quyết định và các giả thuyết |
+| `catalog/expert_rules.sqlite` | Catalog SQLite được runtime mở chỉ đọc |
+| `config/lab.json` | Profile, topology, ánh xạ host/trigger và đường dẫn khóa probe |
+| `config/provisioned.json` | ID các đối tượng Zabbix thuộc lab |
+| `runtime/monitoring.sqlite` | Sự kiện, cursor, queue, diagnostics, batches và trạng thái node |
 
-Các VM hiện tại đã được cấu hình. Khi phục hồi bản VM cũ hoặc cài lại source, xem [hướng dẫn triển khai](deployment/README.md). Không chạy script cài mạng khi NIC3 đang phục vụ một mạng khác.
+Muốn sửa luật: backup catalog, sửa seed, tạo **catalog ở đường dẫn mới**, kiểm thử rồi đổi cấu hình chạy và restart worker. Catalog được cache theo phiên; sửa file giữa chừng không đồng nghĩa worker đã tải lại luật.
 
-Muốn tắt riêng workflow mới trên MON01:
+`build_catalog.py` từ chối ghi đè catalog đã có. Không xóa catalog/runtime đang dùng chỉ để chạy lại bước tạo mới.
+
+Worker dùng file lock. Không chạy `monitor.py once` đồng thời với service đang giữ cùng runtime DB; nếu cần chế độ một lần phải dừng service rồi khởi động lại sau.
+
+Chạy kiểm thử hệ thống từ thư mục gốc repository:
+
+```powershell
+Push-Location .\system-monitor
+python -m unittest discover -s tests -v
+Pop-Location
+```
+
+Một số regression đọc dữ liệu lịch sử của repository; cần giữ nguyên các fixture được tham chiếu. Kiểm thử tự động không thay thế diễn tập tạo lỗi và xác minh phục hồi.
+
+## Triển khai và backup
+
+Đọc [hướng dẫn triển khai](deployment/README.md) khi phục hồi VM cũ hoặc đưa sang môi trường khác. Nó giả định các thành phần Zabbix/Agent/Nginx đã được cài nền, không phải trình cài mới hoàn chỉnh.
+
+SSH của probe dùng khóa riêng, giới hạn nguồn MON01 và forced command chỉ cho phép đọc bằng chứng. Không đưa private key hoặc `.env*` lên Git. Backup SQLite bằng backup API nhất quán; backup VM, MySQL, cấu hình và secrets là các phần riêng.
+
+Muốn tắt riêng worker trên MON01:
 
 ```bash
 sudo systemctl disable --now do-an-monitor-v3.service
 ```
 
-Muốn gỡ đường mạng thử: dừng worker; trên MON01, SRV01 rồi CLI01 chạy `sudo systemctl disable --now do-an-network-v3.service`. `ExecStop` gỡ đúng route/rule/address/nft table do module tạo và phục hồi sysctl ban đầu. Giữ file state `/var/lib/do-an-system-v3/network-before.json` tới khi gỡ xong. Baseline/ML cũ vẫn dùng các IP `192.168.56.x`.
+Muốn gỡ mạng thử, dừng worker rồi làm theo trình tự trong tài liệu triển khai. Giữ state `/var/lib/do-an-system-v3/network-before.json` để gỡ đúng tài nguyên do module sở hữu.
 
-Backup toàn VM có sẵn trong `D:\Study\network-monitoring-project\VM_BACKUP`; backup source riêng trong `SOURCE_BACKUP`. Bản cold VM trước v3 không tự có mạng thử mới: dùng lại source và quy trình triển khai. GitHub lưu source/tài liệu/bằng chứng công khai, không thay thế backup đĩa VM, MySQL, cấu hình và secrets.
+## Giới hạn
 
-## Thông báo sau khi bật máy
+Phạm vi hiện tại là 3 VM, chưa có kiểm chứng máy Ubuntu vật lý hoặc tải production. Worker hỗ trợ điều tra và tương quan, không tự khắc phục hoặc gửi email/chat. Các notice chỉ được tách khi khớp đúng cấu hình node/trigger/tên/severity; không bỏ qua toàn bộ cảnh báo Warning.
 
-Zabbix có hai trigger uptime <10 phút của CLI01/SRV01. Chúng có mức Warning trong template hiện tại nhưng chỉ thông báo máy vừa khởi động. V3 tách đúng hai tín hiệu này ra khỏi số sự cố cần xử lý, hiển thị `startup_notices` và vẫn giữ raw/recovery trong SQLite.
-
-Chính sách nằm trong `topology.informational_triggers` của `config/lab.json`: phải khớp node, trigger ID, tên nguyên bản và severity. Cảnh báo khác có cùng severity vẫn là sự cố; nếu trigger đổi tên/mức độ thì không tự được bỏ qua. Không disable/đóng thủ công trigger Zabbix để chạy demo.
-
-`active_total_problem_events` gồm cả thông báo; `active_problem_events` là các sự cố cần xử lý; `active_notice_events` và `notices` cho biết các thông báo được giữ. Các số này có thể khác nhau ngay sau boot. Khi demo phục hồi, số sự cố/job phải về0; thông báo uptime có thể còn tới khi đủ10 phút.
-
-Xem [nhật ký thử khởi động và giới hạn](../docs/KIEM_THU_KHOI_DONG_20261103.md). Phép thử tắt/bật khác với restore toàn bộ VM từ cold backup; chưa thực hiện restore toàn bộ đĩa.
+Đọc [báo cáo kiểm chứng](../docs/HOAN_THIEN_HE_THONG_20261103.md) để xem hồ sơ thử và giới hạn tại từng mốc. Các nhật ký phát triển được giữ riêng trong [mục lục tài liệu](../docs/README.md).

@@ -1,61 +1,55 @@
-## Hoàn thiện hệ thống 03/11/2026
+# Tài liệu hệ thống giám sát và chẩn đoán mạng
 
-[Báo cáo và giới hạn đã kiểm chứng](HOAN_THIEN_HE_THONG_20261103.md) · [Cách chạy/demo/khôi phục v3](../system-monitor/README.md). Đây là phần cập nhật hiện tại; các báo cáo tuần và ML trước đó giữ làm lịch sử.
+Trang này phân biệt hướng dẫn **Worker V3** với các báo cáo và nhật ký của phiên bản trước. Để hiểu hệ thống đang dùng cho demo, bắt đầu bằng ba liên kết đầu tiên dưới đây.
 
-# Bản đồ tài liệu đồ án
+## Đọc theo nhu cầu
 
-## Bắt đầu ở đâu?
-
-**Chuyển sang chat/tài khoản AI khác: gửi bốn file Markdown trong [AI_HANDOFF](AI_HANDOFF/00_BAT_DAU_O_DAY.md).** Bộ này đã có thứ tự đọc, trạng thái cuối phiên, giới thiệu, logic code và lời nhắn mẫu; không cần gửi toàn bộ nhật ký.
-
-Project chính là `C:\Users\Darrys\do-an`. `D:\Study\network-monitoring-project\docs\bangiao` là nơi lưu trữ nhật ký/bản sao. Các tài liệu gốc trong project giữ đường dẫn hiện tại vì README, báo cáo và hồ sơ khác đang liên kết tới chúng.
-
-## 1. Tài liệu hiện hành để hiểu và phát triển
-
-| Tài liệu | Dùng khi nào? |
+| Nhu cầu | Tài liệu |
 |---|---|
-| [AI_HANDOFF/00](AI_HANDOFF/00_BAT_DAU_O_DAY.md) | Mở chat mới hoặc bàn giao cho AI khác |
-| [AI_HANDOFF/01](AI_HANDOFF/01_HIEN_TRANG_VA_CACH_TIEP_TUC.md) | Xem mốc đã lưu, trạng thái lab cuối phiên và cách tiếp tục |
-| [Giới thiệu đồ án](GIOI_THIEU_VA_GIAI_THICH_DO_AN.md) | Hiểu bài toán, phạm vi và cách giải thích |
-| [Logic diagnosis engine](DIAGNOSIS_ENGINE_LOGIC_VA_PHAT_TRIEN.md) | Đọc logic hiện hành, hợp đồng dữ liệu và hướng mở rộng |
+| Hiểu bài toán, kiến trúc và 8 luật | [Giới thiệu ở README chính](../README.md) |
+| Chạy worker, xem kết quả, tạo lỗi và phục hồi | [Hướng dẫn vận hành V3](../system-monitor/README.md) |
+| Triển khai lại mạng và thành phần V3 | [Hướng dẫn triển khai](../system-monitor/deployment/README.md) |
+| Xem kết quả thử gateway, Nginx, multi-fault và storm | [Báo cáo kiểm chứng hệ thống](HOAN_THIEN_HE_THONG_20261103.md) |
+| Xem bằng chứng nghiệm thu có cấu trúc | [VERIFICATION.json](../evidence/system-v3/acceptance-20261103/VERIFICATION.json) |
+| Xem mã nguồn điều kiện các luật | [expert_seed.json](../system-monitor/config/expert_seed.json) |
 
-Hai file cuối là nguồn chính để cập nhật nội dung. Hai bản trong AI_HANDOFF được tạo từ nguồn này và đổi liên kết để dùng độc lập ngoài thư mục project. Chạy `python tools/update_ai_handoff.py` từ root project sau khi commit thay đổi nguồn và cập nhật thủ công trạng thái ở file 01.
+Báo cáo kiểm chứng ghi nhận kết quả ở ngày tạo tài liệu. Một số mục trong báo cáo thuộc hướng nghiên cứu riêng; phạm vi giới thiệu và demo hiện tại là worker chuyên gia V3. Không dùng số liệu của một nhánh nghiên cứu để thay cho kết quả V3.
 
-## 2. Báo cáo và chuẩn bị bảo vệ
+## Bản đồ đọc mã nguồn V3
 
-| Tài liệu | Phạm vi |
+```text
+monitor.py
+  → monitoring/worker.py        đọc sự kiện, điều phối và xử lý hàng đợi
+  → monitoring/collector.py     lấy dữ liệu Zabbix và probe
+  → monitoring/facts.py         kiểm tra dữ liệu, độ mới, lịch sử CPU
+  → monitoring/catalog.py       đọc và thực thi bảng quyết định SQLite
+  → monitoring/correlation.py   gom cảnh báo theo topology
+  → monitoring/store.py         lưu sự kiện và kết quả
+  → report.py                   xem trạng thái đã xử lý
+```
+
+Đường dẫn trong sơ đồ nằm dưới [`system-monitor/`](../system-monitor). Bảy nhóm đặc trưng và 8 luật thuộc luồng này. Engine CLI gốc trong `diagnosis-engine` có luồng sử dụng riêng.
+
+## Báo cáo và tài liệu phiên bản trước
+
+Các file sau được giữ để tham khảo kiến trúc nền, phép thử cũ và quá trình phát triển. Đọc đúng mốc phiên bản: có tài liệu mô tả R1–R6 hoặc gọi CLI thủ công, khác với worker tự động V3 và mạng dịch vụ qua gateway hiện tại.
+
+| Tài liệu | Nội dung |
 |---|---|
-| [Báo cáo tổng hợp](BAO_CAO_DO_AN_HOAN_THIEN.markdown) | Nội dung báo cáo tại mốc kết thúc kỹ thuật tuần 5 |
-| [Chương 2](CHUONG_2_KIEN_TRUC_VA_TRIEN_KHAI.md) | Kiến trúc và triển khai ở mốc tuần 5 |
-| [Chương 3](CHUONG_3_THUC_NGHIEM_VA_DANH_GIA.md) | Thực nghiệm, kết quả và giới hạn |
-| [Cài đặt và khôi phục](HUONG_DAN_CAI_DAT_VA_KHOI_PHUC.md) | Điều kiện môi trường, chạy lab, backup và phục hồi |
-| [Demo 10 phút](KICH_BAN_DEMO_10_PHUT.md) | Trình bày và diễn tập có rollback |
-| [Câu hỏi bảo vệ](CAU_HOI_BAO_VE.md) | Ôn giải thích đóng góp và giới hạn |
+| [Báo cáo tổng hợp baseline](BAO_CAO_DO_AN_HOAN_THIEN.markdown) | Báo cáo ở mốc hoàn thành engine gốc |
+| [Kiến trúc và triển khai baseline](CHUONG_2_KIEN_TRUC_VA_TRIEN_KHAI.md) | Nền tảng Zabbix và mô hình ban đầu |
+| [Thực nghiệm baseline](CHUONG_3_THUC_NGHIEM_VA_DANH_GIA.md) | Phương pháp và dữ liệu thử phiên bản trước |
+| [Giải thích engine CLI gốc](GIOI_THIEU_VA_GIAI_THICH_DO_AN.md) | Cơ chế engine gốc và các mốc cập nhật của nó |
+| [Logic và phát triển engine CLI](DIAGNOSIS_ENGINE_LOGIC_VA_PHAT_TRIEN.md) | Hợp đồng dữ liệu và logic R1–R6 |
+| [Kịch bản demo CLI trước V3](KICH_BAN_DEMO_10_PHUT.md) | Thao tác gọi `app.py` thủ công; không dùng để mô tả worker tự động |
+| [Cài đặt và khôi phục baseline](HUONG_DAN_CAI_DAT_VA_KHOI_PHUC.md) | Triển khai thành phần nền và phục hồi bản cũ |
+| [Câu hỏi bảo vệ bản gốc](CAU_HOI_BAO_VE.md) | Tham khảo và đối chiếu lại với phạm vi V3 |
 
-Những báo cáo này có mục đích riêng và giữ mốc lịch sử của chúng. Khi phát triển code sau tuần 5, ưu tiên tài liệu logic hiện hành và source đã xác minh thay cho số test/luồng cũ trong báo cáo.
+## Lịch sử và bàn giao
 
-## 3. Nhật ký và các mốc đã đóng
+- [Bộ tài liệu AI_HANDOFF](AI_HANDOFF/00_BAT_DAU_O_DAY.md): hỗ trợ tiếp nhận ngữ cảnh. Các snapshot có ngày/phiên bản riêng; kiểm tra source trước khi tiếp tục sửa.
+- [Hồ sơ thử hệ thống V3](../evidence/system-v3): kết quả từng lượt thử và demo.
+- [Hồ sơ thực nghiệm baseline](../evidence/week4/official-runs): dữ liệu và log của các phép thử cũ.
+- [Nhật ký tổng hợp giai đoạn nền](TONG_HOP_TUAN_4.markdown) và [mốc bàn giao cũ](TONG_HOP_TUAN_5.markdown): lịch sử triển khai, không phải danh sách việc còn thiếu hiện tại.
 
-| Tài liệu | Cách đọc đúng |
-|---|---|
-| [Tổng hợp tuần 4](TONG_HOP_TUAN_4.markdown) | Hồ sơ nghiệm thu thực nghiệm, không phải TODO hiện tại |
-| [Tổng hợp tuần 5](TONG_HOP_TUAN_5.markdown) | Mốc kỹ thuật ngày 29–35, trước cleanup/tối ưu |
-| [Ngày 29](NGAY_29_TUAN_5.markdown) | Nhật ký làm sạch dữ liệu |
-| [Ngày 30](NGAY_30_TUAN_5.markdown) | Nhật ký bảng/hình và phân tích |
-| [Ngày 31](NGAY_31_TUAN_5.markdown) | Nhật ký viết kiến trúc |
-| [Tiến độ 17/10](BAO_CAO_TIEN_DO_20261017.md) | Báo cáo tiến độ cũ trong ngày; không thay file AI_HANDOFF/01 |
-
-Roadmap và bàn giao tuần 1–3 nằm trong kho nhật ký D:. Chỉ mở khi cần truy quá trình hoặc đối chiếu kế hoạch; người mới không cần đọc hết trước khi hiểu hệ thống.
-
-## 4. File kiểm chứng và dữ liệu
-
-- [KIEM_TRA_DU_LIEU_20261017.json](KIEM_TRA_DU_LIEU_20261017.json): biên bản kiểm tra ở thời điểm tạo.
-- [SHUTDOWN_LAB_20261017.json](SHUTDOWN_LAB_20261017.json): một lần shutdown trước đó trong ngày; trạng thái kết thúc mới hơn nằm ở AI_HANDOFF/01. Không dùng JSON cũ để kết luận trạng thái VM hiện tại.
-- [Checksum tổng hợp tuần 4](TONG_HOP_TUAN_4.markdown.sha256): dùng để xác minh file tương ứng, không sửa vì đang sắp xếp tài liệu.
-- Evidence thô nằm ở [evidence](../evidence), slide và artifact ở [outputs](../outputs).
-
-## 5. Quy tắc giữ bộ tài liệu dễ dùng
-
-Trạng thái tiếp tục công việc có một chỗ cập nhật: AI_HANDOFF/01. Nội dung hệ thống có hai nguồn chính: giới thiệu và logic ở docs/. Báo cáo/nghiệm thu giữ mục đích và thời điểm của mình. Khi thêm nhật ký, liên kết từ mục nhật ký và ghi ngày/phiên bản; không biến nhật ký thành một bản “hiện trạng” cạnh tranh nữa.
-
-Gói AI có thể mang sang máy khác để đọc. Chạy hoặc sửa đồ án vẫn cần source đúng phiên bản và môi trường phù hợp; gói không chứa database, token hoặc mật khẩu.
+Các nhật ký ngày/tuần được giữ nguyên để truy vết. Người mới không cần đọc toàn bộ chúng để chạy hoặc hiểu Worker V3.
