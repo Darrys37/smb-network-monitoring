@@ -1,176 +1,114 @@
 # Hệ thống giám sát tập trung và hỗ trợ chẩn đoán sự cố mạng
 
-Đồ án xây dựng hệ thống giám sát hạ tầng mạng doanh nghiệp nhỏ bằng **Zabbix 7.0 LTS**, kết hợp **worker Python tự động thu thập bằng chứng, đối chiếu luật chuyên gia trong SQLite và tương quan cảnh báo theo topology**.
+Đồ án xây dựng hệ thống giám sát hạ tầng mạng doanh nghiệp nhỏ bằng **Zabbix 7.0 LTS và Worker Python V3**. Worker tự động tiếp nhận sự kiện, kiểm tra thêm bằng chứng và đối chiếu bảng quyết định SQLite để hỗ trợ người quản trị xác định vấn đề cần điều tra.
 
-Thay vì chỉ báo “không truy cập được web”, hệ thống kiểm tra thêm kết nối, trạng thái dịch vụ và thiết bị phụ thuộc để hỗ trợ người quản trị phân biệt lỗi dịch vụ, lỗi đường truy cập hoặc lỗi gateway.
+## Báo cáo và thuyết trình
 
-**[Mã nguồn Worker V3](https://github.com/Darrys37/smb-network-monitoring/tree/main/system-monitor)** · **[Hướng dẫn vận hành và demo](https://github.com/Darrys37/smb-network-monitoring/blob/main/system-monitor/README.md)** · **[Tài liệu dự án](https://github.com/Darrys37/smb-network-monitoring/blob/main/docs/README.md)**
+- **[Tải báo cáo đồ án Word](docs/bao-cao/Bao_cao_do_an.docx)**
+- **[Tải PowerPoint giới thiệu trong 5 phút](docs/bao-cao/Bao_ve_do_an_5_phut.pptx)**
+- **[Tải văn nói giới thiệu và giải thích 8 luật](docs/bao-cao/Van_noi_va_demo_8_luat.docx)**
+- [Hướng dẫn sử dụng Worker V3](system-monitor/README.md) · [Hướng dẫn quay video demo](docs/QUAY_VIDEO_DEMO.md) · [Kiểm chứng hệ thống](docs/KIEM_CHUNG_WORKER_V3.md)
 
-> **Phiên bản chính: Worker V3 trên nhánh `main`.** Tải repository mặc định sẽ có worker tự động, bảng quyết định và công cụ demo. Engine CLI gốc được giữ làm thành phần nền và tham khảo.
+## Hệ thống làm gì?
 
-## Chức năng chính
-
-- Tự động đọc sự kiện lỗi và phục hồi từ Zabbix API; lưu sự kiện, con trỏ đọc và hàng đợi xử lý trong SQLite.
-- Thu thập bảy nhóm đặc trưng: ICMP, TCP/80, HTTP, DNS, tài nguyên CPU/RAM, Zabbix Agent và trạng thái nút cha.
-- Đánh giá **8 luật thuộc 7 nhóm sự cố**, với **40 hàng quyết định** lưu trong SQLite; kết quả kèm bằng chứng, giả thuyết và hướng kiểm tra tiếp theo.
-- Gom cảnh báo theo cửa sổ thời gian **30 giây** và quan hệ phụ thuộc; giảm cảnh báo dây chuyền khi gateway gặp lỗi.
-- Giữ lại lỗi độc lập khi nhiều sự cố xảy ra đồng thời, chẳng hạn gateway không chuyển tiếp và Nginx thực sự dừng.
-- Lưu lịch sử chẩn đoán và trạng thái phục hồi để đối chiếu sau thử nghiệm.
-
-Worker hỗ trợ chẩn đoán. Việc khắc phục do người quản trị hoặc công cụ tạo/hoàn tác lỗi trong lab thực hiện.
-
-## Kiến trúc và luồng hoạt động
+Zabbix phát hiện bất thường. Worker bổ sung bằng chứng để phân biệt các tình huống như máy mất kết nối, dịch vụ web dừng, đường truy cập bị cản trở hoặc gateway gặp sự cố. Kết quả gồm **nguyên nhân nghi ngờ, luật khớp và bằng chứng giải thích**.
 
 ```text
-                  Zabbix Server
-               sự kiện / số liệu
-                        |
-                        v
-              Worker Python tự động
-                        |
-          lưu sự kiện + hàng đợi SQLite
-                        |
-        thu và kiểm tra độ mới của bằng chứng
-                        |
-            bảng quyết định SQLite
-                 8 luật chuyên gia
-                        |
-       tương quan cảnh báo theo topology
-                        |
-        nhóm sự cố + giải thích + lịch sử
+Zabbix thu thập dữ liệu và tạo sự kiện
+                  ↓ Zabbix API
+Worker tiếp nhận sự kiện và đưa vào hàng đợi
+                  ↓
+Kiểm tra thực tế, tổng hợp đặc trưng và độ mới của bằng chứng
+                  ↓
+Đối chiếu 8 luật trong bảng quyết định SQLite
+                  ↓
+Gom nhóm, xử lý phụ thuộc và lưu lịch sử
+                  ↓
+Báo cáo chẩn đoán và trạng thái phục hồi
 ```
 
-Worker chạy bằng systemd trên MON01, đọc sự kiện theo chu kỳ và làm mới bằng chứng định kỳ. Người vận hành dùng `report.py` để xem kết quả đã xử lý; không cần chọn từng event ID rồi gọi chẩn đoán thủ công.
+Worker chạy nền bằng systemd trên MON01. Các luật được xét độc lập nên có thể nhận diện nhiều vấn đề cùng lúc. Worker hỗ trợ chẩn đoán; người quản trị xử lý sự cố, còn công cụ demo chỉ tạo và hoàn tác lỗi thử nghiệm.
 
-Các luật được xét độc lập nên có thể đồng thời khớp. Dữ liệu thiếu hoặc quá cũ được giữ thành `unknown` / `insufficient_evidence`, tránh biến một phép đo thất bại thành kết luận chắc chắn.
+## Mô hình triển khai
 
-## Mô hình thực nghiệm
-
-Hệ thống hiện được triển khai trên **3 máy ảo Ubuntu Server trong VirtualBox**.
-
-| Máy | IP quản trị | IP mạng dịch vụ | Vai trò |
-|---|---|---|---|
-| MON01 | `192.168.56.10` | Truy cập qua CLI01 | Zabbix Server, MySQL, giao diện web, worker Python và SQLite |
-| CLI01 | `192.168.56.30` | `172.30.20.1` | Gateway chuyển tiếp và máy quan sát DNS |
-| SRV01 | `192.168.56.20` | `172.30.20.20` | Nginx Web Server và Zabbix Agent2 |
-
-```text
-MON01 192.168.56.10
-          |
-          | route tới 172.30.20.0/24
-          v
-CLI01 192.168.56.30 / 172.30.20.1
-          |
-          | Internal Network: do-an-v3-backend
-          v
-SRV01 172.30.20.20 — Nginx TCP/80
-```
-
-Các IP `192.168.56.x` dùng cho quản trị. IP dịch vụ `172.30.20.20` đi qua CLI01, giúp kiểm chứng sự phụ thuộc gateway thật. Đường quản trị riêng cho phép worker đọc trạng thái Nginx ngay cả khi đường dịch vụ gặp lỗi.
-
-`CLI01-Gateway` và `SRV01-Routed` là hai đối tượng giám sát trong Zabbix, không phải hai VM bổ sung. Giao diện web trong lab: `http://192.168.56.10:8080/`.
-
-## Bộ luật chẩn đoán
-
-| Luật | Nhóm | Dấu hiệu chính |
+| Máy ảo | IP quản trị | Vai trò |
 |---|---|---|
-| R1 | Ping / kết nối | Đích không phản hồi ICMP và TCP, máy đối chứng vẫn phản hồi |
-| R2 | Dịch vụ HTTP | Nginx inactive/failed hoặc dấu hiệu dịch vụ/listener không phục vụ |
-| R3 | Agent | Agent cục bộ dừng hoặc thiếu mẫu mới kèm bằng chứng kết nối phù hợp |
-| R4 | DNS | Phân giải tên thất bại trong khi kết nối IP đối chứng vẫn hoạt động |
-| R5 | Đường truy cập HTTP | Ping được, TCP/80 từ xa lỗi nhưng HTTP tại đúng IP dịch vụ vẫn trả 200 |
-| R6 | Tài nguyên | CPU trung bình cao kéo dài, đủ lịch sử và có load/số CPU đối chứng |
-| R7 | Gateway / nút cha | Nút cha được cấu hình có bằng chứng down còn mới |
-| R8 | Bão cảnh báo | Có ít nhất 10 sự kiện lỗi khác nhau trong cửa sổ 30 giây |
+| MON01 | `192.168.56.10` | Zabbix Server, MySQL, Worker Python và SQLite |
+| CLI01 | `192.168.56.30` | Gateway, IP mạng dịch vụ `172.30.20.1` |
+| SRV01 | `192.168.56.20` | Nginx, Zabbix Agent2, IP dịch vụ `172.30.20.20` |
 
-R2 và R5 cùng thuộc nhóm HTTP nên có 8 luật nhưng 7 nhóm. Điều kiện chi tiết nằm trong [bảng luật nguồn](https://github.com/Darrys37/smb-network-monitoring/blob/main/system-monitor/config/expert_seed.json), được nạp vào catalog SQLite.
+Đường dịch vụ đi theo **MON01 → CLI01 → SRV01**. Đường quản trị riêng giúp kiểm tra trực tiếp dịch vụ ngay cả khi đường dịch vụ bị gián đoạn. `CLI01-Gateway` và `SRV01-Routed` trong Zabbix là đối tượng giám sát, không phải máy ảo bổ sung.
 
-`matched` nghĩa là phù hợp dấu hiệu của luật, chưa khẳng định duy nhất nguyên nhân. Các điểm 85/65/45% là điểm ưu tiên điều tra do chuyên gia gán, không phải xác suất đúng đã được hiệu chỉnh.
+Zabbix lưu dữ liệu giám sát trong MySQL. Worker lấy thông tin qua Zabbix API và dùng SQLite để lưu bảng quyết định, sự kiện, hàng đợi, bằng chứng và kết quả chẩn đoán.
 
-## Lấy mã nguồn
+## Đầu vào và đầu ra
 
-```bash
-git clone https://github.com/Darrys37/smb-network-monitoring.git do-an
-cd do-an
-```
+**Đầu vào:** sự kiện Zabbix, kết quả kiểm tra thực tế và cấu hình quan hệ phụ thuộc. Bảy nhóm đặc trưng chính gồm ICMP/Ping, TCP/80, mã HTTP, thời gian phản hồi DNS, tài nguyên CPU/RAM, Zabbix Agent và trạng thái nút cha. Một số luật còn cần trạng thái dịch vụ trực tiếp, lịch sử CPU hoặc số sự kiện trong cửa sổ thời gian.
 
-Để triển khai sang môi trường khác, làm theo [hướng dẫn triển khai V3](https://github.com/Darrys37/smb-network-monitoring/blob/main/system-monitor/deployment/README.md). Tài liệu giả định đã có ba VM và các dịch vụ nền; đây chưa phải bộ cài đặt tự động từ một máy trống. IP, host ID, NIC và SSH phải được đối chiếu với môi trường thực tế.
+**Đầu ra:** nhóm sự cố, nguyên nhân nghi ngờ, luật khớp, bằng chứng giải thích và lịch sử phục hồi. Dữ liệu thiếu hoặc quá cũ được ghi nhận tương ứng; không mặc định phép kiểm tra thất bại là bằng chứng chắc chắn của một nguyên nhân.
 
-## Xem trạng thái trên lab đã cấu hình
+## Cơ sở tri thức: 8 luật chẩn đoán
 
-Trên **MON01**:
-
-```bash
-systemctl is-active do-an-monitor-v3.service
-
-/home/phat/do-an/diagnosis-engine/.venv/bin/python \
-  /home/phat/do-an/system-monitor/report.py
-```
-
-Những trường cần đọc:
-
-| Trường | Ý nghĩa |
+| Luật | Tình huống hỗ trợ nhận diện |
 |---|---|
-| `Active events` | Sự kiện lỗi đang hoạt động sau khi tách các thông báo đã được cấu hình |
+| R1 | Máy đích hoặc đường kết nối tới máy đích gặp sự cố |
+| R2 | Dịch vụ web có dấu hiệu ngừng hoạt động |
+| R3 | Zabbix Agent hoặc kết nối tới Agent gặp vấn đề |
+| R4 | Phân giải DNS gặp sự cố trong khi kết nối IP đối chứng vẫn hoạt động |
+| R5 | Truy cập HTTP từ xa lỗi nhưng web tại IP dịch vụ vẫn trả HTTP 200 |
+| R6 | CPU quá tải kéo dài, có đủ lịch sử và bằng chứng đối chứng |
+| R7 | Gateway/nút cha có bằng chứng không hoạt động còn mới |
+| R8 | Ít nhất 10 sự kiện lỗi khác nhau trong cửa sổ 30 giây |
+
+Xem [điều kiện chi tiết của bảng quyết định](system-monitor/config/expert_seed.json). R2 và R5 cùng thuộc nhóm HTTP nên có **8 luật thuộc 7 nhóm**. R8 nhận diện bão cảnh báo, không tự xác định nguyên nhân gốc của toàn bộ cảnh báo.
+
+Worker gom cảnh báo trong cửa sổ **30 giây** và theo topology. Khi nút cha gặp lỗi, cảnh báo phụ thuộc được gắn về nhóm gốc; sự kiện nguồn vẫn được giữ. Lỗi độc lập có thể tiếp tục xuất hiện trong kết quả. Các điểm ưu tiên do chuyên gia thiết kế không phải xác suất chẩn đoán đã hiệu chỉnh.
+
+## Sử dụng trên lab đã cấu hình
+
+1. Bật **CLI01 → SRV01 → MON01** và chờ dịch vụ khởi động.
+2. Trên MON01, kiểm tra worker và đọc báo cáo:
+
+   ```bash
+   systemctl is-active do-an-monitor-v3.service
+   /home/phat/do-an/diagnosis-engine/.venv/bin/python /home/phat/do-an/system-monitor/report.py
+   ```
+
+3. Trước khi demo, xác nhận HTTP 200, gateway hoạt động, bằng chứng còn mới, không còn cảnh báo sự cố và tác vụ chờ.
+4. Trên Windows, chạy `tools/record_video.cmd` để chọn từng tình huống R1–R8. Xem [hướng dẫn demo](docs/QUAY_VIDEO_DEMO.md) trước khi tạo lỗi.
+
+Ví dụ R2: dừng Nginx trên SRV01 → máy vẫn ping được, TCP/80 từ chối kết nối, dịch vụ inactive → worker đưa ra nhận định R2. Khôi phục Nginx → HTTP 200 → đợi các cảnh báo phục hồi về 0 rồi kết thúc demo.
+
+| Trường báo cáo | Ý nghĩa |
+|---|---|
+| `Active events` | Số sự kiện lỗi đang hoạt động sau khi tách thông báo thông tin đã cấu hình |
 | `Incident groups` | Số nhóm sự cố sau tương quan |
-| `Suppressed dependent alerts` | Số cảnh báo con được gắn về nhóm gốc do phụ thuộc |
-| `Pending diagnosis jobs` | Số công việc chẩn đoán chưa hoàn thành |
-| `ROOT srv01 \| http_service` | Nhóm sự cố dịch vụ HTTP trên SRV01 |
+| `Suppressed dependent alerts` | Số cảnh báo phụ thuộc được gắn về nhóm gốc |
+| `Pending diagnosis jobs` | Số tác vụ chẩn đoán đang chờ |
+| `ROOT srv01 \| http_service` | Nhóm sự cố dịch vụ web trên SRV01 |
 
-Suppression giữ nguyên sự kiện nguồn trong Zabbix và SQLite. Vì vậy Zabbix vẫn có thể hiện nhiều cảnh báo trong khi module chỉ đưa ra một nhóm gốc cần điều tra.
+## Mã nguồn và triển khai
 
-## Demo có kiểm soát
-
-Trên **Windows**, mở terminal tại thư mục repository của lab đã cấu hình:
-
-```powershell
-python .\system-monitor\system_lab.py status
-
-# Chọn một tình huống mỗi lần
-python .\system-monitor\system_lab.py demo --fault nginx
-python .\system-monitor\system_lab.py demo --fault gateway
-python .\system-monitor\system_lab.py demo --fault multi
-python .\system-monitor\system_lab.py demo --fault storm
+```bash
+git clone https://github.com/Darrys37/smb-network-monitoring.git
+cd smb-network-monitoring
 ```
-
-Các lệnh `demo` chủ động tạo lỗi, kiểm tra kết quả rồi phục hồi. Có timer rollback độc lập cho các can thiệp; demo storm dùng 20 kênh cảnh báo synthetic, không đại diện cho 20 VM hoặc 20 lỗi vật lý. Cần ba VM hoạt động, SSH/sudo đã cấu hình và thiết lập cục bộ theo [hướng dẫn vận hành](https://github.com/Darrys37/smb-network-monitoring/blob/main/system-monitor/README.md).
-
-Nếu demo bị ngắt, chạy lệnh phục hồi rồi kiểm tra lại trạng thái:
-
-```powershell
-python .\system-monitor\system_lab.py recover
-python .\system-monitor\system_lab.py status
-```
-
-Các kịch bản V3 đã có hồ sơ kiểm chứng Nginx, gateway, nhiều lỗi và bão cảnh báo trong [báo cáo thực nghiệm](https://github.com/Darrys37/smb-network-monitoring/blob/main/docs/KIEM_CHUNG_WORKER_V3.md). Hồ sơ ghi kết quả tại thời điểm thử; một README không thay thế việc kiểm tra baseline trước lần demo mới.
-
-## Cấu trúc mã nguồn V3
 
 | Đường dẫn | Nội dung |
 |---|---|
-| [`system-monitor/monitor.py`](https://github.com/Darrys37/smb-network-monitoring/blob/main/system-monitor/monitor.py) | Điểm vào worker, xem danh mục luật và replay |
-| [`system-monitor/monitoring/`](https://github.com/Darrys37/smb-network-monitoring/tree/main/system-monitor/monitoring) | Thu bằng chứng, chuẩn hóa dữ liệu, thực thi luật, hàng đợi và tương quan |
-| [`system-monitor/config/`](https://github.com/Darrys37/smb-network-monitoring/tree/main/system-monitor/config) | Profile lab, topology và nguồn bảng quyết định |
-| `system-monitor/catalog/` | Catalog SQLite được tạo khi triển khai bằng [`build_catalog.py`](https://github.com/Darrys37/smb-network-monitoring/blob/main/system-monitor/build_catalog.py) |
-| [`system-monitor/deployment/`](https://github.com/Darrys37/smb-network-monitoring/tree/main/system-monitor/deployment) | Hướng dẫn và script triển khai |
-| [`system-monitor/tests/`](https://github.com/Darrys37/smb-network-monitoring/tree/main/system-monitor/tests) | Kiểm thử logic hệ thống |
-| [`evidence/system-v3/`](https://github.com/Darrys37/smb-network-monitoring/tree/main/evidence/system-v3) | Hồ sơ thử nghiệm và kết quả demo đã lưu |
-| [`diagnosis-engine/`](https://github.com/Darrys37/smb-network-monitoring/tree/main/diagnosis-engine) | Engine CLI gốc và thành phần API/thu số liệu được tái sử dụng |
+| [system-monitor/](system-monitor/) | Worker V3 và công cụ vận hành |
+| [system-monitor/monitoring/](system-monitor/monitoring/) | Thu bằng chứng, hàng đợi, thực thi luật và tương quan |
+| [system-monitor/config/](system-monitor/config/) | Cấu hình lab, topology và bảng luật nguồn |
+| [system-monitor/deployment/](system-monitor/deployment/) | Hướng dẫn triển khai |
+| [system-monitor/tests/](system-monitor/tests/) | Kiểm thử logic |
+| [docs/bao-cao/](docs/bao-cao/) | Báo cáo, slide và văn nói |
+| [evidence/system-v3/](evidence/system-v3/) | Hồ sơ kiểm chứng đã công bố |
+| [diagnosis-engine/](diagnosis-engine/) | Thành phần nền được worker tái sử dụng |
 
-## Phạm vi và giới hạn
+Môi trường mới cần cấu hình Zabbix, mạng, SSH và thông tin xác thực theo [hướng dẫn triển khai](system-monitor/deployment/README.md). Repository chưa phải bộ cài đặt tự động từ máy trống. Không đưa token, mật khẩu, khóa riêng hoặc dữ liệu vận hành nhạy cảm lên GitHub.
 
-Hệ thống được kiểm chứng trong lab 3 VM, chưa thử trên máy Ubuntu vật lý và chưa đánh giá tải vận hành doanh nghiệp. CPU cao, lỗi DNS hay mất kết nối là dấu hiệu hỗ trợ điều tra; kết luận phải đi cùng chất lượng và thời điểm của bằng chứng.
+## Phạm vi thực nghiệm
 
-Worker V3 không tự sửa hạ tầng và chưa tích hợp gửi thông báo ra email/chat. Token, private key, môi trường Python và database runtime được cấu hình riêng; GitHub không thay thế backup VM, MySQL hoặc dữ liệu vận hành.
+Đồ án được kiểm chứng trên **3 VM Ubuntu Server trong VirtualBox**. Chưa kiểm chứng trên máy vật lý hoặc đánh giá tải doanh nghiệp. Khả năng chẩn đoán giới hạn bởi bằng chứng thu thập được và các luật đã xây dựng; kết quả là hỗ trợ điều tra, không bảo đảm xác định duy nhất nguyên nhân.
 
-Nhật ký theo tuần và các phiên bản cũ được giữ trong tài liệu lịch sử để truy vết; chúng không phải hướng dẫn vận hành V3 hiện tại. Xem [mục lục tài liệu](https://github.com/Darrys37/smb-network-monitoring/blob/main/docs/README.md) để chọn đúng phần cần đọc.
-
-## Quay video demo gọn
-
-Mỗi lượt quay một tình huống, bốn màn hình tiếng Việt và nhấn Enter để chuyển bước. Công cụ tự tạo lỗi có rollback, đọc kết quả worker rồi xác nhận phục hồi.
-
-```powershell
-python .\system-monitor\video_demo.py
-```
-
-[Hướng dẫn quay từng video](docs/QUAY_VIDEO_DEMO.md). Cài requirements-operator và cấu hình lab theo hướng dẫn vận hành trước khi chạy.
+GitHub lưu mã nguồn và tài liệu. Để phục hồi toàn bộ lab cần sao lưu riêng VM, dữ liệu MySQL, SQLite và cấu hình cục bộ.

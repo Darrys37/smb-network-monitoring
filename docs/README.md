@@ -1,3 +1,5 @@
+**[Báo cáo Word, PowerPoint 5 phút và văn nói](bao-cao/README.md)**
+
 # Tài liệu Worker V3
 
 Các tài liệu dưới đây mô tả phiên bản chính trên nhánh `main`.
