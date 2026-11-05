@@ -4,10 +4,8 @@
 
 ## Báo cáo và thuyết trình
 
-- **[Tải báo cáo đồ án Word](docs/bao-cao/Bao_cao_do_an.docx)**
-- **[Tải PowerPoint giới thiệu trong 5 phút](docs/bao-cao/Bao_ve_do_an_5_phut.pptx)**
-- **[Tải văn nói giới thiệu và giải thích 8 luật](docs/bao-cao/Van_noi_va_demo_8_luat.docx)**
-- [Hướng dẫn sử dụng Worker V3](system-monitor/README.md) · [Hướng dẫn quay video demo](docs/QUAY_VIDEO_DEMO.md) · [Kiểm chứng hệ thống](docs/KIEM_CHUNG_WORKER_V3.md)
+- **[Báo cáo đồ án — Word](docs/bao-cao/Bao_cao_do_an.docx)**
+- **[Slide thuyết trình đầy đủ — PowerPoint](docs/bao-cao/Bao_ve_do_an.pptx)**
 
 ## Hệ thống làm gì?
 
@@ -64,28 +62,19 @@ Xem [điều kiện chi tiết của bảng quyết định](system-monitor/conf
 
 Worker gom cảnh báo trong cửa sổ **30 giây** và theo topology. Khi nút cha gặp lỗi, cảnh báo phụ thuộc được gắn về nhóm gốc; sự kiện nguồn vẫn được giữ. Lỗi độc lập có thể tiếp tục xuất hiện trong kết quả. Các điểm ưu tiên do chuyên gia thiết kế không phải xác suất chẩn đoán đã hiệu chỉnh.
 
-## Sử dụng trên lab đã cấu hình
+## Minh họa hoạt động
 
-1. Bật **CLI01 → SRV01 → MON01** và chờ dịch vụ khởi động.
-2. Trên MON01, kiểm tra worker và đọc báo cáo:
+Khi Nginx trên SRV01 ngừng hoạt động, máy vẫn phản hồi Ping nhưng kết nối TCP/80 bị từ chối, không có phản hồi HTTP và trạng thái dịch vụ tại máy là `inactive`. Worker đối chiếu các bằng chứng này, áp dụng R2 và gom các cảnh báo liên quan thành nhóm sự cố dịch vụ web trên SRV01.
 
-   ```bash
-   systemctl is-active do-an-monitor-v3.service
-   /home/phat/do-an/diagnosis-engine/.venv/bin/python /home/phat/do-an/system-monitor/report.py
-   ```
+Sau khi dịch vụ được khôi phục, các phép đo trở lại bình thường và hệ thống cập nhật trạng thái phục hồi. Kết quả được lưu trong SQLite để đối chiếu quá trình phát hiện và phục hồi.
 
-3. Trước khi demo, xác nhận HTTP 200, gateway hoạt động, bằng chứng còn mới, không còn cảnh báo sự cố và tác vụ chờ.
-4. Trên Windows, chạy `tools/record_video.cmd` để chọn từng tình huống R1–R8. Xem [hướng dẫn demo](docs/QUAY_VIDEO_DEMO.md) trước khi tạo lỗi.
-
-Ví dụ R2: dừng Nginx trên SRV01 → máy vẫn ping được, TCP/80 từ chối kết nối, dịch vụ inactive → worker đưa ra nhận định R2. Khôi phục Nginx → HTTP 200 → đợi các cảnh báo phục hồi về 0 rồi kết thúc demo.
-
-| Trường báo cáo | Ý nghĩa |
+| Thông tin đầu ra | Ý nghĩa |
 |---|---|
-| `Active events` | Số sự kiện lỗi đang hoạt động sau khi tách thông báo thông tin đã cấu hình |
-| `Incident groups` | Số nhóm sự cố sau tương quan |
-| `Suppressed dependent alerts` | Số cảnh báo phụ thuộc được gắn về nhóm gốc |
-| `Pending diagnosis jobs` | Số tác vụ chẩn đoán đang chờ |
-| `ROOT srv01 \| http_service` | Nhóm sự cố dịch vụ web trên SRV01 |
+| Sự kiện lỗi đang hoạt động | Những bất thường chưa ghi nhận phục hồi |
+| Nhóm sự cố | Các cảnh báo liên quan được gom theo thời gian và topology |
+| Luật khớp và bằng chứng | Cơ sở đề xuất nguyên nhân cần điều tra |
+| Cảnh báo phụ thuộc | Các cảnh báo được gắn về sự cố nút cha để giảm nhiễu |
+| Trạng thái phục hồi | Ghi nhận kết quả kiểm tra sau khi khắc phục |
 
 ## Mã nguồn và triển khai
 
@@ -101,7 +90,7 @@ cd smb-network-monitoring
 | [system-monitor/config/](system-monitor/config/) | Cấu hình lab, topology và bảng luật nguồn |
 | [system-monitor/deployment/](system-monitor/deployment/) | Hướng dẫn triển khai |
 | [system-monitor/tests/](system-monitor/tests/) | Kiểm thử logic |
-| [docs/bao-cao/](docs/bao-cao/) | Báo cáo, slide và văn nói |
+| [docs/bao-cao/](docs/bao-cao/) | Báo cáo và slide thuyết trình |
 | [evidence/system-v3/](evidence/system-v3/) | Hồ sơ kiểm chứng đã công bố |
 | [diagnosis-engine/](diagnosis-engine/) | Thành phần nền được worker tái sử dụng |
 

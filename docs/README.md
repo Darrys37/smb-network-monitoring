@@ -1,4 +1,4 @@
-**[Báo cáo Word, PowerPoint 5 phút và văn nói](bao-cao/README.md)**
+**[Báo cáo Word và slide thuyết trình đầy đủ](bao-cao/README.md)**
 
 # Tài liệu Worker V3
 
